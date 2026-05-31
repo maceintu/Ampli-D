@@ -1,0 +1,1354 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "6d4d2c83-f9ef-4b31-8963-299fdbc9a851")
+	(paper "A4")
+	(lib_symbols
+		(symbol "TPA3255DDV:TPA3255DDV"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at -17.78 59.42 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "TPA3255DDV"
+				(at -17.78 -62.42 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Footprint" "TPA3255DDV:SOP63P810X120-44N"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "315-W stereo, 600-W mono, 18- to 53.5-V supply, analog input Class-D audio amplifier"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "MF" "Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" "1.2 mm"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Package" "HTSSOP-44 Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Price" "None"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Check_prices" "https://www.snapeda.com/parts/TPA3255DDV/Texas+Instruments/view-part/?ref=eda"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "STANDARD" "IPC-7351B"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "PARTREV" "A"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "SnapEDA_Link" "https://www.snapeda.com/parts/TPA3255DDV/Texas+Instruments/view-part/?ref=snap"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "MP" "TPA3255DDV"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Availability" "In Stock"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "MANUFACTURER" "Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(symbol "TPA3255DDV_0_0"
+				(rectangle
+					(start -17.78 -58.42)
+					(end 17.78 58.42)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin power_in line
+					(at -22.86 38.1 0)
+					(length 5.08)
+					(name "GVDD_AB"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 55.88 0)
+					(length 5.08)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -22.86 -17.78 0)
+					(length 5.08)
+					(name "M1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -22.86 -20.32 0)
+					(length 5.08)
+					(name "M2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -22.86 5.08 0)
+					(length 5.08)
+					(name "INPUT_A"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -22.86 0 0)
+					(length 5.08)
+					(name "INPUT_B"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -22.86 -25.4 0)
+					(length 5.08)
+					(name "OC_ADJ"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 -30.48 180)
+					(length 5.08)
+					(name "FREQ_ADJ"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -22.86 -30.48 0)
+					(length 5.08)
+					(name "OSC_IOM"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at -22.86 -33.02 0)
+					(length 5.08)
+					(name "OSC_IOP"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 48.26 0)
+					(length 5.08)
+					(name "DVDD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -38.1 180)
+					(length 5.08)
+					(name "GND_12"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -40.64 180)
+					(length 5.08)
+					(name "GND_13"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 50.8 0)
+					(length 5.08)
+					(name "AVDD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 -22.86 180)
+					(length 5.08)
+					(name "C_START"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -22.86 -5.08 0)
+					(length 5.08)
+					(name "INPUT_C"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -22.86 -12.7 0)
+					(length 5.08)
+					(name "INPUT_D"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -22.86 -22.86 0)
+					(length 5.08)
+					(name "~{RESET}"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 -17.78 180)
+					(length 5.08)
+					(name "~{FAULT}"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 53.34 0)
+					(length 5.08)
+					(name "VBG"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 -20.32 180)
+					(length 5.08)
+					(name "~{CLIP_OTW}"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 20.32 0)
+					(length 5.08)
+					(name "GVDD_CD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 22.86 0)
+					(length 5.08)
+					(name "BST_D"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 25.4 0)
+					(length 5.08)
+					(name "BST_C"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -43.18 180)
+					(length 5.08)
+					(name "GND_25"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "25"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -45.72 180)
+					(length 5.08)
+					(name "GND_26"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "26"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 -10.16 180)
+					(length 5.08)
+					(name "OUT_D_27"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "27"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 -12.7 180)
+					(length 5.08)
+					(name "OUT_D_28"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "28"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 17.78 0)
+					(length 5.08)
+					(name "PVDD_CD_29"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "29"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 15.24 0)
+					(length 5.08)
+					(name "PVDD_CD_30"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "30"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 12.7 0)
+					(length 5.08)
+					(name "PVDD_CD_31"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "31"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 -5.08 180)
+					(length 5.08)
+					(name "OUT_C"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "32"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -48.26 180)
+					(length 5.08)
+					(name "GND_33"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "33"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -50.8 180)
+					(length 5.08)
+					(name "GND_34"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "34"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 0 180)
+					(length 5.08)
+					(name "OUT_B"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "35"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 35.56 0)
+					(length 5.08)
+					(name "PVDD_AB_36"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "36"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 33.02 0)
+					(length 5.08)
+					(name "PVDD_AB_37"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "37"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 30.48 0)
+					(length 5.08)
+					(name "PVDD_AB_38"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "38"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 7.62 180)
+					(length 5.08)
+					(name "OUT_A_39"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "39"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 22.86 5.08 180)
+					(length 5.08)
+					(name "OUT_A_40"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "40"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -53.34 180)
+					(length 5.08)
+					(name "GND_41"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "41"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 22.86 -55.88 180)
+					(length 5.08)
+					(name "GND_42"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "42"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 40.64 0)
+					(length 5.08)
+					(name "BST_B"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "43"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -22.86 43.18 0)
+					(length 5.08)
+					(name "BST_A"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "44"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(symbol
+		(lib_id "TPA3255DDV:TPA3255DDV")
+		(at 139.7 91.44 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "15ed7e82-d351-4727-8308-562e062529cd")
+		(property "Reference" "U5"
+			(at 139.7 27.94 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPA3255DDV"
+			(at 139.7 30.48 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TPA3255DDV:SOP63P810X120-44N"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "315-W stereo, 600-W mono, 18- to 53.5-V supply, analog input Class-D audio amplifier"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "MF" "Texas Instruments"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.2 mm"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Package" "HTSSOP-44 Texas Instruments"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Price" "None"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/TPA3255DDV/Texas+Instruments/view-part/?ref=eda"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "STANDARD" "IPC-7351B"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "PARTREV" "A"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/TPA3255DDV/Texas+Instruments/view-part/?ref=snap"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "MP" "TPA3255DDV"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "MANUFACTURER" "Texas Instruments"
+			(at 139.7 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(pin "6"
+			(uuid "059e5580-9a3e-4318-ab65-826691453ac7")
+		)
+		(pin "21"
+			(uuid "2f47d088-929e-4c1f-a000-d949def1a371")
+		)
+		(pin "8"
+			(uuid "c493a0b0-5692-40ef-bfe7-edeb91029911")
+		)
+		(pin "9"
+			(uuid "ab4493da-3214-4655-a8bb-a28eec03292a")
+		)
+		(pin "15"
+			(uuid "e56b75eb-9e80-45d3-8e75-899dbe68a3ed")
+		)
+		(pin "19"
+			(uuid "9254297a-83ff-4cb7-82ce-2a6a9af42e1c")
+		)
+		(pin "5"
+			(uuid "50434621-1380-4700-9339-a549da0f496a")
+		)
+		(pin "11"
+			(uuid "18c427e5-8bb4-4061-9319-c16ba2406fb2")
+		)
+		(pin "1"
+			(uuid "4f41cbcf-0a28-4f5f-997c-01b78ec9edfd")
+		)
+		(pin "7"
+			(uuid "d7930d65-1f6e-468a-b039-601419a3593d")
+		)
+		(pin "14"
+			(uuid "14d1268c-35ca-4c67-a5f5-fdba4a75591d")
+		)
+		(pin "2"
+			(uuid "a8b78a86-34c0-4b11-8cb3-546973fb17a2")
+		)
+		(pin "3"
+			(uuid "fb024063-b00b-4ac4-9fde-ec4ffb45ba1f")
+		)
+		(pin "4"
+			(uuid "27c3e437-4ccc-48d5-af4b-fc0631e1a2cd")
+		)
+		(pin "10"
+			(uuid "7715944f-de43-410e-b841-424139abcf1d")
+		)
+		(pin "12"
+			(uuid "b4b11513-2d84-40ca-9f31-6a82a88ca536")
+		)
+		(pin "17"
+			(uuid "d8a4e2f2-ad54-4a26-9509-9fa67e236ca4")
+		)
+		(pin "18"
+			(uuid "4a03f923-f306-45d0-8fcc-081d2d29c391")
+		)
+		(pin "20"
+			(uuid "851ea1c9-0bd4-49c2-868f-5b04bf02f3a8")
+		)
+		(pin "13"
+			(uuid "06cc191b-3227-4b35-9ee8-b09f54bd1626")
+		)
+		(pin "16"
+			(uuid "49c268df-7cf4-43b4-a554-65e5135272ac")
+		)
+		(pin "24"
+			(uuid "b9cc8e93-ff9c-4621-be25-e26b578280a5")
+		)
+		(pin "25"
+			(uuid "d9a24c9d-64cf-4e07-b764-3f13638a06f6")
+		)
+		(pin "27"
+			(uuid "75c7b707-a3ea-4c27-b918-5d5b00670112")
+		)
+		(pin "28"
+			(uuid "801dad98-f9b9-4bc1-b1d0-4cb782837368")
+		)
+		(pin "29"
+			(uuid "87f804e7-7032-49fd-877d-bb1f625537e4")
+		)
+		(pin "31"
+			(uuid "c069cd6b-ef4c-466e-a4c0-cfde5e39f1b7")
+		)
+		(pin "23"
+			(uuid "1f278cba-bae7-415e-a25c-ddc8e0bcde18")
+		)
+		(pin "26"
+			(uuid "dc78d6a1-f047-4089-80ec-b007222fb6bb")
+		)
+		(pin "30"
+			(uuid "333d2fb6-9e4b-4bfe-8f15-819a76c7ef33")
+		)
+		(pin "32"
+			(uuid "36001011-4c5b-49b6-90e9-d70af950ad8b")
+		)
+		(pin "22"
+			(uuid "4b722afe-d8b8-4a59-b4b0-18c2b438d273")
+		)
+		(pin "33"
+			(uuid "6974c34d-f349-4e10-bdb0-ec745cae097a")
+		)
+		(pin "34"
+			(uuid "b1241f98-8154-4b22-9941-769f3d091de1")
+		)
+		(pin "38"
+			(uuid "ec6f6313-ecb7-41ba-a712-080015f7081d")
+		)
+		(pin "39"
+			(uuid "f54ed67a-801e-4bc0-9c9e-7d8b610edb16")
+		)
+		(pin "35"
+			(uuid "2fabd986-8407-418b-93c5-c2978bbd476b")
+		)
+		(pin "36"
+			(uuid "8bba6b78-f65c-41a0-b6eb-bd539a2b7651")
+		)
+		(pin "40"
+			(uuid "9ac2c779-7d10-4c5b-9ec7-5048368e6c64")
+		)
+		(pin "41"
+			(uuid "289302bf-6495-4c58-b5e0-9c99e7e0f965")
+		)
+		(pin "42"
+			(uuid "0d6deb05-b72a-4a1e-8171-995c74547bdf")
+		)
+		(pin "44"
+			(uuid "71ad1745-d6b6-4ccc-81a2-41ec265c534d")
+		)
+		(pin "37"
+			(uuid "edf9a43e-c33b-4aaf-8a42-fee389f02418")
+		)
+		(pin "43"
+			(uuid "f202b4aa-3706-4c31-83fc-d2f93d7017d3")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+)

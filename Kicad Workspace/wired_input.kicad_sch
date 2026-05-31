@@ -1,0 +1,821 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "27a5c943-40d3-459c-b9c0-af08d5d5f775")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Audio:PCM1862DBT"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at -12.192 29.464 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "PCM1862DBT"
+				(at 7.62 29.464 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_SO:TSSOP-30_4.4x7.8mm_P0.5mm"
+				(at 5.334 -32.004 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/pcm1862.pdf"
+				(at 5.334 -34.29 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Description" "2-Channel, 192 kHz, 24-bit, Audio ADC, 103dB SNR, I2S / left/right-justified / TDM digital output formats, I2C / SPI control interface, 2 digital microphone support, TSSOP-30"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Texas-Instruments PCM PGA GPIO PLL audio-front-end analog-MUX mixer energysense PCM1863DBT"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "TSSOP*4.4x7.8mm*P0.5mm*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "PCM1862DBT_0_0"
+				(pin input line
+					(at 15.24 -2.54 180)
+					(length 2.54)
+					(name "MS/AD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "25"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 15.24 2.54 180)
+					(length 2.54)
+					(name "MD0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "26"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 7.62 0)
+					(length 2.54)
+					(name "VINL4/VIN4M"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "27"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -5.08 0)
+					(length 2.54)
+					(name "VINR4/VIN3M"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "28"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 10.16 0)
+					(length 2.54)
+					(name "VINL3/VIN4P"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "29"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -2.54 0)
+					(length 2.54)
+					(name "VINR3/VIN3P"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "30"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "PCM1862DBT_0_1"
+				(rectangle
+					(start -12.7 27.94)
+					(end 12.7 -27.94)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "PCM1862DBT_1_1"
+				(pin input line
+					(at -15.24 12.7 0)
+					(length 2.54)
+					(name "VINL2/VIN1M"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 0 0)
+					(length 2.54)
+					(name "VINR2/VIN2M"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 15.24 0)
+					(length 2.54)
+					(name "VINL1/VIN1P"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 2.54 0)
+					(length 2.54)
+					(name "VINR1/VIN2P"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at -15.24 20.32 0)
+					(length 2.54)
+					(name "Mic_Bias"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 15.24 20.32 180)
+					(length 2.54)
+					(name "VREF"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -30.48 90)
+					(length 2.54)
+					(name "AGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -5.08 30.48 270)
+					(length 2.54)
+					(name "AVDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at -15.24 -10.16 0)
+					(length 2.54)
+					(name "XO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -17.78 0)
+					(length 2.54)
+					(name "XI"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 5.08 30.48 270)
+					(length 2.54)
+					(name "LDO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 2.54 -30.48 90)
+					(length 2.54)
+					(name "DGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 30.48 270)
+					(length 2.54)
+					(name "DVDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 30.48 270)
+					(length 2.54)
+					(name "IOVDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -22.86 0)
+					(length 2.54)
+					(name "SCKI"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 12.7 180)
+					(length 2.54)
+					(name "LRCK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 15.24 180)
+					(length 2.54)
+					(name "BCK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 10.16 180)
+					(length 2.54)
+					(name "DOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -20.32 180)
+					(length 2.54)
+					(name "GPIO3/INTC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -17.78 180)
+					(length 2.54)
+					(name "GPIO2/INTB/DMCLK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -15.24 180)
+					(length 2.54)
+					(name "GPIO1/INTA/DMIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -10.16 180)
+					(length 2.54)
+					(name "MISO/GPIO0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -7.62 180)
+					(length 2.54)
+					(name "MOSI/SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 15.24 -5.08 180)
+					(length 2.54)
+					(name "MC/SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(symbol
+		(lib_id "Audio:PCM1862DBT")
+		(at 116.84 72.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ab1f4e0e-d2e9-4dda-a05a-2d2b049c2269")
+		(property "Reference" "U2"
+			(at 121.5233 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "PCM1862DBT"
+			(at 121.5233 105.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:TSSOP-30_4.4x7.8mm_P0.5mm"
+			(at 122.174 104.394 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/pcm1862.pdf"
+			(at 122.174 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "2-Channel, 192 kHz, 24-bit, Audio ADC, 103dB SNR, I2S / left/right-justified / TDM digital output formats, I2C / SPI control interface, 2 digital microphone support, TSSOP-30"
+			(at 116.84 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "26"
+			(uuid "9958ee32-73b1-47df-997f-cd7b910c0d0b")
+		)
+		(pin "7"
+			(uuid "937eb539-bd12-4070-8307-d9c622098083")
+		)
+		(pin "8"
+			(uuid "131eec16-8b7e-4c97-a76a-e7f3227124f1")
+		)
+		(pin "29"
+			(uuid "a26b5370-4f59-43ab-9ed6-98ef1b0d5d89")
+		)
+		(pin "6"
+			(uuid "2fde326f-4c31-4622-8119-44bc585ea9bb")
+		)
+		(pin "20"
+			(uuid "8feb8fa2-4173-46a7-a5a7-a024e5890d53")
+		)
+		(pin "25"
+			(uuid "3baa71c7-ae9a-423d-a877-082157661fea")
+		)
+		(pin "3"
+			(uuid "d45f54d6-6058-4639-9959-200d073521a1")
+		)
+		(pin "18"
+			(uuid "35eddb54-a658-426c-955a-0c1a69fe1997")
+		)
+		(pin "21"
+			(uuid "b9669d3a-3ad5-4298-8529-d4ee9024d7e8")
+		)
+		(pin "22"
+			(uuid "72981d1d-3228-4cd4-a6be-4188d46dacae")
+		)
+		(pin "10"
+			(uuid "7487ba00-8a01-400c-8b04-c0faa8e046ca")
+		)
+		(pin "24"
+			(uuid "eaf4a688-b302-4993-8523-a41901a2c7c3")
+		)
+		(pin "15"
+			(uuid "cb8edb8c-3496-419b-9a8f-d6a3ce9c91f8")
+		)
+		(pin "30"
+			(uuid "31906c23-82ca-4f59-9f51-e43aa1b70782")
+		)
+		(pin "11"
+			(uuid "629ef357-3003-4917-9e31-4a8fef9e4dac")
+		)
+		(pin "5"
+			(uuid "7fa57178-2960-401a-8b7c-ed4b02c2548e")
+		)
+		(pin "14"
+			(uuid "a0d1fbe0-c980-4f2c-baf1-26547364072d")
+		)
+		(pin "28"
+			(uuid "1ce1f3dc-4edb-4dcf-b3b8-397ea384f34a")
+		)
+		(pin "19"
+			(uuid "e50065ac-0170-4411-9969-cb2ad7933dca")
+		)
+		(pin "12"
+			(uuid "d3646ff1-25e0-4a36-99ce-80b836a7a84b")
+		)
+		(pin "17"
+			(uuid "d56f2d0d-5ec1-484a-ace5-18a6d567697b")
+		)
+		(pin "9"
+			(uuid "e97d5f6b-95c7-418a-9d94-7a0dc672590b")
+		)
+		(pin "13"
+			(uuid "09f8330b-4b92-4c88-9842-6bcab058e8be")
+		)
+		(pin "16"
+			(uuid "6040445d-970d-422c-80f1-a2539d4073ed")
+		)
+		(pin "23"
+			(uuid "0178ee7f-5f42-44a5-9555-cb863b6b0384")
+		)
+		(pin "2"
+			(uuid "741ab1ef-f3e0-4dee-9ebf-9673894bf3ec")
+		)
+		(pin "27"
+			(uuid "15622ad2-0c40-49b6-8221-774a5a73492e")
+		)
+		(pin "1"
+			(uuid "91ed2321-b6a6-4255-b2c2-e289c3bf6fbd")
+		)
+		(pin "4"
+			(uuid "250e5bfa-cb5e-4c64-b821-79d9fe150f65")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/1e83ee46-ca18-4aa7-83c9-22d569412b85"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
