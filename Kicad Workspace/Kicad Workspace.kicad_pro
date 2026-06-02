@@ -419,7 +419,7 @@
         "uuid": "7c7afbb1-f4ab-42aa-9bad-41afd809eff4"
       }
     ],
-    "used_designators": "U1-5",
+    "used_designators": "U1-5,C11-31,#PWR16-32,R1-12,Y1",
     "variants": []
   },
   "sheets": [
@@ -442,6 +442,10 @@
     [
       "e2bf7cbe-6646-44c4-810a-6018512c9d09",
       "Amplification"
+    ],
+    [
+      "860b7ff3-01b2-40e6-b56b-b410f23ec17f",
+      "MCU"
     ]
   ],
   "text_variables": {},
