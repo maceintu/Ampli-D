@@ -27,6 +27,16 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 45.72) (xy 107.95 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5add9de4-3a8b-4843-8220-4431ee7aa25b")
+	)
+	(wire
+		(pts
 			(xy 92.71 31.75) (xy 92.71 36.83)
 		)
 		(stroke
@@ -34,6 +44,26 @@
 			(type default)
 		)
 		(uuid "ab222e62-1c44-496f-ae33-01e32ac43848")
+	)
+	(wire
+		(pts
+			(xy 78.74 73.66) (xy 92.71 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c62762f2-8185-4863-81f6-38ef4f203247")
+	)
+	(wire
+		(pts
+			(xy 92.71 73.66) (xy 92.71 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa16d845-8311-431d-933d-3fccc92e47f0")
 	)
 	(sheet
 		(at 27.94 25.4)
@@ -355,6 +385,36 @@
 				(justify left top)
 			)
 		)
+		(pin "BT_I2S" output
+			(at 78.74 73.66 0)
+			(uuid "32d865db-ff14-41fb-8a21-a9ae72a9475e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BT_RESET" input
+			(at 78.74 99.06 0)
+			(uuid "ac4a6979-5e37-4b55-9aca-467d63729e31")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BT_UART" input
+			(at 78.74 96.52 0)
+			(uuid "fb6520f4-3384-4ac6-a26c-ada070b94e5d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4"
@@ -364,7 +424,7 @@
 		)
 	)
 	(sheet
-		(at 177.8 33.02)
+		(at 173.99 36.83)
 		(size 35.56 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -380,7 +440,7 @@
 		)
 		(uuid "e2bf7cbe-6646-44c4-810a-6018512c9d09")
 		(property "Sheetname" "Amplification"
-			(at 177.8 32.3084 0)
+			(at 173.99 36.1184 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -391,7 +451,7 @@
 			)
 		)
 		(property "Sheetfile" "amplification.kicad_sch"
-			(at 177.8 46.3046 0)
+			(at 173.99 50.1146 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
