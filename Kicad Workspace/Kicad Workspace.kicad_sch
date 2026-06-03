@@ -462,6 +462,36 @@
 				(justify left top)
 			)
 		)
+		(pin "CLIP" output
+			(at 186.69 49.53 270)
+			(uuid "752b4b15-b4a6-4d8b-8392-07ba092f9fe6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "FAULT" output
+			(at 189.23 49.53 270)
+			(uuid "29665bc2-1703-446a-8f23-ccdd0b7afb42")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "RESET" input
+			(at 191.77 49.53 270)
+			(uuid "e3bd54bb-5313-40e1-856b-8daa7350446a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4"
