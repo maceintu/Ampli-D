@@ -424,8 +424,8 @@
 		)
 	)
 	(sheet
-		(at 173.99 36.83)
-		(size 35.56 12.7)
+		(at 170.18 27.94)
+		(size 27.94 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -440,7 +440,7 @@
 		)
 		(uuid "e2bf7cbe-6646-44c4-810a-6018512c9d09")
 		(property "Sheetname" "Amplification"
-			(at 173.99 36.1184 0)
+			(at 170.18 27.2284 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -451,7 +451,7 @@
 			)
 		)
 		(property "Sheetfile" "amplification.kicad_sch"
-			(at 173.99 50.1146 0)
+			(at 170.18 48.8446 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -463,7 +463,7 @@
 			)
 		)
 		(pin "CLIP" output
-			(at 186.69 49.53 270)
+			(at 182.88 48.26 270)
 			(uuid "752b4b15-b4a6-4d8b-8392-07ba092f9fe6")
 			(effects
 				(font
@@ -473,7 +473,7 @@
 			)
 		)
 		(pin "FAULT" output
-			(at 189.23 49.53 270)
+			(at 185.42 48.26 270)
 			(uuid "29665bc2-1703-446a-8f23-ccdd0b7afb42")
 			(effects
 				(font
@@ -483,8 +483,88 @@
 			)
 		)
 		(pin "RESET" input
-			(at 191.77 49.53 270)
+			(at 187.96 48.26 270)
 			(uuid "e3bd54bb-5313-40e1-856b-8daa7350446a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "IN_L-" input
+			(at 170.18 33.02 180)
+			(uuid "36dc361e-1241-43a9-b18a-18b58ce11108")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "IN_R+" input
+			(at 170.18 38.1 180)
+			(uuid "c043d0f0-0941-4cb9-8c2d-527080e38c65")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "IN_R-" input
+			(at 170.18 40.64 180)
+			(uuid "6e6510d9-a54a-4f9e-b6ad-7829b240ad20")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "L+" output
+			(at 198.12 30.48 0)
+			(uuid "2f5b4201-1e86-447b-9888-25a35422a9b5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "L-" output
+			(at 198.12 33.02 0)
+			(uuid "f2ed0199-5b9d-4b6a-b1d9-48eb4fed071a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "R+" output
+			(at 198.12 38.1 0)
+			(uuid "959a6939-f026-47d5-a69f-2eee74977e8c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "R-" output
+			(at 198.12 40.64 0)
+			(uuid "a7f1a0cc-9419-40c0-83c8-4e6c0255e3a1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "IN_L+" input
+			(at 170.18 30.48 180)
+			(uuid "a0928d56-4cb9-462c-a702-f37145e067fc")
 			(effects
 				(font
 					(size 1.27 1.27)
