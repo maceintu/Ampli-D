@@ -419,7 +419,7 @@
         "uuid": "7c7afbb1-f4ab-42aa-9bad-41afd809eff4"
       }
     ],
-    "used_designators": "#PWR49-54,L1-6,C43-70,R17-29",
+    "used_designators": "C75-81,R31-36,L5,#PWR65-71",
     "variants": []
   },
   "sheets": [
@@ -446,6 +446,10 @@
     [
       "860b7ff3-01b2-40e6-b56b-b410f23ec17f",
       "MCU"
+    ],
+    [
+      "d3077e0a-2bdd-4420-a49c-97d03fd12563",
+      "Alimentation"
     ]
   ],
   "text_variables": {},
