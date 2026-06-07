@@ -5132,7 +5132,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "2478fe97-2c5b-452c-a52e-372f1e39eb7b")
 		(property "Reference" "#PWR054"
 			(at 25.4 82.55 0)
@@ -5145,14 +5144,15 @@
 				)
 			)
 		)
-		(property "Value" "+48V"
-			(at 25.4 73.66 0)
+		(property "Value" "+36V"
+			(at 23.876 74.168 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
