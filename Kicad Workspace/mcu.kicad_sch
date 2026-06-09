@@ -224,8 +224,8 @@
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -15.24 44.45 0)
+			(property "Reference" "U9"
+				(at 2.1433 -45.72 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -236,7 +236,7 @@
 				)
 			)
 			(property "Value" "STM32G030C8Tx"
-				(at 5.08 44.45 0)
+				(at 2.1433 -48.26 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -247,7 +247,7 @@
 				)
 			)
 			(property "Footprint" "Package_QFP:LQFP-48_7x7mm_P0.5mm"
-				(at -15.24 -43.18 0)
+				(at -0.762 -74.168 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -259,7 +259,7 @@
 				)
 			)
 			(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32g030c8.pdf"
-				(at 0 0 0)
+				(at -15.494 -70.104 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -270,7 +270,7 @@
 				)
 			)
 			(property "Description" "STMicroelectronics Arm Cortex-M0+ MCU, 64KB flash, 8KB RAM, 64 MHz, 2.0-3.6V, 43 GPIO, LQFP48"
-				(at 0 0 0)
+				(at 14.732 -76.962 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -304,8 +304,8 @@
 			)
 			(symbol "STM32G030C8Tx_0_1"
 				(rectangle
-					(start -15.24 -43.18)
-					(end 15.24 43.18)
+					(start -15.24 43.18)
+					(end 15.24 -43.18)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -319,6 +319,7 @@
 				(pin bidirectional line
 					(at -17.78 2.54 0)
 					(length 2.54)
+					(hide yes)
 					(name "PC13"
 						(effects
 							(font
@@ -343,6 +344,7 @@
 				(pin bidirectional line
 					(at -17.78 0 0)
 					(length 2.54)
+					(hide yes)
 					(name "PC14"
 						(effects
 							(font
@@ -363,6 +365,7 @@
 				(pin bidirectional line
 					(at -17.78 -2.54 0)
 					(length 2.54)
+					(hide yes)
 					(name "PC15"
 						(effects
 							(font
@@ -457,6 +460,7 @@
 				(pin bidirectional line
 					(at -17.78 27.94 0)
 					(length 2.54)
+					(hide yes)
 					(name "PF0"
 						(effects
 							(font
@@ -477,6 +481,7 @@
 				(pin bidirectional line
 					(at -17.78 25.4 0)
 					(length 2.54)
+					(hide yes)
 					(name "PF1"
 						(effects
 							(font
@@ -515,7 +520,7 @@
 				(pin bidirectional line
 					(at 17.78 38.1 180)
 					(length 2.54)
-					(name "PA0"
+					(name "Volume"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -539,7 +544,7 @@
 				(pin bidirectional line
 					(at 17.78 35.56 180)
 					(length 2.54)
-					(name "PA1"
+					(name "L/R"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -564,7 +569,7 @@
 				(pin bidirectional line
 					(at 17.78 33.02 180)
 					(length 2.54)
-					(name "PA2"
+					(name "EQ_low"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -588,7 +593,7 @@
 				(pin bidirectional line
 					(at 17.78 30.48 180)
 					(length 2.54)
-					(name "PA3"
+					(name "EQ_midle"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -609,7 +614,7 @@
 				(pin bidirectional line
 					(at 17.78 27.94 180)
 					(length 2.54)
-					(name "PA4"
+					(name "EQ_high"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -634,7 +639,7 @@
 				(pin bidirectional line
 					(at 17.78 25.4 180)
 					(length 2.54)
-					(name "PA5"
+					(name "Source"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -655,6 +660,7 @@
 				(pin bidirectional line
 					(at 17.78 22.86 180)
 					(length 2.54)
+					(hide yes)
 					(name "PA6"
 						(effects
 							(font
@@ -679,6 +685,7 @@
 				(pin bidirectional line
 					(at 17.78 20.32 180)
 					(length 2.54)
+					(hide yes)
 					(name "PA7"
 						(effects
 							(font
@@ -702,8 +709,9 @@
 					(alternate "TIM3_CH2" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 0 180)
+					(at 17.78 -3.81 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB0"
 						(effects
 							(font
@@ -725,8 +733,9 @@
 					(alternate "TIM3_CH3" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -2.54 180)
+					(at 17.78 -6.35 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB1"
 						(effects
 							(font
@@ -747,8 +756,9 @@
 					(alternate "TIM3_CH4" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -5.08 180)
+					(at 17.78 -8.89 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB2"
 						(effects
 							(font
@@ -767,9 +777,9 @@
 					(alternate "SPI2_MISO" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -25.4 180)
+					(at 17.78 -29.21 180)
 					(length 2.54)
-					(name "PB10"
+					(name "MUX_SEL"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -788,9 +798,9 @@
 					(alternate "SPI2_SCK" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -27.94 180)
+					(at 17.78 -31.75 180)
 					(length 2.54)
-					(name "PB11"
+					(name "MUTE_DAC"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -810,9 +820,9 @@
 					(alternate "SPI2_MOSI" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -30.48 180)
+					(at 17.78 -34.29 180)
 					(length 2.54)
-					(name "PB12"
+					(name "RESET_BT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -831,9 +841,9 @@
 					(alternate "TIM1_BK" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -33.02 180)
+					(at 17.78 -36.83 180)
 					(length 2.54)
-					(name "PB13"
+					(name "RESET_AMP"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -852,9 +862,9 @@
 					(alternate "TIM1_CH1N" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -35.56 180)
+					(at 17.78 -39.37 180)
 					(length 2.54)
-					(name "PB14"
+					(name "FAULT_AMP"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -873,8 +883,9 @@
 					(alternate "TIM1_CH2N" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -38.1 180)
+					(at 17.78 -41.91 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB15"
 						(effects
 							(font
@@ -896,6 +907,7 @@
 				(pin bidirectional line
 					(at 17.78 17.78 180)
 					(length 2.54)
+					(hide yes)
 					(name "PA8"
 						(effects
 							(font
@@ -914,11 +926,10 @@
 					(alternate "SPI2_NSS" bidirectional line)
 					(alternate "TIM1_CH1" bidirectional line)
 				)
-				(pin no_connect line
-					(at -15.24 -43.18 0)
+				(pin output line
+					(at 17.78 15.24 180)
 					(length 2.54)
-					(hide yes)
-					(name "NC/PA9"
+					(name "USART1_TX"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -943,6 +954,7 @@
 				(pin bidirectional line
 					(at -17.78 7.62 0)
 					(length 2.54)
+					(hide yes)
 					(name "PC6"
 						(effects
 							(font
@@ -962,6 +974,7 @@
 				(pin bidirectional line
 					(at -17.78 5.08 0)
 					(length 2.54)
+					(hide yes)
 					(name "PC7"
 						(effects
 							(font
@@ -978,11 +991,10 @@
 					)
 					(alternate "TIM3_CH2" bidirectional line)
 				)
-				(pin no_connect line
-					(at -15.24 -40.64 0)
+				(pin input line
+					(at 17.78 12.7 180)
 					(length 2.54)
-					(hide yes)
-					(name "NC/PA10"
+					(name "USART1_RX"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1005,9 +1017,9 @@
 					(alternate "USART1_RX (PA10)" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 15.24 180)
+					(at 17.78 10.16 180)
 					(length 2.54)
-					(name "PA9/PA11"
+					(name "USART1_CTS"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1038,9 +1050,9 @@
 					(alternate "USART1_TX (PA9)" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 12.7 180)
+					(at 17.78 7.62 180)
 					(length 2.54)
-					(name "PA10/PA12"
+					(name "USART1_RTS"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1071,8 +1083,9 @@
 					(alternate "USART1_RX (PA10)" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 10.16 180)
+					(at 17.78 5.08 180)
 					(length 2.54)
+					(hide yes)
 					(name "PA13"
 						(effects
 							(font
@@ -1092,8 +1105,9 @@
 					(alternate "SYS_SWDIO" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 7.62 180)
+					(at 17.78 2.54 180)
 					(length 2.54)
+					(hide yes)
 					(name "PA14"
 						(effects
 							(font
@@ -1113,8 +1127,9 @@
 					(alternate "USART2_TX" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 5.08 180)
+					(at 17.78 0 180)
 					(length 2.54)
+					(hide yes)
 					(name "PA15"
 						(effects
 							(font
@@ -1136,6 +1151,7 @@
 				(pin bidirectional line
 					(at -17.78 20.32 0)
 					(length 2.54)
+					(hide yes)
 					(name "PD0"
 						(effects
 							(font
@@ -1156,6 +1172,7 @@
 				(pin bidirectional line
 					(at -17.78 17.78 0)
 					(length 2.54)
+					(hide yes)
 					(name "PD1"
 						(effects
 							(font
@@ -1176,6 +1193,7 @@
 				(pin bidirectional line
 					(at -17.78 15.24 0)
 					(length 2.54)
+					(hide yes)
 					(name "PD2"
 						(effects
 							(font
@@ -1196,6 +1214,7 @@
 				(pin bidirectional line
 					(at -17.78 12.7 0)
 					(length 2.54)
+					(hide yes)
 					(name "PD3"
 						(effects
 							(font
@@ -1216,8 +1235,9 @@
 					(alternate "USART2_NSS" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -7.62 180)
+					(at 17.78 -11.43 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB3"
 						(effects
 							(font
@@ -1240,8 +1260,9 @@
 					(alternate "USART1_RTS" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -10.16 180)
+					(at 17.78 -13.97 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB4"
 						(effects
 							(font
@@ -1264,8 +1285,9 @@
 					(alternate "USART1_NSS" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -12.7 180)
+					(at 17.78 -16.51 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB5"
 						(effects
 							(font
@@ -1288,9 +1310,9 @@
 					(alternate "TIM3_CH2" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -15.24 180)
+					(at 17.78 -19.05 180)
 					(length 2.54)
-					(name "PB6"
+					(name "I2C_SCL"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1311,9 +1333,9 @@
 					(alternate "USART1_TX" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -17.78 180)
+					(at 17.78 -21.59 180)
 					(length 2.54)
-					(name "PB7"
+					(name "I2C_SDA"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1334,8 +1356,9 @@
 					(alternate "USART1_RX" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -20.32 180)
+					(at 17.78 -24.13 180)
 					(length 2.54)
+					(hide yes)
 					(name "PB8"
 						(effects
 							(font
@@ -1355,9 +1378,9 @@
 					(alternate "TIM16_CH1" bidirectional line)
 				)
 				(pin bidirectional line
-					(at 17.78 -22.86 180)
+					(at 17.78 -26.67 180)
 					(length 2.54)
-					(name "PB9"
+					(name "PAIR_BT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1872,7 +1895,7 @@
 			)
 		)
 		(property "Footprint" "Package_QFP:LQFP-48_7x7mm_P0.5mm"
-			(at 128.27 140.97 0)
+			(at 142.748 171.958 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1884,7 +1907,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32g030c8.pdf"
-			(at 143.51 97.79 0)
+			(at 128.016 167.894 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1895,7 +1918,7 @@
 			)
 		)
 		(property "Description" "STMicroelectronics Arm Cortex-M0+ MCU, 64KB flash, 8KB RAM, 64 MHz, 2.0-3.6V, 43 GPIO, LQFP48"
-			(at 143.51 97.79 0)
+			(at 158.242 174.752 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2051,7 +2074,15 @@
 		)
 		(instances
 			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4"
+					(reference "U9")
+					(unit 1)
+				)
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/860b7ff3-01b2-40e6-b56b-b410f23ec17f"
+					(reference "U9")
+					(unit 1)
+				)
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
 					(reference "U9")
 					(unit 1)
 				)
