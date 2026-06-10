@@ -534,9 +534,9 @@
 				(justify left)
 			)
 		)
-		(pin "I2C" bidirectional
+		(pin "I2C{SCL SDA}" bidirectional
 			(at 123.19 77.47 90)
-			(uuid "6f2b27ef-2b5c-4f9b-98dd-4498c58774d3")
+			(uuid "99c97f14-3c7f-460d-9b70-7ce1ad7da012")
 			(effects
 				(font
 					(size 1.27 1.27)
