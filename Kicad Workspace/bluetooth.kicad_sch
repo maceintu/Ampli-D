@@ -2196,26 +2196,6 @@
 		)
 		(uuid "14e9d98c-7ee1-4326-8ffe-0667437cdc60")
 	)
-	(label "RX"
-		(at 80.01 104.14 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1acbb106-e62c-463c-95cd-e7687b9a8fa3")
-	)
-	(label "RTS"
-		(at 79.66 111.76 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "261a7dae-f1a3-4b05-9367-cfe7fbed427d")
-	)
 	(label "BT_BCK"
 		(at 59.69 66.04 0)
 		(effects
@@ -2225,26 +2205,6 @@
 			(justify left bottom)
 		)
 		(uuid "4fb17a5c-a860-4933-8b87-7ff4a033068f")
-	)
-	(label "TX"
-		(at 80.01 100.33 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a1eb6a68-0de3-4ec4-9605-ac747d63d668")
-	)
-	(label "CTS"
-		(at 79.8254 107.95 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "aed214e5-796e-4514-9f1c-38b5e4d1a3a2")
 	)
 	(label "BT_LRCK"
 		(at 59.69 77.47 0)
