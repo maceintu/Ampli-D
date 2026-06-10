@@ -5,219 +5,6 @@
 	(uuid "d7a75662-a57f-4176-be9d-a40442b4b7d3")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Device:R_Potentiometer"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "RV"
-				(at -4.445 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R_Potentiometer"
-				(at -2.54 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Potentiometer"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Sim.Device" "R"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Sim.Type" "POT"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Sim.Pins" "1=r0 2=wiper 3=r1"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "resistor variable"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Potentiometer*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "R_Potentiometer_0_1"
-				(rectangle
-					(start 1.016 2.54)
-					(end -1.016 -2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.143 0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 1.524 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_Potentiometer_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "MCU_ST_STM32G0:STM32G030C8Tx"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1663,6 +1450,80 @@
 		(color 0 0 0 0)
 		(uuid "a6cfa22d-c73d-4d4d-a7e5-a80c5aef58c6")
 	)
+	(bus_entry
+		(at 181.61 85.09)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ce55b47-31e0-49d3-86e0-ab0111ac04c9")
+	)
+	(bus_entry
+		(at 181.61 90.17)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3110676b-05f6-446c-8429-016ad9275f16")
+	)
+	(bus_entry
+		(at 171.45 116.84)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cd13228-0dff-4d50-b43a-eefe38d60bca")
+	)
+	(bus_entry
+		(at 181.61 82.55)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96d1f077-2a27-40c4-bbeb-686e4024d761")
+	)
+	(bus_entry
+		(at 171.45 119.38)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96e19cff-e004-4bb7-91a4-0be556dc7455")
+	)
+	(bus_entry
+		(at 181.61 87.63)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8408c45-36a3-41b6-9b4b-786ff40d426b")
+	)
+	(wire
+		(pts
+			(xy 161.29 87.63) (xy 181.61 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ccc10da-d9a6-443e-8fc6-d15674993859")
+	)
+	(wire
+		(pts
+			(xy 161.29 90.17) (xy 181.61 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1aa93528-9250-4b54-9919-281dac6f8b8b")
+	)
 	(wire
 		(pts
 			(xy 161.29 67.31) (xy 170.18 67.31)
@@ -1672,6 +1533,36 @@
 			(type default)
 		)
 		(uuid "2f3b6370-c39c-47fc-b629-56a51784fa66")
+	)
+	(wire
+		(pts
+			(xy 161.29 116.84) (xy 171.45 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "30c4838e-8758-4e49-901c-409e494be30e")
+	)
+	(bus
+		(pts
+			(xy 184.15 77.47) (xy 184.15 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "396533b1-945a-4ef8-8d02-fe262e8f8e59")
+	)
+	(wire
+		(pts
+			(xy 161.29 119.38) (xy 171.45 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c1a0698-4f47-4a25-be2f-75aa1ee67398")
 	)
 	(wire
 		(pts
@@ -1735,6 +1626,26 @@
 	)
 	(wire
 		(pts
+			(xy 161.29 85.09) (xy 181.61 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6e3b0ad-51bd-4217-a9ab-ef7cfb654ff6")
+	)
+	(wire
+		(pts
+			(xy 161.29 82.55) (xy 181.61 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e16ca552-6a77-4869-89a8-d9c4c9a480d6")
+	)
+	(wire
+		(pts
 			(xy 161.29 59.69) (xy 170.18 59.69)
 		)
 		(stroke
@@ -1743,122 +1654,152 @@
 		)
 		(uuid "e9cdb6b1-db32-4d74-b8f0-137fe6f8556c")
 	)
-	(symbol
-		(lib_id "Device:R_Potentiometer")
-		(at 198.12 55.88 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "06cf3091-02b5-494a-92d1-57d560aceeaf")
-		(property "Reference" "RV1"
-			(at 221.488 55.626 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
+	(bus
+		(pts
+			(xy 173.99 110.49) (xy 173.99 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fac2d9a3-0cc4-49c1-9156-abe4aef06dcf")
+	)
+	(label "SCL"
+		(at 167.64 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Value" "R_Potentiometer"
-			(at 221.488 53.086 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
+		(uuid "85798e90-d4e3-4dbf-b67d-d6040946952e")
+	)
+	(label "RTS"
+		(at 163.83 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Footprint" ""
-			(at 198.12 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "a0c43015-3b43-4d5f-84b1-6e45e2800e10")
+	)
+	(label "SDA"
+		(at 167.64 119.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Datasheet" ""
-			(at 198.12 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "bcb7b7ac-72c3-4751-8764-6997edac8de7")
+	)
+	(label "RX"
+		(at 163.8089 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Description" "Potentiometer"
-			(at 198.12 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "d0ac23e5-1bc9-482f-8b64-998ad7c721b2")
+	)
+	(label "CTS"
+		(at 163.83 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Sim.Device" "R"
-			(at 198.12 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "d72d77d6-752b-4b59-9ebe-06243ea74946")
+	)
+	(label "TX"
+		(at 163.8089 82.55 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(property "Sim.Type" "POT"
-			(at 198.12 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "fd0eb042-18de-4ca4-9bf4-ba90d12d3c36")
+	)
+	(hierarchical_label "MUTE_DAC"
+		(shape input)
+		(at 161.29 129.54 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left)
 		)
-		(property "Sim.Pins" "1=r0 2=wiper 3=r1"
-			(at 198.12 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(uuid "1c8d6be2-c7e6-4d27-9e4a-52aa0b07b176")
+	)
+	(hierarchical_label "RESET_BT"
+		(shape input)
+		(at 161.29 132.08 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left)
 		)
-		(pin "2"
-			(uuid "2f309447-6546-41ee-89c8-b900c3636ecf")
-		)
-		(pin "3"
-			(uuid "8415c482-64a6-48f2-b169-2598d357933c")
-		)
-		(pin "1"
-			(uuid "bc1cd0e8-a0ba-465e-a5eb-bf19fbb05fb4")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/860b7ff3-01b2-40e6-b56b-b410f23ec17f"
-					(reference "RV1")
-					(unit 1)
-				)
+		(uuid "37a0b74b-1252-4df1-8fae-0fd92d53466c")
+	)
+	(hierarchical_label "MUX_SEL"
+		(shape input)
+		(at 161.29 127 0)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left)
 		)
+		(uuid "4f17ca72-2b74-439d-9c72-7b1b03979ec7")
+	)
+	(hierarchical_label "I2C{SCL SDA}"
+		(shape bidirectional)
+		(at 173.99 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "51c738e4-373f-4417-93db-f0c62eb83369")
+	)
+	(hierarchical_label "UART{TX RX CTS RTS}"
+		(shape bidirectional)
+		(at 184.15 77.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "679013db-d6d7-45d4-83ed-0d5068b66fae")
+	)
+	(hierarchical_label "FAULT_AMP"
+		(shape input)
+		(at 161.29 137.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9b211bd3-f6ab-485c-bd4e-0fff66a7b786")
+	)
+	(hierarchical_label "RESET_AMP"
+		(shape input)
+		(at 161.29 134.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "acf3a5d8-2098-4a8b-ab44-f7c3e27c1d3a")
 	)
 	(symbol
 		(lib_id "MCU_ST_STM32G0:STM32G030C8Tx")
@@ -2074,15 +2015,7 @@
 		)
 		(instances
 			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4"
-					(reference "U9")
-					(unit 1)
-				)
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/860b7ff3-01b2-40e6-b56b-b410f23ec17f"
-					(reference "U9")
-					(unit 1)
-				)
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
 					(reference "U9")
 					(unit 1)
 				)

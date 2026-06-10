@@ -1708,6 +1708,10 @@
 		(uuid "7072a1d5-390d-4df5-bdf0-082d49394a3f")
 	)
 	(no_connect
+		(at 95.25 85.09)
+		(uuid "70936fd5-3c09-4c7a-98dc-020defcc7246")
+	)
+	(no_connect
 		(at 95.25 88.9)
 		(uuid "7cccf9df-fb29-4820-a24e-49891218b717")
 	)
@@ -1796,15 +1800,6 @@
 			(type default)
 		)
 		(uuid "24c51b49-6032-4868-afab-3c97fae8be37")
-	)
-	(bus_entry
-		(at 55.88 85.09)
-		(size -2.54 -2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "52a6b33a-0b9e-4dda-92f3-c48eda324af8")
 	)
 	(bus_entry
 		(at 76.2 111.76)
@@ -1993,16 +1988,6 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 85.09) (xy 95.25 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "79254116-16be-4a06-bf7e-6a57897041e3")
-	)
-	(wire
-		(pts
 			(xy 186.69 134.62) (xy 195.58 134.62)
 		)
 		(stroke
@@ -2141,16 +2126,6 @@
 		)
 		(uuid "d900a307-5418-445a-a92c-ae2a5ed31a12")
 	)
-	(bus
-		(pts
-			(xy 53.34 60.96) (xy 53.34 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d9ae4027-c5e6-44c3-9d2a-6b4f721324a4")
-	)
 	(wire
 		(pts
 			(xy 179.07 54.61) (xy 185.42 54.61)
@@ -2181,6 +2156,16 @@
 		)
 		(uuid "ec0304d4-9508-4a44-a550-74dad9e90050")
 	)
+	(bus
+		(pts
+			(xy 53.34 60.96) (xy 53.34 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f76eecae-ee59-48e3-a361-f70fe39b0f55")
+	)
 	(wire
 		(pts
 			(xy 176.53 62.23) (xy 179.07 62.23)
@@ -2201,8 +2186,78 @@
 		)
 		(uuid "fe632ba3-a63d-43af-a72c-8ef64c8f56ce")
 	)
-	(hierarchical_label "BT_UART"
-		(shape input)
+	(label "BT_DATA"
+		(at 59.69 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "14e9d98c-7ee1-4326-8ffe-0667437cdc60")
+	)
+	(label "RX"
+		(at 80.01 104.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1acbb106-e62c-463c-95cd-e7687b9a8fa3")
+	)
+	(label "RTS"
+		(at 79.66 111.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "261a7dae-f1a3-4b05-9367-cfe7fbed427d")
+	)
+	(label "BT_BCK"
+		(at 59.69 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4fb17a5c-a860-4933-8b87-7ff4a033068f")
+	)
+	(label "TX"
+		(at 80.01 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a1eb6a68-0de3-4ec4-9605-ac747d63d668")
+	)
+	(label "CTS"
+		(at 79.8254 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aed214e5-796e-4514-9f1c-38b5e4d1a3a2")
+	)
+	(label "BT_LRCK"
+		(at 59.69 77.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b41f29bf-ffda-42df-ae96-78f5299f390d")
+	)
+	(hierarchical_label "UART{TX RX CTS RTS}"
+		(shape bidirectional)
 		(at 73.66 95.25 180)
 		(effects
 			(font
@@ -2223,7 +2278,7 @@
 		)
 		(uuid "8c9dee2c-2a7c-453b-81fb-94e2b9c8b4f5")
 	)
-	(hierarchical_label "BT_I2S"
+	(hierarchical_label "BT_I2S{BT_BCK BT_DATA BT_LRCK}"
 		(shape output)
 		(at 53.34 60.96 180)
 		(effects

@@ -1639,15 +1639,6 @@
 		(uuid "6ea90e65-a0b6-421b-9a76-b0df953dbb77")
 	)
 	(bus_entry
-		(at 222.25 105.41)
-		(size 2.54 -2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7a5eee28-09ab-4433-b494-1e6be9afc96a")
-	)
-	(bus_entry
 		(at 54.61 91.44)
 		(size -2.54 -2.54)
 		(stroke
@@ -1655,15 +1646,6 @@
 			(type default)
 		)
 		(uuid "8a94ca0c-e1f0-4083-9973-237418c98e8f")
-	)
-	(bus_entry
-		(at 222.25 107.95)
-		(size 2.54 -2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd6b52bb-b095-4d71-a288-24afee6094e9")
 	)
 	(bus_entry
 		(at 54.61 93.98)
@@ -2243,6 +2225,16 @@
 		)
 		(uuid "a3ff94af-feff-431f-a93d-85af1684f438")
 	)
+	(bus
+		(pts
+			(xy 222.25 102.87) (xy 222.25 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a47c9f40-f4ac-4b84-acfd-b899da723870")
+	)
 	(wire
 		(pts
 			(xy 196.85 90.17) (xy 222.25 90.17)
@@ -2402,16 +2394,6 @@
 			(type default)
 		)
 		(uuid "d85395f0-a8c0-4660-8caa-a22bf364f719")
-	)
-	(bus
-		(pts
-			(xy 224.79 100.33) (xy 224.79 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e02c1aef-aae5-495e-b336-3fa4f62495f6")
 	)
 	(wire
 		(pts
@@ -2573,6 +2555,16 @@
 		)
 		(uuid "3f9c7850-67dd-47f0-9d7b-487a779e497d")
 	)
+	(label "WIRE_BCK"
+		(at 212.09 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "448d9260-fe75-4c08-9efb-7676bbac563c")
+	)
 	(label "VIN3_R"
 		(at 106.68 175.26 0)
 		(effects
@@ -2592,6 +2584,26 @@
 			(justify right)
 		)
 		(uuid "5a909d57-87a4-4826-8f1d-0f7e49c9dbc6")
+	)
+	(label "SDA"
+		(at 217.17 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5db5cbbe-d3ab-4dda-bece-998e2f080127")
+	)
+	(label "SCL"
+		(at 217.17 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "674e0837-22ac-4251-8619-8a8ea03c5036")
 	)
 	(label "VIN1_R"
 		(at 106.68 54.61 0)
@@ -2623,6 +2635,16 @@
 		)
 		(uuid "85e777f9-69eb-4828-9f4c-a185e362db8e")
 	)
+	(label "WIRE_DATA"
+		(at 211.9659 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8ebd4903-5f6e-4a3d-96d1-55d6ab175806")
+	)
 	(label "VIN2_R"
 		(at 106.68 114.3 0)
 		(effects
@@ -2653,6 +2675,16 @@
 		)
 		(uuid "b1953cfe-a5f5-4b44-99cd-0af0cd8f1881")
 	)
+	(label "WIRE_LRCK"
+		(at 212.09 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d7a42072-47ce-49c0-a96d-b8530e868f92")
+	)
 	(label "VIN3_L"
 		(at 161.29 90.17 180)
 		(effects
@@ -2663,7 +2695,18 @@
 		)
 		(uuid "f532c16d-a783-4eeb-8af7-e8fcf6b64ab2")
 	)
-	(hierarchical_label "IN_MONO"
+	(hierarchical_label "I2C{SCL SDA}"
+		(shape bidirectional)
+		(at 222.25 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1b817306-aa6f-42f2-859f-bf8cd856b317")
+	)
+	(hierarchical_label "MONO"
 		(shape input)
 		(at 44.45 151.13 180)
 		(effects
@@ -2674,7 +2717,7 @@
 		)
 		(uuid "7664c8f8-8f1b-4d1f-9304-796c1d7ae657")
 	)
-	(hierarchical_label "IN_AUX"
+	(hierarchical_label "AUX"
 		(shape input)
 		(at 52.07 25.4 180)
 		(effects
@@ -2685,8 +2728,8 @@
 		)
 		(uuid "a1291e85-f0f6-4b4d-bd80-ec91393aceda")
 	)
-	(hierarchical_label "I2S_ADC"
-		(shape input)
+	(hierarchical_label "WIRE_I2S{WIRE_DATA WIRE_BCK WIRE_LRCK}"
+		(shape output)
 		(at 224.79 80.01 0)
 		(effects
 			(font
@@ -2696,18 +2739,7 @@
 		)
 		(uuid "c98d35dc-1221-4c59-85a6-89728e129e3c")
 	)
-	(hierarchical_label "I2C_ADC"
-		(shape input)
-		(at 224.79 100.33 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "f51ce322-7605-4235-b6d0-e9282da7584f")
-	)
-	(hierarchical_label "IN_LINE"
+	(hierarchical_label "LINE"
 		(shape input)
 		(at 52.07 85.09 180)
 		(effects
