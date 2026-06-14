@@ -630,7 +630,7 @@
 		)
 	)
 	(sheet
-		(at 50.8 156.21)
+		(at 34.29 127)
 		(size 58.42 21.59)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -646,7 +646,7 @@
 		)
 		(uuid "d3077e0a-2bdd-4420-a49c-97d03fd12563")
 		(property "Sheetname" "Alimentation"
-			(at 50.8 155.4984 0)
+			(at 34.29 126.2884 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -657,7 +657,7 @@
 			)
 		)
 		(property "Sheetfile" "alimentation.kicad_sch"
-			(at 50.8 178.3846 0)
+			(at 34.29 149.1746 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
