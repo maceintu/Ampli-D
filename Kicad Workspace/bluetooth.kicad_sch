@@ -2909,7 +2909,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "FootPrints:FSC-BT1058"
 			(at 101.6 67.31 0)
 			(hide yes)
 			(show_name no)
