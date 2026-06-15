@@ -7290,7 +7290,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM5242RHBT:IC_ADS125H01IRHBT"
+		(property "Footprint" "FootPrints:PCM5242"
 			(at 185.42 102.87 0)
 			(hide yes)
 			(show_name no)

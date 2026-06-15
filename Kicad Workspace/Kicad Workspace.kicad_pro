@@ -69,7 +69,13 @@
           "thermal_relief_spoke_width": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -203,7 +209,9 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -230,7 +238,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -260,7 +273,20 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "pin_to_pin|1549400|1066800|75c7b707-a3ea-4c27-b918-5d5b00670112|801dad98-f9b9-4bc1-b1d0-4cb782837368|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09",
+        ""
+      ],
+      [
+        "pin_to_pin|1549400|889000|f54ed67a-801e-4bc0-9c9e-7d8b610edb16|9ac2c779-7d10-4c5b-9ec7-5048368e6c64|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09",
+        ""
+      ],
+      [
+        "power_pin_not_driven|1866900|698500|629ef357-3003-4917-9e31-4a8fef9e4dac|00000000-0000-0000-0000-000000000000|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/1e83ee46-ca18-4aa7-83c9-22d569412b85|/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/1e83ee46-ca18-4aa7-83c9-22d569412b85|",
+        ""
+      ]
+    ],
     "meta": {
       "version": 0
     },
@@ -514,6 +540,26 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "name": "+3.3VA",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.8,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "name": "3.3 Num",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.4,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
       }
     ],
     "meta": {
@@ -524,7 +570,15 @@
     "netclass_patterns": [
       {
         "netclass": "Default",
-        "pattern": "/Amplification/BST_A"
+        "pattern": ""
+      },
+      {
+        "netclass": "3.3 Num",
+        "pattern": "*+3.3V"
+      },
+      {
+        "netclass": "+3.3VA",
+        "pattern": "*+3.3VA*"
       }
     ]
   },
@@ -656,7 +710,7 @@
         "uuid": "7c7afbb1-f4ab-42aa-9bad-41afd809eff4"
       }
     ],
-    "used_designators": "J1-4,#PWR79-85",
+    "used_designators": "J5-8",
     "variants": []
   },
   "sheets": [
