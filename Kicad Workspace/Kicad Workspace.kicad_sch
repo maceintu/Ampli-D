@@ -250,44 +250,24 @@
 				(justify left top)
 			)
 		)
-		(pin "WIRE_I2S{WIRE_DATA WIRE_BCK WIRE_LRCK}" output
+		(pin "I2C{SCL SDA}" bidirectional
+			(at 71.12 52.07 270)
+			(uuid "e73db44e-2931-4e7b-9059-827650e3b6b6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "WIRE_I2S{DATA BCK LRCK}" output
 			(at 80.01 27.94 0)
-			(uuid "fda1c33c-d524-4854-8f20-e2d95d5974a3")
+			(uuid "37c705af-e507-4627-8ba6-b914848d3143")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
-			)
-		)
-		(pin "MONO" input
-			(at 19.05 31.75 180)
-			(uuid "9b5983df-df93-4d1b-b6b9-d1579a31bfad")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "AUX" input
-			(at 19.05 35.56 180)
-			(uuid "60f04fd7-f168-4153-bd0a-24d103d5e14b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "LINE" input
-			(at 19.05 39.37 180)
-			(uuid "36351f1b-dd0d-4a6f-b6cd-734a664ac7c7")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 			)
 		)
 		(instances
@@ -397,29 +377,29 @@
 				(justify right)
 			)
 		)
-		(pin "BT_I2S{BT_DATA BT_BCK BT_LRCK}" input
-			(at 97.79 31.75 180)
-			(uuid "371ddb10-966d-4a72-a9fd-950b6b1120c0")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "WIRE_I2S{WIRE_DATA WIRE_BCK WIRE_LRCK}" input
-			(at 97.79 27.94 180)
-			(uuid "bf925c4e-3882-46c6-b675-2d7abf83d863")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "I2C{SCL SDA}" bidirectional
 			(at 123.19 48.26 270)
 			(uuid "a84c7831-9132-4126-93e4-7c24a6cdebde")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BT_I2S{DATA BCK LRCK}" input
+			(at 97.79 31.75 180)
+			(uuid "013c9c36-6ac5-4eaf-90e7-ded1eb856d39")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "WIRE_I2S{DATA BCK LRCK}" input
+			(at 97.79 27.94 180)
+			(uuid "1de13494-08cd-4719-a081-7e720f3290f7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -611,9 +591,9 @@
 				(justify right)
 			)
 		)
-		(pin "BT_I2S{BT_BCK BT_DATA BT_LRCK}" output
+		(pin "BT_I2S{DATA BCK LRCK}" output
 			(at 78.74 76.2 0)
-			(uuid "a39dae6f-87c4-42c3-995d-4e07fdf79057")
+			(uuid "e9b8a782-7a30-4d03-8273-4c42241444ef")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -772,46 +752,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-		(pin "L+" output
-			(at 205.74 35.56 0)
-			(uuid "2f5b4201-1e86-447b-9888-25a35422a9b5")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "L-" output
-			(at 205.74 38.1 0)
-			(uuid "f2ed0199-5b9d-4b6a-b1d9-48eb4fed071a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "R+" output
-			(at 205.74 43.18 0)
-			(uuid "959a6939-f026-47d5-a69f-2eee74977e8c")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "R-" output
-			(at 205.74 45.72 0)
-			(uuid "a7f1a0cc-9419-40c0-83c8-4e6c0255e3a1")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 		(pin "IN_L+" input

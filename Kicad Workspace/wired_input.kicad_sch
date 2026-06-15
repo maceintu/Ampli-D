@@ -2197,6 +2197,15 @@
 		(uuid "e7426f76-eb15-4e5d-8f5b-44144302eac3")
 	)
 	(bus_entry
+		(at 222.25 107.95)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f68bf41-5ea6-4077-b135-37bb471f6758")
+	)
+	(bus_entry
 		(at 222.25 90.17)
 		(size 2.54 -2.54)
 		(stroke
@@ -2222,6 +2231,15 @@
 			(type default)
 		)
 		(uuid "6ea90e65-a0b6-421b-9a76-b0df953dbb77")
+	)
+	(bus_entry
+		(at 222.25 105.41)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b89ef3cd-08c5-403f-a72d-96516be354a0")
 	)
 	(wire
 		(pts
@@ -2855,7 +2873,7 @@
 	)
 	(bus
 		(pts
-			(xy 222.25 102.87) (xy 222.25 107.95)
+			(xy 224.79 100.33) (xy 224.79 105.41)
 		)
 		(stroke
 			(width 0)
@@ -3203,7 +3221,7 @@
 		)
 		(uuid "3f9c7850-67dd-47f0-9d7b-487a779e497d")
 	)
-	(label "WIRE_BCK"
+	(label "WIRE_I2S.BCK"
 		(at 212.09 85.09 0)
 		(effects
 			(font
@@ -3233,8 +3251,8 @@
 		)
 		(uuid "5a909d57-87a4-4826-8f1d-0f7e49c9dbc6")
 	)
-	(label "SDA"
-		(at 217.17 107.95 0)
+	(label "I2C.SDA"
+		(at 213.36 107.95 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3243,8 +3261,8 @@
 		)
 		(uuid "5db5cbbe-d3ab-4dda-bece-998e2f080127")
 	)
-	(label "SCL"
-		(at 217.17 105.41 0)
+	(label "I2C.SCL"
+		(at 213.36 105.41 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3283,8 +3301,8 @@
 		)
 		(uuid "85e777f9-69eb-4828-9f4c-a185e362db8e")
 	)
-	(label "WIRE_DATA"
-		(at 211.9659 90.17 0)
+	(label "WIRE_I2S.DATA"
+		(at 212.09 90.17 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3323,7 +3341,7 @@
 		)
 		(uuid "b1953cfe-a5f5-4b44-99cd-0af0cd8f1881")
 	)
-	(label "WIRE_LRCK"
+	(label "WIRE_I2S.LRCK"
 		(at 212.09 87.63 0)
 		(effects
 			(font
@@ -3345,7 +3363,7 @@
 	)
 	(hierarchical_label "I2C{SCL SDA}"
 		(shape bidirectional)
-		(at 222.25 102.87 0)
+		(at 224.79 100.33 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3354,7 +3372,7 @@
 		)
 		(uuid "1b817306-aa6f-42f2-859f-bf8cd856b317")
 	)
-	(hierarchical_label "WIRE_I2S{WIRE_DATA WIRE_BCK WIRE_LRCK}"
+	(hierarchical_label "WIRE_I2S{DATA BCK LRCK}"
 		(shape output)
 		(at 224.79 80.01 0)
 		(effects

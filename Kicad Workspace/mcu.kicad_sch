@@ -1664,7 +1664,7 @@
 		)
 		(uuid "fac2d9a3-0cc4-49c1-9156-abe4aef06dcf")
 	)
-	(label "SCL"
+	(label "I2C.SCL"
 		(at 167.64 116.84 0)
 		(effects
 			(font
@@ -1674,7 +1674,7 @@
 		)
 		(uuid "85798e90-d4e3-4dbf-b67d-d6040946952e")
 	)
-	(label "RTS"
+	(label "UART.RTS"
 		(at 163.83 90.17 0)
 		(effects
 			(font
@@ -1684,7 +1684,7 @@
 		)
 		(uuid "a0c43015-3b43-4d5f-84b1-6e45e2800e10")
 	)
-	(label "SDA"
+	(label "I2C.SDA"
 		(at 167.64 119.38 0)
 		(effects
 			(font
@@ -1694,7 +1694,7 @@
 		)
 		(uuid "bcb7b7ac-72c3-4751-8764-6997edac8de7")
 	)
-	(label "RX"
+	(label "UART.RX"
 		(at 163.8089 85.09 0)
 		(effects
 			(font
@@ -1704,7 +1704,7 @@
 		)
 		(uuid "d0ac23e5-1bc9-482f-8b64-998ad7c721b2")
 	)
-	(label "CTS"
+	(label "UART.CTS"
 		(at 163.83 87.63 0)
 		(effects
 			(font
@@ -1714,7 +1714,7 @@
 		)
 		(uuid "d72d77d6-752b-4b59-9ebe-06243ea74946")
 	)
-	(label "TX"
+	(label "UART.TX"
 		(at 163.8089 82.55 0)
 		(effects
 			(font

@@ -2186,7 +2186,7 @@
 		)
 		(uuid "fe632ba3-a63d-43af-a72c-8ef64c8f56ce")
 	)
-	(label "BT_DATA"
+	(label "BT_I2S.DATA"
 		(at 59.69 73.66 0)
 		(effects
 			(font
@@ -2196,7 +2196,17 @@
 		)
 		(uuid "14e9d98c-7ee1-4326-8ffe-0667437cdc60")
 	)
-	(label "BT_BCK"
+	(label "UART.RX"
+		(at 76.2 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "41c5df03-f3a6-4773-905f-3fb751652080")
+	)
+	(label "BT_I2S.BCK"
 		(at 59.69 66.04 0)
 		(effects
 			(font
@@ -2206,7 +2216,27 @@
 		)
 		(uuid "4fb17a5c-a860-4933-8b87-7ff4a033068f")
 	)
-	(label "BT_LRCK"
+	(label "UART.RTS"
+		(at 76.2 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "57516630-99db-43f1-8a32-3060e0c457cf")
+	)
+	(label "UART.CTS"
+		(at 76.2 111.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6236e0e6-e482-4334-a37e-ae95ad83fa1a")
+	)
+	(label "BT_I2S.LRCK"
 		(at 59.69 77.47 0)
 		(effects
 			(font
@@ -2215,6 +2245,16 @@
 			(justify left bottom)
 		)
 		(uuid "b41f29bf-ffda-42df-ae96-78f5299f390d")
+	)
+	(label "UART.TX"
+		(at 76.2 104.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dc788bc0-ad6f-43ee-a70d-9addf8397820")
 	)
 	(hierarchical_label "UART{TX RX CTS RTS}"
 		(shape bidirectional)
@@ -2238,7 +2278,7 @@
 		)
 		(uuid "8c9dee2c-2a7c-453b-81fb-94e2b9c8b4f5")
 	)
-	(hierarchical_label "BT_I2S{BT_BCK BT_DATA BT_LRCK}"
+	(hierarchical_label "BT_I2S{DATA BCK LRCK}"
 		(shape output)
 		(at 53.34 60.96 180)
 		(effects
@@ -2517,7 +2557,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_01005_0402Metric"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 182.88 124.968 90)
 			(hide yes)
 			(show_name no)
