@@ -4343,7 +4343,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "FootPrints:IND_SER2915L-103KL"
 			(at 201.93 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -5969,7 +5969,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "FootPrints:IND_SER2915L-103KL"
 			(at 201.93 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -6453,7 +6453,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "FootPrints:IND_SER2915L-103KL"
 			(at 199.39 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6609,7 +6609,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "FootPrints:IND_SER2915L-103KL"
 			(at 199.39 68.58 0)
 			(hide yes)
 			(show_name no)
