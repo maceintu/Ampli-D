@@ -4502,7 +4502,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
 			(at 223.2152 72.39 0)
 			(hide yes)
 			(show_name no)

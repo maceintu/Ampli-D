@@ -2,12 +2,12 @@
   "board": {
     "active_layer": 0,
     "active_layer_preset": "",
-    "auto_track_width": true,
+    "auto_track_width": false,
     "hidden_netclasses": [],
     "hidden_nets": [
+      "+36V",
       "GND",
       "+3.3V",
-      "+36V",
       "+12V"
     ],
     "high_contrast_mode": 0,
@@ -99,12 +99,12 @@
     "col_widths": [
       162,
       147,
-      101,
-      99,
-      101,
-      132,
-      98,
-      103,
+      123,
+      122,
+      123,
+      161,
+      119,
+      126,
       91,
       91
     ],
