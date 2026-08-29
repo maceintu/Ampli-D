@@ -1,0 +1,3031 @@
+# U5_TPA3255 — 47 pages
+
+
+===== page 1 =====
+Po - Output Power - W
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+10m 100m 1 10 100 400
+D000
+TA = 75qC
+4:
+8:
+Power Supply
+110VAC->240VAC
+TAS5630
+51V
+TPA3255D2
+Audio 
+Source
+And Control
+RIGHT
+LEFT
+LC 
+Filter
+LC 
+Filter
+/RESET
+/FAULT
+M1:M2
+FREQ_ADJ
+OSC_IO
+/CLIP_OTW
+Operation Mode Select
+Switching Frequency Select
+12V
+Master/Slave Synchronization
+Copyright © 2016, Texas Instruments Incorporated
+Product
+Folder
+Order
+Now
+T echnical
+Documents
+Tools &
+Software
+Support &
+Community
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+intellectual property matters and other important disclaimers. PRODUCTION DATA.
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+TPA3255315-WStereo,600-WMonoPurePath™ Ultra-HDAnalog-Input
+1
+1 Features
+1• Differential Analog Inputs
+• Total Output Power at 10%THD+N
+– 315-W Stereo into 4 Ω in BTL Configuration
+– 185-W Stereo into 8 Ω in BTL Configuration
+– 600-W Mono into 2 Ω in PBTL Configuration
+• Total Output Power at 1%THD+N
+– 260-W Stereo into 4 Ω in BTL Configuration
+– 150-W Stereo into 8 Ω in BTL Configuration
+– 480-W Mono into 2 Ω in PBTL Configuration
+• Advanced Integrated Feedback Design with High-
+speed Gate Driver Error Correction
+(PurePath™ Ultra-HD)
+– Signal Bandwidth up to 100 kHz for High
+Frequency Content From HD Sources
+– Ultra Low 0.006% THD+N at 1 W into 4 Ω and
+<0.01% THD+N to Clipping
+– >65 dB PSRR (BTL, 1 kHz, No Input Signal)
+– <85 µV (A-Weighted) Output Noise
+– >111 dB (A Weighted) SNR
+• Multiple Configurations Possible:
+– Stereo, Mono, 2.1 and 4xSE
+• Click and Pop Free Startup and Stop
+• 90% Efficient Class-D Operation (4 Ω)
+• Wide 18-V to 53.5V Supply Voltage Operation
+• Self-Protection Design (Including Undervoltage,
+Overtemperature, Clipping, and Short Circuit
+Protection) With Error Reporting
+• EMI Compliant When Used With Recommended
+System Design
+2 Applications
+• Blu-Ray Disc™ / DVD Receivers
+• High End HTiB Systems
+• AV Receivers
+• High End Soundbar
+• Mini Combo Systems
+• Active Speakers and Subwoofers
+3 Description
+TPA3255 is a high performance class-D power
+amplifier that enables true premium sound quality
+with class-D efficiency. It features an advanced
+integrated feedback design and proprietary high-
+speed gate driver error correction (PurePath™ Ultra-
+HD). This technology allows ultra low distortion
+across the audio band and superior audio quality.
+The device is operated in AD-mode, and can drive up
+to 2 x 315 W into 4-Ω load at 10% THD and 2 x 150
+W unclipped into 8-Ω load and features a 2 VRMS
+analog input interface that works seamlessly with high
+performance DACs such as TI's PCM5242. In
+addition to excellent audio performance, TPA3255
+achieves both high power efficiency and very low
+power stage idle losses below 2.5W. This is achieved
+through the use of 85 mΩ MOSFETs and an
+optimized gate driver scheme that achieves
+significantly lower idle losses than typical discrete
+implementations.
+Device Information(1)
+PART NUMBER PACKAGE BODY SIZE (NOM)
+TPA3255 HTSSOP (44) 6.10 mm x 14.00 mm
+(1) For all available packages, see the orderable addendum at
+the end of the datasheet.
+Simplified Schematic Total Harmonic Distortion
+
+===== page 2 =====
+2
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+Table of Contents
+1 Features .................................................................. 1
+2 Applications ........................................................... 1
+3 Description ............................................................. 1
+4 Revision History..................................................... 2
+5 Device Comparison Table..................................... 3
+6 Pin Configuration and Functions ......................... 3
+7 Specifications......................................................... 5
+7.1 Absolute Maximum Ratings ...................................... 5
+7.2 ESD Ratings.............................................................. 5
+7.3 Recommended Operating Conditions....................... 6
+7.4 Thermal Information .................................................. 6
+7.5 Electrical Characteristics........................................... 7
+7.6 Audio Characteristics (BTL) ...................................... 8
+7.7 Audio Characteristics (SE) ....................................... 9
+7.8 Audio Characteristics (PBTL) ................................... 9
+7.9 Typical Characteristics, BTL Configuration............. 10
+7.10 Typical Characteristics, SE Configuration............. 12
+7.11 Typical Characteristics, PBTL Configuration ........ 13
+8 Parameter Measurement Information ................ 14
+9 Detailed Description ............................................ 14
+9.1 Overview ................................................................. 14
+9.2 Functional Block Diagrams ..................................... 15
+9.3 Feature Description................................................. 17
+9.4 Device Functional Modes........................................ 17
+10 Application and Implementation........................ 22
+10.1 Application Information.......................................... 22
+10.2 Typical Applications .............................................. 22
+11 Power Supply Recommendations ..................... 29
+11.1 Power Supplies ..................................................... 29
+11.2 Powering Up.......................................................... 30
+11.3 Powering Down ..................................................... 31
+11.4 Thermal Design..................................................... 31
+12 Layout................................................................... 33
+12.1 Layout Guidelines ................................................. 33
+12.2 Layout Examples................................................... 34
+13 Device and Documentation Support ................. 37
+13.1 Documentation Support ........................................ 37
+13.2 Receiving Notification of Documentation Updates 37
+13.3 Community Resources.......................................... 37
+13.4 Trademarks ........................................................... 37
+13.5 Electrostatic Discharge Caution ............................ 37
+13.6 Glossary ................................................................ 37
+14 Mechanical, Packaging, and Orderable
+Information ........................................................... 37
+4 Revision History
+Changes from Original (February 2016) to Revision A Page
+• Changed the device status From: PRODUCT PREVIEW To: Production Data..................................................................... 1
+
+===== page 3 =====
+Thermal
+Pad
+1GVDD_AB 44 BST_A
+2
+CLIP_OTW
+43 BST_B
+3
+VBG
+42 GND
+4
+FAULT
+41 GND
+5
+RESET
+40 OUT_A
+6
+INPUT_D
+39 OUT_A
+7
+INPUT_C
+38 PVDD_AB
+8
+C_START
+37 PVDD_AB
+9
+AVDD
+36 PVDD_AB
+10
+GND
+35 OUT_B
+11
+GND
+34 GND
+12
+DVDD
+33 GND
+13
+OSC_IOP
+32 OUT_C
+14
+OSC_IOM
+31 PVDD_CD
+15
+FREQ_ADJ
+30 PVDD_CD
+16
+OC_ADJ
+29 PVDD_CD
+17
+INPUT_A
+28 OUT_D
+18
+INPUT_B
+27 OUT_D
+19
+M2
+26 GND
+20
+M1
+25 GND
+21
+VDD
+24 BST_C
+22GVDD_CD 23 BST_D
+3
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+5 Device Comparison Table
+DEVICE NAME DESCRIPTION
+TPA3244 40-W Stereo, 100-W peak PurePath™ Ultra-HD Pad Down Class-D Amplifier
+TPA3245 100-W Stereo, 200-W Mono PurePath™ Ultra-HD Analog-Input Class-D Amplifier
+TPA3250 70-W Stereo, 130-W peak PurePath™ Ultra-HD Pad Down Class-D Amplifier
+TPA3251 175-W Stereo, 350-W Mono PurePath™ Ultra-HD Analog-Input Class-D Amplifier
+6 Pin Configuration and Functions
+The TPA3255 is available in a thermally enhanced TSSOP package.
+The package type contains a PowerPAD™ that is located on the top side of the device for convenient thermal
+coupling to the heat sink.
+DDV Package
+HTSSOP 44-Pin
+(Top View)
+
+===== page 4 =====
+4
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+Pin Functions
+NAME NO. I/O DESCRIPTION
+AVDD 14 P Internal voltage regulator, analog section
+BST_A 44 P HS bootstrap supply (BST), external 0.033 μF capacitor to OUT_A required.
+BST_B 43 P HS bootstrap supply (BST), external 0.033 μF capacitor to OUT_B required.
+BST_C 24 P HS bootstrap supply (BST), external 0.033 μF capacitor to OUT_C required.
+BST_D 23 P HS bootstrap supply (BST), external 0.033 μF capacitor to OUT_D required.
+CLIP_OTW 21 O Clipping warning and Over-temperature warning; open drain; active low. Do not connect if not used.
+C_START 15 O Startup ramp, requires a charging capacitor to GND
+DVDD 11 P Internal voltage regulator, digital section
+FAULT 19 O Shutdown signal, open drain; active low. Do not connect if not used.
+FREQ_ADJ 8 O Oscillator freqency programming pin
+GND 12, 13, 25, 26,
+33, 34, 41, 42
+P Ground
+GVDD_AB 1 P Gate-drive voltage supply; AB-side, requires 0.1 µF capacitor to GND
+GVDD_CD 22 P Gate-drive voltage supply; CD-side, requires 0.1 µF capacitor to GND
+INPUT_A 5 I Input signal for half bridge A
+INPUT_B 6 I Input signal for half bridge B
+INPUT_C 16 I Input signal for half bridge C
+INPUT_D 17 I Input signal for half bridge D
+M1 3 I Mode selection 1 (LSB)
+M2 4 I Mode selection 2 (MSB)
+OC_ADJ 7 I/O Over-Current threshold programming pin
+OSC_IOM 9 I/O Oscillator synchronization interface. Do not connect if not used.
+OSC_IOP 10 O Oscillator synchronization interface. Do not connect if not used.
+OUT_A 39, 40 O Output, half bridge A
+OUT_B 35 O Output, half bridge B
+OUT_C 32 O Output, half bridge C
+OUT_D 27, 28 O Output, half bridge D
+PVDD_AB 36, 37, 38 P PVDD supply for half-bridge A and B
+PVDD_CD 29, 30, 31 P PVDD supply for half-bridge C and D
+RESET 18 I Device reset Input; active low
+VDD 2 P Power supply for internal voltage regulator requires a 10-µF capacitor with a 0.1-µF capacitor to GND for decoupling.
+VBG 20 P Internal voltage reference requires a 1-µF capacitor to GND for decoupling.
+PowerPad™ P Ground, connect to grounded heat sink
+(1) 1 refers to logic high (DVDD level), 0 refers to logic low (GND).
+(2) 2N refers to differential input signal, 1N refers to single ended input signal. +1 refers to number of logic control (RESET) input pins.
+Table 1. Mode Selection Pins
+MODE
+PINS (1) INPUT
+MODE (2)
+OUTPUT
+CONFIGURATION DESCRIPTION
+M2 M1
+0 0 2N + 1 2 × BTL Stereo BTL output configuration
+0 1 2N/1N + 1 1 x BTL + 2 x SE 2.1 BTL + SE mode. Channel AB: BTL, channel C + D: SE
+1 0 2N + 1
+INPUT_C INPUT_D
+1 x PBTL Parallelled BTL configuration. Connect INPUT_C and
+INPUT_D to GND. (1) 0 0
+1 x BTL
+Mono BTL configuration. BTL channel AB active,
+channel CD not switching. Connect INPUT_C to DVDD
+and INPUT_D to GND. (1)
+1 0
+1 1 1N +1 4 x SE Single ended output configuration
+
+===== page 5 =====
+5
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+(1) Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings
+only, which do not imply functional operation of the device at these or any other conditions beyond those indicated under Recommended
+Operating Conditions. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+(2) These voltages represents the DC voltage + peak AC waveform measured at the terminal of the device in all conditions.
+7 Specifications
+7.1 Absolute Maximum Ratings
+over operating free-air temperature range (unless otherwise noted) (1)
+MIN MAX UNIT
+Supply voltage
+BST_X to GVDD_X (2) –0.3 69 V
+VDD to GND –0.3 13.2 V
+GVDD_X to GND (2) –0.3 13.2 V
+PVDD_X to GND (2) –0.3 69 V
+DVDD to GND –0.3 4.2 V
+AVDD to GND –0.3 8.5 V
+VBG to GND -0.3 4.2 V
+Interface pins
+OUT_X to GND (2) –0.3 69 V
+BST_X to GND (2) –0.3 81.5 V
+OC_ADJ, M1, M2, OSC_IOP, OSC_IOM, FREQ_ADJ, C_START, to GND –0.3 4.2 V
+RESET, FAULT, CLIP_OTW to GND –0.3 4.2 V
+INPUT_X to GND –0.3 7 V
+Continuous sink current, RESET, FAULT, CLIP_OTW to GND 9 mA
+TJ Operating junction temperature range 0 150 °C
+Tstg Storage temperature range –40 150 °C
+(1) JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+(2) JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.
+7.2 ESD Ratings
+VALUE UNIT
+VESD Electrostatic discharge
+Human body model (HBM), per ANSI/ESDA/JEDEC JS-001, all
+pins (1) ±2000 V
+Charged device model (CDM), per JEDEC specification
+JESD22-C101, all pins (2) ±500 V
+
+===== page 6 =====
+6
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+(1) For load impedance ≥ 6Ω PVDD can be increased, provided a reduced over-current threshold is set
+7.3 Recommended Operating Conditions
+over operating free-air temperature range (unless otherwise noted)
+MIN TYP MAX UNIT
+PVDD_x Half-bridge supply
+DC supply voltage, RL = 4Ω 18 51 53.5 V
+DC supply voltage, RL ≥ 6Ω (1) 18 53.5 56.5
+GVDD_x Supply for logic regulators and gate-drive
+circuitry DC supply voltage 10.8 12 13.2 V
+VDD Digital regulator supply voltage DC supply voltage 10.8 12 13.2 V
+RL(BTL)
+Load impedance Output filter inductance within
+recommended value range
+3.4 4
+ΩRL(SE) 1.7 3
+RL(PBTL) 1.7 2
+LOUT(BTL)
+Output filter inductance Minimum output inductance at IOC
+5
+μHLOUT(SE) 5
+LOUT(PBTL) 5
+FPWM
+PWM frame rate selectable for AM
+interference avoidance; 1% Resistor
+tolerance
+Nominal 430 450 470
+kHzAM1 475 500 525
+AM2 575 600 625
+R(FREQ_ADJ) PWM frame rate programming resistor
+Nominal; Master mode 29.7 30 30.3
+kΩAM1; Master mode 19.8 20 20.2
+AM2; Master mode 9.9 10 10.1
+CPVDD PVDD close decoupling capacitors 1 μF
+ROC Over-current programming resistor
+Resistor tolerance = 5%, RL = 4Ω 22 30
+kΩResistor tolerance = 5%, RL ≥ 6Ω, PVDD
+= 53.5V (1) 30
+ROC(LATCHED) Over-current programming resistor
+Resistor tolerance = 5%, RL = 4Ω 47 64
+kΩResistor tolerance = 5%, RL ≥ 6Ω, PVDD
+= 53.5V (1) 64
+V(FREQ_ADJ)
+Voltage on FREQ_ADJ pin for slave
+mode operation Slave mode 3.3 V
+TJ Junction temperature 0 125 °C
+(1) For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+report.
+(2) Thermal data are obtained with 85°C heat sink temperature using thermal compound with 0.7W/mK thermal conductivity and 2mil
+thickness. In this model heat sink temperature is considered to be the ambient temperature and only path for dissipation is to the
+heatsink.
+7.4 Thermal Information
+THERMAL METRIC (1)
+TPA3255
+UNIT
+DDV 44-PINS HTSSOP
+JEDEC STANDARD
+4 LAYER PCB
+FIXED 85°C
+HEATSINK
+TEMPERATURE (2)
+RθJA Junction-to-ambient thermal resistance 50.7 2.4 (2)
+°C/W
+RθJC(top) Junction-to-case (top) thermal resistance 0.36 0.3
+RθJB Junction-to-board thermal resistance 24.4 n/a
+ψJT Junction-to-top characterization parameter 0.19 0.5
+ψJB Junction-to-board characterization parameter 24.2 n/a
+RθJC(bot) Junction-to-case (bottom) thermal resistance n/a n/a
+
+===== page 7 =====
+7
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+(1) Specified by design.
+7.5 Electrical Characteristics
+PVDD_X = 51 V, GVDD_X = 12 V, VDD = 12 V, TC (Case temperature) = 75°C, fS = 450 kHz, unless otherwise specified.
+PARAMETER TEST CONDITIONS MIN TYP MAX UNIT
+INTERNAL VOLTAGE REGULATOR AND CURRENT CONSUMPTION
+DVDD Voltage regulator, only used as reference
+node VDD = 12 V 3 3.3 3.6 V
+AVDD Voltage regulator, only used as reference
+node VDD = 12 V 7.75 V
+IVDD VDD supply current
+Operating, 50% duty cycle 30
+mA
+Idle, reset mode 14
+IGVDD_X Gate-supply current per full-bridge
+50% duty cycle 44
+mA
+Reset mode 5
+IPVDD_X PVDD idle current per full bridge
+50% duty cycle with recommended output filter 24 mA
+Reset mode, No switching 5 mA
+VDD = 0V, GVDD_X = 0V 1.25 mA
+ANALOG INPUTS
+RIN Input resistance 20 kΩ
+VIN Maximum input voltage swing, peak - peak 7 V
+IIN Maximum input current 1 mA
+G Inverting voltage Gain VOUT/VIN 21.5 dB
+OSCILLATOR
+fOSC(IO+)
+Nominal, Master Mode
+FPWM × 6
+2.58 2.7 2.82
+MHzAM1, Master Mode 2.85 3 3.15
+AM2, Master Mode 3.45 3.6 3.75
+VIH High level input voltage 1.86 V
+VIL Low level input voltage 1.45 V
+OUTPUT-STAGE MOSFETs
+RDS(on)
+Drain-to-source resistance, low side (LS) TJ = 25°C, Includes metallization resistance,
+GVDD = 12 V
+85 100 mΩ
+Drain-to-source resistance, high side (HS) 85 100 mΩ
+I/O PROTECTION
+Vuvp,VDD,GVDD
+Undervoltage protection limit, GVDD_x and
+VDD 8.7 V
+Vuvp,VDD, GVDD,hyst
+(1) 0.6 V
+Vuvp,PVDD Undervoltage protection limit, PVDD_x 14.5 V
+Vuvp,PVDD,hyst
+(1) 1.4 V
+OTW Overtemperature warning, CLIP_OTW (1) 110 120 130 °C
+OTWhyst
+(1)
+Temperature drop needed below OTW
+temperature for CLIP_OTW to be inactive
+after OTW event.
+20 °C
+OTE (1) Overtemperature error 140 150 160 °C
+OTEhyst
+(1) A reset needs to occur for FAULT to be
+released following an OTE event 15 °C
+OTE-OTW(differential)(1) OTE-OTW differential 30 °C
+OLPC Overload protection counter fPWM = 450 kHz (1024 PWM cycles) 2.3 ms
+IOC Overcurrent limit protection
+Resistor – programmable, nominal peak current in
+1Ω load, ROCP = 22 kΩ 17
+A
+Resistor – programmable, nominal peak current in
+1Ω load, ROCP = 30 kΩ 13
+IOC(LATCHED) Overcurrent limit protection
+Resistor – programmable, peak current in 1Ω load,
+ROCP = 47kΩ 17
+A
+Resistor – programmable, peak current in 1Ω load,
+ROCP = 64kΩ 13
+IDCspkr DC Speaker Protection Current Threshold BTL current imbalance threshold 1.5 A
+IOCT Overcurrent response time Time from switching transition to flip-state induced
+by overcurrent. 150 ns
+
+===== page 8 =====
+8
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+Electrical Characteristics (continued)
+PVDD_X = 51 V, GVDD_X = 12 V, VDD = 12 V, TC (Case temperature) = 75°C, fS = 450 kHz, unless otherwise specified.
+PARAMETER TEST CONDITIONS MIN TYP MAX UNIT
+IPD Output pulldown current of each half Connected when RESET is active to provide
+bootstrap charge. Not used in SE mode. 3 mA
+STATIC DIGITAL SPECIFICATIONS
+VIH High level input voltage
+M1, M2, OSC_IOP, OSC_IOM, RESET
+1.9 V
+VIL Low level input voltage 0.8 V
+Ilkg Input leakage current 100 μA
+OTW/SHUTDOWN (FAULT)
+RINT_PU
+Internal pullup resistance, CLIP_OTW to
+DVDD, FAULT to DVDD 20 26 32 kΩ
+VOH High level output voltage Internal pullup resistor 3 3.3 3.6 V
+VOL Low level output voltage IO = 4 mA 10 500 mV
+Device fanout CLIP_OTW, FAULT No external pullup 30 devices
+(1) SNR is calculated relative to 1% THD+N output level.
+(2) Actual system idle losses also are affected by core losses of output inductors.
+7.6 Audio Characteristics (BTL)
+PCB and system configuration are in accordance with recommended guidelines. Audio frequency = 1 kHz, PVDD_X = 51 V,
+GVDD_X = 12 V, RL = 4 Ω, fS = 450 kHz, ROC = 22 kΩ, TC = 75°C, Output Filter: LDEM = 10 μH, CDEM = 1 µF, mode = 00,
+AES17 + AUX-0025 measurement filters,unless otherwise noted.
+PARAMETER TEST CONDITIONS MIN TYP MAX UNIT
+PO Power output per channel
+RL = 4 Ω, 10% THD+N 315
+W
+RL = 6 Ω, 10% THD+N, PVDD = 53.5V 250
+RL = 8 Ω, 10% THD+N, PVDD = 53.5V 195
+RL = 4 Ω, 1% THD+N 255
+RL = 6 Ω, 1% THD+N, PVDD = 53.5V 200
+RL = 8 Ω, 1% THD+N, PVDD = 53.5V 155
+THD+N Total harmonic distortion + noise 1 W 0.006%
+Vn Output integrated noise A-weighted, AES17 filter, Input Capacitor
+Grounded 85 μV
+|VOS| Output offset voltage Inputs AC coupled to GND 15 60 mV
+SNR Signal-to-noise ratio (1) 112 dB
+DNR Dynamic range 113 dB
+Pidle Power dissipation due to Idle losses (IPVDD) PO = 0, 4 channels switching (2) 2.5 W
+
+===== page 9 =====
+9
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+(1) SNR is calculated relative to 1% THD+N output level.
+(2) Actual system idle losses are affected by core losses of output inductors.
+7.7 Audio Characteristics (SE)
+PCB and system configuration are in accordance with recommended guidelines. Audio frequency = 1 kHz, PVDD_X = 51 V,
+GVDD_X = 12 V, RL = 2 Ω, fS = 450 kHz, ROC = 22 kΩ, TC = 75°C, Output Filter: LDEM = 15 μH, CDEM = 1 µF, MODE = 11,
+AES17 + AUX-0025 measurement filters, unless otherwise noted.
+PARAMETER TEST CONDITIONS MIN TYP MAX UNIT
+PO Power output per channel
+RL = 2 Ω, 10% THD+N 148
+W
+RL = 3 Ω, 10% THD+N, PVDD = 53.5V 120
+RL = 4 Ω, 10% THD+N, PVDD = 53.5V 95
+RL = 2 Ω, 1% THD+N 120
+RL = 3 Ω, 1% THD+N, PVDD = 53.5V 98
+RL = 4 Ω, 1% THD+N, PVDD = 53.5V 77
+THD+N Total harmonic distortion + noise 1 W 0.04%
+Vn Output integrated noise A-weighted, AES17 filter, Input Capacitor
+Grounded 160 μV
+SNR Signal to noise ratio (1) A-weighted 101 dB
+DNR Dynamic range A-weighted 101 dB
+Pidle Power dissipation due to idle losses (IPVDD) PO = 0, 4 channels switching (2) 2 W
+(1) SNR is calculated relative to 1% THD+N output level.
+(2) Actual system idle losses are affected by core losses of output inductors.
+7.8 Audio Characteristics (PBTL)
+PCB and system configuration are in accordance with recommended guidelines. Audio frequency = 1 kHz, PVDD_X = 51 V,
+GVDD_X = 12 V, RL = 2 Ω, fS = 450 kHz, ROC = 22 kΩ, TC = 75°C, Output Filter: LDEM = 10 μH, CDEM = 1 µF, MODE = 10,
+AES17 + AUX-0025 measurement filters, unless otherwise noted.
+PARAMETER TEST CONDITIONS MIN TYP MAX UNIT
+PO Power output per channel
+RL = 2 Ω, 10% THD+N 605
+W
+RL = 3 Ω, 10% THD+N, PVDD = 53.5V 500
+RL = 4 Ω, 10% THD+N, PVDD = 53.5V 390
+RL = 2 Ω, 1% THD+N 495
+RL = 3 Ω, 1% THD+N, PVDD = 53.5V 405
+RL = 4 Ω, 1% THD+N, PVDD = 53.5V 315
+THD+N Total harmonic distortion + noise 1 W 0.008%
+Vn Output integrated noise A-weighted, AES17 filter, Input Capacitor
+Grounded 70 μV
+SNR Signal to noise ratio (1) A-weighted 114 dB
+DNR Dynamic range A-weighted 114 dB
+Pidle Power dissipation due to idle losses (IPVDD) PO = 0, 4 channels switching (2) 2.5 W
+
+===== page 10 =====
+Po - Output Power - W
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+10m 100m 1 10 100 400
+D005
+TA = 75qC
+4:
+6:
+8:
+Po - Output Power - W
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+10m 100m 1 10 100 300
+D006
+TA = 75qC
+6:
+8:
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.0002
+0.001
+0.01
+0.1
+1
+10
+20 20k100 1k 10k
+D003
+TC = 75qC1W
+25W
+100W
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+20 40k100 1k 10k
+D004
+TC = 75qC1W
+25W
+100W
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.0003
+0.001
+0.01
+0.1
+1
+10
+20 20k100 1k 10k
+D001
+TC = 75qC1W
+25W
+150W
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+20 40k100 1k 10k
+D002
+TC = 75qC1W
+25W
+150W
+10
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+7.9 Typical Characteristics, BTL Configuration
+All Measurements taken at audio frequency = 1 kHz, PVDD_X = 51 V, GVDD_X = 12 V, RL = 4 Ω, fS = 450 kHz, ROC = 22 kΩ,
+TC = 75°C, Output Filter: LDEM = 10 μH, CDEM = 1 µF, mode = 00, AES17 + AUX-0025 measurement filters,unless otherwise
+noted.
+RL = 4 Ω P = 1W, 25W,
+150W
+TC = 75°C
+PVDD = 51V
+Figure 1. Total Harmonic Distortion+Noise vs Frequency
+RL = 4 Ω P = 1W, 25W,
+150W
+TC = 75°C
+AUX-0025 filter, 80 kHz analyzer BW PVDD = 51V
+Figure 2. Total Harmonic Distortion+Noise vs Frequency
+RL = 8 Ω P = 1W, 25W,
+100W
+TC = 75°C
+PVDD = 53.5V
+Figure 3. Total Harmonic Distortion+Noise vs Frequency
+RL = 8 Ω P = 1W, 25W,
+100W
+TC = 75°C
+AUX-0025 filter, 80 kHz analyzer BW PVDD = 53.5V
+Figure 4. Total Harmonic Distortion+Noise vs Frequency
+RL = 4 Ω, 6 Ω, 8 Ω TC = 75°C PVDD = 51V
+Figure 5. Total Harmonic Distortion + Noise vs Output
+Power
+RL = 6 Ω, 8 Ω TC = 75°C PVDD = 53.5V
+Figure 6. Total Harmonic Distortion + Noise vs Output
+Power
+
+===== page 11 =====
+TC - Case Temperature - qC
+PO - Output Power - W
+0 25 50 75 100
+0
+50
+100
+150
+200
+250
+300
+350
+D011
+THD+N = 10%
+4:
+6:
+8:
+f - Frequency - Hz
+Noise Amplitude - dB
+-160
+-140
+-120
+-100
+-80
+-60
+-40
+-20
+0
+5k 10k 20k0 25k 30k 15k 35k 40k 45k48k
+D012
+TC = 75qC
+Vref = 36.06 V
+FFT size = 16384
+4:
+2 Channel Output Power - W
+Efficiency - %
+1
+10
+100
+10m 100m 1 10 100 700
+TC = 75qC
+D009
+4:
+6:
+8:
+2 Channel Output Power - W
+Power Loss - W
+0 100 200 300 400 500 600 650
+0
+20
+40
+60
+80
+100
+D010
+TC = 75qC
+4:
+6:
+8:
+PVDD - Supply Voltage - V
+PO - Output Power - W
+15 20 25 30 35 40 45 50 55 60
+0
+40
+80
+120
+160
+200
+240
+280
+320
+360
+D007
+THD+N = 10%
+TC = 75qC
+4:
+6:
+8:
+PVDD - Supply Voltage - V
+PO - Output Power - W
+15 20 25 30 35 40 45 50 55 60
+0
+50
+100
+150
+200
+250
+300
+D008
+THD+N = 1%
+TC = 75qC
+4:
+6:
+8:
+11
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+Typical Characteristics, BTL Configuration (continued)
+All Measurements taken at audio frequency = 1 kHz, PVDD_X = 51 V, GVDD_X = 12 V, RL = 4 Ω, fS = 450 kHz, ROC = 22 kΩ,
+TC = 75°C, Output Filter: LDEM = 10 μH, CDEM = 1 µF, mode = 00, AES17 + AUX-0025 measurement filters,unless otherwise
+noted.
+RL = 4 Ω, 6 Ω, 8 Ω THD+N = 10% TC = 75°C
+Figure 7. Output Power vs Supply Voltage
+RL = 4 Ω, 6 Ω, 8 Ω THD+N = 1% TC = 75°C
+Figure 8. Output Power vs Supply Voltage
+RL = 4 Ω, 6 Ω, 8 Ω THD+N = 10% TC = 75°C
+Figure 9. System Efficiency vs Output Power
+RL = 4 Ω, 6 Ω, 8 Ω THD+N = 10% TC = 75°C
+Figure 10. System Power Loss vs Output Power
+RL = 4 Ω, 6 Ω, 8 Ω THD+N = 10% TC = 75°C
+Figure 11. Output Power vs Case Temperature
+4 Ω, VREF = 36.06 V
+(1% Output power)
+FFT =
+16384
+AUX-0025 filter, 80 kHz
+analyzer BW
+TC = 75°C
+Figure 12. Noise Amplitude vs Frequency
+
+===== page 12 =====
+PVDD - Supply Voltage - V
+PO - Output Power - W
+15 20 25 30 35 40 45 50 55 60
+0
+20
+40
+60
+80
+100
+120
+140
+D017
+THD+N = 1%
+TC = 75qC
+2:
+3:
+4:
+TC - Case Temperature - qC
+PO - Output Power - W
+0 25 50 75 100
+0
+25
+50
+75
+100
+125
+150
+175
+D018
+THD+N = 10%
+2:
+3:
+4:
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+20 20k100 1k 10k 40k
+D015
+TC = 75qC1W
+20W
+50W
+PVDD - Supply Voltage - V
+PO - Output Power - W
+15 20 25 30 35 40 45 50 55 60
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180
+D016
+THD+N = 10%
+TC = 75qC
+2:
+3:
+4:
+Po - Output Power - W
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+10m 100m 1 10 100 200
+D013
+TA = 75qC
+2:
+3:
+4:
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+20 20k100 1k 10k
+D014
+TC = 75qC1W
+20W
+50W
+12
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+7.10 Typical Characteristics, SE Configuration
+All Measurements taken at audio frequency = 1 kHz, PVDD_X = 51 V, GVDD_X = 12 V, RL = 3 Ω, fS = 450 kHz, ROC = 22 kΩ,
+TC = 75°C, Output Filter: LDEM = 15 μH, CDEM = 680 nF, MODE = 11, AES17 + AUX-0025 measurement filters, unless
+otherwise noted.
+RL = 2Ω, 3Ω, 4Ω TC = 75°C
+Figure 13. Total Harmonic Distortion+Noise vs Output
+Power
+RL = 3Ω P = 1W, 20W, 50W TC = 75°C
+Figure 14. Total Harmonic Distortion+Noise vs Frequency
+RL = 3Ω P = 1W, 20W, 50W TC = 75°C
+AUX-0025 filter, 80 kHz analyzer BW
+Figure 15. Total Harmonic Distortion+Noise vs Frequency
+RL = 2Ω, 3Ω, 4Ω THD+N = 10% TC = 75°C
+Figure 16. Output Power vs Supply Voltage
+RL = 2Ω, 3Ω, 4Ω THD+N = 1% TC = 75°C
+Figure 17. Output Power vs Supply Voltage
+RL = 2Ω, 3Ω, 4Ω THD+N = 10% TC = 75°C
+Figure 18. Output Power vs Case Temperature
+
+===== page 13 =====
+PVDD - Supply Voltage - V
+PO - Output Power - W
+15 20 25 30 35 40 45 50 55 60
+0
+100
+200
+300
+400
+500
+600
+D023
+THD+N = 1%
+TC = 75qC
+2:
+3:
+4:
+TC - Case Temperature - qC
+PO - Output Power - W
+0 25 50 75 100
+0
+100
+200
+300
+400
+500
+600
+700
+D024
+THD+N = 10%
+2:
+3:
+4:
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+20 40k100 1k 10k
+D021
+TC = 75qC1W
+50W
+375W
+PVDD - Supply Voltage - V
+PO - Output Power - W
+15 20 25 30 35 40 45 50 55 60
+0
+100
+200
+300
+400
+500
+600
+700
+D022
+THD+N = 10%
+TC = 75qC
+2:
+3:
+4:
+Po - Output Power - W
+THD+N - Total Harmonic Distortion + Noise - %0.001
+0.01
+0.1
+1
+10
+10m 100m 1 10 100 700
+D019
+TA = 75qC
+2:
+3:
+4:
+f - Frequency - Hz
+THD+N - Total Harmonic Distortion + Noise - %0.0003
+0.001
+0.01
+0.1
+1
+10
+20 20k100 1k 10k
+D020
+TC = 75qC1W
+50W
+375W
+13
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+7.11 Typical Characteristics, PBTL Configuration
+All Measurements taken at audio frequency = 1 kHz, PVDD_X = 51V, GVDD_X = 12 V, RL = 2Ω, fS = 450 kHz, ROC = 22 kΩ,
+TC = 75°C, Output Filter: LDEM = 10μH, CDEM = 1 µF, MODE = 10, AES17 + AUX-0025 measurement filters, unless otherwise
+noted.
+RL = 2Ω, 3Ω, 4Ω TC = 75°C
+Figure 19. Total Harmonic Distortion+Noise vs Output
+Power
+RL = 2Ω P = 1W, 50W, 375W TC = 75°C
+Figure 20. Total Harmonic Distortion+Noise vs Frequency
+RL = 2Ω P = 1W, 50W, 375W TC = 75°C
+AUX-0025 filter, 80 kHz analyzer BW
+Figure 21. Total Harmonic Distortion+Noise vs Frequency
+RL = 2Ω, 3Ω, 4Ω THD+N = 10% TC = 75°C
+Figure 22. Output Power vs Supply Voltage
+RL = 2Ω, 3Ω, 4Ω THD+N = 1% TC = 75°C
+Figure 23. Output Power vs Supply Voltage
+RL = 2Ω, 3Ω, 4Ω THD+N = 10% TC = 75°C
+Figure 24. Output Power vs Case Temperature
+
+===== page 14 =====
+14
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+8 Parameter Measurement Information
+All parameters are measured according to the conditions described in the Recommended Operating Conditions,
+Typical Characteristics, BTL Configuration, Typical Characteristics, SE Configuration and Typical Characteristics,
+PBTL Configuration sections.
+Most audio analyzers will not give correct readings of Class-D amplifiers’performance due to their sensitivity to
+out of band noise present at the amplifier output. AES-17 + AUX-0025 pre-analyzer filters are recommended to
+use for Class-D amplifier measurements. In absence of such filters, a 30-kHz low-pass filter (10 Ω + 47 nF) can
+be used to reduce the out of band noise remaining on the amplifier outputs.
+9 Detailed Description
+9.1 Overview
+To facilitate system design, the TPA3255 needs only a 12-V supply in addition to the (typical) 51-V power-stage
+supply. An internal voltage regulator provides suitable voltage levels for the digital and low-voltage analog
+circuitry, AVDD and DVDD. Additionally, all circuitry requiring a floating voltage supply, that is, the high-side gate
+drive, is accommodated by built-in bootstrap circuitry requiring only an external capacitor for each half-bridge.
+The audio signal path including gate drive and output stage is designed as identical, independent half-bridges.
+For this reason, each half-bridge has separate bootstrap pins (BST_X). Power-stage supply pins (PVDD_X) and
+gate drive supply pins (GVDD_X) are separate for each full bridge. Although supplied from the same 12-V
+source, separating to GVDD_AB, GVDD_CD, and VDD on the printed-circuit board (PCB) by RC filters (see
+application diagram for details) is recommended. These RC filters provide the recommended high-frequency
+isolation. Special attention should be paid to placing all decoupling capacitors as close to their associated pins as
+possible. In general, the physical loop with the power supply pins, decoupling capacitors and GND return path to
+the device pins must be kept as short as possible and with as little area as possible to minimize induction (see
+reference board documentation for additional information).
+For a properly functioning bootstrap circuit, a small ceramic capacitor must be connected from each bootstrap pin
+(BST_X) to the power-stage output pin (OUT_X). When the power-stage output is low, the bootstrap capacitor is
+charged through an internal diode connected between the gate-drive power-supply pin (GVDD_X) and the
+bootstrap pins. When the power-stage output is high, the bootstrap capacitor potential is shifted above the output
+potential and thus provides a suitable voltage supply for the high-side gate driver. It is recommended to use 33-
+nF ceramic capacitors, size 0603 or 0805, for the bootstrap supply. These 33nF capacitors ensure sufficient
+energy storage, even during minimal PWM duty cycles, to keep the high-side power stage FET (LDMOS) fully
+turned on during the remaining part of the PWM cycle.
+Special attention should be paid to the power-stage power supply; this includes component selection, PCB
+placement, and routing. As indicated, each full-bridge has independent power-stage supply pins (PVDD_X). For
+optimal electrical performance, EMI compliance, and system reliability, it is important that each PVDD_X node is
+decoupled with 1-μF ceramic capacitor placed as close as possible to the supply pins. It is recommended to
+follow the PCB layout of the TPA3255 reference design. For additional information on recommended power
+supply and required components, see the application diagrams in this data sheet.
+The 12-V supply should be from a low-noise, low-output-impedance voltage regulator. Likewise, the 51-V power-
+stage supply is assumed to have low output impedance and low noise. The power-supply sequence is not critical
+as facilitated by the internal power-on-reset circuit, but it is recommended to release RESET after the power
+supply is settled for minimum turn on audible artefacts. Moreover, the TPA3255 is fully protected against
+erroneous power-stage turn on due to parasitic gate charging. Thus, voltage-supply ramp rates (dV/dt) are non-
+critical within the specified range (see the Recommended Operating Conditions table of this data sheet).
+
+===== page 15 =====
+M1
+M2
+/RESET
+/FAULT
+GND
+OC_ADJ
+AVDD
+VDD
+GVDD_AB
+GND
+INPUT_D
+OUT_A
+GND
+PVDD_AB
+BST_A
+PWM
+ACTIVITY 
+DETECTOR
+GVDD_AB
+INPUT_C
+OUT_B
+GND
+PVDD_AB
+BST_B
+GVDD_AB GVDD_CD
+GVDD_CD
+OUT_C
+GND
+PVDD_CD
+BST_C
+GVDD_CD
+OUT_D
+GND
+PVDD_CD
+BST_D
+INPUT_B
+INPUT_A
+PVDD_X
+OUT_X
+GND
+TIMING
+CONTROLCONTROL GATE-DRIVE
+TIMING
+CONTROLCONTROL GATE-DRIVE
+TIMING
+CONTROLCONTROL GATE-DRIVE
+TIMING
+CONTROLCONTROL GATE-DRIVE
+PWM 
+RECEIVER
+PWM 
+RECEIVER
+PWM 
+RECEIVER
+PWM 
+RECEIVER+
+-
++
+-
++
+-
++
+-
+PROTECTION & I/O LOGIC
+STARTUP 
+CONTROL
+POWER-
+UP
+RESET
+TEMP
+SENSE
+OVER-LOAD
+PROTECTIO
+N
+PPSC
+CB3C
+UVP
+CURRENT 
+SENSE
+VREG
+C_START
+ANALOG 
+LOOP 
+FILTER
+ANALOG 
+LOOP 
+FILTER
+ANALOG 
+LOOP 
+FILTER
+ANALOG 
+LOOP 
+FILTER
+OSCILLATO
+R
+FREQ_ADJ
+OSC_IOP
+OSC_IOM
+/CLIP_OTW
+DVDD
+DIFFOC
+VBG
+Copyright © 2016, Texas Instruments Incorporated
+15
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+9.2 Functional Block Diagrams
+
+===== page 16 =====
+2-CHANNEL
+H-BRIDGE 
+BTL MODE
+Output
+H-Bridge 2
+PVDD_AB, CD
+GND
+Hardwire
+Over-
+Current 
+Limit 
+GND
+VDD
+DVDD
+AVDD
+OC_ADJ
+PVDD
+Power Supply 
+Decoupling
+GVDD, VDD, 
+DVDD and 
+AVDD  
+Power Supply 
+Decoupling
+SYSTEM 
+Power 
+Supplies
+PVDD
+GVDD (12V)/VDD (12V)
+GND
+51V
+12V
+GND
+VAC
+Bootstrap 
+Capacitors
+BST_C
+BST_D
+2nd Order   
+L-C Output 
+Filter for 
+Each
+H-Bridge
+OUT_C
+OUT_D
+GVDD_AB, CD
+Bootstrap 
+Capacitors
+BST_A
+BST_B
+INPUT_A
+2nd Order   
+L-C Output 
+Filter for 
+Each
+H-Bridge
+OUT_A
+OUT_B
+Output
+H-Bridge 1Input
+H-Bridge 1INPUT_B
+M2
+M1Hardwire
+Mode 
+Control
+Input
+H-Bridge 2
+INPUT_C
+INPUT_D
+C_START
+Capacitor for
+External
+Filtering
+and
+Startup/Stop
+/CLIP_OTW
+System 
+microcontroller or 
+Analog circuitry
+/FAULT
+/RESET
+*NOTE1: Logic AND in or outside microcontroller
+OSC_IOP
+OSC_IOM
+Oscillator 
+Synchronization
+Input DC 
+Blocking 
+Caps
+Input DC 
+Blocking 
+Caps
+ANALOG_IN_A
+ANALOG_IN_B
+ANALOG_IN_C
+ANALOG_IN_D
+FREQ_ADJ
+Hardwire PWM 
+Frame Adjust and 
+Master/Slave 
+Mode
+VBG
+Copyright © 2016, Texas Instruments Incorporated
+16
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+Functional Block Diagrams (continued)
+Figure 25. System Block Diagram
+
+===== page 17 =====
+17
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+9.3 Feature Description
+9.3.1 Error Reporting
+The FAULT, and CLIP_OTW, pins are active-low, open-drain outputs. The function is for protection-mode
+signaling to a system-control device.
+Any fault resulting in device shutdown is signaled by the FAULT pin going low. Also, CLIP_OTW goes low when
+the device junction temperature exceeds 125°C (see Table 2).
+Table 2. Error Reporting
+FAULT CLIP_OTW DESCRIPTION
+0 0 Overtemperature (OTE) or overload (OLP) or undervoltage (UVP) Junction
+temperature higher than 125°C (overtemperature warning)
+0 0 Overload (OLP) or undervoltage (UVP). Junction temperature higher than 125°C
+(overtemperature warning)
+0 1 Overload (OLP) or undervoltage (UVP). Junction temperature lower than 125°C
+1 0 Junction temperature higher than 125°C (overtemperature warning)
+1 1 Junction temperature lower than 125°C and no OLP or UVP faults (normal operation)
+Note that asserting RESET low forces the FAULT signal high, independent of faults being present. TI
+recommends monitoring the CLIP_OTW signal using the system microcontroller and responding to an
+overtemperature warning signal by turning down the volume to prevent further heating of the device resulting in
+device shutdown (OTE).
+To reduce external component count, an internal pullup resistor to 3.3 V is provided on both FAULT and
+CLIP_OTW outputs.
+9.4 Device Functional Modes
+9.4.1 Device Protection System
+The TPA3255 contains advanced protection circuitry carefully designed to facilitate system integration and ease
+of use, as well as to safeguard the device from permanent failure due to a wide range of fault conditions such as
+short circuits, overload, overtemperature, and undervoltage. The TPA3255 responds to a fault by immediately
+setting the power stage in a high-impedance (Hi-Z) state and asserting the FAULT pin low. In situations other
+than overload and overtemperature error (OTE), the device automatically recovers when the fault condition has
+been removed, that is, the supply voltage has increased.
+The device will handle errors, as shown in Table 3.
+Table 3. Device Protection
+BTL MODE PBTL MODE SE MODE
+LOCAL
+ERROR IN TURNS OFF LOCAL
+ERROR IN TURNS OFF LOCAL
+ERROR IN TURNS OFF
+A
+A+B
+A
+A+B+C+D
+A
+A+B
+B B B
+C
+C+D
+C C
+C+D
+D D D
+Bootstrap UVP does not shutdown according to the table, it shuts down the respective halfbridge (non-latching,
+does not assert FAULT).
+9.4.1.1 Overload and Short Circuit Current Protection
+TPA3255 has fast reacting current sensors with a programmable trip threshold (OC threshold) on all high-side
+and low-side FETs. To prevent output current from increasing beyond the programmed threshold, TPA3255 has
+the option of either limiting the output current for each switching cycle (Cycle By Cycle Current Control, CB3C) or
+to perform an immediate shutdown of the output in case of excess output current (Latching Shutdown). CB3C
+prevents premature shutdown due to high output current transients caused by high level music transients and a
+
+===== page 18 =====
+I_OC
+ROC_ADJ
+R_OC, min,
+CB3C, max level
+R_Latch, max,
+Latching OC, min level
+R_OC, max,
+CB3C, min level
+R_Latch, min,
+Latching OC, max level
+IOC_max
+IOC_min
+Not Defined
+HS PWM
+PWM_X
+LS PWM
+OC EVENT RESETS 
+CB3C LATCH
+OUTPUT CURRENT
+OC THRESHOLD
+OCH
+HS GATE-DRIVE
+LS GATE-DRIVE
+RISING EDGE PWM 
+SETS CB3C LATCH
+18
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+drop of real speaker’s load impedance, and allows the output current to be limited to a maximum programmed
+level. If the maximum output current persists, i.e. the power stage being overloaded with too low load impedance,
+the device will shut down the affected output channel and the affected output is put in a high-impedance (Hi- Z)
+state until a RESET cycle is initiated. CB3C works individually for each half bridge output. If an over current
+event is triggered, CB3C performs a state flip of the half bridge output that is cleared upon beginning of next
+PWM frame.
+Figure 26. CB3C Timing Example
+During CB3C an over load counter increments for each over current event and decrease for each non-over
+current PWM cycle. This allows full amplitude transients into a low speaker impedance without a shutdown
+protection action. In the event of a short circuit condition, the over current protection limits the output current by
+the CB3C operation and eventually shut down the affected output if the overload counter reaches its maximum
+value. If a latched OC operation is required such that the device shuts down the affected output immediately
+upon first detected over current event, this protection mode should be selected. The over current threshold and
+mode (CB3C or Latched OC) is programmed by the OC_ADJ resistor value. The OC_ADJ resistor needs to be
+within its intentional value range for either CB3C operation or Latched OC operation.
+Figure 27. OC Threshold versus OC_ADJ Resistor Value Example
+OC_ADJ values outside specified value range for either CB3C or latched OC operation will result in minimum OC
+threshold.
+
+===== page 19 =====
+19
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+Table 4. Device Protection
+OC_ADJ Resistor Value Protection Mode OC Threshold
+22kΩ CB3C 17.0A
+24kΩ CB3C 15.7A
+27kΩ CB3C 14.2A
+30kΩ CB3C 12.9A
+47kΩ Latched OC 17.0A
+51kΩ Latched OC 15.7A
+56kΩ Latched OC 14.2A
+64kΩ Latched OC 12.9A
+9.4.1.2 Signal Clipping and Pulse Injector
+A built in activity detector monitors the PWM activity of the OUT_X pins. TPA3255 is designed to drive unclipped
+output signals all the way to PVDD and GND rails. In case of audio signal clipping when applying excessive input
+signal voltage, or in case of CB3C current protection being active, the amplifier feedback loop of the audio
+channel will respond to this condition with a saturated state, and the output PWM signals would stop if the device
+did not have special circuitry implemented to handle this situation. To prevent the output PWM signals from
+stopping in a clipping or CB3C situation, narrow pulses are injected to the gate drive to maintain output activity.
+The injected narrow pulses are injected at every 4th PWM frame, and thus the effective switching frequency
+during this state is reduced to 1/4 of the normal switching frequency.
+Signal clipping is signalled on the CLIP_OTW pin and is self clearing when signal level reduces and the device
+reverts to normal operation. The CLIP_OTW pulses start at the onset to output clipping, typically at a THD level
+around 0.01%, resulting in narrow CLIP_OTW pulses starting with a pulse width of ~500 ns.
+Figure 28. Signal Clipping PWM and Speaker Output Signals
+9.4.1.3 DC Speaker Protection
+The output DC protection scheme protects a speaker from excess DC current in case one terminal of the
+speaker is connected to the amplifier while the other is accidentally shorted to the chassis ground. Such a short
+circuit results in a DC voltage of PVDD/2 across the speaker, which potentially can result in destructive current
+levels. The output DC protection detects any unbalance of the output and input current of a BTL output, and in
+the event of the unbalance exceeding a programmed threshold, the overload counter increments until its
+maximum value and the affected output channel is shut down. DC Speaker Protection is disabled in SE mode
+operation.
+
+===== page 20 =====
+20
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+9.4.1.4 Pin-to-Pin Short Circuit Protection (PPSC)
+The PPSC detection system protects the device from permanent damage if a power output pin (OUT_X) is
+shorted to GND_X or PVDD_X. For comparison, the OC protection system detects an overcurrent after the
+demodulation filter where PPSC detects shorts directly at the pin before the filter. PPSC detection is performed at
+startup that is, when VDD is supplied, consequently a short to either GND_X or PVDD_X after system startup
+does not activate the PPSC detection system. When PPSC detection is activated by a short on the output, all
+half bridges are kept in a Hi-Z state until the short is removed; the device then continues the startup sequence
+and starts switching. The detection is controlled globally by a two step sequence. The first step ensures that
+there are no shorts from OUT_X to GND_X, the second step tests that there are no shorts from OUT_X to
+PVDD_X. The total duration of this process is roughly proportional to the capacitance of the output LC filter. The
+typical duration is < 15ms/μF. While the PPSC detection is in progress, FAULT is kept low, and the device will
+not react to changes applied to the RESET pin. If no shorts are present the PPSC detection passes, and FAULT
+is released. A device reset will not start a new PPSC detection. PPSC detection is enabled in BTL and PBTL
+output configurations, the detection is not performed in SE mode. To make sure not to trip the PPSC detection
+system it is recommended not to insert a resistive load to GND_X or PVDD_X.
+9.4.1.5 Overtemperature Protection OTW and OTE
+TPA3255 has a two-level temperature-protection system that asserts an active-low warning signal (CLIP_OTW)
+when the device junction temperature exceeds 120°C (typical) and, if the device junction temperature exceeds
+155°C (typical), the device is put into thermal shutdown, resulting in all half-bridge outputs being set in the high-
+impedance (Hi-Z) state and FAULT being asserted low. OTE is latched in this case. To clear the OTE latch,
+RESET must be asserted. Thereafter, the device resumes normal operation.
+9.4.1.6 Undervoltage Protection (UVP) and Power-on Reset (POR)
+The UVP and POR circuits of the TPA3255 fully protect the device in any power-up/down and brownout situation.
+While powering up, the POR circuit ensures that all circuits are fully operational when the GVDD_X and VDD
+supply voltages reach values stated in the Electrical Characteristics table. Although GVDD_X and VDD are
+independently monitored, a supply voltage drop below the UVP threshold on any VDD or GVDD_X pin results in
+all half-bridge outputs immediately being set in the high-impedance (Hi-Z) state and FAULT being asserted low.
+The device automatically resumes operation when all supply voltages have increased above the UVP threshold.
+9.4.1.7 Fault Handling
+If a fault situation occurs while in operation, the device acts accordingly to the fault being a global or a channel
+fault. A global fault is a chip-wide fault situation and causes all PWM activity of the device to be shut down, and
+will assert FAULT low. A global fault is a latching fault and clearing FAULT and restarting operation requires
+resetting the device by toggling RESET. Deasserting RESET should never be allowed with excessive system
+temperature, so it is advised to monitor RESET by a system microcontroller and only allow releasing RESET
+(RESET high) if the CLIP_OTW signal is cleared (high). A channel fault results in shutdown of the PWM activity
+of the affected channel(s). Note that asserting RESET low forces the FAULT signal high, independent of faults
+being present.
+
+===== page 21 =====
+21
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+(1) Stuck at Fault occurs when input OSC_IO input signal frequency drops below minimum frequency given in the Electrical Characteristics
+table of this data sheet.
+Table 5. Error Reporting
+Fault/Event Fault/Event
+Description
+Global or
+Channel
+Reporting
+Method
+Latched/Self
+Clearing
+Action needed
+to Clear Output FETs
+PVDD_X UVP
+Voltage Fault Global FAULT pin Self Clearing Increase affected
+supply voltage HI-ZVDD UVP
+AVDD UVP
+POR (DVDD UVP) Power On Reset Global FAULT pin Self Clearing Allow DVDD to
+rise HI-Z
+BST_X UVP Voltage Fault Channel (Half
+Bridge) None Self Clearing
+Allow BST cap to
+recharge (lowside
+ON, VDD 12V)
+HighSide off
+OTW Thermal Warning Global OTW pin Self Clearing Cool below OTW
+threshold Normal operation
+OTE Thermal
+Shutdown Global FAULT pin Latched Toggle RESET HI-Z
+OLP (CB3C>1.7ms) OC Shutdown Channel FAULT pin Latched Toggle RESET HI-Z
+Latched OC
+(47kΩ<ROC_ADJ<68
+kΩ)
+OC Shutdown Channel FAULT pin Latched Toggle RESET HI-Z
+CB3C
+(22kΩ<ROC_ADJ<30
+kΩ)
+OC Limiting Channel None Self Clearing
+Reduce signal
+level or remove
+short
+Flip state, cycle
+by cycle at fs/3
+Stuck at Fault (1)
+No OSC_IO
+activity in Slave
+Mode
+Global None Self Clearing Resume OSC_IO
+activity HI-Z
+9.4.1.8 Device Reset
+Asserting RESET low initiates the device ramp down. The output FETs go into a Hi-Z state after the ramp down
+is complete. Output pull downs are active both in SE mode and BTL mode with RESET low.
+In BTL modes, to accommodate bootstrap charging prior to switching start, asserting the reset input low enables
+weak pulldown of the half-bridge outputs.
+Asserting reset input low removes any fault information to be signaled on the FAULT output, that is, FAULT is
+forced high. A rising-edge transition on reset input allows the device to resume operation after a fault. To ensure
+thermal reliability, the rising edge of reset must occur no sooner than 4 ms after the falling edge of FAULT.
+
+===== page 22 =====
+PVDD
+GND
+/RESET
+INPUT_A
+INPUT_B
+INPUT_C
+INPUT_D
+/FAULT
+/CLIP_OTW
++12V
+TPA3255
+OC_ADJ
+VDD
+M2
+M1
+/CLIP_OTW
+/FAULT
+INPUT_D
+INPUT_C
+GND
+GND
+INPUT_B
+INPUT_A
+C_START
+/RESET
+GVDD_AB
+GVDD_CD
+VBG
+DVDD
+AVDD
+FREQ_ADJ
+OSC_IOM
+OSC_IOP
+PVDD_CD
+GND
+BST_A
+PVDD_AB
+GND
+OUT_B
+BST_B
+GND
+OUT_C
+PVDD_CD
+OUT_A
+PVDD_AB
+GND
+BST_C
+BST_D
+OUT_D
+GND
+GND
+OUT_D
+OUT_A
+PVDD_AB
+PVDD_CD
+44
+43
+42
+41
+31
+27
+28
+29
+30
+32
+33
+34
+35
+36
+40
+39
+38
+37
+25
+26
+23
+24
+13
+14
+15
+16
+17
+18
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+19
+20
+21
+22
+1µF
+1µF
+1µF
+1µF 470uF
+470uF
+10µH
+10µH
+1µF
+1µF
+1nF
+10nF
+3R3
+10nF
+1nF
+3R3
+33nF
+33nF
+10µH
+10µH
+1µF
+1µF
+1nF
+10nF
+3R3
+10nF
+1nF
+3R3
+33nF
+33nF
+100nF
+3R3
+1µF
+47nF
+1µF
+30k
+22k
+100nF100nF
+3R3
+470uF
+1µF
+10µF
+10µF
+10µF
+10µF
+Copyright © 2016, Texas Instruments Incorporated
+22
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+10 Application and Implementation
+NOTE
+Information in the following applications sections is not part of the TI component
+specification, and TI does not warrant its accuracy or completeness. TI’s customers are
+responsible for determining suitability of components for their purposes. Customers should
+validate and test their design implementation to confirm system functionality.
+10.1 Application Information
+TPA3255 can be configured either in stereo BTL mode, 4 channel SE mode, mono PBTL mode, or in 2.1 mixed
+1x BTL + 2x SE mode depending on output power conditions and system design.
+10.2 Typical Applications
+10.2.1 Stereo BTL Application
+Figure 29. Typical Differential (2N) BTL Application
+
+===== page 23 =====
+23
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+Typical Applications (continued)
+10.2.1.1 Design Requirements
+For this design example, use the parameters in Table 6.
+Table 6. Design Requirements, BTL Application
+DESIGN PARAMETER EXAMPLE
+Low Power (Pull-up) Supply 3.3 V
+Mid Power Supply 12 V 12 V
+High Power Supply 18 - 51 V
+Mode Selection
+M2 = L
+M1 = L
+Analog Inputs
+INPUT_A = ±3.9 V (peak, max)
+INPUT_B = ± 3.9V (peak, max)
+INPUT_C = ±3.9 V (peak, max)
+INPUT_D = ±3.9 V (peak, max)
+Output Filters Inductor-Capacitor Low Pass FIlter (10 µH + 1 µF)
+Speaker Impedance 3-8 Ω
+10.2.1.2 Detailed Design Procedures
+A rising-edge transition on reset input allows the device to execute the startup sequence and starts switching.
+The CLIP signal is indicating that the output is approaching clipping. The signal can be used either to decrease
+audio volume or to control an intelligent power supply nominally operating at a low rail adjusting to a higher
+supply rail.
+The device is inverting the audio signal from input to output.
+The DVDD and AVDD pins are not recommended to be used as a voltage sources for external circuitry.
+10.2.1.2.1 Decoupling Capacitor Recommendations
+In order to design an amplifier that has robust performance, passes regulatory requirements, and exhibits good
+audio performance, good quality decoupling capacitors should be used. In practice, X7R should be used in this
+application.
+10.2.1.2.2 PVDD Capacitor Recommendation
+The PVDD decoupling capacitors must be placed as close to the device pins a possible to insure short trace
+length and low a low inductance path. Likewise the ground path for these capacitors must provide a good
+reference and should be substantial. This will keep voltage ringing on PVDD to a minimum.
+The voltage of the decoupling capacitors should be selected in accordance with good design practices.
+Temperature, ripple current, and voltage overshoot must be considered. This fact is particularly true in the
+selection of the 1μF that is placed on the power supply to each full-bridge. It must withstand the voltage
+overshoot of the PWM switching, the heat generated by the amplifier during high power output, and the ripple
+current created by high power output. A minimum voltage rating of 100 V is required for use with a 51-V power
+supply.
+The large capacitors used in conjunction with each full-bridge, are referred to as the PVDD Capacitors. These
+capacitors should be selected for proper voltage margin and adequate capacitance to support the power
+requirements. In practice, with a well designed system power supply, 1000 μF, 80 V supports most applications.
+The PVDD capacitors should be low ESR type because they are used in a circuit associated with high-speed
+switching.
+10.2.1.2.3 PCB Material Recommendation
+FR-4 Glass Epoxy material with 2 oz. (70 μm) copper is recommended for use with the TPA3255. The use of this
+material can provide for higher power output, improved thermal performance, and better EMI margin (due to
+lower PCB trace inductance.
+
+===== page 24 =====
+24
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+10.2.1.2.4 Oscillator
+The built in oscillator frequency can be trimmed by an external resistor from the FREQ_ADJ pin to GND.
+Changes in the oscillator frequency should be made with resistor values specified in Recommended Operating
+Conditions while RESET is low.
+To reduce interference problems while using a radio receiver tuned within the AM band, the switching frequency
+can be changed from nominal to lower or higher values. These values should be chosen such that the nominal
+and the alternate switching frequencies together result in the fewest cases of interference throughout the AM
+band. The oscillator frequency can be selected by the value of the FREQ_ADJ resistor connected to GND in
+master mode.
+For slave mode operation, turn off the oscillator by pulling the FREQ_ADJ pin to DVDD. This configures the
+OSC_I/O pins as inputs to be slaved from an external differential clock. In a master/slave system inter-channel
+delay is automatically set up between the switching of the audio channels, which can be illustrated by no idle
+channels switching at the same time. This will not influence the audio output, but only the switch timing to
+minimize noise coupling between audio channels through the power supply. Inter-channel delay is needed to
+optimize audio performance and to get better operating conditions for the power supply. The inter-channel delay
+will be set up for a slave device depending on the polarity of the OSC_I/O connection as follows:
+• Slave 1 mode has normal polarity (master + to slave + and master - to slave -)
+• Slave 2 mode has reverse polarity (master + to slave - and master - to slave +)
+The interchannel delay for interleaved channel idle switching is given in the table below for the master/slave and
+output configuration modes in degrees relative to the PWM frame.
+Table 7. Master/Slave Inter Channel Delay Settings
+Master M1 = 0, M2 = 0, 2 x
+BTL mode
+M1 = 1, M2 = 0, 1 x
+BTL + 2 x SE
+mode
+M1 = 0, M2 = 1, 1 x
+PBTL mode
+M1 = 1, M2 = 1, 4 x
+SE mode
+OUT_A 0° 0° 0° 0°
+OUT_B 180° 180° 180° 60°
+OUT_C 60° 60° 0° 0°
+OUT_D 240° 120° 180° 60°
+Slave 1
+OUT_A 60° 60° 60° 60°
+OUT_B 240° 240° 240° 120°
+OUT_C 120° 120° 60° 60°
+OUT_D 300° 180° 240° 120°
+Slave 2
+OUT_A 30° 30° 30° 30°
+OUT_B 210° 210° 210° 90°
+OUT_C 90° 90° 30° 30°
+OUT_D 270° 150° 210° 90°
+
+===== page 25 =====
+25
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+10.2.2 Application Curves
+Relevant performance plots for TPA3255 in BTL configuration are shown in Typical Characteristics, BTL
+Configuration
+Table 8. Relevant Performance Plots, BTL Configuration
+PLOT TITLE FIGURE NUMBER
+Total Harmonic Distortion+Noise vs Frequency Figure 1
+Total Harmonic Distortion+Noise vs Frequency, 80kHz analyzer BW Figure 2
+Total Harmonic Distortion + Noise vs Output Power Figure 5
+Output Power vs Supply Voltage, 10% THD+N Figure 7
+Output Power vs Supply Voltage, 10% THD+N Figure 9
+System Efficiency vs Output Power Figure 9
+System Power Loss vs Output Power Figure 10
+Output Power vs Case Temperature Figure 11
+Noise Amplitude vs Frequency Figure 12
+
+===== page 26 =====
+PVDD
+GND
+/RESET
+INPUT_A
+INPUT_B
+INPUT_C
+INPUT_D
+/FAULT
+/CLIP_OTW
++12V
+TPA3255
+OC_ADJ
+VDD
+M2
+M1
+/CLIP_OTW
+/FAULT
+INPUT_D
+INPUT_C
+GND
+GND
+INPUT_B
+INPUT_A
+C_START
+/RESET
+GVDD_AB
+GVDD_CD
+VBG
+DVDD
+AVDD
+FREQ_ADJ
+OSC_IOM
+OSC_IOP
+PVDD_CD
+GND
+BST_A
+PVDD_AB
+GND
+OUT_B
+BST_B
+GND
+OUT_C
+PVDD_CD
+OUT_A
+PVDD_AB
+GND
+BST_C
+BST_D
+OUT_D
+GND
+GND
+OUT_D
+OUT_A
+PVDD_AB
+PVDD_CD
+44
+43
+42
+41
+31
+27
+28
+29
+30
+32
+33
+34
+35
+36
+40
+39
+38
+37
+25
+26
+23
+24
+13
+14
+15
+16
+17
+18
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+19
+20
+21
+22
+1µF
+1µF
+1µF
+1µF 470uF
+470uF
+33nF
+33nF
+33nF
+33nF
+100nF
+3R3
+1µF
+1µF
+1µF
+30k
+22k
+100nF100nF
+3R3
+470uF
+15µH 470uF
+470uF15µH
+1µF
+1µF
+1nF
+10nF
+3R3
+10nF
+1nF
+3R3
+15µH 470uF
+470uF15µH
+1µF
+1µF
+1nF
+10nF
+3R3
+10nF
+1nF
+3R3
+1µF
+10µF
+10µF
+10µF
+10µF
+Copyright © 2016, Texas Instruments Incorporated
+26
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+10.2.3 Typical Application, Single Ended (1N) SE
+TPA3255 can be configured either in stereo BTL mode, 4 channel SE mode, mono PBTL mode, or in 2.1 mixed
+1x BTL + 2x SE mode depending on output power conditions and system design.
+Figure 30. Typical Single Ended (1N) SE Application
+10.2.3.1 Design Requirements
+Refer to Stereo BTL Application for the Design Requirements.
+Table 9. Design Requirements, SE Application
+DESIGN PARAMETER EXAMPLE
+Low Power (Pull-up) Supply 3.3 V
+Mid Power Supply 12 V 12 V
+High Power Supply 18 - 51 V
+Mode Selection
+M2 = H
+M1 = H
+Analog Inputs
+INPUT_A = ±3.9 V (peak, max)
+INPUT_B = ±3.9 V (peak, max)
+INPUT_C = ±3.9 V (peak, max)
+INPUT_D = ±3.9 V (peak, max)
+Output Filters Inductor-Capacitor Low Pass FIlter (15 µH + 680 nF)
+Speaker Impedance 2 - 8 Ω
+10.2.3.2 Detailed Design Procedures
+Refer to Stereo BTL Application for the Detailed Design Procedures.
+
+===== page 27 =====
+27
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+10.2.3.3 Application Curves
+Relevant performance plots for TPA3255 in PBTL configuration are shown in Typical Characteristics, SE
+Configuration
+Table 10. Relevant Performance Plots, SE Configuration
+PLOT TITLE FIGURE NUMBER
+Total Harmonic Distortion+Noise vs Output Power Figure 13
+Total Harmonic Distortion+Noise vs Frequency Figure 14
+Total Harmonic Distortion+Noise vs Frequency, 80kHz analyzer BW Figure 15
+Output Power vs Supply Voltage, 10% THD+N Figure 16
+Output Power vs Supply Voltage, 1% THD+N Figure 17
+Output Power vs Case Temperature Figure 18
+
+===== page 28 =====
+PVDD
+GND
+/RESET
+INPUT_A
+INPUT_B
+/FAULT
+/CLIP_OTW
++12V
+TPA3255
+OC_ADJ
+VDD
+M2
+M1
+/CLIP_OTW
+/FAULT
+INPUT_D
+INPUT_C
+GND
+GND
+INPUT_B
+INPUT_A
+C_START
+/RESET
+GVDD_AB
+GVDD_CD
+VBG
+DVDD
+AVDD
+FREQ_ADJ
+OSC_IOM
+OSC_IOP
+PVDD_CD
+GND
+BST_A
+PVDD_AB
+GND
+OUT_B
+BST_B
+GND
+OUT_C
+PVDD_CD
+OUT_A
+PVDD_AB
+GND
+BST_C
+BST_D
+OUT_D
+GND
+GND
+OUT_D
+OUT_A
+PVDD_AB
+PVDD_CD
+44
+43
+42
+41
+31
+27
+28
+29
+30
+32
+33
+34
+35
+36
+40
+39
+38
+37
+25
+26
+23
+24
+13
+14
+15
+16
+17
+18
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+19
+20
+21
+22
+1µF
+1µF
+1µF
+1µF 470uF
+470uF 10µH
+33nF
+33nF
+10µH
+33nF
+33nF
+100nF
+3R3
+1µF
+47nF
+1µF
+30k
+22k
+100nF100nF
+3R3
+470uF
+470nF
+470nF
+1nF
+10nF
+3R3
+10nF
+1nF
+3R3
+1µF
+10µF
+10µF
+470nF
+470nF
+Copyright © 2016, Texas Instruments Incorporated
+28
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+10.2.4 Typical Application, Differential (2N) PBTL
+TPA3255 can be configured either in stereo BTL mode, 4 channel SE mode, mono PBTL mode, or in 2.1 mixed
+1x BTL + 2x SE mode depending on output power conditions and system design.
+Figure 31. Typical Differential (2N) PBTL Application
+10.2.4.1 Design Requirements
+Refer to Stereo BTL Application for the Design Requirements.
+Table 11. Design Requirements, PBTL Application
+DESIGN PARAMETER EXAMPLE
+Low Power (Pull-up) Supply 3.3 V
+Mid Power Supply 12 V 12 V
+High Power Supply 18 - 51 V
+Mode Selection
+M2 = H
+M1 = L
+Analog Inputs
+INPUT_A = ±3.9V (peak, max)
+INPUT_B = ±3.9V (peak, max)
+INPUT_C = Grounded
+INPUT_D = Grounded
+Output Filters Inductor-Capacitor Low Pass FIlter (10 µH + 1 µF)
+Speaker Impedance 2 - 4 Ω
+10.2.4.2 Detailed Design Procedures
+Refer to Stereo BTL Application for the Detailed Design Procedures.
+
+===== page 29 =====
+29
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+10.2.4.3 Application Curves
+Relevant performance plots for TPA3255 in PBTL configuration are shown in Typical Characteristics, PBTL
+Configuration
+Table 12. Relevant Performance Plots, PBTL Configuration
+PLOT TITLE FIGURE NUMBER
+Total Harmonic Distortion+Noise vs Output Power Figure 19
+Total Harmonic Distortion+Noise vs Frequency Figure 20
+Total Harmonic Distortion+Noise vs Frequency, 80kHz analyzer BW Figure 21
+Output Power vs Supply Voltage, 10% THD+N Figure 22
+Output Power vs Supply Voltage, 1% THD+N Figure 23
+Output Power vs Case Temperature Figure 24
+11 Power Supply Recommendations
+11.1 Power Supplies
+The TPA3255 device requires two external power supplies for proper operation. A high-voltage supply called
+PVDD is required to power the output stage of the speaker amplifier and its associated circuitry. Additionally, one
+mid-voltage power supply for GVDD_X and VDD is required to power the gate-drive and other internal digital and
+analog portions of the device. The allowable voltage range for both the PVDD and the GVDD_X/VDD supplies
+are listed in the Recommended Operating Conditions table. Ensure both the PVDD and the GVDD_X/VDD
+supplies can deliver more current than listed in the Electrical Characteristics table.
+11.1.1 VDD Supply
+The VDD supply required from the system is used to power several portions of the device. It provides power to
+internal regulators DVDD and AVDD that are used to power digital and analog sections of the device,
+respectively. Proper connection, routing, and decoupling techniques are highlighted in the TPA3255 device EVM
+User's Guide SLOU441 (as well as the Application Information section and Layout Examples section) and must
+be followed as closely as possible for proper operation and performance. Deviation from the guidance offered in
+the TPA3255 device EVM User's Guide, which followed the same techniques as those shown in the Application
+Information section, may result in reduced performance, errant functionality, or even damage to the TPA3255
+device. Some portions of the device also require a separate power supply which is a lower voltage than the VDD
+supply. To simplify the power supply requirements for the system, the TPA3255 device includes integrated low-
+dropout (LDO) linear regulators to create these supplies. These linear regulators are internally connected to the
+VDD supply and their outputs are presented on AVDD and DVDD pins, providing a connection point for an
+external bypass capacitors. It is important to note that the linear regulators integrated in the device have only
+been designed to support the current requirements of the internal circuitry, and should not be used to power any
+additional external circuitry. Additional loading on these pins could cause the voltage to sag and increase noise
+injection, which negatively affects the performance and operation of the device.
+11.1.2 GVDD_X Supply
+The GVDD_X supply required from the system is used to power the gate-drives for the output H-bridges. Proper
+connection, routing, and decoupling techniques are highlighted in the TPA3255 device EVM User's Guide
+SLOU441 (as well as the Application Information section and Layout Examples section) and must be followed as
+closely as possible for proper operation and performance. Deviation from the guidance offered in the TPA3255
+device EVM User's Guide, which followed the same techniques as those shown in the Application Information
+section, may result in reduced performance, errant functionality, or even damage to the TPA3255 device.
+
+===== page 30 =====
+PVDD
+/RESET
+GVDD
+/FAULT
+AVDD
+VIN_X
+OUT_X
+VOUT_X
+DVDD
+C 70µs
+tPrecharge 
+C 200ms
+tStartup ramp
+VDD
+V_CSTART
+30
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+Power Supplies (continued)
+11.1.3 PVDD Supply
+The output stage of the amplifier drives the load using the PVDD supply. This is the power supply which provides
+the drive current to the load during playback. Proper connection, routing, and decoupling techniques are
+highlighted in the TPA3255 device EVM User's Guide SLOU441 (as well as the Application Information section
+and Layout Examples section) and must be followed as closely as possible for proper operation and
+performance. Due the high-voltage switching of the output stage, it is particularly important to properly decouple
+the output power stages in the manner described in the TPA3255 device EVM User's Guide SLOU441. The lack
+of proper decoupling, like that shown in the EVM User's Guide, can results in voltage spikes which can damage
+the device, or cause poor audio performance and device shutdown faults.
+11.2 Powering Up
+The TPA3255 does not require a power-up sequence, but it is recommended to hold RESET low for at least
+250 ms after PVDD supply voltage is turned ON. The outputs of the H-bridges remain in a high-impedance state
+until the gate-drive supply voltage (GVDD_X) and VDD voltages are above the undervoltage protection (UVP)
+voltage threshold (see the Electrical Characteristics table of this data sheet). This allows an internal circuit to
+charge the external bootstrap capacitors by enabling a weak pulldown of the half-bridge output as well as
+initiating a controlled ramp up sequence of the output voltage.
+Figure 32. Startup Timing
+When RESET is released to turn on TPA3255, FAULT signal will turn low and AVDD voltage regulator will be
+enabled. FAULT will stay low until AVDD reaches the undervoltage protection (UVP) voltage threshold (see the
+Electrical Characteristics table of this data sheet). After a precharge time to stabilize the DC voltage across the
+input AC coupling capacitors, the ramp up sequence starts.
+
+===== page 31 =====
+200
+220
+240
+260
+280
+300
+320
+20 60 80 100 120 150 200 500 1000
+Max. Continuous Output Power (W) 
+Frequency (Hz) C026 
+31
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+11.3 Powering Down
+The TPA3255 does not require a power-down sequence. The device remains fully operational as long as the
+gate-drive supply (GVDD_X) voltage and VDD voltage are above the undervoltage protection (UVP) voltage
+threshold (see the Electrical Characteristics table of this data sheet). Although not specifically required, it is a
+good practice to hold RESET low during power down, thus preventing audible artifacts including pops or clicks by
+initiating a controlled ramp down sequence of the output voltage.
+11.4 Thermal Design
+11.4.1 Thermal Performance
+TPA3255 thermal performance is dependent on the design of the thermal system, which is the heatsink design
+and surrounding conditions including system enclosure (closed box with no air flow, or a fanned system etc.). As
+a result, the maximum continuous output power attainable will be influenced by the thermal design.
+To mitigate thermal limitations in systems with the device operated at continuous high power it is advised to
+increase the cooling capability of the thermal system, or to operate the device in PBTL operation mode.
+11.4.2 Thermal Performance with Continuous Output Power
+It is recommended to operate TPA3255 below the OTW threshold. In most systems normal use conditions will
+safely keep the device temperature with margin to the OTW threshold. However in some systems and use cases
+the device tempertaure can run high, dependent on the actual output power, operating voltage, and thermal
+system. At high operating temperature some thermal limitations for continuous output power may occur at low
+audio frequencies due to increased heating of the output MOSFETs. Figure 33 shows maximum attainable
+continuous output power with a heatsink temperature of 75ºC and maximum 10% THD.
+Figure 33. Maximum Continuous Output Power vs Frequency, BTL, 4Ω Load, Each Channel, TC = 75°C
+11.4.3 Thermal Performance with Non-Continuous Output Power
+As audio signals often have a peak to average ratio larger than one (average level below maximum peak output),
+the thermal performance for audio signals can be illustrated using burst signals with different burst ratios.
+
+===== page 32 =====
+250
+260
+270
+280
+290
+300
+310
+320
+2:1 2:2 2:4 2:8 1:1 1:4 1:8
+Output Power 10% THD (W) 
+Burst Ratio (High:Low) 
+20 Hz
+60 Hz
+80 Hz
+100 Hz
+120 Hz
+150 Hz
+C027 
+250
+260
+270
+280
+290
+300
+310
+320
+2:1 2:2 2:4 2:8 1:1 1:4 1:8
+Output Power 10% THD (W) 
+Burst Ratio (High:Low) 
+20 Hz
+60 Hz
+80 Hz
+100 Hz
+120 Hz
+150 Hz
+C028 
+1cycle : 4cycles
+Low levelHigh level
+32
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+Thermal Design (continued)
+Figure 34. Example of audio signal
+A burst signal is characterized by the high-level to low-level ratio as well as the duration of the high level and low
+level, e.g. a burst 1:4 stimuli is a single period of high level followed by 4 cycles of low level.
+Figure 35. Example of 1:4 Burst Signal
+The following analysis of thermal performance for TPA3255 is made with the heatsink temperature controlled to
+75°C.
+The device is not thermally limited with 8-Ω load, but depending on the burst stimuli for operation at 75ºC
+heatsink temperature some thermal limitations may occur with a lower load impedance, depending on switching
+frequency and average to maximum power ratio. The figure below shows burst performance with a signal power
+ratio of 1:16 (low cycles power level 1/16 of the high cycles power level) and 1:8 .
+Figure 36. Maximum Burst Output Power vs Frequency,
+BTL, 4Ω Load, Each Channel, TC = 75°C, Power Ratio 1:16
+Figure 37. Maximum Burst Output Power vs Frequency,
+BTL, 4Ω Load, Each Channel, TC = 75°C, Power Ratio 1:8
+
+===== page 33 =====
+33
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+12 Layout
+12.1 Layout Guidelines
+• Use an unbroken ground plane to have good low impedance and inductance return path to the power supply
+for power and audio signals.
+• Maintain a contiguous ground plane from the ground pins to the PCB area surrounding the device for as
+many of the ground pins as possible, since the ground pins are the best conductors of heat in the package.
+• PCB layout, audio performance and EMI are linked closely together.
+• Routing the audio input should be kept short and together with the accompanied audio source ground.
+• The small bypass capacitors on the PVDD lines of the DUT be placed as close the PVDD pins as possible.
+• A local ground area underneath the device is important to keep solid to minimize ground bounce.
+• Orient the passive component so that the narrow end of the passive component is facing the TPA3255
+device, unless the area between two pads of a passive component is large enough to allow copper to flow in
+between the two pads.
+• Avoid placing other heat producing components or structures near the TPA3255 device.
+• Avoid cutting off the flow of heat from the TPA3255 device to the surrounding ground areas with traces or via
+strings, especially on output side of device.
+Netlist for this printed circuit board is generated from the schematic in Figure 38.
+
+===== page 34 =====
+22k
+10k
+21
+22
+20
+17
+18
+15
+16
+13
+14
+11
+12
+9
+10
+7
+1
+26
+25
+28
+27
+30
+32
+31
+34
+33
+36
+35
+38
+37
+40
+39
+42
+41
+Bottom Layer Signal Traces
+Top Layer Signal Traces
+Bottom to top layer connection via
+Pad to top layer ground pour
+3
+4
+2
+29
+24
+23
+8
+43
+44
+System Processor
+19
+6
+5
+T1
+T2
+T2
+T1
+T3
+T3
+34
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+12.2 Layout Examples
+12.2.1 BTL Application Printed Circuit Board Layout Example
+A. Note: PCB layout example shows composite layout. Dark grey: Top layer copper traces, light gray: Bottom layer
+copper traces. All PCB area not used for traces should be GND copper pour (transparent on example image)
+B. Note T1: PVDD decoupling bulk capacitors should be as close as possible to the PVDD and GND_X pins, the heat
+sink sets the distance. Wide traces should be routed on the top layer with direct connection to the pins and without
+going through vias. No vias or traces should be blocking the current path.
+C. Note T2: Close decoupling of PVDD with low impedance X7R ceramic capacitors is placed under the heat sink and
+close to the pins.
+D. Note T3: Heat sink needs to have a good connection to PCB ground.
+Figure 38. BTL Application Printed Circuit Board - Composite
+
+===== page 35 =====
+22k
+10k
+21
+22
+20
+17
+18
+15
+16
+13
+14
+11
+12
+9
+10
+7
+1
+26
+25
+28
+27
+30
+32
+31
+34
+33
+36
+35
+38
+37
+40
+39
+42
+41
+Bottom Layer Signal Traces
+Top Layer Signal Traces
+Bottom to top layer connection via
+Pad to top layer ground pour
+3
+4
+2
+29
+24
+23
+8
+43
+44
+System Processor
+19
+6
+5
+T1
+T2
+T1
+T3
+T3
+T2
+35
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+Layout Examples (continued)
+12.2.2 SE Application Printed Circuit Board Layout Example
+A. Note: PCB layout example shows composite layout. Dark grey: Top layer copper traces, light gray: Bottom layer
+copper traces. All PCB area not used for traces should be GND copper pour (transparent on example image)
+B. Note T1: PVDD decoupling bulk capacitors should be as close as possible to the PVDD and GND_X pins, the heat
+sink sets the distance. Wide traces should be routed on the top layer with direct connection to the pins and without
+going through vias. No vias or traces should be blocking the current path.
+C. Note T2: Close decoupling of PVDD with low impedance X7R ceramic capacitors is placed under the heat sink and
+close to the pins.
+D. Note T3: Heat sink needs to have a good connection to PCB ground.
+Figure 39. SE Application Printed Circuit Board - Composite
+
+===== page 36 =====
+22k
+10k
+21
+22
+20
+17
+18
+15
+16
+13
+14
+11
+12
+9
+10
+7
+1
+26
+25
+28
+27
+30
+32
+31
+34
+33
+36
+35
+38
+37
+40
+39
+42
+41
+Bottom Layer Signal Traces
+Top Layer Signal Traces
+Bottom to top layer connection via
+Pad to top layer ground pour
+3
+4
+2
+29
+24
+23
+8
+43
+44
+System Processor
+19
+6
+5
+T3
+T3
+Grounded for PBTL
+Grounded for PBTL
+T2
+T1
+T1
+T2
+36
+TPA3255
+SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016 www.ti.com
+Product Folder Links: TPA3255
+Submit Documentation Feedback Copyright © 2016, Texas Instruments Incorporated
+Layout Examples (continued)
+12.2.3 PBTL Application Printed Circuit Board Layout Example
+A. Note: PCB layout example shows composite layout. Dark grey: Top layer copper traces, light gray: Bottom layer
+copper traces. All PCB area not used for traces should be GND copper pour (transparent on example image)
+B. Note T1: PVDD decoupling bulk capacitors should be as close as possible to the PVDD and GND_X pins, the heat
+sink sets the distance. Wide traces should be routed on the top layer with direct connection to the pins and without
+going through vias. No vias or traces should be blocking the current path.
+C. Note T2: Close decoupling of PVDD with low impedance X7R ceramic capacitors is placed under the heat sink and
+close to the pins.
+D. ote T3: Heat sink needs to have a good connection to PCB ground.
+Figure 40. PBTL Application Printed Circuit Board - Composite
+
+===== page 37 =====
+37
+TPA3255
+www.ti.com SLASEA8A – FEBRUARY 2016 – REVISED OCTOBER 2016
+Product Folder Links: TPA3255
+Submit Documentation FeedbackCopyright © 2016, Texas Instruments Incorporated
+13 Device and Documentation Support
+13.1 Documentation Support
+TPA3255D2EVM User's Guide, SLOU441
+13.2 Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. In the upper
+right corner, click on Alert me to register and receive a weekly digest of any product information that has
+changed. For change details, review the revision history included in any revised document
+13.3 Community Resources
+The following links connect to TI community resources. Linked contents are provided "AS IS" by the respective
+contributors. They do not constitute TI specifications and do not necessarily reflect TI's views; see TI's Terms of
+Use.
+TI E2E™ Online Community TI's Engineer-to-Engineer (E2E) Community. Created to foster collaboration
+among engineers. At e2e.ti.com, you can ask questions, share knowledge, explore ideas and help
+solve problems with fellow engineers.
+Design Support TI's Design Support Quickly find helpful E2E forums along with design support tools and
+contact information for technical support.
+13.4 Trademarks
+PurePath, E2E are trademarks of Texas Instruments.
+Blu-Ray Disc is a trademark of Blu-ray Disc Association.
+All other trademarks are the property of their respective owners.
+13.5 Electrostatic Discharge Caution
+These devices have limited built-in ESD protection. The leads should be shorted together or the device placed in conductive foam
+during storage or handling to prevent electrostatic damage to the MOS gates.
+13.6 Glossary
+SLYZ022 — TI Glossary.
+This glossary lists and explains terms, acronyms, and definitions.
+14 Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most
+current data available for the designated devices. This data is subject to change without notice and revision of
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+===== page 38 =====
+PACKAGE OPTION ADDENDUM
+www.ti.com 10-Nov-2025
+PACKAGING INFORMATION
+Orderable part number Status
+(1)
+Material type
+(2)
+Package | Pins Package qty | Carrier RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C) Part marking
+(6)
+TPA3255DDV Active Production HTSSOP (DDV) | 44 35 | TUBE Yes NIPDAU Level-3-260C-168 HR 0 to 70 3255
+TPA3255DDV.B Active Production HTSSOP (DDV) | 44 35 | TUBE Yes NIPDAU Level-3-260C-168 HR 0 to 70 3255
+TPA3255DDVR Active Production HTSSOP (DDV) | 44 2000 | LARGE T&R Yes NIPDAU Level-3-260C-168 HR 0 to 70 3255
+TPA3255DDVR.B Active Production HTSSOP (DDV) | 44 2000 | LARGE T&R Yes NIPDAU Level-3-260C-168 HR 0 to 70 3255
+ 
+(1) Status:  For more details on status, see our product life cycle.
+ 
+(2) Material type:  When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+ 
+(3) RoHS values:  Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+ 
+(4) Lead finish/Ball material:  Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+ 
+(5) MSL rating/Peak reflow:  The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+ 
+(6) Part marking:  There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+ 
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+ 
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+ 
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+ 
+ OTHER QUALIFIED VERSIONS OF TPA3255 :
+Addendum-Page 1
+
+===== page 39 =====
+PACKAGE OPTION ADDENDUM
+www.ti.com 10-Nov-2025
+•Automotive : TPA3255-Q1
+ NOTE: Qualified Version Definitions:
+•Automotive - Q100 devices qualified for high-reliability automotive applications targeting zero defects
+Addendum-Page 2
+
+===== page 40 =====
+PACKAGE MATERIALS INFORMATION
+  
+www.ti.com 23-May-2025
+TAPE AND REEL INFORMATION
+Reel Width (W1)
+REEL DIMENSIONS
+A0
+B0
+K0
+W
+Dimension designed to accommodate the component length
+Dimension designed to accommodate the component thickness
+Overall width of the carrier tape
+Pitch between successive cavity centers
+Dimension designed to accommodate the component width
+TAPE DIMENSIONS
+K0  P1
+B0 W
+A0Cavity
+QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+Pocket Quadrants
+Sprocket Holes
+Q1 Q1Q2 Q2
+Q3 Q3Q4 Q4 User Direction of Feed
+P1
+Reel
+Diameter
+ 
+*All dimensions are nominal
+Device Package
+Type
+Package
+Drawing
+Pins SPQ Reel
+Diameter
+(mm)
+Reel
+Width
+W1 (mm)
+A0
+(mm)
+B0
+(mm)
+K0
+(mm)
+P1
+(mm)
+W
+(mm)
+Pin1
+Quadrant
+TPA3255DDVR HTSSOP DDV 44 2000 330.0 24.4 8.6 15.6 1.8 12.0 24.0 Q1
+Pack Materials-Page 1
+
+===== page 41 =====
+PACKAGE MATERIALS INFORMATION
+  
+www.ti.com 23-May-2025
+TAPE AND REEL BOX DIMENSIONS
+Width (mm)
+W L
+H
+ 
+*All dimensions are nominal
+Device Package Type Package Drawing Pins SPQ Length (mm) Width (mm) Height (mm)
+TPA3255DDVR HTSSOP DDV 44 2000 350.0 350.0 43.0
+Pack Materials-Page 2
+
+===== page 42 =====
+PACKAGE MATERIALS INFORMATION
+  
+www.ti.com 23-May-2025
+TUBE
+ 
+ 
+L - Tube length
+T - Tube  
+height
+W - Tube  
+width
+B - Alignment groove width
+ 
+ 
+*All dimensions are nominal
+Device Package Name Package Type Pins SPQ L (mm) W (mm) T (µm) B (mm)
+TPA3255DDV DDV HTSSOP 44 35 530 11.89 3600 4.9
+TPA3255DDV.B DDV HTSSOP 44 35 530 11.89 3600 4.9
+Pack Materials-Page 3
+
+===== page 43 =====
+
+
+===== page 44 =====
+www.ti.com
+PACKAGE OUTLINE
+C
+ TYP8.3
+7.9
+42X 0.635
+44X 0.27
+0.17
+2X
+13.335
+(0.15) TYP
+0 - 8 0.15
+0.05
+1.2
+1.0
+7.30
+6.72
+4.43
+3.85
+0.25
+GAGE PLANE
+0.75
+0.50
+A
+NOTE 3
+14.1
+13.9
+B 6.2
+6.0
+(0.15) TYP
+NOTE 6
+2X (0.6)
+NOTE 6
+2X (0.3)
+NOTE 6
+PowerPAD     TSSOP - 1.2 mm max heightDDV0044D
+PLASTIC SMALL OUTLINE
+4218830/A   08/2016
+NOTES: 
+ 
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+    per ASME Y14.5M. 
+2. This drawing is subject to change without notice. 
+3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+    exceed 0.15 mm per side.
+4. Reference JEDEC registration MO-153.
+5. The exposed thermal pad is designed to be attached to an external heatsink.
+6. Features may differ or may not be present.
+PowerPAD is a trademark of Texas Instruments.
+TM
+1 44
+0.08 C A B
+2322
+PIN 1 ID
+AREA
+EXPOSED
+THERMAL
+PAD
+SEATING PLANE
+0.1 C
+ SEE DETAIL A
+DETAIL A
+TYPICAL
+SCALE  1.250
+
+===== page 45 =====
+www.ti.com
+EXAMPLE BOARD LAYOUT
+(7.5)
+0.05 MAX
+AROUND
+0.05 MIN
+AROUND
+44X (1.45)
+44X (0.4)
+42X (0.635)
+(R0.05) TYP
+PowerPAD     TSSOP - 1.2 mm max heightDDV0044D
+PLASTIC SMALL OUTLINE
+4218830/A   08/2016
+SYMM
+SYMM
+SEE DETAILS
+LAND PATTERN EXAMPLE
+SCALE:6X
+1
+22 23
+44
+NOTES: (continued)
+ 
+ 7. Publication IPC-7351 may have alternate designs. 
+ 8. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+ 
+TM
+METALSOLDER MASK
+OPENING
+NON SOLDER MASK
+DEFINED
+SOLDER MASK DETAILS
+NOT TO SCALE
+OPENING
+SOLDER MASK METAL UNDER
+SOLDER MASK
+SOLDER MASK
+DEFINED
+
+===== page 46 =====
+www.ti.com
+EXAMPLE STENCIL DESIGN
+44X (1.45)
+44X (0.4)
+42X (0.635)
+(7.5)
+PowerPAD     TSSOP - 1.2 mm max heightDDV0044D
+PLASTIC SMALL OUTLINE
+4218830/A   08/2016
+NOTES: (continued)
+ 
+  9. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+      design recommendations.   
+10. Board assembly site may have different recommendations for stencil design.
+TM
+ SOLDER PASTE EXAMPLE
+BASED ON 0.125 MM THICK STENCIL
+SCALE :6X
+SYMM
+SYMM
+1
+22 23
+44
+
+===== page 47 =====
+IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE 
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS” 
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY 
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD 
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate 
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable 
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an 
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license 
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully 
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on 
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable 
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products 
+are standard, catalog, general purpose devices.
+TI objects to and rejects any additional or different terms you may propose.
+IMPORTANT NOTICE
+Copyright © 2025, Texas Instruments Incorporated
+Last updated 10/2025

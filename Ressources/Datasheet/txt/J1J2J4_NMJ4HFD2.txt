@@ -1,0 +1,94 @@
+# J1J2J4_NMJ4HFD2 — 3 pages
+
+
+===== page 1 =====
+ 
+NMJ4HFD2
+1/4" mono jack, switched, with a full threaded nose
+and straight PCB pins, mounting nut included
+Features & Beneﬁts
+Wide body and extremely durable contacts
+Mates with all mono A-gauge plugs acc. EIA RS-453 standard
+
+
+Technical Information
+Product
+Title
+NMJ4HFD2
+Connection Type
+Jack
+Gender
+female
+NMJ4HFD2
+All rights reserved / 29.08.2026
+1
+/
+3
+
+===== page 2 =====
+Electrical
+Contact resistance
+< 15 m
+Ω
+Contact resistance
+< 30 m
+Ω
+Dielectric strength
+1 kVdc
+Insulation resistance
+≥
+ 1 G
+Ω
+ @ 500 V dc
+Rated current per contact
+3 A
+Rated current per contact
+0,50 A @ 50 V (Switch contact)
+Switching contacts
+2
+Mechanical
+Insertion force
+< 30 N
+Withdrawal force
+7 N
+Lifetime
+> 10000 mating cycles
+Panel thickness
+< 3 mm
+Wiresize
+Wiring
+Horizontal PCB mount
+Locking device
+Retention spring
+Mounting direction
+Rear mounting
+Chassis shape
+11.2 mm
+Material
+Cap / Nut / Washer
+PA 6.6 15% GR
+Contact plating
+2 µm Ag
+Contacts
+Bronze (CuSn6)
+Shell
+Polyamide (PA 6.6 30 % GR) UL 94 V0
+NMJ4HFD2
+All rights reserved / 29.08.2026
+2
+/
+3
+
+===== page 3 =====
+Environmental
+Standard compliance
+EIA RS 453, IEC 60603-11
+Solderability
+Complies with IEC 60068-2-20
+Temperature range
+-25 °C to +70 °C
+NMJ4HFD2
+All rights reserved / 29.08.2026
+3
+/
+3

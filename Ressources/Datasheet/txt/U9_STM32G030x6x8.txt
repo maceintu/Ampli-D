@@ -1,0 +1,4670 @@
+# U9_STM32G030x6x8 — 93 pages
+
+
+===== page 1 =====
+This is information on a product in full production. 
+April 2020 DS12991 Rev 3 1/93
+STM32G030x6/x8
+Arm® Cortex®-M0+ 32-bit MCU, up to 64 KB Flash, 8 KB RAM, 
+ 2x USART, timers, ADC, comm. I/Fs, 2.0-3.6V
+Datasheet - production data
+Features
+• Core: Arm® 32-bit Cortex®-M0+ CPU, 
+frequency up to 64 MHz
+• -40°C to 85°C operating temperature
+• Memories
+– Up to 64 Kbytes of Flash memory with 
+protection
+– 8 Kbytes of SRAM with HW parity check
+• CRC calculation unit
+• Reset and power management
+– Voltage range: 2.0 V to 3.6 V
+– Power-on/Power-down reset (POR/PDR)
+– Low-power modes:  
+Sleep, Stop, Standby
+–V BAT supply for RTC and backup registers
+• Clock management
+– 4 to 48 MHz crystal oscillator
+– 32 kHz crystal oscillator with calibration
+– Internal 16 MHz RC with PLL option
+– Internal 32 kHz RC oscillator (±5 %)
+• Up to 44 fast I/Os
+– All mappable on external interrupt vectors
+– Multiple 5 V-tolerant I/Os
+• 5-channel DMA controller with flexible mapping
+• 12-bit, 0.4 µs ADC (up to 16 ext. channels)
+– Up to 16-bit with hardware oversampling
+– Conversion range: 0 to 3.6V
+• 8 timers: 16-bit for advanced motor control, 
+four 16-bit general-purpose, two watchdogs, 
+SysTick timer
+• Calendar RTC with alarm and periodic wakeup 
+from Stop/Standby
+• Communication interfaces
+–T w o  I2C-bus interfaces supporting Fast-
+mode Plus (1 Mbit/s) with extra current 
+sink, one supporting SMBus/PMBus and 
+wakeup from Stop mode
+– Two USARTs with master/slave 
+synchronous SPI; one supporting ISO7816 
+interface, LIN, IrDA capability, auto baud 
+rate detection and wakeup feature
+– Two SPIs (32 Mbit/s) with 4- to 16-bit 
+programmable bitframe, one multiplexed 
+with I2S interface
+• Development support: serial wire debug (SWD)
+• All packages ECOPACK 2 compliant
+          
+Table 1. Device summary
+Reference Part number
+STM32G030x6 STM32G030C6, STM32G030F6,
+ STM32G030J6, STM32G030K6
+STM32G030x8 STM32G030C8, STM32G030K8
+LQFP48
+LQFP32
+7 × 7 mm
+7 × 7 mm
+TSSOP20
+6.4 × 4.4 mm
+SO8N
+4.9 × 6 mm
+www.st.com
+
+===== page 2 =====
+Contents STM32G030x6/x8
+2/93 DS12991 Rev 3
+Contents
+1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+2 Description . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3 Functional overview  . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+3.1 Arm ® Cortex®-M0+ core with MPU  . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . 12
+3.2 Memory protection unit . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . 12
+3.3 Embedded Flash memory  . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . 12
+3.4 Embedded SRAM . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+3.5 Boot modes  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+3.6 Cyclic redundancy check calculation unit (CRC)  . . . . . . . . . . . . . . . . . . . 14
+3.7 Power supply management  . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . 14
+3.7.1 Power supply schemes  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+3.7.2 Power supply supervisor  . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . 15
+3.7.3 Voltage regulator  . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . 15
+3.7.4 Low-power modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+3.7.5 Reset mode . . . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . 17
+3.7.6 VBAT operation  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+3.8 Interconnect of peripherals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+3.9 Clocks and startup  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+3.10 General-purpose inputs/outputs (GPIOs) . . . . . . . . . . . . . . . . . . . . . . . . . 19
+3.11 Direct memory access controller (DMA) . . . . . . . . . . .  . . . . . . . . . . . . . . . 20
+3.12 DMA request multiplexer (DMAMUX) . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+3.13 Interrupts and events  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+3.13.1 Nested vectored interrupt  controller (NVIC) . . . . . . . . . . . . . . . . . . . . . . 21
+3.13.2 Extended interrupt/even t controller (EXTI)  . . . . . . .  . . . . . . . . . . . . . . . 21
+3.14 Analog-to-digital converter (ADC)  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+3.14.1 Temperature sensor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+3.14.2 Internal voltage reference (V REFINT)  . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+3.14.3 V BAT battery voltage monitoring . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+3.15 Timers and watchdogs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+3.15.1 Advanced-control timer (TIM1)  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+3.15.2 General-purpose  timers (TIM3, 14, 16, 17) . . . . . . . .  . . . . . . . . . . . . . . 24
+
+===== page 3 =====
+DS12991 Rev 3 3/93
+STM32G030x6/x8 Contents
+4
+3.15.3 Independent watchdog (IWDG) . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . 24
+3.15.4 System window watchdog (WWDG)  . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+3.15.5 SysTick timer . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . 25
+3.16 Real-time clock (RTC), tamper (TAMP) and backup registers .  . . . . . . . . 25
+3.17 Inter-integrated circuit interface (I 2C) . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+3.18 Universal synchronous/async hronous receiver transmitter (USART)  . . . 27
+3.19 Serial peripheral interface (SPI) . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . 28
+3.20 Development support . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . 28
+3.20.1 Serial wire debug port (SW-DP) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+4 Pinouts, pin description and al ternate functions . . . . . . . . . . . . . . . . . 29
+5 Electrical characteristics  . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+5.1 Parameter conditions . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . 38
+5.1.1 Minimum and maximum values . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . 38
+5.1.2 Typical values  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+5.1.3 Typical curves  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+5.1.4 Loading capacitor  . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . 38
+5.1.5 Pin input voltage  . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . 38
+5.1.6 Power supply scheme  . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . 39
+5.1.7 Current consumption measurement  . . . . . . . . . . . . .  . . . . . . . . . . . . . . 39
+5.2 Absolute maximum ratings . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . 40
+5.3 Operating conditions  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+5.3.1 General operating condit ions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+5.3.2 Operating conditions at power-up / power-down . . . . . . . . . . . . . . . . . . 41
+5.3.3 Embedded reset and power control block characteristics . .  . . . . . . . . . 41
+5.3.4 Embedded voltage reference . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . 42
+5.3.5 Supply current characteristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+5.3.6 Wakeup time from low-power modes and voltage scaling  
+transition times . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+5.3.7 External clock source cha racteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+5.3.8 Internal clock source characteristics  . . . . . . . . . .  . . . . . . . . . . . . . . . . . 54
+5.3.9 PLL characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+5.3.10 Flash memory characteristics  . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . 56
+5.3.11 EMC characteristics . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . 57
+5.3.12 Electrical sensitivity characteristics  . . . . . . . . .  . . . . . . . . . . . . . . . . . . . 58
+5.3.13 I/O current injection characteristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+
+===== page 4 =====
+Contents STM32G030x6/x8
+4/93 DS12991 Rev 3
+5.3.14 I/O port characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+5.3.15 NRST input characteristics  . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . 65
+5.3.16 Analog switch booster  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+5.3.17 Analog-to-digital converter characteristics . . . . . . .  . . . . . . . . . . . . . . . . 66
+5.3.18 Temperature sensor characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+5.3.19 V BAT monitoring characteristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+5.3.20 Timer characteristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+5.3.21 Characteristics of communication interfaces . . . . . . .  . . . . . . . . . . . . . . 72
+6 Package information . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+6.1 LQFP48 package information . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . 80
+6.2 LQFP32 package information . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . 83
+6.3 TSSOP20 package information  . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . 86
+6.4 SO8N package information  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+6.5 Thermal characteristics  . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . 90
+6.5.1 Reference document . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . 90
+7 Ordering information  . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 91
+8 Revision history  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+
+===== page 5 =====
+DS12991 Rev 3 5/93
+STM32G030x6/x8 List of tables
+6
+List of tables
+Table 1. Device summary . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+Table 2. STM32G030x6/x8 family dev ice features and peripheral counts . . . . . . . . . . . . . . . . . . . . 10
+Table 3. Access status versus rea dout protection level and execution modes. . . . . . . . . . . . . . . . . 13
+Table 4. Interconnect of STM32G0 30x6/x8 peripherals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+Table 5. Temperature sensor ca libration values. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+Table 6. Internal voltage refer ence calibration values  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+Table 7. Timer feature compar ison. . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+Table 8. I 2C implementation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+Table 9. USART implementation  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+Table 10. SPI/I2S implementation  . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+Table 11. Terms and symbols used in Table 12. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+Table 12. Pin assignment and description . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+Table 13. Port A alternate func tion mapping  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+Table 14. Port B alternate func tion mapping  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+Table 15. Port C alternate func tion mapping  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+Table 16. Port D alternate func tion mapping  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+Table 17. Port F alternate function mapping. . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+Table 18. Voltage characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+Table 19. Current character istics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+Table 20. Thermal characteristics. . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+Table 21. General operating conditions . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+Table 22. Operating conditions at  power-up / power-down  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+Table 23. Embedded reset and power control block characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+Table 24. Embedded internal voltage reference. . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+Table 25. Current consumption i n Run and Low-power run modes 
+ at different die temperatures . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+Table 26. Current consumption in Sleep and Low-power sleep modes . . . . . . . . . . . . . . . . . . . . . . . 45
+Table 27. Current consumption in Stop 0 mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+Table 28. Current consumption in Stop 1 mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+Table 29. Current consumption in Standby mode  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+Table 30. Current consumption  in VBAT mode  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+Table 31. Current consumption  of peripherals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+Table 32. Low-power mode wakeup times . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+Table 33. Regulator mode tran sition times . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+Table 34. High-speed external user clock characteristics. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+Table 35. Low-speed external use r clock characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+Table 36. HSE oscillator characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+Table 37. LSE oscillator characteristics (f LSE = 32.768 kHz) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+Table 38. HSI16 oscillator characteristics. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+Table 39. LSI oscillator charac teristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+Table 40. PLL characteristi cs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+Table 41. Flash memory charac teristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+Table 42. Flash memory endurance  and data retention . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+Table 43. EMS characteristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+Table 44. EMI characteristi cs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+Table 45. ESD absolute maximum ratings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+Table 46. Electrical sensitivity. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+Table 47. I/O current injecti on susceptibility . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+
+===== page 6 =====
+List of tables STM32G030x6/x8
+6/93 DS12991 Rev 3
+Table 48. I/O static characteristics . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+Table 49. Input characteristics  of FT_e I/Os. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+Table 50. Output voltage characteristics  . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+Table 51. I/O AC characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+Table 52. NRST pin characteristics  . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+Table 53. Analog switch booster characteristics. . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+Table 54. ADC characteristi cs   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+Table 55. Maximum ADC R AIN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 68
+Table 56. ADC accuracy. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+Table 57. TS characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+Table 58. V BAT monitoring characteristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+Table 59. V BAT charging characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+Table 60. TIMx characteristics . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+Table 61. IWDG min/max timeout period at 32 kHz LSI clock . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+Table 62. Minimum I2CCLK fre quency. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+Table 63. I2C analog filter characteristics. . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+Table 64. SPI characteristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+Table 65. I 2S characteristics. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 76
+Table 66. USART characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+Table 67. LQFP48 mechanical  data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+Table 68. LQFP32 mechanical  data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83
+Table 69. TSSOP20 package mechanical data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+Table 70. SO8N package mechanical data  . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+Table 71. Package thermal cha racteristics. . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+Table 72. Document revision history  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+
+===== page 7 =====
+DS12991 Rev 3 7/93
+STM32G030x6/x8 List of figures
+7
+List of figures
+Figure 1. Block diagram . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+Figure 2. Power supply overv iew . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+Figure 3. STM32G030CxT LQFP48 pinout . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+Figure 4. STM32G030KxT LQFP32 pinout . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+Figure 5. STM32G030Fx TSSOP2 0 pinout . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+Figure 6. STM32G030Jx SO8N pinout  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+Figure 7. Pin loading conditions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+Figure 8. Pin input voltage . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+Figure 9. Power supply scheme. . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+Figure 10. Curren t consumption measurement scheme . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+Figure 11. V REFINT vs. temperature . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+Figure 12. High-speed external clock source AC timing diagram  . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+Figure 13. Low-speed external clock source AC timing diagram. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+Figure 14. Typical application with an 8 MHz crystal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+Figure 15. Typical application with a 32.768 kHz crystal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+Figure 16. I/O input characte ristics  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+Figure 17. Current injection into FT_e input with diode active . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+Figure 18. I/O AC characteristics definition (1)  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+Figure 19. Recommended NRST pi n protection  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+Figure 20. ADC accu racy characteristics. . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+Figure 21. Typical connection d iagram using the ADC . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+Figure 22. SPI timing diagram - slave mode and CPHA = 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+Figure 23. SPI timing diagram - slave mode and CPHA = 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+Figure 24. SPI timing diagram - master mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 76
+Figure 25. I 2S slave timing diagram (Philips protocol) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 77
+Figure 26. I 2S master timing diagram (Philips protocol). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+Figure 27. LQFP48 package outline  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+Figure 28. Recommended  footprint for LQFP48 package . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 81
+Figure 29. LQFP48 pa ckage marking example . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 82
+Figure 30. LQFP32 package outline  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83
+Figure 31. Recommended  footprint for LQFP32 package . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 84
+Figure 32. LQFP32 pa ckage marking example . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85
+Figure 33. TSSOP20 package outline . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+Figure 34. TSSOP20 package f ootprint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 87
+Figure 35. TSSOP20 package ma rking example. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 87
+Figure 36. SO8N package out line . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+Figure 37. SO8N package recomme nded footprint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 89
+Figure 38. SO8N package marki ng example . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 89
+
+===== page 8 =====
+Introduction STM32G030x6/x8
+8/93 DS12991 Rev 3
+1 Introduction
+This document provides information on STM32G030x6/x8 microcontrollers, such as 
+description, functional overview, pin assignment and definition, electrical characteristics, 
+packaging, and ordering codes.
+Information on memory mapping and control registers is object of reference manual.
+Information on Arm®(a) Cortex®-M0+ core is available from the www.arm.com website.
+          
+a. Arm is a registered trademark of Arm Limited (or its subsidia ries) in the US and/or elsewhere.
+
+===== page 9 =====
+DS12991 Rev 3 9/93
+STM32G030x6/x8 Description
+28
+2 Description
+The STM32G030x6/x8 mainstream microcontrollers are based on high-performance 
+Arm® Cortex®-M0+ 32-bit RISC core operating at up to 64 MHz frequency. Offering a high 
+level of integration, they are suitable for a wide range of applications in consumer, industrial 
+and appliance domains and ready for the Internet of Things (IoT) solutions.
+The devices incorporate a memory protection unit (MPU), high-speed embedded memories 
+(8 Kbytes of SRAM and up to 64 Kbytes of Flash program memory with read protection, 
+write protection), DMA, an extensive range of system functions, enhanced I/Os, and 
+peripherals. The devices offer standard communication interfaces (two I2Cs, two SPIs / one 
+I2S, and two USARTs), one 12-bit ADC (2.5 MSps) with up to 19 channels, a low-power 
+RTC, an advanced control PWM timer, four general-purpose 16-bit timers, two watchdog 
+timers, and a SysTick timer.
+The devices operate within ambient temperatures from -40 to 85°C. They can operate with 
+supply voltages from 2.0 V to 3.6 V. Optimized dynamic consumption combined with a 
+comprehensive set of power-saving modes allows the design of low-power applications.
+VBAT direct battery input allows keeping RTC and backup registers powered.
+The devices come in packages with 8 to 48 pins.
+
+===== page 10 =====
+Description STM32G030x6/x8
+10/93 DS12991 Rev 3
+          
+Table 2. STM32G030x6/x8 family device features and peripheral counts 
+Peripheral
+STM32G030_
+_J6 _F6 _K6 _K8 _C6 _C8
+Flash memory (Kbyte) 32 32 32 64 32 64
+SRAM (Kbyte) 8 with parity
+Timers
+Advanced control 1 (16-bit)
+General-purpose 4 (16-bit)
+SysTick 1
+Watchdog 2
+Comm. 
+interfaces
+SPI [I2S](1) 2 [1]
+I2C 2
+USART 2
+RTC Yes
+Tamper pins 2
+Random number generator No
+AES No
+GPIOs 5 17 29 43
+Wakeup pins 3 4
+12-bit ADC channels
+(external + internal) 5 + 2 14 + 2 16 + 2 16 + 3
+Internal voltage reference buffer No
+Max. CPU frequency 64 MHz
+Operating voltage 2.0 to 3.6 V
+Operating temperature(2) Ambient: -40 to 85 °C
+Junction: -40 to 105 °C
+Number of pins 8 20 32 48
+1. The numbers in brackets denote the count of SPI interfaces co nfigurable as I2S interface.
+2. Depends on order code. Refer to Section 7: Ordering information for details.
+
+===== page 11 =====
+DS12991 Rev 3 11/93
+STM32G030x6/x8 Description
+28
+Figure 1. Block diagram
+MSv47958V1
+TIMER 16/17
+Power domain of analog blocks : VBAT
+4 channels
+BK, BK2, ETR
+System and 
+peripheral 
+clocks
+PAx
+PBx
+PCx
+PFx
+MOSI/SD
+MISO/MCK
+SCK/CK
+NSS/WS
+SWCLK
+SWDIO
+16x IN
+OSC_IN
+OSC_OUT
+VBAT
+OSC32_IN  
+OSC32_OUT
+RTC_OUT 
+RTC_REFIN
+RTC_TS
+MOSI, MISO 
+SCK, NSS
+HSI16
+LSI
+PLLPCLK
+VDD 
+1 channel
+BK
+1 channel
+4 channels
+ETR
+CPU
+CORTEX-M0+
+fmax = 56 MHz
+SWD
+NVIC
+EXTI  
+SPI1/I2S
+SPI2
+AHB-to-APB
+RCC
+Reset & clock control
+I/F
+XTAL OSC
+4-48 MHz
+IWDG
+SRAM
+8 KB
+I/FADC
+RTC, TAMP
+Backup regs
+I/F
+RC 16 MHz
+RC 32 kHz
+PLL
+decoder
+XTAL32 kHz
+Bus matrix
+I/F
+VDD
+RX, TX
+CTS, RTS, CK
+RX, TX
+CTS, RTS, CK
+Port D
+Port C
+Port B
+Port A
+VDDA
+SUPPLY 
+SUPERVISION
+POWER
+VCORE 
+POR
+Reset
+Int
+VDD/VDDA
+VSS/VSSA 
+NRST
+POR
+Voltage
+regulator
+USART2
+USART1
+TIM16 & 17
+TIM14
+TIM3
+TIM1
+GPIOs
+IOPORT
+HSE
+PLLRCLK
+LSE
+LSE
+T sensor
+TAMP_IN
+APB
+APB
+AHB
+CRC
+VREF+
+SCL, SDA
+SCL, SDA, SMBAI2C1
+I2C2
+DBGMCU
+WWDG
+PWRCTRL
+SYSCFG
+DMA
+DMAMUX
+Port F
+PDx
+VDDA 
+VDDIO1 
+Low-voltage 
+detector 
+VDD 
+Parity
+Flash memory 
+up to 64 KB
+VDDIO1
+from peripherals
+
+===== page 12 =====
+Functional overview STM32G030x6/x8
+12/93 DS12991 Rev 3
+3 Functional overview
+3.1 Arm ® Cortex®-M0+ core with MPU
+The Cortex-M0+ is an entry-level 32-bit Arm Cortex processor designed for a broad range of 
+embedded applications. It offers significant benefits to developers, including:
+• a simple architecture, easy to learn and program
+• ultra-low power, energy-efficient operation
+• excellent code density
+• deterministic, high-performance interrupt handling
+• upward compatibility with Cortex-M processor family
+• platform security robustness, with integrated Memory Protection Unit (MPU).
+The Cortex-M0+ processor is built on a highly area- and power-optimized 32-bit core, with a 
+2-stage pipeline Von Neumann architecture. The processor delivers exceptional energy 
+efficiency through a small but powerful instruction set and extensively optimized design, 
+providing high-end processing hardware including a single-cycle multiplier.
+The Cortex-M0+ processor provides the exceptional performance expected of a modern 
+32-bit architecture, with a higher code density than other 8-bit and 16-bit microcontrollers.
+Owing to embedded Arm core, the STM32G030x6/x8 devices are compatible with Arm tools 
+and software.
+The Cortex-M0+ is tightly coupled with a nested vectored interrupt controller (NVIC) 
+described in Section 3.13.1.
+3.2 Memory protection unit
+The memory protection unit (MPU) is used to manage the CPU accesses to memory to 
+prevent one task to accidentally corrupt the memory or resources used by any other active 
+task.
+The MPU is especially helpful for applications where some critical or certified code has to be 
+protected against the misbehavior of other tasks. It is usually managed by an RTOS (real-
+time operating system). If a program accesses a memory location that is prohibited by the 
+MPU, the RTOS can detect it and take action. In an RTOS environment, the kernel can 
+dynamically update the MPU area setting, based on the process to be executed.
+The MPU is optional and can be bypassed for applications that do not need it.
+3.3 Embedded Flash memory
+STM32G030x6/x8 devices feature up to 64 Kbytes of embedded Flash memory available 
+for storing code and data.
+
+===== page 13 =====
+DS12991 Rev 3 13/93
+STM32G030x6/x8 Functional overview
+28
+Flexible protections can be configured thanks to option bytes:
+• Readout protection (RDP) to protect the whole memory. Three levels are available:
+– Level 0: no readout protection
+– Level 1: memory readout protection: the Flash memory cannot be  read from or 
+written to if either debug features are connected, boot in RAM or bootloader is 
+selected
+– Level 2: chip readout protection: debug features (Cortex-M0+ s erial wire), boot in 
+RAM and bootloader selection are disabled. This selection is irreversible.
+          
+• Write protection (WRP): the protected area is protected against erasing and 
+programming. Two areas per bank can be selected, with 2-Kbyte granularity.
+The whole non-volatile memory embeds the error correction code (ECC) feature supporting:
+• single error detection and correction
+• double error detection
+• readout of the ECC fail address from the ECC register
+3.4 Embedded SRAM
+STM32G030x6/x8 devices have 8 Kbytes of embedded SRAM with parity. Hardware parity 
+check allows memory data errors to be detected, which contributes to increasing functional 
+safety of applications.
+The memory can be read/write-accessed at CPU clock speed, with 0 wait states.
+Table 3. Access status versus readout protection level and execution modes 
+Area Protection 
+level
+User execution Debug, boot from RAM or boot 
+from system memory (loader)
+Read Write Erase Read Write Erase
+User 
+memory
+1 Yes Yes Yes No No No
+2 Yes Yes Yes N/A N/A N/A
+System 
+memory
+1 Yes No No Yes No No
+2 Yes No No N/A N/A N/A
+Option 
+bytes
+1 Yes Yes Yes Yes Yes Yes
+2 Yes No No N/A N/A N/A
+Backup 
+registers
+1Y e s Y e s N / A (1)
+1. Erased upon RDP change from Level 1 to Level 0.
+No No N/A (1)
+2 Yes Yes N/A N/A N/A N/A
+
+===== page 14 =====
+Functional overview STM32G030x6/x8
+14/93 DS12991 Rev 3
+3.5 Boot modes
+At startup, the boot pin and boot selector option bit are used to select one of the three boot 
+options:
+• boot from User Flash memory
+• boot from System memory
+• boot from embedded SRAM
+The boot pin is shared with a standard GPIO and can be enabled through the boot selector 
+option bit. The boot loader is located in System memory. It manages the Flash memory 
+reprogramming through USART on pins PA9/PA10 or PA2/PA3, or through I2C-bus on pins 
+PB6/PB7 or PB10/PB11.
+3.6 Cyclic redundancy che ck calculation unit (CRC)
+The CRC (cyclic redundancy check) calculation unit is used to get a CRC code using a 
+configurable generator polynomial value and size.
+Among other applications, CRC-based techniques are used to verify data transmission or 
+storage integrity. In the scope of the EN/IEC 60335-1 standard, they offer a means of 
+verifying the Flash memory integrity. The CRC calculation unit helps compute a signature of 
+the software during runtime, to be compared with a reference signature generated at link 
+time and stored at a given memory location.
+3.7 Power supply management
+3.7.1 Power supply schemes
+The STM32G030x6/x8 devices require a 2.0 V to 3.6 V operating supply voltage (VDD). 
+Several different power supplies are provided to specific peripherals:
+• VDD = 2.0 to 3.6 V
+VDD is the external power supply for the internal regulator and the system analog such 
+as reset, power management and internal clocks. It is provided externally through 
+VDD/VDDA pin.
+• VDDA = 2.0 V to 3.6 V
+VDDA is the analog power supply for the A/D converter. VDDA voltage level is identical to 
+VDD voltage as it is provided externally through VDD/VDDA pin.
+• VDDIO1 = VDD
+VDDIO1 is the power supply for the I/Os. VDDIO1 voltage level is identical to VDD voltage 
+as it is provided externally through VDD/VDDA pin.
+• VBAT = 1.55 V to 3.6 V. VBAT is the power supply (through a power switch) for RTC, 
+TAMP, low-speed external 32.768 kHz oscillator and backup registers when VDD is not 
+present. VBAT is provided externally through VBAT pin. When this pin is not available 
+on the package, VBAT bonding pad is internally bonded to the VDD/VDDA pin.
+• VREF+ is the analog peripheral input reference voltage. When VDDA < 2 V, VREF+ must 
+be equal to VDDA. When VDDA ≥ 2 V, VREF+ must be between 2 V and VDDA. It can be 
+grounded when the analog peripherals using VREF+ are not active.
+
+===== page 15 =====
+DS12991 Rev 3 15/93
+STM32G030x6/x8 Functional overview
+28
+VREF+ is delivered through VREF+ pin. On packages without VREF+ pin, VREF+ is 
+internally connected with VDD.
+• VCORE 
+An embedded linear voltage regulator is used to supply the VCORE internal digital 
+power. VCORE is the power supply for digital peripherals, SRAM and Flash memory. 
+The Flash memory is also supplied with VDD.
+Figure 2. Power supply overview
+3.7.2 Power supply supervisor
+The device has an integrated power-on/power-down (POR/PDR) reset active in all power 
+modes and ensuring proper operation upon power-on and power-down. It maintains the 
+device in reset when the supply voltage is below VPOR/PDR threshold, without the need for 
+an external reset circuit.
+3.7.3 Voltage regulator
+Two embedded linear voltage regulators, main regulator (MR) and low-power regulator 
+(LPR), supply most of digital circuitry in the device.
+The MR is used in Run and Sleep modes. The LPR is used in Low-power run, Low-power 
+sleep and Stop modes.
+In Standby mode, both regulators are powered down and their outputs set in high-
+impedance state, such as to bring their current consumption close to zero.
+MSv47920V1
+VDDA domain
+RTC domain
+A/D converter
+Standby circuitry  
+(Wakeup, IWDG)
+Voltage 
+regulator
+Core
+SRAM
+Digital
+peripherals
+Low-voltage 
+detector
+LSE crystal 32.768 kHz osc
+BKP registers
+RCC BDCR register
+RTC and TAMP
+I/O ring
+VCORE domainTemp. sensor
+Reset block
+PLL, HSI
+Flash memory
+VDDIO1
+VREF+
+VDD domain
+VCORE
+VSS/VSSA
+VDD/VDDA
+VBAT
+VDDA
+VREF+
+VSSA
+VSS
+VDD
+VDDIO1 domain
+
+===== page 16 =====
+Functional overview STM32G030x6/x8
+16/93 DS12991 Rev 3
+3.7.4 Low-power modes
+By default, the microcontroller is in Run mode after system or power reset. It is up to the 
+user to select one of the low-power modes described below:
+• Sleep mode
+In Sleep mode, only the CPU is stopped. All peripherals continue to operate and can 
+wake up the CPU when an interrupt/event occurs.
+• Low-power run mode
+This mode is achieved with VCORE supplied by the low-power regulator to minimize the 
+regulator's operating current. The code can be executed from SRAM or from Flash, 
+and the CPU frequency is limited to 2 MHz. The peripherals with independent clock can 
+be clocked by HSI16.
+• Low-power sleep mode
+This mode is entered from the low-power run mode. Only the CPU clock is stopped. 
+When wakeup is triggered by an event or an interrupt, the system reverts to the Low-
+power run mode.
+• Stop 0 and Stop 1 modes
+In Stop 0 and Stop 1 modes, the device achieves the lowest power consumption while 
+retaining the SRAM and register contents. All clocks in the VCORE domain are stopped. 
+The PLL, as well as the HSI16 RC oscillator and the HSE crystal oscillator are 
+disabled. The LSE or LSI keep running. The RTC can remain active (Stop mode with 
+RTC, Stop mode without RTC).
+Some peripherals with wakeup capability can enable the HSI16 RC during Stop mode, 
+so as to get clock for processing the wakeup event. The main regulator remains active 
+in Stop 0 mode while it is turned off in Stop 1 mode.
+• Standby mode
+The Standby mode is used to achieve the lowest power consumption, with POR/PDR 
+always active in this mode. The main regulator is switched off to power down VCORE 
+domain. The low-power regulator is switched off. The PLL, as well as the HSI16 RC 
+oscillator and the HSE crystal oscillator are also powered down. The RTC can remain 
+active (Standby mode with RTC, Standby mode without RTC).
+For each I/O, the software can determine whether a pull-up, a pull-down or no resistor 
+shall be applied to that I/O during Standby mode.
+Upon entering Standby mode, register contents are lost except for registers in the RTC 
+domain and standby circuitry.
+The device exits Standby mode upon external reset event (NRST pin), IWDG reset 
+event, wakeup event (WKUP pin, configurable rising or falling edge) or RTC event 
+(alarm, periodic wakeup, timestamp, tamper), or when a failure is detected on LSE 
+(CSS on LSE).
+          
+
+===== page 17 =====
+DS12991 Rev 3 17/93
+STM32G030x6/x8 Functional overview
+28
+3.7.5 Reset mode 
+During and upon exiting reset, the schmitt triggers of I/Os are disabled so as to reduce 
+power consumption. In addition, when the reset source is internal, the built-in pull-up 
+resistor on NRST pin is deactivated.
+3.7.6 VBAT operation
+The VBAT power domain, consuming very little energy, includes RTC, and LSE oscillator and 
+backup registers.
+In VBAT mode, the RTC domain is supplied from VBAT pin. The power source can be, for 
+example, an external battery or an external supercapacitor. Two anti-tamper detection pins 
+are available. 
+The RTC domain can also be supplied from VDD/VDDA pin.
+By means of a built-in switch, an internal voltage supervisor allows automatic switching of 
+RTC domain powering between VDD and voltage from VBAT pin to ensure that the supply 
+voltage of the RTC domain (VBAT) remains within valid operating conditions. If both voltages 
+are valid, the RTC domain is supplied from VDD/VDDA pin.
+An internal circuit for charging the battery on VBAT pin can be activated if the VDD voltage is 
+within a valid range.
+Note: External interrupts and RTC alarm/events can not cause the microcontroller to exit the VBAT 
+mode, as in that mode the VDD is not within a valid range.
+3.8 Interconnect of peripherals
+Several peripherals have direct connections between them. This allows autonomous 
+communication between peripherals, saving CPU resources thus power supply 
+consumption. In addition, these hardware connections allow fast and predictable latency.
+Depending on peripherals, these interconnections can operate in Run, Sleep and Stop 
+modes.
+          
+Table 4. Interconnect of STM32G030x6/x8 peripherals 
+ Interconnect source Interconnect 
+destination Interconnect action
+Run 
+Low-power run
+Sleep
+Low-power sleep
+Stop
+TIMx
+TIMx Timer synchronization or chaining Y Y -
+ADCx Conversion triggers Y Y -
+DMA Memory-to-memory transfer trigger Y Y -
+ADCx TIM1 Timer triggered by analog watchdog Y Y -
+RTC TIM16 Timer input cha nnel from RTC events Y Y -
+
+===== page 18 =====
+Functional overview STM32G030x6/x8
+18/93 DS12991 Rev 3
+All clocks sources (internal 
+and external) TIM14,16,17 Clock source used as input channel for 
+RC measurement and trimming YY -
+CSS
+RAM (parity error)
+Flash memory (ECC error)
+TIM1,16,17 Timer break Y Y -
+CPU (hard fault) TIM1,16,17 Timer break Y - -
+GPIO
+TIMx External trigger Y Y -
+ADC Conversion external trigger Y Y -
+Table 4. Interconnect of STM32G030x6/x8 peripherals (continued)
+ Interconnect source Interconnect 
+destination Interconnect action
+Run 
+Low-power run
+Sleep
+Low-power sleep
+Stop
+
+===== page 19 =====
+DS12991 Rev 3 19/93
+STM32G030x6/x8 Functional overview
+28
+3.9 Clocks and startup
+The clock controller distributes the clocks coming from different oscillators to the core and 
+the peripherals. It also manages clock gating for low-power modes and ensures clock 
+robustness. It features:
+• Clock prescaler: to get the best trade-off between speed and current consumption, 
+the clock frequency to the CPU and peripherals can be adjusted by a programmable 
+prescaler
+• Safe clock switching: clock sources can be changed safely on the fly in run mode 
+through a configuration register.
+• Clock management: to reduce power consumption, the clock controller can stop the 
+clock to the core, individual peripherals or memory.
+• System clock source: three different sources can deliver SYSCLK system clock:
+– 4-48 MHz high-speed  oscillator with external crystal or ceramic resonator (HSE). It 
+can supply clock to system PLL. The HSE can also be configured in bypass mode 
+for an external clock.
+– 16 MHz high-speed internal RC oscillator (HSI16), trimmable by software. It can 
+supply clock to system PLL.
+– System PLL with maximum output f requency of 64 MHz. It can be fed with HSE or 
+HSI16 clocks.
+• Auxiliary clock source: two ultra-low-power clock sources for the real-time clock 
+(RTC):
+– 32.768 kHz low-speed oscillator with external crystal (LSE), supporting four drive 
+capability modes. The LSE can also be configured in bypass mode for using an 
+external clock.
+– 32 kHz low-speed internal RC o scillator (LSI) with ±5% accuracy, also used to 
+clock an independent watchdog.
+• Peripheral clock sources: several peripherals (I2S, USARTs, I2Cs, ADC) have their 
+own clock independent of the system clock.
+• Clock security system (CSS): in the event of HSE clock failure, the system clock is 
+automatically switched to HSI16 and, if enabled, a software interrupt is generated. LSE 
+clock failure can also be detected and generate an interrupt. The CCS feature can be 
+enabled by software.
+• Clock output: 
+– MCO (microcontroller clock output) provides one of the internal clocks for 
+external use by the application
+– LSCO (low speed clock output) provides LSI or LSE in all low-power modes 
+(except in VBAT operation).
+Several prescalers allow the application to configure AHB and APB domain clock 
+frequencies, 64 MHz at maximum.
+3.10 General-purpose in puts/outputs (GPIOs)
+Each of the GPIO pins can be configured by software as output (push-pull or open-drain), as 
+input (with or without pull-up or pull-down) or as peripheral alternate function (AF). Most of 
+the GPIO pins are shared with special digital or analog functions.
+
+===== page 20 =====
+Functional overview STM32G030x6/x8
+20/93 DS12991 Rev 3
+Through a specific sequence, this special function configuration of I/Os can be locked, such 
+as to avoid spurious writing to I/O control registers.
+3.11 Direct memory a ccess controller (DMA)
+The direct memory access (DMA) controller is a bus master and system peripheral with 
+single-AHB architecture.
+With 5 channels, it performs data transfers between memory-mapped peripherals and/or 
+memories, to offload the CPU.
+Each channel is dedicated to managing memory access requests from one or more 
+peripherals. The unit includes an arbiter for handling the priority between DMA requests.
+Main features of the DMA controller:
+• Single-AHB master
+• Peripheral-to-memory, memory-to-peripheral, memory-to-memory and peripheral-to-
+peripheral data transfers
+• Access, as source and destination, to on-chip memory-mapped devices such as Flash 
+memory, SRAM, and AHB and APB peripherals
+• All DMA channels independently configurable:
+– Each channel is associated eithe r with a DMA request signal coming from a 
+peripheral, or with a software trigger in memory-to-memory transfers. This 
+configuration is done by software.
+– Priority between the requests i s programmable by software (four levels per 
+channel: very high, high, medium, low) and by hardware in case of equality (such 
+as request to channel 1 has priority over request to channel 2).
+– Transfer size of source and destination are independent (byte,  half-word, word), 
+emulating packing and unpacking. Source and destination addresses must be 
+aligned on the data size.
+– Support of trans fers from/to peripherals to/from memory with circular buffer 
+management
+– Programmable number of dat a to be transferred: 0 to 216 - 1
+• Generation of an interrupt request per channel. Each interrupt request originates from 
+any of the three DMA events: transfer complete, half transfer, or transfer error.
+3.12 DMA request mul tiplexer (DMAMUX)
+The DMAMUX request multiplexer enables routing a DMA request line between the 
+peripherals and the DMA controller. Each channel selects a unique DMA request line, 
+unconditionally or synchronously with events from its DMAMUX synchronization inputs. 
+DMAMUX may also be used as a DMA request generator from programmable events on its 
+input trigger signals.
+3.13 Interrupts and events
+The device flexibly manages events causing interrupts of linear program execution, called 
+exceptions. The Cortex-M0+ processor core, a nested vectored interrupt controller (NVIC) 
+
+===== page 21 =====
+DS12991 Rev 3 21/93
+STM32G030x6/x8 Functional overview
+28
+and an extended interrupt/event controller (EXTI) are the assets contributing to handling the 
+exceptions. Exceptions include core-internal events such as, for example, a division by zero 
+and, core-external events such as logical level changes on physical lines. Exceptions result 
+in interrupting the program flow, executing an interrupt service routine (ISR) then resuming 
+the original program flow.
+The processor context (contents of program pointer and status registers) is stacked upon 
+program interrupt and unstacked upon program resume, by hardware. This avoids context 
+stacking and unstacking in the interrupt service routines (ISRs) by software, thus saving 
+time, code and power. The ability to abandon and restart load-multiple and store-multiple 
+operations significantly increases the device’s responsiveness in processing exceptions.
+3.13.1 Nested vectored int errupt controller (NVIC)
+The configurable nested vectored interrupt controller is tightly coupled with the core. It 
+handles physical line events associated with a non-maskable interrupt (NMI) and maskable 
+interrupts, and Cortex-M0+ exceptions. It provides flexible priority management.
+The tight coupling of the processor core with NVIC significantly reduces the latency between 
+interrupt events and start of corresponding interrupt service routines (ISRs). The ISR 
+vectors are listed in a vector table, stored in the NVIC at a base address. The vector 
+address of an ISR to execute is hardware-built from the vector table base address and the 
+ISR order number used as offset.
+If a higher-priority interrupt event happens while a lower-priority interrupt event occurring 
+just before is waiting for being served, the later-arriving higher-priority interrupt event is 
+served first. Another optimization is called tail-chaining. Upon a return from a higher-priority 
+ISR then start of a pending lower-priority ISR, the unnecessary processor context 
+unstacking and stacking is skipped. This reduces latency and contributes to power 
+efficiency.
+Features of the NVIC:
+• Low-latency interrupt processing
+• 4 priority levels
+• Handling of a non-maskable interrupt (NMI)
+• Handling of 32 maskable interrupt lines
+• Handling of 10 Cortex-M0+ exceptions
+• Later-arriving higher-priority interrupt processed first
+• Tail-chaining
+• Interrupt vector retrieval by hardware
+3.13.2 Extended interrupt/event controller (EXTI)
+The extended interrupt/event controller adds flexibility in handling physical line events and 
+allows identifying wake-up events at processor wakeup from Stop mode.
+The EXTI controller has a number of channels, of which some with rising, falling or rising, 
+and falling edge detector capability. Any GPIO and a few peripheral signals can be 
+connected to these channels.
+The channels can be independently masked.
+The EXTI controller can capture pulses shorter than the internal clock period.
+
+===== page 22 =====
+Functional overview STM32G030x6/x8
+22/93 DS12991 Rev 3
+A register in the EXTI controller latches every event even in Stop mode, which allows the 
+software to identify the origin of the processor's wake-up from Stop mode or, to identify the 
+GPIO and the edge event having caused an interrupt.
+3.14 Analog-to-digital converter (ADC)
+A native 12-bit analog-to-digital converter is embedded into STM32G030x6/x8 devices. It 
+can be extended to 16-bit resolution through hardware oversampling. The ADC has up to 16 
+external channels and 3 internal channels (temperature sensor, voltage reference, VBAT 
+monitoring). It performs conversions in single-shot or scan mode. In scan mode, automatic 
+conversion is performed on a selected group of analog inputs.
+The ADC frequency is independent from the CPU frequency, allowing maximum sampling 
+rate of ~2 MSps even with a low CPU speed. An auto-shutdown function guarantees that 
+the ADC is powered off except during the active conversion phase.
+The ADC can be served by the DMA controller. It can operate in the whole VDD supply 
+range.
+The ADC features a hardware oversampler up to 256 samples, improving the resolution to 
+16 bits (refer to AN2668).
+An analog watchdog feature allows very precise monitoring of the converted voltage of one, 
+some or all scanned channels. An interrupt is generated when the converted voltage is 
+outside the programmed thresholds.
+The events generated by the general-purpose timers (TIMx) can be internally connected to 
+the ADC start triggers, to allow the application to synchronize A/D conversions with timers.
+3.14.1 Temperature sensor
+The temperature sensor (TS) generates a voltage VTS that varies linearly with temperature. 
+The temperature sensor is internally connected to an ADC input to convert the sensor 
+output voltage into a digital value.
+The sensor provides good linearity but it has to be calibrated to obtain good overall 
+accuracy of the temperature measurement. As the offset of the temperature sensor may 
+vary from part to part due to process variation, the uncalibrated internal temperature sensor 
+is suitable only for relative temperature measurements.
+To improve the accuracy of the temperature sensor, each part is individually factory-
+calibrated by ST. The resulting calibration data are stored in the part’s engineering bytes, 
+accessible in read-only mode.
+          
+Table 5. Temperature sensor calibration values 
+Calibration value name Description Memory address
+TS_CAL1
+TS ADC raw data acquired at a 
+temperature of 30 °C (± 5 °C), 
+VDDA = VREF+ = 3.0 V (± 10 mV)
+0x1FFF 75A8 - 0x1FFF 75A9
+
+===== page 23 =====
+DS12991 Rev 3 23/93
+STM32G030x6/x8 Functional overview
+28
+3.14.2 Internal voltage reference (V REFINT)
+The internal voltage reference (VREFINT) provides a stable (bandgap) voltage output for the 
+ADC. VREFINT is internally connected to an ADC input. The VREFINT voltage is individually 
+precisely measured for each part by ST during production test and stored in the part’s 
+engineering bytes. It is accessible in read-only mode.
+          
+3.14.3 V BAT battery voltage monitoring
+This embedded hardware feature allows the application to measure the VBAT battery voltage 
+using an internal ADC input. As the VBAT voltage may be higher than VDDA and thus outside 
+the ADC input range, the VBAT pin is internally connected to a bridge divider by three. As a 
+consequence, the converted digital value is one third the VBAT voltage.
+3.15 Timers and watchdogs
+The device includes an advanced-control timer, four general-purpose timers, two low-power 
+timers, two watchdog timers and a SysTick timer. Table 7 compares features of the 
+advanced-control, general-purpose and basic timers.
+          
+3.15.1 Advanced-control timer (TIM1)
+The advanced-control timer can be seen as a three-phase PWM unit multiplexed on 6 
+channels. It has complementary PWM outputs with programmable inserted dead-times. It 
+Table 6. Internal voltage reference calibration values 
+Calibration value name Description Memory address
+VREFINT
+Raw data acquired at a 
+temperature of 30 °C (± 5 °C), 
+VDDA = VREF+ = 3.0 V (± 10 mV)
+0x1FFF 75AA - 0x1FFF 75AB
+Table 7. Timer feature comparison 
+Timer type Timer Counter 
+resolution
+Counter 
+type
+Maximum 
+operating 
+frequency
+Prescaler 
+factor
+DMA 
+request 
+generation
+Capture/
+compare 
+channels
+Comple-
+mentary 
+outputs
+Advanced- 
+control TIM1 16-bit Up, down, 
+up/down 64 MHz Integer from 
+1 to 216 Yes 4 3
+General-
+purpose
+TIM3 16-bit Up, down, 
+up/down 64 MHz Integer from 
+1 to 216 Yes 4 -
+TIM14 16-bit Up 64 MHz Integer from 
+1 to 216 No 1 -
+TIM16
+TIM17 16-bit Up 64 MHz Integer from 
+1 to 216 Yes 1 1
+
+===== page 24 =====
+Functional overview STM32G030x6/x8
+24/93 DS12991 Rev 3
+can also be seen as a complete general-purpose timer. The four independent channels can 
+be used for:
+• input capture
+• output compare
+• PWM output (edge or center-aligned modes) with full modulation capability (0-100%)
+• one-pulse mode output
+In debug mode, the advanced-control timer counter can be frozen and the PWM outputs 
+disabled, so as to turn off any power switches driven by these outputs.
+Many features are shared with those of the general-purpose TIMx timers (described in 
+Section 3.15.2) using the same architecture, so the advanced-control timers can work 
+together with the TIMx timers via the Timer Link feature for synchronization or event 
+chaining.
+3.15.2 General-purpose ti mers (TIM3, 14, 16, 17)
+There are four synchronizable general-purpose timers embedded in the device (refer to 
+Table 7 for comparison). Each general-purpose timer can be used to generate PWM outputs 
+or act as a simple timebase.
+• TIM3
+This is a full-featured general-purpose timer with 16-bit auto-reload up/downcounter 
+and 16-bit prescaler.
+It has four independent channels for input capture/output compare, PWM or one-pulse 
+mode output. It can operate in combination with other general-purpose timers via the 
+Timer Link feature for synchronization or event chaining. It can generate independent 
+DMA request and support quadrature encoders. Its counter can be frozen in debug 
+mode.
+• TIM14
+This timer is based on a 16-bit auto-reload upcounter and a 16-bit prescaler. It has one 
+channel for input capture/output compare, PWM output or one-pulse mode output. Its 
+counter can be frozen in debug mode.
+• TIM16, TIM17
+These are general-purpose timers featuring:
+– 16-bit auto-reload upco unter and 16-bit prescaler
+– 1 channel and 1 complementary channel
+All channels can be used for input capture/output compare, PWM or one-pulse mode 
+output. The timers can operate together via the Timer Link feature for synchronization 
+or event chaining. They can generate independent DMA request. Their counters can 
+be frozen in debug mode.
+3.15.3 Independent  watchdog (IWDG)
+The independent watchdog is based on an 8-bit prescaler and 12-bit downcounter with 
+user-defined refresh window. It is clocked from an independent 32 kHz internal RC (LSI). 
+Independent of the main clock, it can operate in Stop and Standby modes. It can be used 
+either as a watchdog to reset the device when a problem occurs, or as a free-running timer 
+for application timeout management. It is hardware- or software-configurable through the 
+option bytes. Its counter can be frozen in debug mode.
+
+===== page 25 =====
+DS12991 Rev 3 25/93
+STM32G030x6/x8 Functional overview
+28
+3.15.4 System window watchdog (WWDG)
+The window watchdog is based on a 7-bit downcounter that can be set as free-running. It 
+can be used as a watchdog to reset the device when a problem occurs. It is clocked by the 
+system clock. It has an early-warning interrupt capability. Its counter can be frozen in debug 
+mode.
+3.15.5 SysTick timer
+This timer is dedicated to real-time operating systems, but it can also be used as a standard 
+down counter.
+Features of SysTick timer:
+• 24-bit down counter
+• Autoreload capability
+• Maskable system interrupt generation when the counter reaches 0
+• Programmable clock source
+3.16 Real-time clock (R TC), tamper (TAMP) and backup registers
+The device embeds an RTC and five 32-bit backup registers, located in the RTC domain of 
+the silicon die.
+The ways of powering the RTC domain are described in Section 3.7.6.
+The RTC is an independent BCD timer/counter.
+Features of the RTC:
+• Calendar with subsecond, seconds, minutes, hours (12 or 24 format), week day, date, 
+month, year, in BCD (binary-coded decimal) format 
+• Automatic correction for 28, 29 (leap year), 30, and 31 days of the month
+• Programmable alarm
+• On-the-fly correction from 1 to 32767 RTC clock pulses, usable for synchronization with 
+a master clock
+• Reference clock detection - a more precise second-source clock (50 or 60 Hz) can be 
+used to improve the calendar precision
+• Digital calibration circuit with 0.95 ppm resolution, to compensate for quartz crystal 
+inaccuracy
+• Two anti-tamper detection pins with programmable filter
+• Timestamp feature to save a calendar snapshot, triggered by an event on the 
+timestamp pin or a tamper event, or by switching to VBAT mode
+• 17-bit auto-reload wakeup timer (WUT) for periodic events, with programmable 
+resolution and period
+• Multiple clock sources and references:
+– A 32.768 kHz external crystal (LSE)
+– An external resonat or or oscillator (LSE)
+– The internal low-po wer RC oscillator (LSI, with typical frequency of 32 kHz)
+– The high-speed external  clock (HSE) divided by 32
+
+===== page 26 =====
+Functional overview STM32G030x6/x8
+26/93 DS12991 Rev 3
+When clocked by LSE, the RTC operates in VBAT mode and in all low-power modes. When 
+clocked by LSI, the RTC does not operate in VBAT mode, but it does in low-power modes.
+All RTC events (Alarm, WakeUp Timer, Timestamp or Tamper) can generate an interrupt 
+and wake the device up from the low-power modes.
+The backup registers allow keeping 20 bytes of user application data in the event of VDD 
+failure, if a valid backup supply voltage is provided on VBAT pin. They are not affected by 
+the system reset, power reset, and upon the device’s wakeup from Standby mode.
+3.17 Inter-integrated c ircuit interface (I2C)
+The device embeds two I2C peripherals. Refer to Table 8 for the features.
+The I2C-bus interface handles communication between the microcontroller and the serial 
+I2C-bus. It controls all I2C-bus-specific sequencing, protocol, arbitration and timing.
+Features of the I2C peripheral:
+• I2C-bus specification and user manual rev. 5 compatibility:
+– Slave and maste r modes, multimaster capability
+– Standard-mode (Sm), with a bitrate up to 100 kbit/s
+– Fast-mode (Fm), with a bi trate up to 400 kbit/s 
+– Fast-mode Plus (Fm+), with a bitr ate up to 1 Mbit/s and extra output drive I/Os
+– 7-bit and 10-bit addressing mode , multiple 7-bit slave addresses
+– Programmable setup and hold times
+– Clock stretching
+• SMBus specification rev 3.0 compatibility:
+– Hardware PEC (packet error checking) generation and verificati on with ACK 
+control
+– Command and data a cknowledge control
+– Address resolution pro tocol (ARP) support
+– Host and Device support
+– SMBus alert
+– Timeouts and idle condition detection
+• PMBus rev 1.3 standard compatibility
+• Independent clock: a choice of independent clock sources allowing the I2C 
+communication speed to be independent of the PCLK reprogramming
+• Wakeup from Stop mode on address match
+• Programmable analog and digital noise filters
+• 1-byte buffer with DMA capability
+          
+Table 8. I2C implementation 
+I2C features(1) I2C1 I2C2
+Standard mode (up to 100 kbit/s) X X
+Fast mode (up to 400 kbit/s) X X
+Fast Mode Plus (up to 1 Mbit/s) with extra output drive I/Os X X
+
+===== page 27 =====
+DS12991 Rev 3 27/93
+STM32G030x6/x8 Functional overview
+28
+3.18 Universal synchronous/asyn chronous receiver transmitter 
+(USART)
+The device embeds universal synchronous/asynchronous receivers/transmitters (USART1, 
+USART2) that communicate at speeds of up to 8 Mbit/s.
+They provide hardware management of the CTS, RTS and RS485 DE signals, 
+multiprocessor communication mode, master synchronous communication and single-wire 
+half-duplex communication mode. Some can also support SmartCard communication (ISO 
+7816), IrDA SIR ENDEC, LIN Master/Slave capability and auto baud rate feature, and have 
+a clock domain independent of the CPU clock, which allows them to wake up the MCU from 
+Stop mode. The wakeup events from Stop mode are programmable and can be: 
+• start bit detection
+• any received data frame
+• a specific programmed data frame
+All USART interfaces can be served by the DMA controller.
+          
+Programmable analog and digital noise filters X X
+SMBus/PMBus hardware support X -
+Independent clock X -
+Wakeup from Stop mode on address match X -
+1. X: supported
+Table 8. I2C implementation (continued)
+I2C features(1) I2C1 I2C2
+Table 9. USART implementation 
+USART modes/features(1)
+1. X: supported
+USART1 USART2
+Hardware flow control for modem X X
+Continuous communication using DMA X X
+Multiprocessor communication X X
+Synchronous mode X X
+Smartcard mode X -
+Single-wire half-duplex communication X X
+IrDA SIR ENDEC block X -
+LIN mode X -
+Dual clock domain and wakeup from Stop mode X -
+Receiver timeout interrupt X -
+Modbus communication X -
+Auto baud rate detection X -
+Driver Enable X X
+
+===== page 28 =====
+Functional overview STM32G030x6/x8
+28/93 DS12991 Rev 3
+3.19 Serial periphe ral interface (SPI)
+The device contains two SPIs running at up to 32 Mbits/s in master and slave modes. It 
+supports half-duplex, full-duplex and simplex communications. A 3-bit prescaler gives eight 
+master mode frequencies. The frame size is configurable from 4 bits to 16 bits. The SPI 
+peripherals support NSS pulse mode, TI mode and hardware CRC calculation.
+The SPI peripherals can be served by the DMA controller.
+The I2S interface mode of the SPI peripheral (if supported, see the following table) supports 
+four different audio standards can operate as master or slave, in half-duplex communication 
+mode. It can be configured to transfer 16 and 24 or 32 bits with 16-bit or 32-bit data 
+resolution and synchronized by a specific signal. Audio sampling frequency from 8 kHz up to 
+192 kHz can be set by an 8-bit programmable linear prescaler. When operating in master 
+mode, it can output a clock for an external audio component at 256 times the sampling 
+frequency.
+          
+3.20 Development support
+3.20.1 Serial wire debug port (SW-DP)
+An Arm SW-DP interface is provided to allow a serial wire debugging tool to be connected to 
+the MCU.
+Table 10. SPI/I2S implementation
+SPI features(1)
+1. X = supported.
+SPI1 SPI2
+Hardware CRC calculation X X
+Rx/Tx FIFO X X
+NSS pulse mode X X
+I2S mode X -
+TI mode X X
+
+===== page 29 =====
+DS12991 Rev 3 29/93
+STM32G030x6/x8 Pinouts, pin description and alternate functions
+34
+4 Pinouts, pin description and alternate functions
+Figure 3. STM32G030CxT LQFP48 pinout
+Figure 4. STM32G030KxT LQFP32 pinout
+          
+          
+MSv47928V1
+PA2
+PA3
+PA4
+PA5
+PA6
+PA7
+PB0
+PB1
+PB2
+PB10
+PB11
+PB12
+PC13
+PC14-OSC32_IN
+PC15-OSC32_OUT
+VBAT
+VREF+
+VDD/VDDA
+VSS/VSSA
+NRST
+PF0-OSC_IN
+PF1-OSC_OUT
+PA0
+PA1
+PA14-BOOT0
+PA13
+PA12 [PA10]
+PA11 [PA9]
+PA10
+PC7
+PC6
+PA9
+PA8
+PB15
+PB14
+PB13
+PA15
+PD0
+PD1
+PD2
+PD3
+PB3
+PB4
+PB5
+PB6
+PB7
+PB8
+PB9
+Top view
+LQFP48
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+36
+35
+34
+33
+32
+31
+30
+29
+28
+27
+26
+25
+39
+37
+40
+38
+45
+43
+41
+48
+47
+46
+44
+42
+22
+24
+21
+23
+16
+18
+20
+13
+14
+15
+17
+19
+MSv47929V1
+PA2
+PA3
+PA4
+PA5
+PA6
+PA7
+PB0
+PB1
+PB9
+PC14-OSC32_IN
+PC15-OSC32_OUT
+VDD/VDDA
+VSS/VSSA
+NRST
+PA0
+PA1
+PA13
+PA12 [PA10]
+PA11 [PA9]
+PA10
+PC6
+PA9
+PA8
+PB2
+PA14-BOOT0
+PA15
+PB3
+PB4
+PB5
+PB6
+PB7
+PB8Top view
+LQFP32
+1
+2
+3
+4
+5
+6
+7
+8
+24
+23
+22
+21
+20
+19
+18
+17
+29
+27
+25
+32
+31
+30
+28
+26
+12
+14
+16
+9
+10
+11
+13
+15
+
+===== page 30 =====
+Pinouts, pin description and alternate functions STM32G030x6/x8
+30/93 DS12991 Rev 3
+Figure 5. STM32G030Fx TSSOP20 pinout
+Figure 6. STM32G030Jx SO8N pinout
+          
+          
+          
+MSv47963V1
+20
+19
+18
+17
+16
+15
+14
+13
+1
+2
+3
+4
+5
+6
+7
+8
+PB7/PB8
+VDD/VDDA
+PA1
+NRST
+PB3/PB4/PB5/PB6
+PA13
+PA5
+PA6
+PA7
+PB0/PB1/PB2/PA8
+12
+11
+9
+10PA3
+PA15/PA14-BOOT0
+VSS/VSSA
+PA4
+PB9/PC14-OSC32_IN
+PC15-OSC32_OUT
+PA11[PA9]
+PA12[PA10]
+PA0
+PA2
+Top view
+MSv47964V1
+1
+2
+3
+4
+8
+7
+6
+5
+PB7/PB8/PB9/PC14-OSC32_IN
+PA0/PA1/PA2/NRST
+PB5/PB6/PA14-BOOT0/PA15
+PA12[PA10]
+PA13VDD/VDDA
+VSS/VSSA
+PA8/PA11[PA9]/PB0/PB1
+Top view
+Table 11. Terms and symbols used in Table 12 
+Column Symbol Definition
+Pin name Terminal name corresponds to its by-default function at reset, unless otherwise specified in 
+parenthesis under the pin name.
+Pin type
+S Supply pin
+I Input only pin
+I/O Input / output pin
+I/O structure
+FT 5 V tolerant I/O
+RST Bidirectional reset pin with embedded weak pull-up resistor
+Options for FT I/Os
+_f I/O, Fm+ capable
+_a I/O, with analog switch function
+_e I/O, with switchable diode to V DD
+Note Upon reset, all I/Os are set as analog inputs, unless otherwise specified.
+
+===== page 31 =====
+DS12991 Rev 3 31/93
+STM32G030x6/x8 Pinouts, pin description and alternate functions
+34
+          
+Pin 
+functions
+Alternate 
+functions Functions selected through GPIOx_AFR registers
+Additional 
+functions Functions directly selected/enabled through peripheral registers
+Table 11. Terms and symbols used in Table 12 (continued)
+Column Symbol Definition
+Table 12. Pin assignment and description 
+Pin
+Pin name
+(function 
+upon reset)
+Pin type
+I/O structure
+Note
+Alternate
+functions
+Additional
+functions
+SO8N
+TSSOP20
+LQFP32
+LQFP48
+---1 P C 1 3 I / O F T (1)(2) TIM1_BK TAMP_IN1, RTC_TS, 
+RTC_OUT1, WKUP2
+---2
+PC14-
+OSC32_IN
+(PC14)
+I/O FT (1)(2) TIM1_BK2 OSC32_IN
+122 -
+PC14-
+OSC32_IN
+(PC14)
+I/O FT (1)(2) TIM1_BK2 OSC32_IN, OSC_IN
+-333
+PC15-
+OSC32_OUT
+(PC15)
+I/O FT (1)(2) OSC32_EN, OSC_EN OSC32_OUT
+- - - 4 VBAT S - - - VBAT
+- - - 5 VREF+ S - - - -
+2 4 4 6 VDD/VDDA S - - - -
+3 5 5 7 VSS/VSSA S - - - -
+---8 PF0-OSC_IN
+(PF0) I/O FT - TIM14_CH1 OSC_IN
+---9
+PF1-
+OSC_OUT
+(PF1)
+I/O FT - OSC_EN OSC_OUT
+4 6 6 10 NRST I/O FT - - NRST
+4771 1 P A 0 I / O FT_a (3) SPI2_SCK, USART2_CTS, ADC_IN0,  
+TAMP_IN2,WKUP1
+4881 2 P A 1 I / O FT_ea (3)
+SPI1_SCK/I2S1_CK, 
+USART2_RTS_DE_CK, 
+I2C1_SMBA, EVENTOUT
+ADC_IN1
+
+===== page 32 =====
+Pinouts, pin description and alternate functions STM32G030x6/x8
+32/93 DS12991 Rev 3
+4991 3 P A 2 I / O FT_a (3) SPI1_MOSI/I2S1_SD, 
+USART2_TX, 
+ADC_IN2,  
+WKUP4,LSCO
+-1 0 1 0 1 4 P A 3 I / O FT_ea - SPI2_MISO, USART2_RX, 
+EVENTOUT ADC_IN3
+--- 1 5 P A 4 I / O FT_a -
+SPI1_NSS/I2S1_WS, 
+SPI2_MOSI, TIM14_CH1, 
+EVENTOUT
+ADC_IN4, RTC_OUT2
+-1 1 1 1 - P A 4 I / O FT_a -
+SPI1_NSS/I2S1_WS, 
+SPI2_MOSI, TIM14_CH1, 
+EVENTOUT
+ADC_IN4, 
+TAMP_IN1, RTC_TS, 
+RTC_OUT1, WKUP2
+-1 2 1 2 1 6 P A 5 I / O FT_ea - SPI1_SCK/I2S1_CK, 
+EVENTOUT ADC_IN5
+-1 3 1 3 1 7 P A 6 I / O FT_ea -
+SPI1_MISO/I2S1_MCK, 
+TIM3_CH1, TIM1_BK, 
+TIM16_CH1
+ADC_IN6
+-1 4 1 4 1 8 P A 7 I / O FT_a -
+SPI1_MOSI/I2S1_SD, 
+TIM3_CH2, TIM1_CH1N, 
+TIM14_CH1, TIM17_CH1
+ADC_IN7
+5 15 15 19 PB0 I/O FT_ea - SPI1_NSS/I2S1_WS, 
+TIM3_CH3, TIM1_CH2N ADC_IN8
+5 15 16 20 PB1 I/O FT_ea - TIM14_CH1, TIM3_CH4, 
+TIM1_CH3N, EVENTOUT ADC_IN9
+- 15 17 21 PB2 I/O FT_ea - SPI2_MISO, EVEN TOUT ADC_IN10
+- - - 22 PB10 I/O FT_fa - SPI2_SCK, I2C2_SCL ADC_IN11
+--- 2 3 P B 1 1 I / O FT_fa - SPI2_MOSI, I2C2_SDA ADC_IN15
+- - - 24 PB12 I/O FT_a - SPI2_NSS, TIM1_BK, 
+EVENTOUT ADC_IN16
+- - - 25 PB13 I/O FT_f - SPI2_SCK, TIM1_CH1N, 
+I2C2_SCL, EVENTOUT -
+- - - 26 PB14 I/O FT_f - SPI2_MISO, TIM1_CH2N, 
+I2C2_SDA, EVENTOUT -
+- - - 27 PB15 I/O FT - SPI2_MOSI, TIM1_CH3N, 
+EVENTOUT RTC_REFIN
+51 5 1 82 8 P A 8 I / O FT - MCO, SPI2_NSS, TIM1_CH1, 
+EVENTOUT -
+Table 12. Pin assignment and description (continued)
+Pin
+Pin name
+(function 
+upon reset)
+Pin type
+I/O structure
+Note
+Alternate
+functions
+Additional
+functions
+SO8N
+TSSOP20
+LQFP32
+LQFP48
+
+===== page 33 =====
+DS12991 Rev 3 33/93
+STM32G030x6/x8 Pinouts, pin description and alternate functions
+34
+- - 19 29 PA9 I/O FT_f -
+MCO, USART1_TX, 
+TIM1_CH2, SPI2_MISO, 
+I2C1_SCL, EVENTOUT
+-
+- - 20 30 PC6 I/O FT - TIM3_CH1 -
+--- 3 1 P C 7 I / O FT - TIM3_CH2 -
+- - 21 32 PA10 I/O FT_f -
+SPI2_MOSI, USART1_RX, 
+TIM1_CH3, TIM17_BK, 
+I2C1_SDA, EVENTOUT
+-
+--- 3 3 P A 1 1  [ P A 9 ]I / O FT_f (4)
+SPI1_MISO/I2S1_MCK, 
+USART1_CTS, TIM1_CH4, 
+TIM1_BK2, I2C2_SCL
+-
+5 16 22 - PA11 [PA9] I/O FT_fa (4)
+SPI1_MISO/I2S1_MCK, 
+USART1_CTS, TIM1_CH4, 
+TIM1_BK2, I2C2_SCL
+ADC_IN15
+- - - 34 PA12 [PA10] I/O FT_f (4)
+SPI1_MOSI/I2S1_SD, 
+USART1_RTS_DE_CK, 
+TIM1_ETR, I2S_CKIN, 
+I2C2_SDA
+-
+6 17 23 - PA12 [PA10] I/O FT_fa (4)
+SPI1_MOSI/I2S1_SD, 
+USART1_RTS_DE_CK, 
+TIM1_ETR, I2S_CKIN, 
+I2C2_SDA
+ADC_IN16
+71 8 2 43 5 P A 1 3 I / O FT_ea (5) SWDIO, IR_OUT, EVENTOUT ADC_IN17
+8 19 25 36 PA14-BOOT0 I/O FT_a (5) SWCLK, USART2_TX, 
+EVENTOUT ADC_IN18, BOOT0
+81 9 2 63 7 P A 1 5 I / O FT - SPI1_NSS/I2S1_WS, 
+USART2_RX, EVENTOUT -
+--- 3 8 P D 0 I / O FT - EVENTOUT, SPI2_NSS, 
+TIM16_CH1 -
+--- 3 9 P D 1 I / O FT - EVENTOUT, SPI2_SCK, 
+TIM17_CH1 -
+--- 4 0 P D 2 I / O FT - TIM3_ETR, TIM1_CH1N -
+--- 4 1 P D 3 I / O FT - USART2_CTS, SPI2_MISO, 
+TIM1_CH2N -
+Table 12. Pin assignment and description (continued)
+Pin
+Pin name
+(function 
+upon reset)
+Pin type
+I/O structure
+Note
+Alternate
+functions
+Additional
+functions
+SO8N
+TSSOP20
+LQFP32
+LQFP48
+
+===== page 34 =====
+Pinouts, pin description and alternate functions STM32G030x6/x8
+34/93 DS12991 Rev 3
+- 20 27 42 PB3 I/O FT -
+SPI1_SCK/I2S1_CK, 
+TIM1_CH2, 
+USART1_RTS_DE_CK, 
+EVENTOUT
+-
+- 20 28 43 PB4 I/O FT -
+SPI1_MISO/I2S1_MCK, 
+TIM3_CH1, USART1_CTS, 
+TIM17_BK, EVENTOUT
+-
+8 20 29 44 PB5 I/O FT -
+SPI1_MOSI/I2S1_SD, 
+TIM3_CH2, TIM16_BK, 
+I2C1_SMBA
+WKUP6
+8 20 30 45 PB6 I/O FT_f -
+USART1_TX, TIM1_CH3, 
+TIM16_CH1N, SPI2_MISO, 
+I2C1_SCL, EVENTOUT
+-
+- - - 46 PB7 I/O FT_f -
+USART1_RX, SPI2_MOSI, 
+TIM17_CH1N, I2C1_SDA, 
+EVENTOUT
+-
+1 1 31 - PB7 I/O FT_fa -
+USART1_RX, SPI2_MOSI, 
+TIM17_CH1N, I2C1_SDA, 
+EVENTOUT
+ADC_IN11
+1 1 32 47 PB8 I/O FT_f - SPI2_SCK, TIM16_CH1, 
+I2C1_SCL, EVENTOUT -
+1 2 1 48 PB9 I/O FT_f -
+IR_OUT, TIM17_CH1, 
+SPI2_NSS, I2C1_SDA, 
+EVENTOUT
+-
+1. PC13, PC14 and PC15 are supplied through the power switch. Si nce the switch only sinks a limited amount of 
+current (3 mA), the use of GPIOs PC13 to PC15 in output mode is limited:  
+- The speed should not exceed 2 MHz with a maximum load of 30 pF 
+- These GPIOs must not be used as current sources (for example to drive a LED).
+2. After an RTC domain power-up, PC13, PC14 and PC15 operate as GPIOs. Their function then depends on the 
+content of the RTC registers. The RTC registers are not reset upon system reset. For details on how to manage 
+these GPIOs, refer to the RTC domain and RTC register descriptions in the RM0444 reference manual.
+3. For the device in SO8N package, the PA0, PA1, and PA2 GPIOs are bonded with NRST on the pin 4. In order not to 
+interfere with device functions, they must not be set in alternate function or in output but remain at all times in input 
+configuration.
+4. Pins PA9 and PA10 can be remapped in place of pins PA11 and PA12 (default mapping), using SYSCFG_CFGR1 
+register.
+5. Upon reset, these pins are configured as SW debug alternate f unctions, and the internal pull-up on PA13 pin and the 
+internal pull-down on PA14 pin are activated.
+Table 12. Pin assignment and description (continued)
+Pin
+Pin name
+(function 
+upon reset)
+Pin type
+I/O structure
+Note
+Alternate
+functions
+Additional
+functions
+SO8N
+TSSOP20
+LQFP32
+LQFP48
+
+===== page 35 =====
+STM32G030x6/x8
+DS12991 Rev 3 35/93
+Table 13. Port A alternate function mapping 
+Port AF0 AF1 AF2 AF3 AF4 AF5 AF6 AF7
+PA0 SPI2_SCK USART2_CTS - - - - - -
+PA1 SPI1_SCK/
+I2S1_CK
+USART2_RTS
+_DE_CK - - - - I2C1_SMBA EVENTOUT
+PA2 SPI1_MOSI/
+I2S1_SD U S A R T 2 _ T X ------
+PA3 SPI2_MISO USART2_RX - - - - - EVENTOUT
+PA4 SPI1_NSS/
+I2S1_WS SPI2_MOSI - - TIM14_CH1 - - EVENTOUT
+PA5 SPI1_SCK/
+I2S1_CK ------ E V E N T O U T
+PA6 SPI1_MISO/
+I2S1_MCK TIM3_CH1 TIM1_BKIN - - TIM16_CH1 - -
+PA7 SPI1_MOSI/
+I2S1_SD TIM3_CH2 TIM1_CH1N - TIM14_CH1 TIM17_CH1 - -
+PA8 MCO SPI2_NSS TIM1_CH1 - - - - EVENTOUT
+PA9 MCO USART1_TX TIM1_CH2 - SPI2_MISO - I2C1_SCL EVENTOUT
+PA10 SPI2_MOSI USART1_RX TIM1_CH3 - - TIM17_BKIN I2C1_SDA EVENTOUT
+PA11 SPI1_MISO/
+I2S1_MCK USART1_CTS TIM1_CH4 - - TIM1_BKIN2 I2C2_SCL -
+PA12 SPI1_MOSI/
+I2S1_SD
+USART1_RTS
+_DE_CK TIM1_ETR - - I2S_CKIN I2C2_SDA -
+P A 1 3 S W D I O I R _ O U T ----- E V E N T O U T
+P A 1 4 S W C L K U S A R T 2 _ T X ----- E V E N T O U T
+PA15 SPI1_NSS/
+I2S1_WS USART2_RX - - - - - EVENTOUT
+
+===== page 36 =====
+STM32G030x6/x8
+36/93 DS12991 Rev 3          
+Table 14. Port B alternate function mapping 
+Port AF0 AF1 AF2 AF3 AF4 AF5 AF6 AF7
+PB0 SPI1_NSS/
+I2S1_WS TIM3_CH3 TIM1_CH2N - - - - -
+PB1 TIM14_CH1 TIM3_CH4 TIM1_CH3N - - - - EVENTOUT
+PB2 - SPI2_MISO - - - - - EVENTOUT
+PB3 SPI1_SCK/
+I2S1_CK TIM1_CH2 - - USART1_RTS
+_DE_CK - - EVENTOUT
+PB4 SPI1_MISO/
+I2S1_MCK TIM3_CH1 - - USART1_CTS TIM17_BKIN - EVENTOUT
+PB5 SPI1_MOSI/
+I2S1_SD TIM3_CH2 TIM16_BKIN - - - I2C1_SMBA -
+PB6 USART1_TX TIM1_CH3 TIM16_CH1N - SPI2_MISO - I2C1_SCL EVENTOUT
+PB7 USART1_RX SPI2_MOSI TIM1 7_CH1N - - - I2C1_SDA EVENTOUT
+PB8 - SPI2_SCK TIM16_CH1 - - - I2C1_SCL EVENTOUT
+PB9 IR_OUT - TIM17_CH1 - - SPI2_NSS I2C1_SDA EVENTOUT
+PB10 - - - - - SPI2_SCK I2C2_SCL -
+PB11 SPI2_MOSI - - - - - I2C2_SDA -
+PB12 SPI2_NSS - TIM1_BKIN - - - - EVENTOUT
+PB13 SPI2_SCK - TIM1_CH1N - - - I2C2_SCL EVENTOUT
+PB14 SPI2_MISO - TIM1_CH2N - - - I2C2_SDA EVENTOUT
+PB15 SPI2_MOSI - TIM1_CH3N - - - - EVENTOUT
+
+===== page 37 =====
+STM32G030x6/x8
+DS12991 Rev 3 37/93
+          
+          *
+          
+Table 15. Port C alternate function mapping 
+Port AF0 AF1 AF2 AF3 AF4 AF5 AF6 AF7
+P C 6 - T I M 3 _ C H 1 ------
+P C 7 - T I M 3 _ C H 2 ------
+PC13 - - TIM1_BKIN - - - - -
+PC14 - - TIM1_BKIN2 - - - - -
+P C 1 5 O S C 3 2 _ E N O S C _ E N ------
+Table 16. Port D alternate function mapping 
+Port AF0 AF1 AF2 AF3 AF4 AF5 AF6 AF7
+PD0 EVENTOUT SPI2_NSS TIM16_CH1 - - - - -
+PD1 EVENTOUT SPI2_SCK TIM17_CH1 - - - - -
+PD2 - TIM3_ETR TIM1_CH1N - - - - -
+PD3 USART2_CTS SPI2_MISO TIM1_CH2N - - - - -
+Table 17. Port F alternate function mapping 
+Port AF0 AF1 AF2 AF3 AF4 AF5 AF6 AF7
+PF0 - - TIM14_CH1 - - - - -
+P F 1 O S C _ E N -------
+
+===== page 38 =====
+Electrical characteristics STM32G030x6/x8
+38/93 DS12991 Rev 3
+5 Electrical characteristics
+5.1 Parameter conditions
+Unless otherwise specified, all voltages are referenced to VSS.
+Parameter values defined at temperatures or in temperature ranges out of the ordering 
+information scope are to be ignored.
+Packages used for characterizing certain electrical parameters may differ from the 
+commercial packages as per the ordering information.
+5.1.1 Minimum and maximum values
+Unless otherwise specified, the minimum and maximum values are guaranteed in the worst 
+conditions of ambient temperature, supply voltage and frequencies by tests in production on 
+100% of the devices with an ambient temperature at TA = 25 °C and TA = TA(max) (given by 
+the selected temperature range).
+Data based on characterization results, design simulation and/or technology characteristics 
+are indicated in the table footnotes and are not tested in production. Based on 
+characterization, the minimum and maximum values refer to sample tests and represent the 
+mean value plus or minus three times the standard deviation (mean ±3σ).
+5.1.2 Typical values
+Unless otherwise specified, typical data are based on TA = 25 °C, VDD = VDDA = 3 V. They 
+are given only as design guidelines and are not tested.
+Typical ADC accuracy values are determined by characterization of a batch of samples from 
+a standard diffusion lot over the full temperature range, where 95% of the devices have an 
+error less than or equal to the value indicated (mean ±2σ).
+5.1.3 Typical curves
+Unless otherwise specified, all typical curves are given only as design guidelines and are 
+not tested.
+5.1.4 Loading capacitor
+The loading conditions used for pin parameter measurement are shown in Figure 7.
+5.1.5 Pin input voltage
+The input voltage measurement on a pin of the device is described in Figure 8.
+          
+Figure 7. Pin loading conditions Figure 8. Pin input voltage
+MCU pin
+C = 50 pF
+MCU pin
+VIN
+
+===== page 39 =====
+DS12991 Rev 3 39/93
+STM32G030x6/x8 Electrical characteristics
+79
+5.1.6 Power supply scheme
+Figure 9. Power supply scheme
+Caution: Power supply pin pair (VDD/VDDA and VSS/VSSA) must be decoupled with filtering 
+ceramic capacitors as shown above. These capacitors must be placed as close as possible 
+to, or below, the appropriate pins on the underside of the PCB to ensure the good 
+functionality of the device.
+5.1.7 Current consumption measurement
+Figure 10. Current consumption measurement scheme
+MSv47984V1
+VDD
+Backup circuitry
+(LSE, RTC and
+backup registers)
+Kernel logic
+(CPU, digital and 
+memories)
+Level shifter
+IO
+logicIN
+OUT
+Regulator
+GPIOs
+1.55 V to 3.6 V
+1 x 100 nF
++ 1 x 4.7 μF
+VDD/VDDA
+VBAT
+VCORE
+Power 
+switch
+VDDIO1
+ADCVREF+
+VREF-
+VSS/VSSA
+VREF
+100 nF
+VSS
+VSSA
+VDDA
+VDD
+VREF+
+MSv47901V1
+IDDVBAT
+VBAT
+IDD
+VDD
+(VDDA)
+VBAT
+VDD/VDDA
+
+===== page 40 =====
+Electrical characteristics STM32G030x6/x8
+40/93 DS12991 Rev 3
+5.2 Absolute maximum ratings
+Stresses above the absolute maximum ratings listed in Table 18, Table 19 and Table 20 
+may cause permanent damage to the device. These are stress ratings only and functional 
+operation of the device at these conditions is not implied. Exposure to maximum rating 
+conditions for extended periods may affect device reliability.
+All voltages are defined with respect to VSS.
+          
+          
+Table 18. Voltage characteristics 
+Symbol Ratings Min Max Unit
+VDD External supply voltage - 0.3 4.0
+V
+VBAT External supply voltage on VBAT pin - 0.3 4.0
+VREF+ External voltage on VREF+ pin - 0.3 Min( VDD + 0.4, 4.0)
+VIN(1)
+Input voltage on FT_xx - 0.3  V DD + 4.0(2)
+Input voltage on any other pin - 0.3 4.0
+1. Refer to Table 19 for the maximum allowed injected current values.
+2. To sustain a voltage higher than 4 V the internal pull-up/pul l-down resistors must be disabled.
+Table 19. Current characteristics 
+Symbol Ratings Max Unit
+IVDD/VDDA Current into VDD/VDDA power pin (source)(1) 100
+mA
+IVSS/VSSA Current out of VSS/VSSA ground pin (sink)(1) 100
+IIO(PIN)
+Output current sunk by any I/O and control pin except FT_f 15
+Output current sunk by any FT_f pin 20
+Output current sourced by any I/O and control pin 15
+∑IIO(PIN)
+Total output current sunk by sum of all I/Os and control pins 80
+Total output current sourced by sum of all I/Os and control pins8 0
+IINJ(PIN)
+(2) Injected current on a FT_xx pin -5 / NA (3)
+∑|IINJ(PIN)| Total injected current (sum of all I/Os and control pins)(4) 25
+1. All main power (VDD/VDDA, VBAT) and ground (VSS/VSSA) pins must always be connected to the external power 
+supplies, in the permitted range.
+2. A positive injection is induced by V IN > VDDIOx while a negative injection is induced by VIN < VSS. IINJ(PIN) must never be 
+exceeded. Refer also to Table 18: Voltage characteristics for the maximum allowed input voltage values.
+3. Positive injection is not possible on these I/Os and does not occur for input voltages lower than the specified maximum 
+value.
+4. When several inputs are submitted to a current injection, the  maximum ∑|IINJ(PIN)| is the absolute sum of the negative 
+injected currents (instantaneous values).
+
+===== page 41 =====
+DS12991 Rev 3 41/93
+STM32G030x6/x8 Electrical characteristics
+79
+          
+5.3 Operating conditions
+5.3.1 General operating conditions
+          
+5.3.2 Operating conditions  at power-up / power-down
+The parameters given in Table 22 are derived from tests performed under the ambient 
+temperature condition summarized in Table 21.
+          
+5.3.3 Embedded reset and power c ontrol block characteristics
+The parameters given in Table 23 are derived from tests performed under the ambient 
+temperature conditions summarized in Table 21.
+Table 20. Thermal characteristics 
+Symbol Ratings  Value Unit
+TSTG Storage temperature range –65 to +150 °C
+TJ Maximum junction temperature 150 °C
+Table 21. General operating conditions 
+Symbol Parameter  Conditions Min Max Unit
+fHCLK Internal AHB clock frequency - 0 64
+MHz
+fPCLK Internal APB clock frequency - 0 64
+VDD/DDA Supply voltage - 2.0 (1) 3.6 V
+VBAT Backup operating voltage - 1.55 3.6 V
+VIN I/O input voltage - -0.3 Min(V DD + 3.6, 5.5)(2) V
+TA Ambient temperature(3) - -40 85 °C
+TJ Junction temperature - -40 105 °C
+1. When RESET is released functionality is guaranteed down to V PDR min.
+2. For operation with voltage higher than V DD +0.3 V, the internal pull-up and pull-down resistors must be disabled.
+3. The T A(max) applies to PD(max). At PD < PD(max) the ambient temperature is allowed to go higher than TA(max) provided 
+that the junction temperature TJ does not exceed TJ(max). Refer to Section 6.5: Thermal characteristics.
+Table 22. Operating conditions at power-up / power-down 
+Symbol Parameter Conditions Min Max Unit
+tVDD V DD slew rate
+VDD rising - ∞
+µs/V
+VDD falling 10 ∞
+
+===== page 42 =====
+Electrical characteristics STM32G030x6/x8
+42/93 DS12991 Rev 3
+           
+5.3.4 Embedded voltage reference
+The parameters given in Table 24 are derived from tests performed under the ambient 
+temperature and supply voltage conditions summarized in Table 21: General operating 
+conditions.
+           
+Table 23. Embedded reset and power control block characteristics 
+Symbol Parameter Conditions (1) Min Typ Max Unit
+tRSTTEMPO
+(2) POR temporization when VDD crosses VPOR VDD rising - 250 400 μs
+VPOR
+(2) Power-on reset threshold - 2.06 2.10 2.14 V
+VPDR
+(2) Power-down reset threshold - 1.960 2.00 2.04 V
+Vhyst_POR_PDR Hysteresis of VPOR and VPDR
+Hysteresis in 
+continuous 
+mode
+-2 0-
+mV
+Hysteresis in 
+other mode -3 0-
+1. Continuous mode means Run/Sleep modes, or temperature sensor enable in Low-power run/Low-power sleep modes.
+2. Guaranteed by design.
+Table 24. Embedded internal voltage reference 
+Symbol Parameter Conditions Min Typ Max Unit
+VREFINT Internal reference voltage -40°C < T J < 105°C 1.182 1.212 1.232 V
+tS_vrefint (1) ADC sampling time when reading 
+the internal reference voltage -4 (2) --µ s
+tstart_vrefint
+Start time of reference voltage 
+buffer when ADC is enable -- 8 1 2 (2) µs
+ IDD(VREFINTBUF)
+VREFINT buffer consumption from 
+VDD when converted by ADC - - 12.5 20 (2) µA
+∆VREFINT
+Internal reference voltage spread 
+over the temperature range VDD = 3 V - 5 7.5 (2) mV
+TCoeff_vrefint Temperature coefficient - - 30 50 (2) ppm/°C
+ACoeff Long term stability 1000 hours, T = 25 °C - 300 1000 (2) ppm
+VDDCoeff Voltage coefficient 3.0 V < V DD < 3.6 V - 250 1200 (2) ppm/V
+VREFINT_DIV1 1/4 reference voltage
+-
+24 25 26
+% 
+VREFINT
+VREFINT_DIV2 1/2 reference voltage 49 50 51
+VREFINT_DIV3 3/4 reference voltage 74 75 76
+1. The shortest sampling time c an be determined in the application by multiple iterations.
+2. Guaranteed by design.
+
+===== page 43 =====
+DS12991 Rev 3 43/93
+STM32G030x6/x8 Electrical characteristics
+79
+Figure 11. VREFINT vs. temperature
+5.3.5 Supply current characteristics
+The current consumption is a function of several parameters and factors such as the 
+operating voltage, ambient temperature, I/O pin loading, device software configuration, 
+operating frequencies, I/O pin switching rate, program location in memory and executed 
+binary code.
+The current consumption is measured as described in Figure 10: Current consumption 
+measurement scheme.
+Typical and maximum current consumption
+The MCU is placed under the following conditions:
+• All I/O pins are in analog input mode
+• All peripherals are disabled except when explicitly mentioned
+• The Flash memory access time is adjusted with the minimum wait states number, 
+depending on the fHCLK frequency (refer to the table “Number of wait states according 
+to CPU clock (HCLK) frequency” available in the RM0454 reference manual).
+• When the peripherals are enabled fPCLK = fHCLK
+• For Flash memory and shared peripherals fPCLK = fHCLK = fHCLKS
+Unless otherwise stated, values given in Table 25 through Table 31 are derived from tests 
+performed under ambient temperature and supply voltage conditions summarized in 
+Table 21: General operating conditions.
+MSv40169V1
+1.185
+1.19
+1.195
+1.2
+1.205
+1.21
+1.215
+1.22
+1.225
+1.23
+1.235
+-40 -20 0 20 40 60 80 100 120
+V
+°C
+Mean Min Max
+
+===== page 44 =====
+Electrical characteristics STM32G030x6/x8
+44/93 DS12991 Rev 3
+          
+          
+Table 25. Current consumption in Run and Low-power run modes
+ at different die temperatures 
+Symbol Parameter
+Conditions Typ Max (1)
+Unit
+General f HCLK
+Fetch 
+from(2) 25°C 85°C 25°C 85°C
+IDD(Run)
+Supply 
+current in Run 
+mode
+Range 1; 
+PLL enabled; 
+fHCLK = fHSI bypass 
+(≤16 MHz),  
+fHCLK = fPLLRCLK 
+(>16 MHz); 
+(3)
+64 MHz
+Flash 
+memory
+5.7 5.9 8.0 8.3
+mA
+56 MHz 5.1 5.2 7.1 7.1
+48 MHz 4.6 4.7 5.7 6.0
+32 MHz 3.2 3.3 4.6 4.9
+24 MHz 2.5 2.6 3.5 3.8
+16 MHz 1.6 1.7 2.5 2.9
+64 MHz
+SRAM
+4.7 4.8 7.2 7.5
+56 MHz 4.2 4.3 6.5 6.7
+48 MHz 3.7 3.9 5.7 6.0
+32 MHz 2.6 2.7 4.1 4.3
+24 MHz 2.0 2.1 3.2 3.5
+16 MHz 1.3 1.3 2.3 2.4
+Range 2; 
+PLL enabled; 
+fHCLK = fHSI bypass 
+(≤16 MHz),  
+fHCLK = fPLLRCLK 
+(>16 MHz); 
+(3)
+16 MHz
+Flash 
+memory
+1.3 1.3 2.0 2.3
+8 MHz 0.7 0.8 1.4 1.5
+2 MHz 0.3 0.3 0.6 0.9
+16 MHz
+SRAM
+1.1 1.1 1.9 2.1
+8 MHz 0.6 0.6 1.2 1.4
+2 MHz 0.2 0.3 0.6 0.9
+IDD(LPRun)
+Supply 
+current in 
+Low-power 
+run mode
+PLL disabled; 
+fHCLK = fHSE bypass 
+(> 32 kHz), 
+fHCLK = fLSE bypass 
+(= 32 kHz); 
+(3)
+2 MHz
+Flash 
+memory
+182 226 570 790
+µA
+1 MHz 99 132 480 700
+500 kHz 58 89 430 630
+125 kHz 25 56 370 600
+32 kHz 17 47 330 480
+2 MHz
+SRAM
+161 191 550 800
+1 MHz 91 114 470 750
+500 kHz 48 81 410 710
+125 kHz 21 51 360 500
+32 kHz 15 37 310 400
+1. Based on characterization resu lts, not tested in production.
+2. Prefetch and cache enabled when fetching from Flash
+3. V DD = 3.0 V for values in Typ columns and 3.6 V for values in Max columns, all peripherals disabled, cache enabled, 
+prefetch disabled for code and data fetch from Flash and enabled from SRAM
+
+===== page 45 =====
+DS12991 Rev 3 45/93
+STM32G030x6/x8 Electrical characteristics
+79
+          
+          
+Table 26. Current consumption in Sleep and Low-power sleep modes 
+Symbol Parameter
+Conditions Typ Max (1)
+Unit
+General Voltage 
+scaling
+fHCLK 25°C 85°C 25°C 85°C
+IDD(Sleep)
+Supply 
+current in 
+Sleep mode
+Flash memory enabled; 
+fHCLK = fHSE bypass 
+(≤16 MHz; PLL disabled),  
+fHCLK = fPLLRCLK 
+(>16 MHz; PLL enabled); 
+All peripherals disabled
+Range 1
+64 MHz 1.4 1.5 2.2 2.4
+mA
+56 MHz 1.3 1.4 1.9 2.1
+48 MHz 1.2 1.2 1.9 1.9
+32 MHz 0.9 0.9 1.4 1.5
+24 MHz 0.7 0.8 1.1 1.3
+16 MHz 0.4 0.4 0.7 0.8
+Range 2
+16 MHz 0.3 0.4 0.6 0.7
+8 MHz 0.2 0.3 0.3 0.6
+2 MHz 0.1 0.2 0.2 0.5
+IDD(LPSleep)
+Supply 
+current in 
+Low-power 
+sleep mode
+Flash memory disabled; 
+PLL disabled; 
+fHCLK = fHSE bypass (> 32 kHz), 
+fHCLK = fLSE bypass (= 32 kHz); 
+All peripherals disabled
+2 MHz 43 77 175 410
+µA
+1 MHz 29 60 150 375
+500 kHz 23 52 145 285
+125 kHz 16 46 130 270
+32 kHz 13 44 125 260
+1. Based on characterization resu lts, not tested in production.
+Table 27. Current consumption in Stop 0 mode 
+Symbol Parameter
+Conditions Typ Max (1)
+Unit
+VDD 25 °C 85 °C 25 °C 85 °C
+IDD(Stop 0)
+Supply current 
+in Stop 0 
+mode
+HSI kernel ON
+2.4 V 290 320 395 540
+µA
+3 V 295 325 415 580
+3.6 V 295 325 445 595
+HSI kernel OFF
+2.4 V 105 145 145 265
+3 V 105 150 150 285
+3.6 V 110 150 150 295
+1. Based on characterization resu lts, not tested in production.
+
+===== page 46 =====
+Electrical characteristics STM32G030x6/x8
+46/93 DS12991 Rev 3
+          
+          
+          
+I/O system current consumption
+The current consumption of the I/O system has two components: static and dynamic.
+I/O static current consumption
+All the I/Os used as inputs with pull-up generate current consumption when the pin is 
+externally held low. The value of this current consumption can be simply computed by using 
+the pull-up/pull-down resistors values given in Table 48: I/O static characteristics.
+Table 28. Current consumption in Stop 1 mode 
+Symbol Parameter
+Conditions(1) Typ Max (2)
+Unit
+RTC V DD 25 °C 85 °C 25 °C 85 °C
+IDD(Stop 1)
+Supply current 
+in Stop 1 mode
+Disabled
+2.4 V 3.4 28 17 130
+µA
+3 V 3.6 28 22 140
+3.6 V 3.9 29 28 155
+Enabled
+(clocked by 
+LSE bypass)
+2.4 V 3.9 28 22 140
+3 V 4.1 29 23 155
+3.6 V 4.6 29 28 160
+1. Flash memory not powered.
+2. Based on characterization resu lts, not tested in production.
+Table 29. Current consumption in Standby mode 
+Symbol Parameter
+Conditions Typ Max (1)
+Unit
+General V DD 25 °C 85 °C 25 °C 85 °C
+IDD(Standby)
+Supply current in 
+Standby mode
+RTC disabled
+2.4 V 1.0 1.8 2.1 14
+µA
+3.0 V 1.2 2.1 2.7 16
+3.6 V 1.4 2.5 3.0 19
+RTC enabled, 
+clocked by LSI
+2.4 V 1.3 2.1 2.2 17
+3.0 V 1.7 2.5 2.9 19
+3.6 V 2.1 3.0 3.8 19
+1. Based on characterization resu lts, not tested in production.
+Table 30. Current consumption in VBAT mode 
+Symbol Parameter
+Conditions Typ
+Unit
+RTC V BAT 25 °C 85 °C
+IDD_VBAT
+Supply current in 
+VBAT mode
+Enabled, clocked by 
+LSE bypass at 
+32.768 kHz
+2.4 V 270 360
+nA
+3.0 V 360 460
+3.6 V 470 600
+Enabled, clocked by 
+LSE crystal at
+32.768 kHz
+2.4 V 410 440
+3.0 V 510 530
+3.6 V 630 770
+
+===== page 47 =====
+DS12991 Rev 3 47/93
+STM32G030x6/x8 Electrical characteristics
+79
+For the output pins, any external pull-down or external load must also be considered to 
+estimate the current consumption.
+Additional I/O current consumption is due to I/Os configured as inputs if an intermediate 
+voltage level is externally applied. This current consumption is caused by the input Schmitt 
+trigger circuits used to discriminate the input value. Unless this specific configuration is 
+required by the application, this supply current consumption can be avoided by configuring 
+these I/Os in analog mode. This is notably the case of ADC input pins which should be 
+configured as analog inputs.
+Caution: Any floating input pin can also settle to an intermediate voltage level or switch inadvertently, 
+as a result of external electromagnetic noise. To avoid current consumption related to 
+floating pins, they must either be configured in analog mode, or forced internally to a definite 
+digital value. This can be done either by using pull-up/down resistors or by configuring the 
+pins in output mode.
+I/O dynamic current consumption
+In addition to the internal peripheral current consumption measured previously (see 
+Table 31: Current consumption of peripherals, the I/Os used by an application also 
+contribute to the current consumption. When an I/O pin switches, it uses the current from 
+the I/O supply voltage to supply the I/O pin circuitry and to charge/discharge the capacitive 
+load (internal or external) connected to the pin:
+where
+ISW is the current sunk by a switching I/O to charge/discharge the capacitive load
+VDDIO1 is the I/O supply voltage
+fSW is the I/O switching frequency
+C is the total capacitance seen by the I/O pin: C = CINT+ CEXT + CS 
+CS is the PCB board capacitance including the pad pin. 
+The test pin is configured in push-pull output mode and is toggled by software at a fixed 
+frequency.
+On-chip peripheral current consumption
+The current consumption of the on-chip peripherals is given in the following table. The MCU 
+is placed under the following conditions:
+• All I/O pins are in Analog mode
+• The given value is calculated by measuring the difference of the current consumptions:
+– when the peripheral is clocked on
+– when the peripheral is clocked off
+• Ambient operating temperature and supply voltage conditions summarized in Table 18: 
+Voltage characteristics
+• The power consumption of the digital part of the on-chip peripherals is given in the 
+following table. The power consumption of the analog part of the peripherals (where 
+applicable) is indicated in each related section of the datasheet.
+ISW VDDIO1 fSW C××=
+
+===== page 48 =====
+Electrical characteristics STM32G030x6/x8
+48/93 DS12991 Rev 3
+          
+5.3.6 Wakeup time from low-po wer modes and voltage scaling 
+transition times
+The wakeup times given in Table 32 are the latency between the event and the execution of 
+the first user instruction.
+Table 31. Current consumption of peripherals 
+Peripheral Bus
+Consumption in µA/MHz
+Range 1 Range 2 Low-power run 
+and sleep
+IOPORT Bus IOPORT 0.5 0.4 0.3
+GPIOA IOPORT 3.1 2.4 3.0
+GPIOB IOPORT 2.9 2.3 3.0
+GPIOC IOPORT 0.9 0.8 1.0
+GPIOD IOPORT 0.7 0.6 1.0
+GPIOF IOPORT 0.5 0.5 1.0
+Bus matrix AHB 3.2 2.2 2.8
+All AHB Peripherals AHB 9.8 8.2 8.5
+DMA1/DMAMUX AHB 3.4 2.9 3.0
+CRC AHB 0.5 0.4 0.5
+FLASH AHB 4.3 3.6 3.5
+All APB peripherals APB 23.5 20.0 20.5
+AHB to APB bridge(1) APB 0.2 0.2 0.1
+PWR APB 0.4 0.3 0.5
+SYSCFG APB 0.4 0.4 0.5
+WWDG APB 0.2 0.3 0.5
+TIM1 APB 7.0 5.9 6.5
+TIM3 APB 3.6 3.1 3.5
+TIM14 APB 1.5 1.3 1.5
+TIM16 APB 2.3 2.0 2.5
+TIM17 APB 1.0 0.8 0.3
+I2C1 APB 3.2 2.7 3.0
+I2C2 APB 0.7 0.6 1.0
+SPI1 APB 2.2 1.8 2.0
+SPI2 APB 1.3 1.1 1.5
+USART1 APB 6.6 5.6 6.0
+USART2 APB 1.8 1.5 2.0
+ADC APB 1.6 1.5 1.5
+1. The AHB to APB Bridge is automatically active when at least o ne peripheral is ON on the APB.
+
+===== page 49 =====
+DS12991 Rev 3 49/93
+STM32G030x6/x8 Electrical characteristics
+79
+          
+Table 32. Low-power mode wakeup times(1) 
+Symbol Parameter Conditions Typ Max Unit
+tWUSLEEP
+Wakeup time from 
+Sleep to Run 
+mode
+-1 1 1 1
+CPU
+cycles
+tWULPSLEEP
+Wakeup time from 
+Low-power sleep 
+mode
+Transiting to Low-power-run-mode execution in Flash 
+memory not powered in Low-power sleep mode;
+HCLK = HSI16 / 8 = 2 MHz
+11 14
+tWUSTOP0
+Wakeup time from 
+Stop 0
+Transiting to Run-mode execution in Flash memory not 
+powered in Stop 0 mode;
+HCLK = HSI16 = 16 MHz;
+Regulator in Range 1 or Range 2
+5.6 6
+µs
+Transiting to Run-mode execution in SRAM or in Flash 
+memory powered in Stop 0 mode;
+HCLK = HSI16 = 16 MHz;
+Regulator in Range 1 or Range 2
+22 . 4
+tWUSTOP1
+Wakeup time from 
+Stop 1
+Transiting to Run-mode execution in Flash memory not 
+powered in Stop 1 mode;
+HCLK = HSI16 = 16 MHz;
+Regulator in Range 1 or Range 2
+9.0 11.2
+µs
+Transiting to Run-mode execution in SRAM or in Flash 
+memory powered in Stop 1 mode;
+HCLK = HSI16 = 16 MHz;
+Regulator in Range 1 or Range 2
+57 . 5
+Transiting to Low-power-run-mode execution in Flash 
+memory not powered in Stop 1 mode;
+HCLK = HSI16/8 = 2 MHz;
+Regulator in low-power mode (LPR = 1 in PWR_CR1)
+22 25.3
+Transiting to Low-power-run-mode execution in SRAM or 
+in Flash memory powered in Stop 1 mode;
+HCLK = HSI16 / 8 = 2 MHz;
+Regulator in low-power mode (LPR = 1 in PWR_CR1)
+18 23.5
+tWUSTBY
+Wakeup time from 
+Standby mode
+Transiting to Run mode;
+HCLK = HSI16 = 16 MHz;
+Regulator in Range 1
+14.5 30 µs
+tWULPRUN
+Wakeup time from 
+Low-power run 
+mode(2)
+Transiting to Run mode;
+HSISYS = HSI16/8 = 2 MHz 57µ s
+1. Based on characterization resu lts, not tested in production.
+2. Time until REGLPF flag is cleared in PWR_SR2.
+
+===== page 50 =====
+Electrical characteristics STM32G030x6/x8
+50/93 DS12991 Rev 3
+          
+5.3.7 External clock source characteristics
+High-speed external user clock generated from an external source
+In bypass mode the HSE oscillator is switched off and the input pin is a standard GPIO.
+The external clock signal has to respect the I/O characteristics in Section 5.3.14. See 
+Figure 12 for recommended clock input waveform.
+          
+Figure 12. High-speed external clock source AC timing diagram
+Table 33. Regulator mode transition times(1) 
+Symbol Parameter Conditions Typ Max Unit
+tVOST
+Transition times between regulator 
+Range 1 and Range 2(2) HSISYS = HSI16 20 40 µs
+1. Based on characterization resu lts, not tested in production.
+2. Time until VOSF flag is cleared in PWR_SR2.
+Table 34. High-speed external user clock characteristics(1) 
+Symbol Parameter Conditions Min Typ Max Unit
+fHSE_ext User external clock source frequency
+Voltage scaling 
+Range 1 -8 4 8
+MHz
+Voltage scaling 
+Range 2 -8 2 6
+VHSEH OSC_IN input pin high level voltage - 0.7 V DDIO1 -V DDIO1
+V
+VHSEL OSC_IN input pin low level voltage - V SS -0 . 3  V DDIO1
+tw(HSEH)
+tw(HSEL)
+OSC_IN high or low time
+Voltage scaling 
+Range 1 7- -
+ns
+Voltage scaling 
+Range 2 18 - -
+1. Guaranteed by design.
+MS19214V2
+VHSEH
+tf(HSE)
+90%
+10%
+THSE
+ttr(HSE)
+VHSEL
+tw(HSEH)
+tw(HSEL)
+
+===== page 51 =====
+DS12991 Rev 3 51/93
+STM32G030x6/x8 Electrical characteristics
+79
+Low-speed external user clock generated from an external source
+In bypass mode the LSE oscillator is switched off and the input pin is a standard GPIO.
+The external clock signal has to respect the I/O characteristics in Section 5.3.14. See 
+Figure 13 for recommended clock input waveform.
+          
+Figure 13. Low-speed external clock source AC timing diagram
+High-speed external clock generated from a crystal/ceramic resonator
+The high-speed external (HSE) clock can be supplied with a 4 to 48 MHz crystal/ceramic 
+resonator oscillator. All the information given in this paragraph are based on design 
+simulation results obtained with typical external components specified in Table 36. In the 
+application, the resonator and the load capacitors have to be placed as close as possible to 
+the oscillator pins in order to minimize output distortion and startup stabilization time. Refer 
+to the crystal resonator manufacturer for more details on the resonator characteristics 
+(frequency, package, accuracy).
+          
+Table 35. Low-speed external user clock characteristics(1) 
+Symbol Parameter Conditions Min Typ Max Unit
+fLSE_ext User external clock source frequency - - 32.768 1000 kHz
+VLSEH OSC32_IN input pin high level voltage - 0.7 V DDIO1 -V DDIO1
+V
+VLSEL OSC32_IN input pin low level voltage - V SS - 0.3 V DDIO1
+tw(LSEH)
+tw(LSEL)
+OSC32_IN high or low time - 250 - - ns
+1. Guaranteed by design.
+MS19215V2
+VLSEH
+tf(LSE)
+90%
+10%
+TLSE
+ttr(LSE)
+VLSEL
+tw(LSEH)
+tw(LSEL)
+Table 36. HSE oscillator characteristics(1) 
+Symbol Parameter Conditions (2) Min Typ Max Unit
+fOSC_IN Oscillator frequency - 4 8 48 MHz
+RF Feedback resistor - - 200 - kΩ 
+
+===== page 52 =====
+Electrical characteristics STM32G030x6/x8
+52/93 DS12991 Rev 3
+For CL1 and CL2, it is recommended to use high-quality external ceramic capacitors in the 
+5 pF to 20 pF range (typ.), designed for high-frequency applications, and selected to match 
+the requirements of the crystal or resonator (see Figure 14). CL1 and CL2 are usually the 
+same size. The crystal manufacturer typically specifies a load capacitance which is the 
+series combination of CL1 and CL2. PCB and MCU pin capacitance must be included (10 pF 
+can be used as a rough estimate of the combined pin and board capacitance) when sizing 
+CL1 and CL2.
+Note: For information on selectin g the crystal, refer to the application note AN2867 “Oscillator 
+design guide for ST microcontrollers” available from the ST website www.st.com.
+IDD(HSE) HSE current consumption
+During startup(3) -- 5 . 5
+mA
+VDD = 3 V,  
+Rm = 30 Ω,  
+CL = 10 pF@8 MHz
+-0 . 5 8-
+VDD = 3 V,  
+Rm = 45 Ω,  
+CL = 10 pF@8 MHz
+-0 . 5 9-
+VDD = 3 V,  
+Rm = 30 Ω,  
+CL = 5 pF@48 MHz
+-0 . 8 9-
+VDD = 3 V,  
+Rm = 30 Ω, 
+CL = 10 pF@48 MHz
+-1 . 1 4-
+VDD = 3 V,  
+Rm = 30 Ω,  
+CL = 20 pF@48 MHz
+-1 . 9 4-
+Gm 
+Maximum critical crystal 
+transconductance Startup - - 1.5 mA/V
+tSU(HSE)
+(4) Startup time  V DD is stabilized - 2 - ms
+1. Guaranteed by design.
+2. Resonator characteristics giv en by the crystal/ceramic resonator manufacturer.
+3. This consumption level occurs  during the first 2/3 of the tSU(HSE) startup time 
+4. t SU(HSE) is the startup time measured from the moment it is enabled (by software) to a stabilized 8 MHz oscillation is 
+reached. This value is measured for a standard crystal resonator and it can vary significantly with the crystal manufacturer
+Table 36. HSE oscillator characteristics(1) (continued)
+Symbol Parameter Conditions (2) Min Typ Max Unit
+
+===== page 53 =====
+DS12991 Rev 3 53/93
+STM32G030x6/x8 Electrical characteristics
+79
+Figure 14. Typical application with an 8 MHz crystal
+1. R EXT value depends on the crystal characteristics.
+Low-speed external clock generated from a crystal resonator
+The low-speed external (LSE) clock can be supplied with a 32.768 kHz crystal resonator 
+oscillator. All the information given in this paragraph are based on design simulation results 
+obtained with typical external components specified in Table 37. In the application, the 
+resonator and the load capacitors have to be placed as close as possible to the oscillator 
+pins in order to minimize output distortion and startup stabilization time. Refer to the crystal 
+resonator manufacturer for more details on the resonator characteristics (frequency, 
+package, accuracy).
+          
+MS19876V1
+(1)
+OSC_IN
+OSC_OUT
+RF
+Bias 
+controlled 
+gain
+fHSE
+REXT
+8 MHz 
+resonator
+Resonator with integrated 
+capacitors
+CL1
+CL2
+Table 37. LSE oscillator characteristics (fLSE = 32.768 kHz)(1) 
+Symbol Parameter Conditions (2) Min Typ Max Unit
+IDD(LSE) LSE current consumption
+LSEDRV[1:0] = 00  
+Low drive capability -2 5 0-
+nA
+LSEDRV[1:0] = 01  
+Medium low drive capability -3 1 5-
+LSEDRV[1:0] = 10  
+Medium high drive capability -5 0 0-
+LSEDRV[1:0] = 11  
+High drive capability -6 3 0-
+Gmcritmax
+Maximum critical crystal 
+gm
+LSEDRV[1:0] = 00 
+Low drive capability -- 0 . 5
+µA/V
+LSEDRV[1:0] = 01 
+Medium low drive capability - - 0.75
+LSEDRV[1:0] = 10 
+Medium high drive capability -- 1 . 7
+LSEDRV[1:0] = 11 
+High drive capability -- 2 . 7
+tSU(LSE)
+(3) Startup time  V DD is stabilized - 2 - s
+1. Guaranteed by design.
+2. Refer to the note and caution paragraphs below the table, and  to the application note AN2867 “Oscillator design guide for 
+ST microcontrollers”.
+
+===== page 54 =====
+Electrical characteristics STM32G030x6/x8
+54/93 DS12991 Rev 3
+Note: For information on selectin g the crystal, refer to the application note AN2867 “Oscillator 
+design guide for ST microcontrollers” available from the ST website www.st.com.
+Figure 15. Typical application with a 32.768 kHz crystal
+Note: An external resistor is not required between OSC32_IN and OSC32_OUT and it is forbidden 
+to add one.
+5.3.8 Internal clock s ource characteristics
+The parameters given in Table 38 are derived from tests performed under ambient 
+temperature and supply voltage conditions summarized in Table 21: General operating 
+conditions. The provided curves are characterization results, not tested in production.
+High-speed internal (HSI16) RC oscillator
+          
+3.  t SU(LSE) is the startup time measured from the moment it is enabled (by software) to a stabilized 32.768 kHz oscillation is 
+reached. This value is measured for a standard crystal and it can vary significantly with the crystal manufacturer
+MS30253V2
+OSC32_IN
+OSC32_OUT
+Drive 
+programmable 
+amplifier
+fLSE
+32.768 kHz 
+resonator
+Resonator with integrated 
+capacitors
+CL1
+CL2
+Table 38. HSI16 oscillator characteristics(1) 
+Symbol Parameter Condi tions Min Typ Max Unit
+fHSI16 HSI16 Frequency V DD=3.0 V, TA=30 °C 15.88 - 16.08 MHz
+∆Temp(HSI16)
+HSI16 oscillator frequency drift over 
+temperature
+TA= 0 to 85 °C -1 - 1 %
+TA= -40 to 85 °C -2 - 1.5 %
+∆VDD(HSI16)
+HSI16 oscillator frequency drift over 
+VDD
+VDD=VDD(min) to 3.6 V -0.1 - 0.05 %
+TRIM HSI16 frequency user trimming step
+From code 127 to 128 -8 -6 -4
+%
+From code 63 to 64 
+From code 191 to 192 -5.8 -3.8 -1.8
+For all other code 
+increments 0.2 0.3 0.4
+DHSI16
+(2) Duty Cycle - 45 - 55 %
+tsu(HSI16)
+(2) HSI16 oscillator start-up time - - 0.8 1.2 μs
+
+===== page 55 =====
+DS12991 Rev 3 55/93
+STM32G030x6/x8 Electrical characteristics
+79
+Low-speed internal (LSI) RC oscillator
+          
+5.3.9 PLL characteristics
+The parameters given in Table 40 are derived from tests performed under temperature and 
+VDD supply voltage conditions summarized in Table 21: General operating conditions.
+          
+tstab(HSI16)
+(2) HSI16 oscillator stabilization time - - 3 5 μs
+IDD(HSI16)
+(2) HSI16 oscillator power consumption - - 155 190 μA
+1. Based on characterization resu lts, not tested in production.
+2. Guaranteed by design.
+Table 38. HSI16 oscillator characteristics(1) (continued)
+Symbol Parameter Condi tions Min Typ Max Unit
+Table 39. LSI oscillator characteristics(1) 
+Symbol Parameter Conditions Min Typ Max Unit
+fLSI LSI frequency
+VDD = 3.0 V, TA = 30 °C 31.04 - 32.96
+kHzVDD = VDD(min) to 3.6 V, TA = -40 to 
+85 °C 29.5 - 34
+tSU(LSI)
+(2) LSI oscillator start-up time - - 80 130 μs
+tSTAB(LSI)
+(2) LSI oscillator stabilization time 5% of final frequency - 125 180 μs
+IDD(LSI)
+(2) LSI oscillator power 
+consumption - - 110 180 nA
+1. Based on characterization resu lts, not tested in production.
+2. Guaranteed by design.
+Table 40. PLL characteristics(1) 
+Symbol Parameter Conditions Min Typ Max Unit
+fPLL_IN PLL input clock frequency(2) -2 . 6 6 - 1 6 M H z
+DPLL_IN PLL input clock duty cycle - 45 - 55 %
+fPLL_P_OUT PLL multiplier output clock P
+Voltage scaling Range 1 3.09 - 122
+MHz
+Voltage scaling Range 2 3.09 - 40
+fPLL_R_OUT PLL multiplier output clock R
+Voltage scaling Range 1 12 - 64
+MHz
+Voltage scaling Range 2 12 - 16
+fVCO_OUT PLL VCO output
+Voltage scaling Range 1 96 - 344
+MHz
+Voltage scaling Range 2 96 - 128
+tLOCK PLL lock time - - 15 40 μs
+Jitter
+RMS cycle-to-cycle jitter
+System clock 56 MHz
+-5 0 -
+±ps
+RMS period jitter - 40 -
+
+===== page 56 =====
+Electrical characteristics STM32G030x6/x8
+56/93 DS12991 Rev 3
+5.3.10 Flash memory characteristics
+          
+          
+IDD(PLL)
+PLL power consumption 
+on VDD
+(1)
+VCO freq = 96 MHz - 200 260
+μAVCO freq = 192 MHz - 300 380
+VCO freq = 344 MHz - 520 650
+1. Guaranteed by design.
+2. Take care of using the appropriate division factor M to obtai n the specified PLL input clock values. The M factor is shared 
+between the two PLLs.
+Table 40. PLL characteristics(1) (continued)
+Symbol Parameter Conditions Min Typ Max Unit
+Table 41. Flash memory characteristics(1) 
+Symbol Parameter  Conditions Typ Max Unit
+tprog 64-bit programming time - 85 125 µs
+tprog_row Row (32 double word) programming time
+Normal programming 2.7 4.6
+ms
+Fast programming 1.7 2.8
+tprog_page Page (2 Kbyte) programming time
+Normal programming 21.8 36.6
+Fast programming 13.7 22.4
+tERASE Page (2 Kbyte) erase time - 22.0 40.0
+tprog_bank Bank (64 Kbyte(2)) programming time
+Normal programming 0.7 1.2
+s
+Fast programming 0.4 0.7
+tME Mass erase time - 22.1 40.1 ms
+IDD(FlashA) Average consumption from VDD
+Programming 3 -
+mAPage erase 3 -
+Mass erase 5 -
+IDD(FlashP) Maximum current (peak)
+Programming, 2 µs peak 
+duration 7-
+mA
+Erase, 41 µs peak duration 7 -
+1. Guaranteed by design.
+2. Values provided also apply to devices with less Flash memory than one 64 Kbyte bank
+Table 42. Flash memory endurance and data retention 
+Symbol Parameter  Conditions Min (1) Unit
+NEND Endurance T A = -40 to +85 °C 1 kcycles
+tRET Data retention 1 kcycle (2) at TA = 85 °C 15 Years
+1. Guaranteed by characterization results.
+2. Cycling performed over the whole temperature range.
+
+===== page 57 =====
+DS12991 Rev 3 57/93
+STM32G030x6/x8 Electrical characteristics
+79
+5.3.11 EMC characteristics
+Susceptibility tests are performed on a sample basis during device characterization.
+Functional EMS (electromagnetic susceptibility)
+While a simple application is executed on the device (toggling 2 LEDs through I/O ports). 
+the device is stressed by two electromagnetic events until a failure occurs. The failure is 
+indicated by the LEDs:
+• Electrostatic discharge (ESD) (positive and negative) is applied to all device pins until 
+a functional disturbance occurs. This test is compliant with the IEC 61000-4-2 standard.
+• FTB: A Burst of Fast Transient voltage (positive and negative) is applied to VDD and 
+VSS through a 100 pF capacitor, until a functional disturbance occurs. This test is 
+compliant with the IEC 61000-4-4 standard.
+A device reset allows normal operations to be resumed. 
+The test results are given in Table 43. They are based on the EMS levels and classes 
+defined in application note AN1709.
+          
+Designing hardened software to avoid noise problems
+EMC characterization and optimization are performed at component level with a typical 
+application environment and simplified MCU software. It should be noted that good EMC 
+performance is highly dependent on the user application and the software in particular.
+Therefore it is recommended that the user applies EMC software optimization and 
+prequalification tests in relation with the EMC level requested for his application.
+Software recommendations
+The software flowchart must include the management of runaway conditions such as:
+• corrupted program counter
+• unexpected reset
+• critical data corruption (for example control registers)
+Table 43. EMS characteristics 
+Symbol Parameter Conditions Level/
+Class
+VFESD
+Voltage limits to be applied on any I/O pin to 
+induce a functional disturbance
+VDD = 3.3 V, TA = +25 °C,  
+fHCLK = 64 MHz, LQFP48, 
+conforming to IEC 61000-4-2
+2B
+VEFTB
+Fast transient voltage burst limits to be applied 
+through 100 pF on VDD and VSS pins to induce a 
+functional disturbance
+VDD = 3.3 V, TA = +25 °C,  
+fHCLK = 64 MHz, LQFP48, 
+conforming to IEC 61000-4-4
+5A
+
+===== page 58 =====
+Electrical characteristics STM32G030x6/x8
+58/93 DS12991 Rev 3
+Prequalification trials
+Most of the common failures (unexpected reset and program counter corruption) can be 
+reproduced by manually forcing a low state on the NRST pin or the Oscillator pins for 1 
+second.
+To complete these trials, ESD stress can be applied directly on the device, over the range of 
+specification values. When unexpected behavior is detected, the software can be hardened 
+to prevent unrecoverable errors occurring (see application note AN1015).
+Electromagnetic Interference (EMI)
+The electromagnetic field emitted by the device are monitored while a simple application is 
+executed (toggling 2 LEDs through the I/O ports). This emission test is compliant with 
+IEC 61967-2 standard which specifies the test board and the pin loading.
+          
+5.3.12 Electrical sensi tivity characteristics
+Based on three different tests (ESD, LU) using specific measurement methods, the device is 
+stressed in order to determine its performance in terms of electrical sensitivity.
+Electrostatic discharge (ESD)
+Electrostatic discharges (a positive then a negative pulse separated by 1 second) are 
+applied to the pins of each sample according to each pin combination. The sample size 
+depends on the number of supply pins in the device (3 parts × (n+1) supply pins). This test 
+conforms to the ANSI/JEDEC standard.
+           
+Table 44. EMI characteristics 
+Symbol Parameter Conditions Monitored
+frequency band
+Max vs. 
+[fHSE/fHCLK] Unit
+8  MHz / 64 MHz
+SEMI Peak level
+VDD = 3.6 V, TA = 25 °C, 
+LQFP64 package 
+compliant with IEC 61967-2
+0.1 MHz to 30 MHz -4
+dBµV
+30 MHz to 130 MHz 1
+130 MHz to 1 GHz 3
+1 GHz to 2 GHz 8
+EMI level 2.5 -
+Table 45. ESD absolute maximum ratings 
+Symbol Ratings Conditions Class Maximum 
+value(1) Unit
+VESD(HBM)
+Electrostatic discharge voltage 
+(human body model)
+TA = +25 °C, conforming to 
+ANSI/ESDA/JEDEC JS-001 1C 1000
+V
+VESD(CDM)
+Electrostatic discharge voltage 
+(charge device model)
+TA = +25 °C, conforming to 
+ANSI/ESDA/JEDEC JS-002 C2a 500
+1. Based on characterization resu lts, not tested in production.
+
+===== page 59 =====
+DS12991 Rev 3 59/93
+STM32G030x6/x8 Electrical characteristics
+79
+Static latch-up
+Two complementary static tests are required on six parts to assess the latch-up 
+performance: 
+• A supply overvoltage is applied to each power supply pin.
+• A current is injected to each input, output and configurable I/O pin.
+These tests are compliant with EIA/JESD 78A IC latch-up standard.
+          
+5.3.13 I/O current inj ection characteristics
+As a general rule, current injection to the I/O pins, due to external voltage below VSS or 
+above VDDIO1 (for standard, 3.3 V-capable I/O pins) should be avoided during normal 
+product operation. However, in order to give an indication of the robustness of the 
+microcontroller in cases when abnormal injection accidentally happens, susceptibility tests 
+are performed on a sample basis during device characterization.
+Functional susceptibility to I/O current injection
+While a simple application is executed on the device, the device is stressed by injecting 
+current into the I/O pins programmed in floating input mode. While current is injected into 
+the I/O pin, one at a time, the device is checked for functional failures. 
+The failure is indicated by an out-of-range parameter: ADC error above a certain limit 
+(higher than 5 LSB TUE), induced leakage current on adjacent pins out of conventional 
+limits (-5 µA/+0 µA range) or other functional failure (for example reset occurrence or 
+oscillator frequency deviation).
+Negative induced leakage current is caused by negative injection and positive induced 
+leakage current is caused by positive injection.
+          
+Table 46. Electrical sensitivity 
+Symbol Parameter Conditions Class
+LU Static latch-up class T A = +85 °C conforming to JESD78 II Level A
+Table 47. I/O current injection susceptibility(1) 
+Symbol Description
+Functional susceptibility
+UnitNegative 
+injection
+Positive 
+injection
+IINJ
+Injected current on 
+pin
+All except PA1, PA3, PA5, PA6, 
+PA13, PB0, PB1, PB2, and PB8 -5 N/A
+mAPA1, PA5, PA13, PB1, PB2 0 +5 / N/A (2)
+PA3, PA6, PB0 -5 +5 / N/A (2)
+PB8 0 N/A
+1. Based on characterization resu lts, not tested in production.
+2. The injection current value is applicable when the switchable  diode is activated, N/A when not activated.
+
+===== page 60 =====
+Electrical characteristics STM32G030x6/x8
+60/93 DS12991 Rev 3
+5.3.14 I/O port characteristics
+General input/output characteristics
+Unless otherwise specified, the parameters given in Table 48 are derived from tests 
+performed under the conditions summarized in Table 21: General operating conditions. All 
+I/Os are designed as CMOS- and TTL-compliant.
+          
+Table 48. I/O static characteristics 
+Symbol Parameter Condi tions Min Typ Max Unit
+VIL
+(1) I/O input low level 
+voltage All V DD(min) < VDDIO1 < 3.6 V - -
+0.3 x VDDIO1 (2) V
+0.39 x VDDIO1
+- 0.06 (3)
+VIH
+(1) I/O input high level 
+voltage All V DD(min) < VDDIO1 < 3.6 V
+0.7 x VDDIO1
+(
+2) --
+V
+0.49 x VDDIO1
++ 0.26(3) --
+Vhys
+(3) I/O input hysteresis FT_xx, 
+NRST VDD(min) < VDDIO1 < 3.6 V - 200 - mV
+Ilkg
+Input leakage 
+current(3)
+All 
+except 
+FT_e
+0 < VIN ≤ VDDIO1 -- ± 7 0
+nAVDDIO1 ≤ VIN ≤ VDDIO1+1 V - - 600 (4)
+VDDIO1 +1 V < VIN ≤ 
+5.5 V(3) - - 150 (4)
+FT_e
+(5) 0 < VIN < VDDIO1 --5 µ A
+RPU
+Weak pull-up 
+equivalent resistor 
+(6)
+VIN = VSS 25 40 55 kΩ
+RPD
+Weak pull-down 
+equivalent resistor(6) VIN = VDDIO1 25 40 55 kΩ
+CIO I/O pin capacitance - - 5 - pF
+1. Refer to Figure 16: I/O input characteristics.
+2. Tested in production.
+3. Guaranteed by design.
+4. This value represents the pad  leakage of the I/O itself. The total product pad leakage is provided by this formula: 
+ITotal_Ileak_max = 10 µA + [number of I/Os where VIN is applied on the pad] ₓ Ilkg(Max).
+5. FT_e with diode enabled. Input l eakage current of FT_e I/Os with the diode disabled is the same as standard I/Os.
+6. Pull-up and pull-down resistor s are designed with a true resistance in series with a switchable PMOS/NMOS. This 
+PMOS/NMOS contribution to the series resistance is minimal (~10% order).
+
+===== page 61 =====
+DS12991 Rev 3 61/93
+STM32G030x6/x8 Electrical characteristics
+79
+All I/Os are CMOS- and TTL-compliant (no software configuration required). Their 
+characteristics cover more than the strict CMOS-technology or TTL parameters, as shown 
+in Figure 16.
+Figure 16. I/O input characteristics
+Characteristics of FT_e I/Os
+The following table and figure specify input characteristics of FT_e I/Os.
+          
+MSv47926V1
+2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6
+0
+0.5
+1
+1.5
+2
+2.5
+3
+Minimum required 
+logic level 1 zone
+Minimum required 
+logic level 0 zone
+VIHmin
+ = 0.7 V
+DDIO
+          (CMOS standard requirement)
+VILmax = 0.3 VDDIO          (CMOS standard requirement)
+Undefined input rangeVIHmin = 0.49 VDDIO + 0.26
+VILmax = 0.39 VDDIO - 0.06
+VIN (V)
+VDDIO (V)
+TTL standard requirement
+TTL standard requirement
+Device characteristics
+Test thresholds
+Table 49. Input characteristics of FT_e I/Os 
+Symbol Parameter Conditions Min Typ Max Unit
+IINJ Injected current on pin - - - 5 mA
+VDDIO1-VIN Voltage over VDDIO1 IINJ = 5 mA - - 2 V
+Rd Diode dynamic serial resistor I INJ = 5 mA - - 300 Ω
+
+===== page 62 =====
+Electrical characteristics STM32G030x6/x8
+62/93 DS12991 Rev 3
+Figure 17. Current injection into FT_e input with diode active
+Output driving current
+The GPIOs (general purpose input/outputs) can sink or source up to ±6 mA, and up to 
+±15 mA with relaxed VOL/VOH.
+In the user application, the number of I/O pins which can drive current must be limited to 
+respect the absolute maximum rating specified in Section 5.2:
+• The sum of the currents sourced by all the I/Os on VDDIO1, plus the maximum 
+consumption of the MCU sourced on VDD, cannot exceed the absolute maximum rating 
+IVDD (see Table 18: Voltage characteristics).
+• The sum of the currents sunk by all the I/Os on VSS, plus the maximum consumption of 
+the MCU sunk on VSS, cannot exceed the absolute maximum rating IVSS (see Table 18: 
+Voltage characteristics). 
+Output voltage levels
+Unless otherwise specified, the parameters given in the table below are derived from tests 
+performed under the ambient temperature and supply voltage conditions summarized in 
+Table 21: General operating conditions. All I/Os are CMOS- and TTL-compliant (FT OR TT 
+unless otherwise specified).
+MSv63112V1
+0 0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2
+0
+1
+2
+3
+4
+5
+IINJ (mA)
+VIN – VDDIO1 (V)
+-40°C 25°C 125°C
+
+===== page 63 =====
+DS12991 Rev 3 63/93
+STM32G030x6/x8 Electrical characteristics
+79
+          
+Input/output AC characteristics
+The definition and values of input/output AC characteristics are given in Figure 18 and 
+Table 51, respectively.
+Unless otherwise specified, the parameters given are derived from tests performed under 
+the ambient temperature and supply voltage conditions summarized in Table 21: General 
+operating conditions.
+          
+Table 50. Output voltage characteristics(1) 
+Symbol Parameter Conditions Min Max Unit
+VOL Output low level voltage for an I/O pin CMOS port (2)  
+|IIO| 6 mA 
+VDDIO1 ≥ 2.7 V
+-0 . 4
+V
+VOH Output high level voltage for an I/O pin V DDIO1 - 0.4 -
+VOL
+(3) Output low level voltage for an I/O pin TTL port (2)  
+|IIO| = 6 mA 
+VDDIO1 ≥ 2.7 V
+-0 . 4
+VOH
+(3) Output high level voltage for an I/O pin 2.4 -
+VOL
+(3) Output low level voltage for an I/O pin All I/Os  
+|IIO| = 15 mA 
+VDDIO1 ≥ 2.7 V
+-1 . 3
+VOH
+(3) Output high level voltage for an I/O pin V DDIO1 - 1.3 -
+VOL
+(3) Output low level voltage for an I/O pin
+|IIO| = 3 mA
+-0 . 4
+VOH
+(3) Output high level voltage for an I/O pin V DDIO1 - 0.45 -
+VOLFM+(3)
+Output low level voltage for an FT I/O 
+pin in FM+ mode (FT I/O with _f option)
+|IIO| = 20 mA 
+VDDIO1 ≥ 2.7 V -0 . 4
+|IIO| = 9 mA - 0.4
+1. The I IO current sourced or sunk by the device must always respect the absolute maximum rating specified in Table 18: 
+Voltage characteristics, and the sum of the currents sourced or sunk by all the I/Os (I/O ports and control pins) must always 
+respect the absolute maximum ratings ΣIIO.
+2. TTL and CMOS outputs are compatible with JEDEC standards JESD 36 and JESD52.
+3. Guaranteed by design.
+Table 51. I/O AC characteristics(1)(2) 
+Speed Symbol Parameter Conditions Min Max Unit
+00
+Fmax Maximum frequency
+C=50 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 2
+MHzC=50 pF, 2.0 V ≤ VDDIO1 ≤ 2.7 V - 0.35
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 3
+C=10 pF, 2.0 V ≤ VDDIO1 ≤ 2.7 V - 0.45
+Tr/Tf Output rise and fall time
+C=50 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 100
+nsC=50 pF, 2.0 V ≤ VDDIO1 ≤ 2.7 V - 225
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 75
+C=10 pF, 2.0 V ≤ VDDIO1 ≤ 2.7 V - 150
+
+===== page 64 =====
+Electrical characteristics STM32G030x6/x8
+64/93 DS12991 Rev 3
+01
+Fmax Maximum frequency
+C=50 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 10
+MHzC=50 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 2
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 15
+C=10 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 2.5
+Tr/Tf Output rise  and fall time
+C=50 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 30
+nsC=50 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 60
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 15
+C=10 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 30
+10
+Fmax Maximum frequency
+C=50 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 30
+MHzC=50 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 15
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 60
+C=10 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 30
+Tr/Tf Output rise and fall time
+C=50 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 11
+nsC=50 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 22
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 4
+C=10 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 8
+11
+Fmax Maximum frequency
+C=30 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 60
+MHzC=30 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 30
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 80 (3)
+C=10 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 40
+Tr/Tf Output rise and fall time
+C=30 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 5.5
+nsC=30 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 11
+C=10 pF, 2.7 V ≤ VDDIO1 ≤ 3.6 V - 2.5
+C=10 pF, 1.6 V ≤ VDDIO1 ≤ 2.7 V - 5
+Fm+ Fmax Maximum frequency C=50 pF, 1.6 V ≤ VDDIO1 ≤ 3.6 V -1 M H z
+Tf Output fall time (4) -5 n s
+1. The I/O speed is configured using the OSPEEDRy[1:0] bits. The  Fm+ mode is configured in the SYSCFG_CFGR1 register. 
+Refer to the RM0454 reference manual for a description of GPIO Port configuration register.
+2. Guaranteed by design.
+3. This value represents the I/O  capability but the maximum system frequency is limited to 64 MHz.
+4. The fall time is defined between 70% and 30% of the output wa veform, according to I2C specification.
+Table 51. I/O AC characteristics(1)(2) (continued)
+Speed Symbol Parameter Conditions Min Max Unit
+
+===== page 65 =====
+DS12991 Rev 3 65/93
+STM32G030x6/x8 Electrical characteristics
+79
+Figure 18. I/O AC characteristics definition(1)
+1. Refer to Table 51: I/O AC characteristics.
+5.3.15 NRST input characteristics
+The NRST input driver uses CMOS technology. It is connected to a permanent  
+pull-up resistor, RPU.
+Unless otherwise specified, the parameters given in the following table are derived from 
+tests performed under the ambient temperature and supply voltage conditions summarized 
+in Table 21: General operating conditions.
+          
+MS32132V2
+T
+10%
+50%
+90% 10%
+50%
+90%
+Maximum frequency is achieved if (t  + t  (≤ 2/3)T and if the duty cycle is (45-55%)
+when loaded by the specified capacitance.
+r f
+r(IO)outt f(IO)outt
+Table 52. NRST pin characteristics(1) 
+Symbol Parameter Conditions Min Typ Max Unit
+VIL(NRST)
+NRST input low level 
+voltage - - - 0.3 x V DDIO1
+V
+VIH(NRST)
+NRST input high level 
+voltage - 0.7 x V DDIO1 --
+Vhys(NRST)
+NRST Schmitt trigger 
+voltage hysteresis -- 2 0 0 - m V
+RPU
+Weak pull-up 
+equivalent resistor(2) VIN = VSS 25 40 55 kΩ
+VF(NRST)
+ NRST input filtered 
+pulse -- - 7 0 n s
+VNF(NRST)
+NRST input not filtered 
+pulse 2.0 V ≤ VDD ≤ 3.6 V 350 - - ns
+1.  Guaranteed by design.
+2. The pull-up is designed with a  true resistance in series with a switchable PMOS. This PMOS contribution to the series 
+resistance is minimal (~10% order).
+
+===== page 66 =====
+Electrical characteristics STM32G030x6/x8
+66/93 DS12991 Rev 3
+Figure 19. Recommended NRST pin protection 
+1. The reset network protects t he device against parasitic resets.
+2. The user must ensure that the level on the NRST pin can go be low the VIL(NRST) max level specified in 
+Table 52: NRST pin characteristics. Otherwise the reset will not be taken into account by the device.
+3. The external capacitor on NRS T must be placed as close as possible to the device.
+5.3.16 Analog switch booster
+          
+5.3.17 Analog-to-digital  converter characteristics
+Unless otherwise specified, the parameters given in Table 54 are preliminary values derived 
+from tests performed under ambient temperature, fPCLK frequency and VDDA supply voltage 
+conditions summarized in Table 21: General operating conditions.
+Note: It is recommended to perform a calibration after each power-up.
+          
+MS19878V3
+RPU
+VDD
+Internal reset
+External
+reset circuit(1)
+NRST(2)
+Filter
+0.1 μF
+Table 53. Analog switch booster characteristics(1) 
+1. Guaranteed by design.
+Symbol Parameter Min Typ Max Unit
+VDD Supply voltage V DD(min) - 3.6 V
+tSU(BOOST) Booster startup time - - 240 µs
+Booster consumption for 
+VDD ≤ 2.7 V -- 5 0 0
+Booster consumption for 
+2.7 V ≤ VDD ≤ 3.6 V -- 9 0 0
+Table 54. ADC characteristics(1)  
+Symbol Parameter Conditions (2) Min Typ Max Unit
+VDDA Analog supply voltage - 2.0 - 3.6 V
+VREF+ Positive reference 
+voltage
+-2 - V DDA V
+fADC ADC clock frequency
+Range 1 0.14 - 35
+MHz
+Range 2 0.14 - 16
+
+===== page 67 =====
+DS12991 Rev 3 67/93
+STM32G030x6/x8 Electrical characteristics
+79
+fs Sampling rate
+12 bits - - 2.50
+MSps
+10 bits - - 2.92
+8 bits - - 3.50
+6 bits - - 4.38
+fTRIG
+External trigger 
+frequency
+fADC = 35 MHz; 12 bits - - 2.33
+MHz
+12 bits - - f ADC/15
+VAIN (3) Conversion voltage 
+range -V SSA -V REF+ V
+RAIN
+External input 
+impedance -- - 5 0 k Ω
+CADC
+Internal sample and 
+hold capacitor -- 5 - p F
+tSTAB ADC power-up time - 2 Conversion 
+cycle
+tCAL Calibration time
+fADC = 35 MHz 2.35 µs
+-8 2 1 / f ADC
+tLATR
+Trigger conversion 
+latency
+CKMODE = 00 2 - 3 1/f ADC
+CKMODE = 01 6.5
+1/fPCLKCKMODE = 10 12.5
+CKMODE = 11 3.5
+ts Sampling time fADC = 35 MHz
+0.043 - 4.59 µs
+1.5 - 160.5 1/f ADC
+tADCVREG_STUP
+ADC voltage regulator 
+start-up time -- - 2 0 µs
+tCONV
+Total conversion time 
+(including sampling 
+time)
+fADC = 35 MHz
+Resolution = 12 bits 0.40 - 4.95 µs
+Resolution = 12 bits
+ts + 12.5 cycles for successive 
+approximation
+= 14 to 173
+1/fADC
+tIDLE
+Laps of time allowed 
+between two 
+conversions without 
+rearm
+- - - 100 µs
+IDDA(ADC)
+ADC consumption 
+from VDDA
+fs = 2.5 MSps - 410 -
+µAfs = 1 MSps - 164 -
+fs = 10 kSps - 17 -
+Table 54. ADC characteristics(1)  (continued)
+Symbol Parameter Conditions (2) Min Typ Max Unit
+
+===== page 68 =====
+Electrical characteristics STM32G030x6/x8
+68/93 DS12991 Rev 3
+          
+IDDV(ADC)
+ADC consumption 
+from VREF+
+fs = 2.5 MSps - 65 -
+µAfs = 1 MSps - 26 -
+fs = 10 kSps - 0.26 -
+1. Guaranteed by design
+2. I/O analog switch voltage booste r must be enabled (BOOSTEN = 1 in the SYSCFG_CFGR1) when VDDA < 2.4 V and 
+disabled when VDDA ≥ 2.4 V.
+3. VREF+ is internally connected to VDDA on some packages.Refer to Section 4: Pinouts, pin description and alternate 
+functions for further details.
+Table 54. ADC characteristics(1)  (continued)
+Symbol Parameter Conditions (2) Min Typ Max Unit
+Table 55. Maximum ADC RAIN . 
+Resolution Sampling cycle at 35 MHz Sampling time at 35 MHz
+[ns]
+Max. RAIN
+(1)(2) 
+(Ω)
+12 bits
+1.5 43 50
+3.5 100 680
+7.5 214 2200
+12.5 357 4700
+19.5 557 8200
+39.5 1129 15000
+79.5 2271 33000
+160.5 4586 50000
+10 bits
+1.5 43 68
+3.5 100 820
+7.5 214 3300
+12.5 357 5600
+19.5 557 10000
+39.5 1129 22000
+79.5 2271 39000
+160.5 4586 50000
+8 bits
+1.5 43 82
+3.5 100 1500
+7.5 214 3900
+12.5 357 6800
+19.5 557 12000
+39.5 1129 27000
+79.5 2271 50000
+160.5 4586 50000
+
+===== page 69 =====
+DS12991 Rev 3 69/93
+STM32G030x6/x8 Electrical characteristics
+79
+          
+6 bits
+1.5 43 390
+3.5 100 2200
+7.5 214 5600
+12.5 357 10000
+19.5 557 15000
+39.5 1129 33000
+79.5 2271 50000
+160.5 4586 50000
+1. Guaranteed by design.
+2. I/O analog switch voltage booste r must be enabled (BOOSTEN = 1 in the SYSCFG_CFGR1) when VDDA < 2.4 V and 
+disabled when VDDA ≥ 2.4 V.
+Table 55. Maximum ADC RAIN . (continued)
+Resolution Sampling cycle at 35 MHz Sampling time at 35 MHz
+[ns]
+Max. RAIN
+(1)(2) 
+(Ω)
+Table 56. ADC accuracy(1)(2)(3) 
+Symbol Parameter Conditions (4) Min Typ Max Unit
+ET
+Total 
+unadjusted 
+error
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+-3 6 . 5 L S B
+EO Offset error
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+-1 . 5 4 . 5 L S B
+EG Gain error
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+-35 L S B
+ED Differential 
+linearity error
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+-1 . 2 1 . 5 L S B
+EL Integral linearity 
+error
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+-2 . 53 L S B
+ENOB Effective 
+number of bits
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+9.6 10.2 - bit
+SINAD
+Signal-to-noise 
+and distortion 
+ratio
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+59.5 63 - dB
+SNR Signal-to-noise 
+ratio
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+60 64 - dB
+THD Total harmonic 
+distortion
+VDDA=VREF+ < 3.6 V; 
+fADC = 35 MHz; fs ≤ 2.5 MSps; 
+TA = entire range
+-- 7 4 - 7 0 d B
+
+===== page 70 =====
+Electrical characteristics STM32G030x6/x8
+70/93 DS12991 Rev 3
+Figure 20. ADC accuracy characteristics
+Figure 21. Typical connection diagram using the ADC
+1. Refer to Table 54: ADC characteristics for the values of RAIN and CADC.
+2. C parasitic represents the capacitance of the PCB (dependent on soldering and PCB layout quality) plus the 
+pad capacitance (refer to Table 48: I/O static characteristics for the value of the pad capacitance). A high 
+Cparasitic value will downgrade conversion accuracy. To remedy this, fADC should be reduced.
+3. Refer to Table 48: I/O static characteristics for the values of Ilkg.
+General PCB design guidelines
+Power supply decoupling should be performed as shown in Figure 9: Power supply scheme. 
+The 100 nF capacitor should be ceramic (good quality) and it should be placed as close as 
+possible to the chip.
+1. Based on characterization res ults, not tested in production.
+2. ADC DC accuracy values are measured after internal calibratio n.
+3. Injecting negative current on any analog input pin significantly reduces the accuracy of A-to-D conversion 
+of signal on another analog input. It is recommended to add a Schottky diode (pin to ground) to analog pins 
+susceptible to receive negative current.
+4. I/O analog switch voltage booste r enabled (BOOSTEN = 1 in the SYSCFG_CFGR1) when VDDA < 2.4 V 
+and disabled when VDDA ≥ 2.4 V.
+MSv19880V3
+(1)  Example of an actual transfer curve
+(2)  Ideal transfer curve
+(3)  End point correlation line
+4095
+4094
+4093
+7
+6
+5
+4
+3
+2
+1
+0
+2 345 61 7 4093 4094 4095
+ED
+1 LSB  ideal
+(1)
+(3)
+(2)
+EL
+ET
+EG
+EO
+Code
+(VAIN / VREF+)*4095
+ET total unadjusted error: maximum deviation 
+between the actual and ideal transfer curves.
+EG gain error: deviation between the last ideal 
+transition and the last actual one.
+ED differential linearity error: maximum deviation 
+between actual steps and the ideal ones.
+EL integral linearity error: maximum deviation between 
+any actual transition and the end point correlation line.
+EO offset error: maximum deviation between the 
+first actual transition and the first ideal one.
+MS33900V5
+Sample and hold ADC converter
+12-bit 
+converter
+Cparasitic
+(2)
+Ilkg 
+(3) VT CADC
+VDDA
+RAIN
+(1)
+VAIN
+VT
+AINx RADC
+
+===== page 71 =====
+DS12991 Rev 3 71/93
+STM32G030x6/x8 Electrical characteristics
+79
+5.3.18 Temperature s ensor characteristics
+          
+5.3.19 V BAT monitoring characteristics
+          
+          
+5.3.20 Timer characteristics
+The parameters given in the following tables are guaranteed by design. Refer to 
+Section 5.3.14: I/O port characteristics for details on the input/output alternate function 
+characteristics (output compare, input capture, external clock, PWM output).
+Table 57. TS characteristics 
+Symbol Parameter Min Typ Max Unit
+TL
+(1) VTS linearity with temperature - ±1 ±2 °C
+Avg_Slope(2) Average slope 2.3 2.5 2.7 mV/°C
+V30 Voltage at 30°C (±5 °C)(3) 0.742 0.76 0.785 V
+tSTART(TS_BUF)
+(1) Sensor Buffer Start-up time in continuous mode(4) -8 1 5 µ s
+tSTART
+(1) Start-up time when entering in continuous mode(4) - 70 120 µs
+tS_temp
+(1) ADC sampling time when reading the temperature 5 - - µs
+IDD(TS)
+(1) Temperature sensor consumption from VDD, when 
+selected by ADC -4 . 77 µ A
+1. Guaranteed by design.
+2. Based on characterization resu lts, not tested in production.
+3. Measured at V DDA = 3.0 V ±10 mV. The V30 ADC conversion result is stored in the TS_CAL1 byte.
+4.  Continuous mode means Run/Sleep m odes, or temperature sensor enable in Low-power run/Low-power sleep modes.
+Table 58. VBAT monitoring characteristics 
+Symbol Parameter Min Typ Max Unit
+R Resistor bridge for V BAT -3 9-k Ω
+Q Ratio on V BAT measurement - 3 - -
+Er(1) Error on Q -10 - 10 %
+tS_vbat
+(1) ADC sampling time when reading the VBAT 12 - - µs
+1. Guaranteed by design.
+Table 59. VBAT charging characteristics 
+Symbol Parameter Conditions Min Typ Max Unit
+RBC
+Battery 
+charging 
+resistor 
+VBRS = 0 - 5 -
+kΩ
+VBRS = 1 - 1.5 -
+
+===== page 72 =====
+Electrical characteristics STM32G030x6/x8
+72/93 DS12991 Rev 3
+          
+          
+5.3.21 Characteristics of  communication interfaces
+I2C-bus interface characteristics
+The I2C-bus interface meets timing requirements of the I2C-bus specification and user 
+manual rev. 03 for: 
+• Standard-mode (Sm): with a bit rate up to 100 kbit/s 
+• Fast-mode (Fm): with a bit rate up to 400 kbit/s 
+• Fast-mode Plus (Fm+): with a bit rate up to 1 Mbit/s. 
+The timings are guaranteed by design as long as the I2C peripheral is properly configured 
+(refer to the reference manual RM0454) and when the I2CCLK frequency is greater than the 
+minimum shown in the following table.
+Table 60. TIMx(1) characteristics 
+Symbol Parameter Conditions Min Max Unit
+tres(TIM) Timer resolution time
+-1 - t TIMxCLK
+fTIMxCLK = 64 MHz 15.625 - ns
+fEXT
+Timer external clock frequency 
+on CH1 to CH4
+-0 f TIMxCLK/2
+MHz
+fTIMxCLK = 64 MHz 0 40
+ResTIM Timer resolution TIMx - 16 bit
+tCOUNTER 16-bit counter clock period
+- 1 65536 t TIMxCLK
+fTIMxCLK = 64 MHz 0.015625 1024 µs
+tMAX_COUNT
+Maximum possible count with 
+32-bit counter
+- - 65536 × 65536 t TIMxCLK
+fTIMxCLK = 64 MHz - 67.10 s
+1. TIMx , is used as a general term in which x stands for 1,, 3, 4, 5, 6, 7, 8, 15, 16 or 17.
+Table 61. IWDG min/max timeout period at 32 kHz LSI clock(1) 
+Prescaler divider PR[2:0 ] bits Min timeout RL [11:0]= 0x000 Max tim eout RL[11:0]= 0xFFF Unit
+/4 0 0.125 512
+ms
+/8 1 0.250 1024
+/16 2 0.500 2048
+/32 3 1.0 4096
+/64 4 2.0 8192
+/128 5 4.0 16384
+/256 6 or 7 8.0 32768
+1. The exact timings further depend on the phase of the APB inte rface clock versus the LSI clock, which causes an 
+uncertainty of one RC period.
+
+===== page 73 =====
+DS12991 Rev 3 73/93
+STM32G030x6/x8 Electrical characteristics
+79
+          
+The SDA and SCL I/O requirements are met with the following restrictions: the SDA and 
+SCL I/O pins are not “true” open-drain. When configured as open-drain, the PMOS 
+connected between the I/O pin and VDDIO1 is disabled, but is still present. Only FT_f I/O pins 
+support Fm+ low-level output current maximum requirement. Refer to Section 5.3.14: I/O 
+port characteristics for the I2C I/Os characteristics.
+All I2C SDA and SCL I/Os embed an analog filter. Refer to the following table for its 
+characteristics: 
+          
+SPI/I2S characteristics
+Unless otherwise specified, the parameters given in Table 64 for SPI are derived from tests 
+performed under the ambient temperature, fPCLKx frequency and supply voltage conditions 
+summarized in Table 21: General operating conditions. The additional general conditions 
+are:
+• OSPEEDRy[1:0] set to 11 (output speed)
+• capacitive load C = 30 pF
+• measurement points at CMOS levels: 0.5 x VDD
+Refer to Section 5.3.14: I/O port characteristics for more details on the input/output alternate 
+function characteristics (NSS, SCK, MOSI, MISO for SPI).
+Table 62. Minimum I2CCLK frequency
+Symbol Parameter Condition Typ Unit
+fI2CCLK(min)
+Minimum I2CCLK 
+frequency for correct 
+operation of I2C 
+peripheral
+Standard-mode 2
+MHz
+Fast-mode
+Analog filter enabled
+9
+DNF = 0
+Analog filter disabled
+9
+DNF = 1
+Fast-mode Plus
+Analog filter enabled
+18
+DNF = 0
+Analog filter disabled
+16
+DNF = 1
+Table 63. I2C analog filter characteristics(1) 
+Symbol Parameter Min Max Unit
+tAF
+Limiting duration of spikes suppressed 
+by the filter(2) 50 260 ns
+1. Based on characterization resu lts, not tested in production.
+2. Spikes shorter than the limiting duration are suppressed.
+
+===== page 74 =====
+Electrical characteristics STM32G030x6/x8
+74/93 DS12991 Rev 3
+          
+Table 64. SPI characteristics(1) 
+Symbol Parameter Conditions Min Typ Max Unit
+    fSCK
+1/tc(SCK)
+SPI clock frequency
+Master mode 
+VDD(min) < VDD < 3.6 V 
+Range 1
+--
+32
+MHz
+Master transmitter 
+VDD(min) < VDD < 3.6 V 
+Range 1
+32
+Slave receiver 
+VDD(min) < VDD < 3.6 V 
+Range 1
+32
+Slave transmitter/full duplex 
+2.7 < VDD < 3.6 V 
+Range 1
+32
+Slave transmitter/full duplex 
+VDD(min) < VDD < 3.6 V 
+Range 1
+25
+VDD(min) < VDD < 3.6 V 
+Range 2 8
+tsu(NSS) NSS setup time Slave mode , SPI prescaler = 2 4 ₓ T PCLK -- n s
+th(NSS) NSS hold time Slave mode , SPI prescaler = 2 2 ₓ T PCLK -- n s
+tw(SCKH) SCK high time Master mode TPCLK
+- 1.5 TPCLK
+TPCLK
++ 1 ns
+tw(SCKL) SCK low time Master mode TPCLK
+- 1.5 TPCLK
+TPCLK
++ 1 ns
+tsu(MI)
+Master data input setup 
+time -1 - - n s
+tsu(SI)
+Slave data input setup 
+time -3 - - n s
+th(MI)
+Master data input hold 
+time -5 - - n s
+th(SI)
+Slave data input hold 
+time -2 - - n s
+ta(SO) Data output access time Slave mode 9 - 34 ns
+tdis(SO) Data output disable time Slave mode 9 - 16 ns
+tv(SO)
+Slave data output valid 
+time
+2.7 < VDD < 3.6 V 
+Range 1 -9 1 2
+nsVDD(min) < VDD < 3.6 V 
+Range 1 - 9 19.5
+VDD(min) < VDD < 3.6 V 
+Voltage Range 2 -1 1 2 4
+tv(MO)
+Master data output valid 
+time -- 3 5 n s
+
+===== page 75 =====
+DS12991 Rev 3 75/93
+STM32G030x6/x8 Electrical characteristics
+79
+Figure 22. SPI timing diagram - slave mode and CPHA = 0
+Figure 23. SPI timing diagram - slave mode and CPHA = 1
+1. Measurement points are done at CMOS levels: 0.3 V DD and 0.7 VDD.
+th(SO)
+Slave data output hold 
+time -5 - - n s
+th(MO)
+Master data output hold 
+time -1 - - n s
+1. Based on characterization r esults, not tested in production.
+Table 64. SPI characteristics(1) (continued)
+Symbol Parameter Conditions Min Typ Max Unit
+MSv41658V1
+NSS input
+CPHA=0
+CPOL=0
+SCK inputCPHA=0
+CPOL=1
+MISO output
+MOSI input
+tsu(SI)
+th(SI)
+tw(SCKL)
+tw(SCKH)
+tc(SCK)
+tr(SCK)
+th(NSS)
+tdis(SO)
+tsu(NSS)
+ta(SO) tv(SO)
+Next bits IN
+Last bit OUT
+First bit IN
+First bit OUT Next bits OUT
+th(SO) tf(SCK)
+Last bit IN
+MSv41659V1
+NSS input
+CPHA=1
+CPOL=0
+SCK inputCPHA=1
+CPOL=1
+MISO output
+MOSI input
+tsu(SI) th(SI)
+tw(SCKL)
+tw(SCKH)tsu(NSS)
+tc(SCK)
+ta(SO) tv(SO)
+First bit OUT Next bits OUT
+Next bits IN
+Last bit OUT
+th(SO) tr(SCK)
+tf(SCK) th(NSS)
+tdis(SO)
+First bit IN Last bit IN
+
+===== page 76 =====
+Electrical characteristics STM32G030x6/x8
+76/93 DS12991 Rev 3
+Figure 24. SPI timing diagram - master mode
+1. Measurement points are set at CMOS levels: 0.3 V DD and 0.7 VDD.
+          
+ai14136c
+SCK Output
+CPHA= 0
+MOSI
+OUTPUT
+MISO
+INP UT
+CPHA= 0
+LSB OUT
+LSB IN
+CPOL=0
+CPOL=1
+B IT1 OUT
+NSS input
+tc(SCK)
+tw(SCKH)
+tw(SCKL)
+tr(SCK)
+tf(SCK)
+th(MI)
+High
+SCK Output
+CPHA=1
+CPHA=1
+CPOL=0
+CPOL=1
+tsu(MI)
+tv(MO) th(MO)
+MSB IN BIT6 IN
+MSB OUT
+Table 65. I2S characteristics(1) 
+Symbol Parameter Con ditions Min Max Unit
+fMCK I2S main clock output 
+fMCK= 256 x Fs; (Fs = audio sampling 
+frequency) 
+Fsmin = 8 kHz; Fsmax = 192 kHz;
+2.048 49.152 MHz
+fCK I2S clock frequency 
+Master data - 64xFs
+MHz
+Slave data - 64xFs
+DCK
+I2S clock frequency duty 
+cycle Slave receiver 30 70 %
+
+===== page 77 =====
+DS12991 Rev 3 77/93
+STM32G030x6/x8 Electrical characteristics
+79
+Figure 25. I2S slave timing diagram (Philips protocol)
+1. Measurement points are done at CMOS levels: 0.3 V DDIO1 and 0.7 VDDIO1.
+2. LSB transmit/receive of the pr eviously transmitted byte. No LSB transmit/receive is sent before the first 
+byte.
+tv(WS) WS valid time Master mode - 6
+ns
+th(WS) WS hold time Master mode 3 -
+tsu(WS) WS setup time Slave mode 3 -
+th(WS) WS hold time Slave mode 2 -
+tsu(SD_MR)
+Data input setup time
+Master receiver 4 -
+tsu(SD_SR) Slave receiver 5 -
+th(SD_MR)
+Data input hold time 
+Master receiver 4.5 -
+th(SD_SR) Slave receiver 2 -
+tv(SD_ST)
+Data output valid time - 
+slave transmitter 
+after enable edge; 2.7 < VDD < 3.6V 
+-
+10
+after enable edge; 
+VDD(min) < VDD < 3.6V 15
+tv(SD_MT)
+Data output valid time -
+master transmitter after enable edge - 5.5
+th(SD_ST)
+Data output hold time - 
+slave transmitter after enable edge 7 -
+th(SD_MT)
+Data output hold time - 
+master transmitter after enable edge 1 -
+1. Based on characterization r esults, not tested in production.
+Table 65. I2S characteristics(1) (continued)
+Symbol Parameter Con ditions Min Max Unit
+MSv39721V1
+CK Input
+CPOL = 0
+CPOL = 1
+tc(CK)
+WS input
+SDtransmit
+SDreceive
+tw(CKH) tw(CKL)
+tsu(WS) tv(SD_ST) th(SD_ST)
+th(WS)
+tsu(SD_SR) th(SD_SR)
+MSB receive Bitn receive LSB receive
+MSB transmit Bitn transmit
+LSB receive(2)
+LSB transmit(2)
+
+===== page 78 =====
+Electrical characteristics STM32G030x6/x8
+78/93 DS12991 Rev 3
+Figure 26. I2S master timing diagram (Philips protocol)
+1. Based on characterization res ults, not tested in production.
+2. LSB transmit/receive of the pr eviously transmitted byte. No LSB transmit/receive is sent before the first 
+byte.
+USART characteristics
+Unless otherwise specified, the parameters given in Table 66 for USART are derived from 
+tests performed under the ambient temperature, fPCLKx frequency and supply voltage 
+conditions summarized in Table 21: General operating conditions. The additional general 
+conditions are:
+• OSPEEDRy[1:0] set to 10 (output speed)
+• capacitive load C = 30 pF
+• measurement points at CMOS levels: 0.5 x VDD
+Refer to Section 5.3.14: I/O port characteristics for more details on the input/output alternate 
+function characteristics (NSS, CK, TX, and RX for USART).
+          
+MSv39720V1
+CK output
+CPOL = 0
+CPOL = 1
+tc(CK)
+WS output
+SDreceive
+SDtransmit
+tw(CKH)
+tw(CKL)
+tsu(SD_MR)
+tv(SD_MT) th(SD_MT)
+th(WS)
+th(SD_MR)
+MSB receive Bitn receive LSB receive
+MSB transmit Bitn transmit LSB transmit
+tf(CK) tr(CK)
+tv(WS)
+LSB receive(2)
+LSB transmit(2)
+10%
+90%
+Table 66. USART characteristics
+Symbol Parameter Conditions Min Typ Max Unit
+fCK USART clock frequency
+Master mode - - 8
+MHz
+Slave mode - - 21
+
+===== page 79 =====
+DS12991 Rev 3 79/93
+STM32G030x6/x8 Electrical characteristics
+79
+tsu(NSS) NSS setup time Slave mode t ker + 2 - -
+ns
+th(NSS) NSS hold time Slave mode 2 - -
+tw(CKH) CK high time
+Master mode 1 / fCK / 2
+ - 1 1 / fCK / 2 1 / fCK / 2
+ + 1tw(CKL) CK low time
+tsu(RX) Data input setup time
+Master mode t ker + 2 - -
+Slave mode 3 - -
+th(RX) Data input hold time
+Master mode 2 - -
+Slave mode 1 - -
+tv(TX) Data output valid time
+Master mode - 1 2
+Slave mode - 10 19
+th(TX) Data output hold time
+Master mode 0 - -
+Slave mode 7 - -
+Table 66. USART characteristics
+Symbol Parameter Conditions Min Typ Max Unit
+
+===== page 80 =====
+Package information STM32G030x6/x8
+80/93 DS12991 Rev 3
+6 Package information
+In order to meet environmental requirements, ST offers these devices in different grades of 
+ECOPACK packages, depending on their level of environmental compliance. ECOPACK 
+specifications, grade definitions and product status are available at: www.st.com. 
+ECOPACK is an ST trademark.
+6.1 LQFP48 package information
+LQFP48 is a 48-pin, 7 x 7 mm low-profile quad flat package.
+Figure 27. LQFP48 package outline
+1. Drawing is not to scale.
+          
+Table 67. LQFP48 mechanical data 
+Symbol
+millimeters inches (1)
+Min Typ Max Min Typ Max
+A  -  - 1.600  -  - 0.0630
+A1 0.050  - 0.150 0.0020 - 0.0059
+5B_ME_V2
+PIN 1
+IDENTIFICATION
+ccc C
+C
+D3
+0.25 mm
+GAUGE PLANE
+b
+A1
+A
+A2
+c
+A1
+L1
+LD
+D1
+E3
+E1
+E
+e
+121
+13
+24
+2536
+37
+48
+SEATING
+PLANE
+K
+
+===== page 81 =====
+DS12991 Rev 3 81/93
+STM32G030x6/x8 Package information
+89
+Figure 28. Recommended footprint for LQFP48 package
+1. Dimensions are expressed in millimeters.
+A2 1.350 1.400 1.450 0.0531 0.0551 0.0571
+b 0.170 0.220 0.270 0.0067 0.0087 0.0106
+c 0.090  - 0.200 0.0035 - 0.0079
+D 8.800 9.000 9.200 0.3465 0.3543 0.3622
+D1 6.800 7.000 7.200 0.2677 0.2756 0.2835
+D3  - 5.500  -  - 0.2165 - 
+E 8.800 9.000 9.200 0.3465 0.3543 0.3622
+E1 6.800 7.000 7.200 0.2677 0.2756 0.2835
+E3  - 5.500  -  - 0.2165  -
+e  - 0.500  -  - 0.0197  -
+L 0.450 0.600 0.750 0.0177 0.0236 0.0295
+L1  - 1.000  -  - 0.0394  -
+k 0 °3 . 5 °7 ° 0 °3 . 5 °7 °
+ccc - - 0.080 - - 0.0031
+1. Values in inches are converted from mm and rounded to 4 decim al digits.
+Table 67. LQFP48 mechanical data (continued)
+Symbol
+millimeters inches (1)
+Min Typ Max Min Typ Max
+9.70 5.80 7.30
+12
+24
+0.20
+7.30
+1
+37
+36
+1.20
+5.80
+9.70
+0.3025
+1.20
+0.50
+ai14911d
+1348
+
+===== page 82 =====
+Package information STM32G030x6/x8
+82/93 DS12991 Rev 3
+Device marking
+The following figure gives an example of topside marking orientation versus pin 1 identifier 
+location.
+The printed markings may differ depending on the supply chain.
+Other optional marking or inset/upset marks, which identify the parts throughout supply 
+chain operations, are not indicated below.
+Figure 29. LQFP48 package marking example
+1. Parts marked as ES or E or accompanied by an Engineering Samp le notification letter are not yet qualified 
+and therefore not approved for use in production. ST is not responsible for any consequences resulting 
+from such use. In no event will ST be liable for the customer using any of these engineering samples in 
+production. ST's Quality department must be contacted prior to any decision to use these engineering 
+samples to run a qualification activity.
+          
+STM32G030
+MSv47960V2
+C6T6
+R
+YW W
+Product identification (1)
+Revision code
+Date code
+Pin 1 identifier
+
+===== page 83 =====
+DS12991 Rev 3 83/93
+STM32G030x6/x8 Package information
+89
+6.2 LQFP32 package information
+LQFP32 is a 32-pin, 7 x 7 mm low-profile quad flat package.
+Figure 30. LQFP32 package outline
+1. Drawing is not to scale.
+          
+Table 68. LQFP32 mechanical data 
+Symbol
+millimeters inches (1)
+Min Typ Max Min Typ Max
+A  -  - 1.600  -  - 0.0630
+A1 0.050  - 0.150 0.0020  - 0.0059
+A2 1.350 1.400 1.450 0.0531 0.0551 0.0571
+D
+D1
+D3
+E3
+E1
+E
+1 8
+9
+16
+1724
+25
+32
+A1
+L1
+L
+K
+A1
+A2
+A
+c
+b
+GAUGE PLANE
+0.25 mm
+SEATING
+PLANE
+C
+PIN 1
+IDENTIFICATION
+ccc C
+5V_ME_V2e
+
+===== page 84 =====
+Package information STM32G030x6/x8
+84/93 DS12991 Rev 3
+Figure 31. Recommended footprint for LQFP32 package
+1. Dimensions are expressed in millimeters.
+b 0.300 0.370 0.450 0.0118 0.0146 0.0177
+c 0.090  - 0.200 0.0035  - 0.0079
+D 8.800 9.000 9.200 0.3465 0.3543 0.3622
+D1 6.800 7.000 7.200 0.2677 0.2756 0.2835
+D3  - 5.600  -  - 0.2205  -
+E 8.800 9.000 9.200 0.3465 0.3543 0.3622
+E1 6.800 7.000 7.200 0.2677 0.2756 0.2835
+E3  - 5.600  -  - 0.2205  -
+e  - 0.800  -  - 0.0315  -
+L 0.450 0.600 0.750 0.0177 0.0236 0.0295
+L1  - 1.000  -  - 0.0394  -
+k 0 °3 . 5 °7 ° 0 °3 . 5 °7 °
+ccc - - 0.100 - - 0.0039
+1. Values in inches are converted from mm and rounded to 4 decim al digits.
+Table 68. LQFP32 mechanical data (continued)
+Symbol
+millimeters inches (1)
+Min Typ Max Min Typ Max
+5V_FP_V2
+1 8
+9
+16
+1724
+25
+32
+9.70
+7.30
+7.30
+1.20
+0.30
+0.50
+1.20
+6.10
+9.70
+0.80
+6.10
+
+===== page 85 =====
+DS12991 Rev 3 85/93
+STM32G030x6/x8 Package information
+89
+Device marking
+The following figure gives an example of topside marking orientation versus pin 1 identifier 
+location.
+The printed markings may differ depending on the supply chain.
+Other optional marking or inset/upset marks, which identify the parts throughout supply 
+chain operations, are not indicated below.
+Figure 32. LQFP32 package marking example
+1. Parts marked as ES or E or accompanied by an Engineering Samp le notification letter are not yet qualified 
+and therefore not approved for use in production. ST is not responsible for any consequences resulting 
+from such use. In no event will ST be liable for the customer using any of these engineering samples in 
+production. ST's Quality department must be contacted prior to any decision to use these engineering 
+samples to run a qualification activity.
+          
+STM32G
+MSv47961V2
+030K6T6
+R
+YW W
+Product identification (1)
+Revision code
+Date code
+Pin 1 identifier
+
+===== page 86 =====
+Package information STM32G030x6/x8
+86/93 DS12991 Rev 3
+6.3 TSSOP20 pac kage information
+TSSOP20 is a 20-lead, 6.5 x 4.4 mm thin small-outline package with 0.65 mm pitch.
+Figure 33. TSSOP20 package outline
+1. Drawing is not to scale.
+          
+Table 69. TSSOP20 package mechanical data 
+Symbol
+millimeters inches (1)
+1. Values in inches are converted from mm and rounded to four de cimal digits.
+Min. Typ. Max. Min. Typ. Max.
+A - - 1.200 - - 0.0472
+A1 0.050 - 0.150 0.0020 - 0.0059
+A2 0.800 1.000 1.050 0.0315 0.0394 0.0413
+b 0.190 - 0.300 0.0075 - 0.0118
+c 0.090 - 0.200 0.0035 - 0.0079
+D(2)
+2. Dimension “D” does not include mold flash, protrusions or gate burrs. Mold flash, protrusions or gate burrs 
+shall not exceed 0.15mm per side.
+6.400 6.500 6.600 0.2520 0.2559 0.2598
+E 6.200 6.400 6.600 0.2441 0.2520 0.2598
+E1(3)
+3. Dimension “E1” does not inclu de interlead flash or protrusions. Interlead flash or protrusions shall not 
+exceed 0.25mm per side.
+4.300 4.400 4.500 0.1693 0.1732 0.1772
+e - 0.650 - - 0.0256 -
+L 0.450 0.600 0.750 0.0177 0.0236 0.0295
+L1 - 1.000 - - 0.0394 -
+k 0° - 8° 0° - 8°
+aaa - - 0.100 - - 0.0039
+YA_ME_V3
+1
+20
+C
+c
+L
+EE1
+D
+A2A
+k
+eb
+10
+11
+A1
+L1
+aaa
+SEATING
+PLANE
+C
+GAUGE PLANE
+0.25 mm
+PIN 1
+IDENTIFICATION
+
+===== page 87 =====
+DS12991 Rev 3 87/93
+STM32G030x6/x8 Package information
+89
+          
+Figure 34. TSSOP20 package footprint
+1. Dimensions are expressed in millimeters.
+Device marking
+The following figure gives an example of topside marking orientation versus pin 1 identifier 
+location.
+The printed markings may differ depending on the supply chain.
+Other optional marking or inset/upset marks that identify the parts throughout supply chain 
+operations, are not indicated below.
+Figure 35. TSSOP20 package marking example
+1. Parts marked as ES or E or accompanied by an Engineering Samp le notification letter are not yet qualified 
+and therefore not approved for use in production. ST is not responsible for any consequences resulting 
+from such use. In no event will ST be liable for the customer using any of these engineering samples in 
+production. ST's Quality department must be contacted prior to any decision to use these engineering 
+          
+YA_FP_V1
+7.10 4.40
+0.25
+0.25
+6.25
+1.35
+0.40 0.65
+1.35
+1
+20 11
+10
+MSv47962V2
+Pin 1 
+indentifier
+Revision codeDate code
+Product 
+identification(1)
+32G030F6P6
+Y WW R
+
+===== page 88 =====
+Package information STM32G030x6/x8
+88/93 DS12991 Rev 3
+samples to run a qualification activity.
+6.4 SO8N package information
+SO8N is an 8-lead 4.9 x 6 mm plastic small-outline package with 150 mils body width.
+Figure 36. SO8N package outline
+1. Drawing is not to scale.
+          
+Table 70. SO8N package mechanical data 
+Symbol
+millimeters inches (1)
+1. Values in inches are converted from mm and rounded to four de cimal digits.
+Min. Typ. Max. Min. Typ. Max.
+A - - 1.750 - - 0.0689
+A1 0.100 - 0.250 0.0039 - 0.0098
+A2 1.250 - - 0.0492 - -
+b 0.280 - 0.480 0.0110 - 0.0189
+c 0.170 - 0.230 0.0067 - 0.0091
+D 4.800 4.900 5.000 0.1890 0.1929 0.1969
+E 5.800 6.000 6.200 0.2283 0.2362 0.2441
+E1 3.800 3.900 4.000 0.1496 0.1535 0.1575
+e - 1.270 - - 0.0500 -
+h 0.250 - 0.500 0.0098 - 0.0197
+k 0° - 8° 0° - 8°
+L 0.400 - 1.270 0.0157 - 0.0500
+L1 - 1.040 - - 0.0409 -
+ccc - - 0.100 - - 0.0039
+SO-A_V2
+E1
+8
+ccc
+b
+D
+c
+1
+E
+h x 45˚
+A2
+k
+0.25 mm
+LA1
+GAUGE PLANE
+e
+A
+L1
+
+===== page 89 =====
+DS12991 Rev 3 89/93
+STM32G030x6/x8 Package information
+89
+Figure 37. SO8N package recommended footprint
+1. Dimensions are expressed in millimeters.
+Device marking
+The following figure gives an example of topside marking orientation versus pin 1 identifier 
+location.
+The printed markings may differ depending on the supply chain.
+Other optional marking or inset/upset marks that identify the parts throughout supply chain 
+operations, are not indicated below.
+Figure 38. SO8N package marking example
+1. Parts marked as ES or E or accompanied by an Engineering Samp le notification letter are not yet qualified 
+and therefore not approved for use in production. ST is not responsible for any consequences resulting 
+from such use. In no event will ST be liable for the customer using any of these engineering samples in 
+production. ST's Quality department must be contacted prior to any decision to use these engineering 
+samples to run a qualification activity.
+          
+O7_FP_V1
+1.27
+0.6 (x8)
+3.9
+6.7
+MSv63117V1
+Pin 1 
+indentifier
+Revision code
+Date code
+Product 
+identification(1)
+32G030J6
+Y WWR
+
+===== page 90 =====
+STM32G030x6/x8
+90/93 DS12991 Rev 3
+6.5 Thermal characteristics
+The operating junction temperature TJ must never exceed the maximum given in 
+The maximum junction temperature in °C that the device can reach if respecting the 
+operating conditions, is:
+TJ(max) = TA(max) + PD(max) x ΘJA
+where:
+• TA(max) is the maximum operating ambient temperature in °C,
+• ΘJA is the package junction-to-ambient thermal resistance, in °C/W,
+• PD = PINT + PI/O,
+–P INT is power dissipation contribution from product of IDD and VDD
+–P I/O is power dissipation contribution from output ports where:
+PI/O = Σ (VOL × IOL) + Σ ((VDDIO1 – VOH) × IOH),
+taking into account the actual VOL / IOL and VOH / IOH of the I/Os at low and high 
+level in the application.
+          
+6.5.1 Reference document
+JESD51-2 Integrated Circuits Thermal Test Method Environment Conditions - Natural 
+Convection (still air). Available from www.jedec.org.
+Table 21: General operating conditions
+Table 71. Package thermal characteristics
+Symbol Parameter Package
+Value
+UnitJunction-
+to-ambient
+Junction-
+to-board
+Junction-
+to-case
+Θ Thermal resistance
+LQFP48 7 × 7 mm 84 76 42
+°C/W
+LQFP32 7 × 7 mm 84 76 42
+TSSOP20 6.4 × 4.4 mm 88 57 19
+SO8N 4.9 × 6 mm 134 86 30
+
+===== page 91 =====
+DS12991 Rev 3 91/93
+STM32G030x6/x8 Ordering information
+91
+7 Ordering information
+          
+For a list of available options (memory, package, and so on) or for further information on any 
+aspect of this device, please contact your nearest ST sales office.
+Example STM32 G 030 K 8 T 6 xyy
+Device family
+STM32 = Arm® based 32-bit microcontroller
+Product type
+G = general-purpose
+Device subfamily
+030 = STM32G030
+Pin count
+J = 8
+F = 20
+K = 32
+C = 48
+Flash memory size
+6 = 32 Kbytes
+8 = 64 Kbytes
+Package type
+T = LQFP
+P = TSSOP
+M = SO˽N
+Temperature range
+6 = -40 to 85°C (105°C junction)
+Options
+˽TR = tape and reel packing
+˽˽˽  = tray packing
+other = 3-character ID incl. custom Flash code and packing information
+
+===== page 92 =====
+Revision history STM32G030x6/x8
+92/93 DS12991 Rev 3
+8 Revision history
+          
+          
+Table 72. Document revision history 
+Date Revision Changes
+26-Jun-2019 1 Initial release
+09-Dec-2019 2
+Added Section 3.12: DMA request multiplexer 
+(DMAMUX).
+Corrected figures with package marking examples.
+Corrected I/O numbers in Table 2: STM32G030x6/x8 
+family device features and peripheral counts.
+Added I/O types in Table 12: Pin assignment and 
+description.
+22-Apr-2020 3
+Cover page updated;
+Section 2: Description updated;
+Table 18: Voltage characteristics updated;
+Table 19: Current characteristics: Note 2 removed;
+Table 54: ADC characteristics: major update;
+
+===== page 93 =====
+DS12991 Rev 3 93/93
+STM32G030x6/x8
+93
+IMPORTANT NOTICE – PLEASE READ CAREFULLY
+STMicroelectronics NV and its subsidiaries (“ST”) reserve the right to make changes, corrections, enhancements, modifications, and 
+improvements to ST products and/or to this document at any time without notice. Purchasers should obtain the latest relevant information on 
+ST products before placing orders. ST products are sold pursuant to ST’s terms and conditions of sale in place at the time of order 
+acknowledgement.
+Purchasers are solely responsible for the choice, selection, and use of ST products and ST assumes no liability for application assistance or 
+the design of Purchasers’ products.
+No license, express or implied, to any intellectual property right is granted by ST herein.
+Resale of ST products with provisions different from the information set forth herein shall void any warranty granted by ST for such product.
+ST and the ST logo are trademarks of ST. For additional information about ST trademarks, please refer to www.st.com/trademarks. All other 
+product or service names are the property of their respective owners.
+Information in this document supersedes and replaces information previously supplied in any prior versions of this document.
+© 2020 STMicroelectronics – All rights reserved

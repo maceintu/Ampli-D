@@ -1,0 +1,623 @@
+# _FSC-BT1026x_userguide — 32 pages
+
+
+===== page 1 =====
+Shenzhen Feasycom Co.,Ltd.
+ 
+1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+FSC-BT1026x User Guide
+Feasycom
+1.0
+
+===== page 2 =====
+Shenzhen Feasycom Co.,Ltd.
+Table of contents
+1 Hardware Design 2
+1.1 Module Pin Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.2 Pin Description . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.3 Power-on Circuit Design . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+1.4 Hardware Design Note . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+2 Functional Description 6
+2.1 Default Configuration . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2.2 Audio Algorithm Support Instructions . . . . . . . . . . . . . . . . . . . . . . 7
+2.3 Supported Profiles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+2.4 GATT Service . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3 Quick Development Kit 9
+3.1 Datasheet . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.2 Evaluation Board . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3 AT Commands Set . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.4 Serial Port Tool . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.5 APP&SDK . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.6 Firmware Upgrade . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.6.1 OTA Upgrade . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.6.2 UART Upgrade . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+4 Quick Start 11
+4.1 What you need . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+4.1.1 Required Hardware . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+4.1.2 Software and Setup . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+4.2 Hardware Access . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+4.3 Communication Test . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+4.3.1 AT - UART Communication Test . . . . . . . . . . . . . . . . . . . . 13
+4.3.2 AT+NAME - Read/Write Local BR/EDR Name . . . . . . . . . . . . 14
+i
+
+===== page 3 =====
+Shenzhen Feasycom Co.,Ltd.
+4.3.3 AT+LENAME - Read/Write Local BLE Name . . . . . . . . . . . . . 14
+4.3.4 AT+VER - Read the Current Firmware Version . . . . . . . . . . . . 14
+5 Obtain Firmware Version 15
+5.1 FeasyBlue APP . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+5.2 UART AT Command . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+6 Development Examples 17
+6.1 Profile Initialization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+6.2 Parameter Modification . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+6.2.1 Modify Bluetooth Name . . . . . . . . . . . . . . . . . . . . . . . . 18
+6.3 Auido Sink Mode Application . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+6.3.1 Profile Connection . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+6.3.2 Play and Pause Music . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+6.3.3 Take and Hang up Call . . . . . . . . . . . . . . . . . . . . . . . . . 22
+6.4 Phonebook Download . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+6.4.1 HFP connection has been established . . . . . . . . . . . . . . . . . . 22
+6.4.2 Download all phonebooks . . . . . . . . . . . . . . . . . . . . . . . . 23
+6.4.3 Download 50 call records . . . . . . . . . . . . . . . . . . . . . . . . 23
+7 Firmware Upgrade 24
+7.1 OTA Upgrade . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+7.1.1 Tool . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+7.1.2 User Guide . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+7.1.3 OTA Upgrade Example . . . . . . . . . . . . . . . . . . . . . . . . . 25
+7.2 UART Upgrade . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+7.2.1 Tool . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+7.2.2 User Guide . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+7.2.3 UART Upgrade Example . . . . . . . . . . . . . . . . . . . . . . . . 26
+7.3 FAQs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+8 Contact Information 28
+9 Appendix 29
+9.1 PDF Dowload . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+ii
+
+===== page 4 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+[中文版]
+This guide is applicable to the FSC-BT1026x series Bluetooth audio module, include:
+• FSC-BT1026A
+• FSC-BT1026B
+• FSC-BT1026C
+• FSC-BT1026D
+• FSC-BT1026E
+• FSC-BT1026F
+This guide consists of the following parts:
+Table of contents 1
+
+===== page 5 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 1
+Hardware Design
+[中文版]
+1.1 Module Pin Diagram
+Taking FSC-BT1026C as an example:
+2
+
+===== page 6 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+1.1. Module Pin Diagram 3
+
+===== page 7 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+1.2 Pin Description
+Pin Pin Name Type Pin Descriptions
+4 I2S_CLK I/O I2S BCLK
+5 I2S_IN I I2S DATA IN
+6 I2S_OUT O I2S DATA OUT
+7 I2S_WS I/O I2S SYNC
+8 RESET I Low level reset
+13 UART_TX O UART_TX
+14 UART_RX I UART_RX
+15 UART_CTS I/O UART flow control pin (not required by default)
+16 UART_RTS I/O default as power amplifier control pin
+17 LED0 I/O General-purpose analog/digital input or output.
+18 LED1 I/O General-purpose analog/digital input or output
+32 GND GND GND
+33 VDD VDD 3.3V power supply, it is recommended to use LDO
+34 SYS_CTRL I Power on/off pin
+36 VDD_IO I pio supply
+43 MIC_LP Audio MIC0/Line_IN differential L input, positive
+44 MIC_LN Audio MIC0/Line_IN differential L input, negative
+45 MIC_BIAS Audio MIC Power Supplies
+46 SPK_RN Audio Headphone/speaker differential R output, negative
+47 SPK_RP Audio Headphone/speaker differential R output, positive
+48 SPK_LN Audio Headphone/speaker differential L output, negative
+49 SPK_LP Audio Headphone/speaker differential L output, positive
+51 EXT_ANT ANT External antenna connect pin
+1.3 Power-on Circuit Design
+The FSC-BT1026X module has three options for power on, which are: delayed power on cir-
+cuit, button on/off circuit, and MCU controlled power on/off circuit. As shown in the following
+figure:
+1.2. Pin Description 4
+
+===== page 8 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+1.4 Hardware Design Note
+• simple testing environment, just connect VDD / VDD_IO / SYS_CTRL / GND /
+UART_RX / UART_TX.
+• SYS_CTRL defaults to key on/off mode. Power on: Short press for 1 second Power off:
+Press and hold for 3 seconds.
+• If the button on/off mode is not used, power on delay of 100ms and then raise
+SYS_CTRL.
+• After drawing the PCB circuit schematic, please send it to Feasycom for review to avoid
+suboptimal Bluetooth distance.
+1.4. Hardware Design Note 5
+
+===== page 9 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 2
+Functional Description
+[中文版]
+2.1 Default Configuration
+Name FSC-BT1026-XXXX
+LE-Name FSC-BT1026-LE-XXXX
+Pin Code 0000
+Secure Simple Pairing Mode On
+UART Baudrate 115200/8/N/1
+6
+
+===== page 10 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+2.2 Audio Algorithm Support Instructions
+model chip SBC AAC aptX aptX-
+HD
+aptX-
+LL
+aptX-
+AD
+aptX-
+LossLess
+LDAC CVC
+BT1026BQCC3031√ √ √ √ li-
+cense
+× × × √
+BT1026CQCC3024√ √ li-
+cense
+× × × × × √
+BT1026DQCC3034√ √ √ √ li-
+cense
+× × × √
+BT1026EQCC5125√ √ li-
+cense
+license li-
+cense
+li-
+cense
+× √ li-
+cense
+BT1026FQCC5124√ √ li-
+cense
+license li-
+cense
+li-
+cense
+× × li-
+cense
+• FSC-BT1026B & FSC-BT1026D ：APTX-LL requires the purchase of a license, which
+is not supported by the default program. If you need to test APTX-LL, please contact
+Feasycom.
+• FSC-BT1026E ：The APTX series decoding (including APTX, APTX-HD, APTX-LL,
+APTX-AD) and CVC all require authorization licenses.
+2.3 Supported Profiles
+• SPP (Serial Port Profile)
+• GATTS (Generic Attribute Profile LE-Peripheral role)
+• HFP-HF (Hands-Free Profile)
+• A2DP-Sink (Advanced Audio Distribution Profile)
+• AVRCP-Controller (Audio/Video remote controller Profile)
+• HID-DEVICE (Human Interface Profile)
+• PBAP (Phonebook Access Profile)
+2.2. Audio Algorithm Support Instructions 7
+
+===== page 11 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+2.4 GATT Service
+Type UUID Operation Description
+Service 0xFFF0 Throughput transmission service
+Write 0xFFF2 Write,Write Without Response APP sends data to module
+Notify 0xFFF1 Notify App notification
+2.4. GATT Service 8
+
+===== page 12 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 3
+Quick Development Kit
+[中文版]
+3.1 Datasheet
+• FSC-BT1026x Datasheet
+3.2 Evaluation Board
+• FSC-DB200 ：Feasycom Bluetooth audio application development board, compatible with
+FSC-BT1026x series modules.
+3.3 AT Commands Set
+• FSC-BT1026x General Audio AT Commands Set
+• FSC-BT1026x TWS AT Commands Set
+3.4 Serial Port Tool
+• Feasycom Serial Port Tool : A serial port communication analysis tool based on Windows
+PC.
+9
+
+===== page 13 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+3.5 APP&SDK
+• FeasyBlue ：Feasycom App & SDK resource supporting Android and iOS, which enables
+functions such as Bluetooth BLE & SPP data communication test, Feasycom module
+firmware version reading, and parameter configuration and OTA AT commands etc.
+3.6 Firmware Upgrade
+3.6.1 OTA Upgrade
+• FeasyOTA App (Based on Mobile Application)
+• User Guide: Please refer to FSC-BT1026x - OTA Upgrade
+3.6.2 UART Upgrade
+• FSC-BT1038x Upgrade Tool (Based on Windows PC)
+• User Guide: Please refer to FSC-BT1026x - UART Upgrade 。
+3.5. APP&SDK 10
+
+===== page 14 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 4
+Quick Start
+[中文版]
+4.1 What you need
+4.1.1 Required Hardware
+• 1 x FSC-DB200-BT1026C Rapid Development Kit : FSC-DB200 Rapid Development
+Kit pre-integrated with the FSC-BT1026C Bluetooth Audio Module
+• 1 x PC (Windows)
+4.1.2 Software and Setup
+• Feasycom Serial Port Tool : A serial port communication analysis tool based on Windows
+PC.
+• Communication Interface : UART
+• UART Configuration：115200/8/N/1
+4.2 Hardware Access
+1. Connect FSC-DB200-BT1026C to PC via USB To Type-C cable, switch the
+UART/USB toggle to UART,Press the USB/battery power option button to switch to
+USB power supply, Press and hold the ON/OFF button for 3 seconds to turn on the de-
+vice, and the PC will automatically recognize the serial port and generate a virtual COMx
+port.
+11
+
+===== page 15 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+2. Run the Feasycom Serial Port Tool on the PC, set the correct COM and Baud, and
+check the New Line.
+4.2. Hardware Access 12
+
+===== page 16 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+4.3 Communication Test
+The following are several basic general AT command test examples.
+For more AT commands, please refer to FSC-BT1026x General Audio AT Commands Set .
+4.3.1 AT - UART Communication Test
+Com-
+mand
+AT\r\n
+Response \r\nOK\r\n
+Descrip-
+tion
+Test the UART communication between HOST and Module after power on,
+baudrate changed, etc.
+Example:
+Send: >>AT\r\n
+Response: <<\r\nOK\r\n //Successfully connected .
+4.3. Communication Test 13
+
+===== page 17 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+4.3.2 AT+NAME - Read/Write Local BR/EDR Name
+Example：
+Send: >>AT+NAME\r\n
+Response: <<\r\n+NAME=FSC-BT1026C\r\n //Example, please refer ␣
+,→to the actual reading
+Response: <<\r\nOK\r\n
+4.3.3 AT+LENAME - Read/Write Local BLE Name
+Example：
+Send: >>AT+LENAME\r\n
+Response: <<\r\n+LENAME=FSC-BT1026C-LE\r\n //Example, please ␣
+,→refer to the actual reading
+Response: <<\r\nOK\r\n
+4.3.4 AT+VER - Read the Current Firmware Version
+Example：
+Send: >>AT+VER\r\n
+Response: <<\r\n+VER=FSC-BT1026C,V4.9.4\r\n //Example, please ␣
+,→refer to the actual reading result
+Response: <<\r\nOK\r\n
+4.3. Communication Test 14
+
+===== page 18 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 5
+Obtain Firmware Version
+[中文版]
+5.1 FeasyBlue APP
+After establishing BLE connection with the FSC-BT1026x through FeasyBlue APP, check the
+firmware version information on the Transmission Configuration function interface.
+Warning：The profile of the Bluetooth module needs to enable BLE (GATT) function
+15
+
+===== page 19 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+5.2 UART AT Command
+Send the AT+VER command through UART to obtain firmware version information.
+The example of AT command operation and response events is as follows:
+Send: >>AT+VER
+Response: << +VER=FSC-BT1026C,V4.9.4 //Example, please refer to ␣
+,→the actual reading result
+5.2. UART AT Command 16
+
+===== page 20 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 6
+Development Examples
+[中文版]
+6.1 Profile Initialization
+Module Profile initialization, response event examples are as follows:
+17
+
+===== page 21 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+6.2 Parameter Modification
+6.2.1 Modify Bluetooth Name
+Before the MCU modifies any parameters, it is recommended to first query, then modify, and
+finally verify. For the MCU to modify the device name to CARKIT, the reference code exam-
+ple is as follows:
+void change_name(void)
+{
+uart_send("AT+NAME\r\n");
+if(uart_read("+NAME",name_buf))
+{
+if(memcmp(name_buf,"CARKIT",6))
+{
+uart_send("AT+NAME=CARKIT,0\r\n"); //defalut disable ␣
+,→MAC address suffix
+uart_send("AT+NAME\r\n"); // read bt name
+if(uart_read("+NAME",name_buf))
+{
+if(memcmp(name_buf,"CARKIT",6))
+{
+(continues on next page)
+6.2. Parameter Modification 18
+
+===== page 22 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+(continued from previous page)
+//change name fail
+}
+else
+{
+//change name success
+}
+}
+}
+}
+}
+6.3 Auido Sink Mode Application
+6.3. Auido Sink Mode Application 19
+
+===== page 23 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+6.3.1 Profile Connection
+6.3. Auido Sink Mode Application 20
+
+===== page 24 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+6.3.2 Play and Pause Music
+6.3. Auido Sink Mode Application 21
+
+===== page 25 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+6.3.3 Take and Hang up Call
+6.4 Phonebook Download
+Application Process Operation Examples:
+6.4.1 HFP connection has been established
+Response: <<+PWRSTAT=1
+Response: <<+VER=FSC-BT1026C,V4.9.4,20230428 // Example, please ␣
+,→refer to the actual version
+Response: <<+PROFILE=1195 // General default, enable SPP, ␣
+,→GATT Server, HFP -HF, A2DP Sink, AVRCP Controller, PBAP Server ␣
+,→profiles
+(continues on next page)
+6.4. Phonebook Download 22
+
+===== page 26 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+(continued from previous page)
+Response: <<+SPPSTAT=1
+Response: <<+GATTSTAT=1
+Response: <<+A2DPSTAT=1
+Response: <<+AVRCPSTAT=1
+Response: <<+HFPSTAT=1
+Response: <<+AVRCPSTAT=1
+Response: <<+PBSTAT=1
+Response: <<+DEVSTAT=1
+Response: <<+DEVSTAT=7 // Enables device discoverability; ␣
+,→mobile phones can find this Bluetooth device and establish a ␣
+,→connection
+6.4.2 Download all phonebooks
+Send : >>AT+PBDOWN=1
+Response: <<OK
+Response: <<+PBSTAT=2
+Response: <<+PBSTAT=3 // PBAP connected
+Response: <<+PBSTAT=4 // PBAP downloading
+Response: <<+PBDATA=1<FF>Local Number <FF>+8618620277272
+Response: <<+PBDATA=1<FF>Zhang San <FF>0571-85592192
+...
+Response: <<+PBDATA=1<FF>Jerry<FF>18909731215
+Response: <<+PBDATA=E // Download completed
+Response: <<+PBSTAT=3
+6.4.3 Download 50 call records
+Send: >>AT+PBWODN=5,50
+Response: <<ok
+Response: <<+PBDATA=3<FF>yidong<FF>+10086<FF>20200213T114247
+...
+Response: <<+PBDATA=2<FF>andy<FF>85592192<FF>20200212T104202
+Response: <<+PBDATA=E // Download completed
+Response: <<+PBSTAT=3
+6.4. Phonebook Download 23
+
+===== page 27 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 7
+Firmware Upgrade
+[中文版]
+FSC-BT1026x series Bluetooth audio module now supports : Over the air upgrade (OTA)
+and Uart upgrade.
+7.1 OTA Upgrade
+7.1.1 Tool
+• FeasyOTA APP (Based on Android)
+7.1.2 User Guide
+1.Run FeasyOTA APP. On the home screen, select the BT1026x Upgrade (Universal Ver-
+sion) function module. After entering, you will be navigated to the device search interface.
+2.Search for and find the name of the Bluetooth module that needs upgrading (e.g., FSC-
+BT1026C). Selecting the device will automatically initiate Bluetooth pairing and connection.
+If Disconnect is displayed in the top-right corner of the screen, it indicates that the device is
+fully connected. If Connect is displayed, it means the device is not fully connected; please click
+Connect in the top-right corner to ensure a complete connection.
+3.On the successfully connected screen, the Upgrade button will be displayed and clickable.
+4.Click the Upgrade button. In the pop-up OTA Upgrade interface, load the firmware upgrade
+file in one of the following ways:
+• Via Select Firmware: Choose the firmware upgrade file stored in the mobile phone ’s
+local storage (provided by Feasycom).
+24
+
+===== page 28 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+• Via Get Firmware: Enter the DFU Name to download the firmware file from the Feasy-
+com cloud server for upgrade. The DFU Name is in a path format similar to /BT1026C/
+audrx/test (example, please refer to the actual information provided by Feasycom).
+5.After the firmware file is successfully loaded, click the Start Upgrade button. The interface
+will display the upgrade progress and “Upgrading”, indicating that the upgrade mode is suc-
+cessfully entered and the upgrade is in progress.
+6.Wait for the upgrade progress bar to complete. When “Upgrade Completed”is displayed,
+the upgrade is finished.
+Warning：
+1. When installing and running FeasyOTA App, please allow the app to obtain permissions
+such as nearby devices, location information, media and file access, otherwise it may
+not be able to find nearby Bluetooth devices or load firmware files;
+2. If enter DFU name to obtain upgrade files, you need to pay attention to the phone ’s
+access to the Internet and ensure that the DFU name is entered correctly (case sensitive),
+otherwise an error network or file error will be reported;
+3. Do not turn off the power during the upgrade process
+7.1.3 OTA Upgrade Example
+7.2 UART Upgrade
+7.2. UART Upgrade 25
+
+===== page 29 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+7.2.1 Tool
+• FSC-BT1038x Upgrade Tool 2.1 (Based on Windows PC)
+7.2.2 User Guide
+1.This example uses the Feasycom FSC-DB200 development board.
+2.Connect the FSC-DB200-BT1026C to the PC via a USB to Type-C data cable. Toggle the
+UART/USB switch to UART, press the USB/Battery Power Option button to switch to
+USB, and press and hold the Power (ON/OFF) button for 2-3 seconds to power on. The PC
+will automatically recognize the serial port and generate a virtual COMx port.
+3.Open FSC-BT1038x Upgrade Tool. Click Browse to select the firmware upgrade file stored
+locally on the PC to load the firmware file.
+4.After loading the firmware file, select the corresponding COMx for the Port, and select the
+current baud rate of the module for the BaudRate (the default baud rate for general is 115200).
+Once the configurations are confirmed to be correct, click Upgrade to start the upgrade and
+enter upgrade mode. Wait until the “Status and Progress”bar is complete.
+7.2.3 UART Upgrade Example
+7.2. UART Upgrade 26
+
+===== page 30 =====
+Shenzhen Feasycom Co.,Ltd.
+FSC-BT1026x User Guide
+7.3 FAQs
+Q：What should I do if there is an exception during the upgrade process, such as an upgrade in-
+terruption? After the upgrade is completed, but the module has not been successfully upgraded
+A：You can try powering on again and repeating the upgrade operation
+to confirm if you can enter the upgrade mode normally. If not, please
+contact the Feasycom support team.
+Q：How to achieve firmware upgrade of FSC-BT1026x through MCU UART?
+A：Customers are required to integrate the upgrade protocol into the
+MCU. If you have this requirement, please contact the Feasycom sup-
+port team (email: Feasycom@support.com ）
+7.3. FAQs 27
+
+===== page 31 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 8
+Contact Information
+Shenzhen Feasycom Co.,Ltd.
+Address : Rm 508, Building, Fenghuang Zhigu, NO.50, Tiezai Road, Xixiang, Baoan Dist,
+Shenzhen, 518100, China.
+Telephone : 86-755-23062695
+Support : support@feasycom.com
+Sales Service : sales@feasycom.com
+Home Page : www.feasycom.com
+Support Forum : forum.feasycom.com
+28
+
+===== page 32 =====
+Shenzhen Feasycom Co.,Ltd.
+Chapter 9
+Appendix
+9.1 PDF Dowload
+PDF download
+29

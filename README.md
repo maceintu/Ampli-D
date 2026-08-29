@@ -93,5 +93,17 @@ puis compiler et flasher via ST-Link. La configuration des périphériques se mo
 
 ## Ressources
 
-Les datasheets des composants principaux sont regroupées dans [`Ressources/Datasheet/`](Ressources/Datasheet/) :
-TPA3255, PCM5242, FSC-BT1026x. Le classeur `LM5017QuickStartCalculator.xls` sert au dimensionnement du convertisseur.
+Les datasheets de tous les circuits intégrés sont regroupées dans
+[`Ressources/Datasheet/`](Ressources/Datasheet/), nommées par leur référence dans le schéma
+(`U1_FSC-BT1058.pdf`, `U5_TPA3255.pdf`…). Le sous-dossier `txt/` en contient le texte intégral,
+balisé page par page, pour pouvoir chercher dans l'ensemble de la documentation d'un seul coup :
+
+```bash
+grep -rn "bootstrap" Ressources/Datasheet/txt/
+```
+
+L'index [`Ressources/Datasheet/README.md`](Ressources/Datasheet/README.md) donne pour chaque
+composant son rôle, la révision du document et la page où trouver brochage, maxima absolus,
+caractéristiques électriques, layout et table des registres.
+
+Le classeur `LM5017QuickStartCalculator.xls` sert au dimensionnement du convertisseur.

@@ -1,0 +1,1989 @@
+# U7_LM5017 — 41 pages
+
+
+===== page 1 =====
+LM5017 100-V, 600-mA Constant On-Time Synchronous Buck / Fly-Buck™ Regulator
+1 Features
+• Wide 7.5-V to 100-V input range
+• Integrated 100-V high-side and low-side switches
+• No schottky required
+• Constant on-time control
+• No loop compensation required
+• Ultra-fast transient response
+• Nearly constant operating frequency
+• Intelligent peak current limit
+• Adjustable output voltage from 1.225 V
+• Precision 2% feedback reference
+• Frequency adjustable to 1 MHz
+• Adjustable undervoltage lockout (UVLO)
+• Remote shutdown
+• Thermal shutdown
+• Packages:
+– WSON-8
+– SO PowerPAD™-8
+• Create a custom regulator design using 
+WEBENCH® Power Designer
+2 Applications
+• Industrial programmable logic controllers (PLC)
+• Smart power meters
+• Telecom primary and secondary side bias
+• Low-power isolated DC/DC (Fly-Buck™)
+3 Description
+The LM5017 is a 100-V, 600-mA synchronous 
+stepdown regulator with integrated high side and low 
+side MOSFETs. The constant on-time (COT) control 
+scheme employed in the LM5017 requires no loop 
+compensation, provides excellent transient response, 
+and enables very high step-down ratios. The on-time 
+varies inversely with the input voltage resulting in 
+nearly constant frequency over the input voltage 
+range. A high voltage startup regulator provides 
+bias power for internal operation of the IC and for 
+integrated gate drivers.
+A peak current limit circuit protects against overload 
+conditions. The undervoltage lockout (UVLO) circuit 
+allows the input undervoltage threshold and 
+hysteresis to be independently programmed. Other 
+protection features include thermal shutdown and bias 
+supply undervoltage lockout (VCC UVLO).
+The LM5017 device is available in WSON-8 and 
+HSOP PowerPAD-8 plastic packages.
+Device Information
+PART NUMBER PACKAGE(1) BODY SIZE (NOM)
+LM5017
+SO PowerPAD (8) 4.89 mm × 3.90 mm
+WSON (8) 4.00 mm × 4.00 mm
+(1) For all available packages, see the orderable addendum at 
+the end of the data sheet.
+VIN = 7.5 V...100 V
+Copyright © 2018, Texas Instruments Incorporated
+RTN
+VIN
+UVLO
+RON
+SW
+BST
+VCC
+FB
+LM5017 VOUT
+Typical Synchronous Buck Application Circuit
+VIN = 7.5 V...100 V
+Copyright © 2018, Texas Instruments Incorporated
+RTN
+VIN
+UVLO
+RON SW
+BST
+VCC
+FB
+LM5017 VOUT(PRI)
+VOUT(SEC) Typical Fly-Buck Application Circuit
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, 
+intellectual property matters and other important disclaimers. PRODUCTION DATA.
+
+===== page 2 =====
+Table of Contents
+1 Features............................................................................1
+2 Applications.....................................................................1
+3 Description.......................................................................1
+4 Revision History.............................................................. 2
+5 Pin Configuration and Functions...................................3
+6 Specifications.................................................................. 4
+6.1 Absolute Maximum Ratings........................................ 4
+6.2 ESD Ratings............................................................... 4
+6.3 Recommended Operating Conditions.........................4
+6.4 Thermal Information....................................................4
+6.5 Electrical Characteristics.............................................5
+6.6 Timing Requirements..................................................5
+6.7 Typical Characteristics................................................7
+7 Detailed Description........................................................9
+7.1 Overview.....................................................................9
+7.2 Functional Block Diagram...........................................9
+7.3 Feature Description...................................................10
+7.4 Device Functional Modes..........................................14
+8 Application and Implementation..................................15
+8.1 Application Information............................................. 15
+8.2 Typical Application.................................................... 15
+9 Power Supply Recommendations................................25
+10 Layout...........................................................................26
+10.1 Layout Guidelines................................................... 26
+10.2 Layout Example...................................................... 26
+11 Device and Documentation Support..........................27
+11.1 Device Support........................................................27
+11.2 Documentation Support.......................................... 27
+11.3 Receiving Notification of Documentation Updates.. 28
+11.4 Support Resources................................................. 28
+11.5 Trademarks............................................................. 28
+11.6 Electrostatic Discharge Caution.............................. 28
+11.7 Glossary.................................................................. 28
+12 Mechanical, Packaging, and Orderable 
+Information.................................................................... 29
+4 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+Changes from Revision J (November 2017) to Revision K (August 2021) Page
+• Added "Synchronous Fly-Buck" to the title ........................................................................................................ 1
+• Updated the numbering format for tables, figures, and cross-references throughout the document. ................1
+• Updated and hyperlinked Applications bullets....................................................................................................1
+• Changed Overview ............................................................................................................................................ 9
+• Changed Functional Block Diagram .................................................................................................................. 9
+• Changed Power Supply Recommendations ....................................................................................................25
+• Updated Related Documentation .....................................................................................................................27
+Changes from Revision I (October 2015) to Revision J (November 2017) Page
+• Deleted the lead temperature from the Absolute Maximum Ratings table......................................................... 4
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+2 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 3 =====
+5 Pin Configuration and Functions
+UVLO 3
+RON 4
+RTN 1
+VIN 2
+8   SW
+7   BST
+6   VCC
+5   FB
+SO 
+PowePAD-8
+Exp Pad
+Figure 5-1. DDA Package 8-Pin SO PowerPAD Top View 
+SW
+BST
+VCC
+FB
+8   
+7
+6
+5
+1
+2
+3
+4
+UVLO
+RON
+RTN
+VIN
+WSON-8
+Exp Pad
+Figure 5-2. NGU Package 8-Pin WSON With Exposed Thermal Pad Top View 
+Table 5-1. Pin Functions
+PIN
+I/O DESCRIPTION APPLICATION INFORMATION
+NO. NAME
+1 RTN — Ground Ground connection of the integrated circuit.
+2 VIN P Input voltage Operating input range is 7.5 V to 100 V.
+3 UVLO I Undervoltage comparator input
+Resistor divider from VIN to UVLO to GND programs the undervoltage 
+detection threshold. An internal current source is enabled when UVLO is 
+above 1.225 V to provide hysteresis. When UVLO pin is pulled below 0.66 
+V externally, the regulator is in shutdown mode.
+4 RON I On-time control
+A resistor between this pin and VIN sets the buck switch on-time as a 
+function of VIN. Minimum recommended on-time is 100 ns at maximum 
+input voltage.
+5 FB I Feedback This pin is connected to the inverting input of the internal regulation 
+comparator. The regulation level is 1.225 V.
+6 VCC O
+Output from the internal high-voltage 
+series pass regulator. Regulated at 
+7.6 V.
+The internal VCC regulator provides bias supply for the gate drivers and 
+other internal circuitry. A 1-μF decoupling capacitor is recommended.
+7 BST I Bootstrap capacitor
+An external capacitor is required between the BST and SW pins (0.01-μF 
+ceramic). The BST capacitor is charged by the VCC regulator through an 
+internal diode when SW is low.
+8 SW P Switching node Power switching node. Connect to the output inductor and bootstrap 
+capacitor.
+EP — Exposed Pad Exposed pad must be connected to the RTN pin. Solder to the system 
+ground plane on application board for reduced thermal resistance.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 3
+Product Folder Links: LM5017
+
+===== page 4 =====
+6 Specifications
+6.1 Absolute Maximum Ratings
+See (1)
+MIN MAX UNIT
+VIN, UVLO to RTN –0.3 100 V
+SW to RTN –1.5 VIN + 0.3 V
+SW to RTN (100-ns transient) –5 VIN + 0.3 V
+BST to VCC 100 V
+BST to SW 13 V
+RON to RTN –0.3 100 V
+VCC to RTN –0.3 13 V
+FB to RTN –0.3 5 V
+Maximum Junction Temperature(2) 150 °C
+Storage temperature, Tstg –55 150 °C
+(1) Absolute Maximum Ratings are limits beyond which damage to the device may occur. Section 6.3 are conditions under which 
+operation of the device is intended to be functional. For ensured specifications and test conditions, see the Section 6.5. The RTN pin is 
+the GND reference electrically connected to the substrate.
+(2) High junction temperatures degrade operating lifetimes. Operating lifetime is de-rated for junction temperatures greater than 125°C.
+6.2 ESD Ratings
+VALUE UNIT
+V(ESD) Electrostatic discharge
+Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001(1) ±2000
+VCharged-device model (CDM), per JEDEC specification JESD22-
+C101(2) ±750
+(1) JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+(2) JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.
+6.3 Recommended Operating Conditions
+Over operating free-air temperature range (unless otherwise noted)(1)
+MIN MAX UNIT
+VIN Voltage(1) 7.5 100 V
+Operating Junction Temperature(2) –40 125 °C
+(1) Recommended Operating Conditions are conditions under the device is intended to be functional. For specifications and test 
+conditions, see Section 6.5.
+(2) High junction temperatures degrade operating lifetimes. Operating lifetime is de-rated for junction temperatures greater than 125°C.
+6.4 Thermal Information
+THERMAL METRIC(1)
+LM5017
+UNITNGU (WSON) DDA (SO PowerPAD™)
+8 PINS 8 PINS
+RθJA Junction-to-ambient thermal resistance 41.3 41.1 °C/W
+RθJCbot Junction-to-case (bottom) thermal resistance 3.2 2.4 °C/W
+ΨJB Junction-to-board thermal characteristic parameter 19.2 24.4 °C/W
+RθJB Junction-to-board thermal resistance 19.1 30.6 °C/W
+RθJCtop Junction-to-case (top) thermal resistance 34.7 37.3 °C/W
+ΨJT Junction-to-top thermal characteristic parameter 0.3 6.7 °C/W
+(1) For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application 
+report.
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+4 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 5 =====
+6.5 Electrical Characteristics
+Typical values correspond to TJ = 25°C. Minimum and maximum limits apply over –40°C to 125°C junction temperature 
+range, unless otherwise stated. VIN = 48 V, unless otherwise stated. See(1)
+PARAMETER TEST CONDITIONS MIN TYP MAX UNIT
+VCC SUPPLY
+VCC VCC regulator output VIN = 48 V, ICC = 20 mA 6.25 7.6 8.55 V
+ILIM-VCC VCC current limit VIN = 48 V(2) 26 mA
+VCC-UV
+VCC undervoltage lockout 
+voltage (VVCC increasing) –40°C ≤ TJ ≤ 125°C 4.15 4.5 4.9 V
+VCC-UV-HYS VCC undervoltage hysteresis 300 mV
+VCC-LDO VIN – VCC dropout voltage VIN = 9 V, ICC = 20 mA 2.3 V
+IOP IIN operating current Non-switching, VFB = 3 V 1.75 mA
+ISHD IIN shutdown current VUVLO = 0 V 50 225 µA
+SWITCH CHARACTERISTICS
+RDS(ON)1 Buck switch RDS(on) ITEST = 200 mA, VBST – VSW = 7 V 0.8 1.8 Ω
+RDS(ON)2 Synchronous switch RDS(on) ITEST = 200 mA 0.45 1 Ω
+BSTUV Gate drive UVLO VBST − VSW rising 2.4 3 3.6 V
+BSTUV-HYS Gate drive UVLO hysteresis 260 mV
+CURRENT LIMIT
+ILIM -HS Current limit threshold –40°C ≤ TJ ≤ 125°C 0.7 1.02 1.3 A
+tRES Current limit response time Time to switch off 150 ns
+tOFF1 OFF-time generator (test 1) VFB = 0.1 V, VIN = 48 V 12 µs
+tOFF2 OFF-time generator (test 2) VFB = 1 V, VIN = 48 V 2.5 µs
+REGULATION AND OVERVOLTAGE COMPARATORS
+VFB FB regulation level Internal reference trip point for 
+switch ON 1.2 1.225 1.25 V
+VFB-OV FB overvoltage threshold Trip point for switch OFF 1.62 V
+IFB-BIAS FB bias current 60 nA
+UNDERVOLTAGE SENSING FUNCTION
+VUVLO-TH UVLO threshold Voltage at UVLO rising 1.19 1.225 1.26 V
+IUVLO-HYS UVLO hysteresis input current VUVLO = 2.5 V –10 –20 –29 µA
+VSD-TH Remote shutdown threshold Voltage at UVLO falling 0.32 0.66 V
+VSD-HYS Remote shutdown hysteresis 110 mV
+THERMAL SHUTDOWN
+TSD Thermal shutdown temperature 165 °C
+TSD-HYS Thermal shutdown hysteresis 20 °C
+(1) All hot and cold limits are specified by correlating the electrical characteristics to process and temperature variations and applying 
+statistical process control.
+(2) VCC provides self bias for the internal gate drive and control circuits. Device thermal limitations limit external loading.
+6.6 Timing Requirements
+Typical values correspond to TJ = 25°C. Minimum and maximum limits apply over –40°C to 125°C junction temperature range 
+unless otherwise stated. VIN = 48 V unless otherwise stated.
+MIN NOM MAX UNIT
+ON-TIME GENERATOR
+tON1 tON test 1 VIN = 32 V, RON = 100 kΩ 270 350 460 ns
+tON2 tON test 2 VIN = 48 V, RON = 100 kΩ 188 250 336 ns
+tON3 tON test 3 VIN = 75 V, RON = 250 kΩ 250 370 500 ns
+tON4 tON test 4 VIN = 10 V, RON = 250 kΩ 1880 3200 4425 ns
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 5
+Product Folder Links: LM5017
+
+===== page 6 =====
+Typical values correspond to TJ = 25°C. Minimum and maximum limits apply over –40°C to 125°C junction temperature range 
+unless otherwise stated. VIN = 48 V unless otherwise stated.
+MIN NOM MAX UNIT
+MINIMUM OFF-TIME
+tOFF(min) Minimum off-timer VFB = 0 V 144 ns
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+6 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 7 =====
+6.7 Typical Characteristics
+Figure 6-1. Efficiency at 200 kHz, 10 V
+ Figure 6-2. VCC vs VIN 
+Figure 6-3. VCC vs ICC 
+ Figure 6-4. ICC vs External VCC 
+Figure 6-5. TON vs VIN and RON 
+ Figure 6-6. TOFF (ILIM) vs VFB and VIN 
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 7
+Product Folder Links: LM5017
+
+===== page 8 =====
+Figure 6-7. IIN vs VIN (Operating, Non-Switching)
+ Figure 6-8. IIN vs VIN (Shutdown)
+Figure 6-9. Switching Frequency vs VIN 
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+8 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 9 =====
+7 Detailed Description
+7.1 Overview
+The LM5017 step-down synchronous switching converter features all the functions needed to implement a 
+low-cost, efficient buck regulator capable of supplying 600 mA to the load. This high-voltage regulator contains 
+100-V N-channel buck and synchronous rectifier switches and is available in 8-pin thermally-enhanced WSON 
+and SO packages with pin pitches of 0.8 mm and 1.27 mm, respectively. The regulator operation is based on 
+an adaptive constant on-time control architecture where the on-time is inversely proportional to input voltage 
+VIN. This feature maintains a relatively constant operating frequency with load and input voltage variations. A 
+constant on-time switching regulator requires no loop compensation resulting in fast load transient response.
+The LM5017 can be applied in numerous end equipment systems requiring efficient step-down regulation from 
+higher input voltages. This regulator is well-suited for 24-V industrial systems as well as 48-V communications 
+and PoE voltage ranges. The LM5017 integrates an undervoltage lockout (UVLO) circuit to prevent faulty 
+operation of the device at low input voltages and features intelligent current limit and thermal shutdown to protect 
+the device during overload or short circuit. Peak current limit detection circuit is implemented with a forced 
+off-time during current limiting that is inversely proportional to V OUT and directly proportional to V IN. Varying 
+the current limit off-time with V OUT and V IN ensures short-circuit protection with minimal current limit foldback. 
+Additional protection features include thermal shutdown with automatic recovery, VCC and gate drive UVLO, 
+minimum forced off-time, and remote shutdown.
+7.2 Functional Block Diagram
+FB
+VIN VCC
+SW
+BST
+1.62V
+VILIM
+LM5017
+RON
+CURRENT LIMIT 
+COMPARATOR
++
+-
+VCC UVLO
+ON/OFF 
+TIMERS
+COT 
+CONTROL 
+LOGIC
+1.225V
+ VCC 
+REGULATOR
+VIN
+FEEDBACK 
+COMPARATOR
+DISABLE
+THERMAL
+SHUTDOWN
+UVLO
+SHUTDOWN BIAS 
+REGULATOR
+0.66V
+20µA
+VCC
+CURRENT 
+LIMIT TIMERRTN
+VIN
+VIN
+RESR
+COUT
+VOUTVOUT
+CIN
+RON
+L
+CBST
+CVCC
+RUV2
+RUV1
+RFB2
+RFB1
+1.225V
+OVERVOLTAGE 
+COMPARATOR
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 9
+Product Folder Links: LM5017
+
+===== page 10 =====
+7.3 Feature Description
+7.3.1 Control Overview
+The LM5017 buck regulator employs a control principle based on a comparator and a one-shot on-timer, with 
+the output voltage feedback (FB) compared to an internal reference (1.225 V). If the FB voltage is below the 
+reference the internal buck switch is turned on for the one-shot timer period, which is a function of the input 
+voltage and the programming resistor (R ON). Following the on-time the switch remains off until the FB voltage 
+falls below the reference, but never before the minimum off-time forced by the minimum off-time one-shot timer. 
+When the FB pin voltage falls below the reference and the minimum off-time one-shot period expires, the buck 
+switch is turned on for another on-time one-shot period. This will continue until regulation is achieved and the FB 
+voltage is approximately equal to 1.225 V (typ).
+In a synchronous buck converter, the low-side (sync) FET is on when the high-side (buck) FET is off. The 
+inductor current ramps up when the high-side switch is on and ramps down when the high-side switch is ‘off’. 
+There is no diode emulation feature in this IC, and therefore, the inductor current may ramp in the negative 
+direction at light load. This causes the converter to operate in continuous conduction mode (CCM) regardless of 
+the output loading. The operating frequency remains relatively constant with load and line variations. Calculate 
+the operating frequency as shown in Equation 1.
+VOUT
+gSW = K x RON
+(1)
+where
+• K = 9 x 10–11
+The output voltage (V OUT) is set by two external resistors (R FB1, R FB2). The regulated output voltage is 
+calculated as shown in Equation 2.
+RFB2 + RFB1VOUT = 1.225V x RFB1
+(2)
+This regulator regulates the output voltage based on ripple voltage at the feedback input, requiring a minimum 
+amount of ESR for the output capacitor (C OUT). A minimum of 25 mV of ripple voltage at the feedback pin (FB) 
+is required for the LM5017. In cases where the capacitor ESR is too small, additional series resistance may be 
+required (RC in Figure 7-1).
+For applications where lower output voltage ripple is required the output can be taken directly from a low ESR 
+output capacitor, as shown in Figure 7-1. However, RC slightly degrades the load regulation.
+FB
+SW
+L1
+COUT
+RFB2
+VOUT
+RCLM5017
++
+RFB1
+VOUT 
+(low ripple)
+Figure 7-1. Low Ripple Output Configuration
+7.3.2 VCC Regulator
+The LM5017 device contains an internal high-voltage linear regulator with a nominal output of 7.6 V. The input 
+pin (VIN) can be connected directly to the line voltages up to 100 V. The VCC regulator is internally current limited 
+to 30 mA. The regulator sources current into the external capacitor at V CC. This regulator supplies current to 
+internal circuit blocks including the synchronous MOSFET driver and the logic circuits. When the voltage on the 
+VCC pin reaches the undervoltage lockout (VCC UVLO) threshold of 4.5 V, the IC is enabled.
+An internal diode connected from V CC to the BST pin replenishes the charge in the gate drive bootstrap 
+capacitor when SW pin is low.
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+10 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 11 =====
+At high input voltages, the power dissipated in the high voltage regulator is significant and can limit the overall 
+achievable output power. As an example, with the input at 48 V and switching at high frequency, the V CC 
+regulator may supply up to 7 mA of current resulting in 48 V × 7 mA = 336 mW of power dissipation.  If the V CC 
+voltage is driven externally by an alternate voltage source between 8.55 V and 13 V, the internal regulator is 
+disabled. This reduces the power dissipation in the IC.
+7.3.3 Regulation Comparator
+The feedback voltage at FB is compared to an internal 1.225 V reference. In normal operation, when the output 
+voltage is in regulation, an on-time period is initiated when the voltage at FB falls below 1.225 V. The high side 
+switch will stay on for the on-time, causing the FB voltage to rise above 1.225 V. After the on-time period, the 
+high side switch will stay off until the FB voltage again falls below 1.225 V. During start-up, the FB voltage will be 
+below 1.225 V at the end of each on-time, causing the high side switch to turn on immediately after the minimum 
+forced off-time of 144 ns. The high side switch can be turned off before the on-time is over if the peak current in 
+the inductor reaches the current limit threshold.
+7.3.4 Overvoltage Comparator
+The feedback voltage at FB is compared to an internal 1.62 V reference. If the voltage at FB rises above 1.62 V 
+the on-time pulse is immediately terminated. This condition can occur if the input voltage and/or the output load 
+changes suddenly. The high side switch will not turn on again until the voltage at FB falls below 1.225 V.
+7.3.5 On-Time Generator
+The on-time for the LM5017 device is determined by the R ON resistor and is inversely proportional to the input 
+voltage (VIN), resulting in a nearly constant frequency as V IN is varied over the operating range. The on-time for 
+the LM5017 can be calculated using Equation 3.
+10-10 x RON
+TON = VIN
+(3)
+See Figure 6-5. RON should be selected for a minimum on-time (at maximum V IN) greater than 100 ns for proper 
+operation. This requirement limits the maximum switching frequency for high VIN.
+7.3.6 Current Limit
+The LM5017 device contains an intelligent current limit off-timer. If the current in the buck switch exceeds 1.02 A, 
+the present cycle is immediately terminated, and a non-resetable off-timer is initiated. The length of the off-time 
+is controlled by the FB voltage and the input voltage V IN. As an example, when FB = 0 V and V IN = 48 V, the 
+off-time is set to 16 μs. This condition occurs when the output is shorted and during the initial part of start-up. 
+This VIN dependent off-time ensures safe short circuit operation up to the maximum input voltage of 100 V.
+In cases of overload where the FB voltage is above zero volts (not a short circuit) the current limit off-time is 
+reduced. Reducing the off-time during less severe overloads reduces the amount of foldback, recovery time, and 
+start-up time. The off-time is calculated from Equation 4.
+0.07 x VIN
+TOFF(ILIM) = VFB + 0.2 V
+Ps
+(4)
+The current limit protection feature is peak limited. The maximum average output current will be less than the 
+peak.
+7.3.7 N-Channel Buck Switch and Driver
+The LM5017 device integrates an N-Channel Buck switch and associated floating high voltage gate driver. The 
+gate driver circuit works in conjunction with an external bootstrap capacitor and an internal high voltage diode. 
+A 0.01 uF ceramic capacitor connected between the BST pin and the SW pin provides the voltage to the driver 
+during the on-time. During each off-time, the SW pin is at approximately 0 V, and the bootstrap capacitor charges 
+from VCC through the internal diode. The minimum off-timer, set to 144 ns, ensures a minimum time each cycle 
+to recharge the bootstrap capacitor.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 11
+Product Folder Links: LM5017
+
+===== page 12 =====
+7.3.8 Synchronous Rectifier
+The LM5017 provides an internal synchronous N-Channel MOSFET rectifier. This MOSFET provides a path for 
+the inductor current to flow when the high-side MOSFET is turned off.
+The synchronous rectifier has no diode emulation mode, and is designed to keep the regulator in continuous 
+conduction mode even with light loads which would otherwise result in discontinuous operation.
+7.3.9 Undervoltage Detector
+The LM5017 device contains a dual level undervoltage lockout (UVLO) circuit. A summary of threshold voltages 
+and operational states is provided in Section 7.4. When the UVLO pin voltage is below 0.66 V, the regulator 
+is in a low current shutdown mode. When the UVLO pin voltage is greater than 0.66V but less than 1.225 V, 
+the regulator is in standby mode. In standby mode the V CC bias regulator is active while the regulator output is 
+disabled. When the V CC pin exceeds the V CC undervoltage threshold and the UVLO pin voltage is greater than 
+1.225 V, normal operation begins. An external set-point voltage divider from V IN to GND can be used to set the 
+minimum operating voltage of the regulator.
+UVLO hysteresis is accomplished with an internal 20- μA current source that is switched on or off into the 
+impedance of the set-point divider. When the UVLO threshold is exceeded, the current source is activated to 
+quickly raise the voltage at the UVLO pin. The hysteresis is equal to the value of this current times the resistance 
+RUV2.
+If the UVLO pin is connected directly to the V IN pin, the regulator will begin operation once the V CC undervoltage 
+is satisfied.
++
+VIN
+UVLO
+VIN
+RUV1
+CIN RUV2
+2
+3
+LM5017
+Figure 7-2. UVLO Resistor Setting
+7.3.10 Thermal Protection
+The LM5017 device should be operated so the junction temperature does not exceed 150°C during normal 
+operation. An internal Thermal Shutdown circuit is provided to protect the LM5017 in the event of a higher 
+than normal junction temperature. When activated, typically at 165°C, the regulator is forced into a low power 
+reset state, disabling the buck switch and the V CC regulator. This feature prevents catastrophic failures from 
+accidental device overheating. When the junction temperature falls below 145°C (typical hysteresis = 20°C), the 
+VCC regulator is enabled, and normal operation is resumed.
+7.3.11 Ripple Configuration
+LM5017 uses Constant-On-Time (COT) control in which the on-time is terminated by an on-timer and the off-time 
+is terminated by the feedback voltage (V FB) falling below the reference voltage (V REF). Therefore, for stable 
+operation, the feedback voltage must decrease monotonically, in phase with the inductor current during the 
+off-time. Furthermore, this change in feedback voltage (V FB) during off-time must be larger than any noise 
+component present at the feedback node.
+Table 7-1 shows three different methods for generating appropriate voltage ripple at the feedback node. Type 1 
+and Type 2 ripple circuits couple the ripple at the output of the converter to the feedback node (FB). The output 
+voltage ripple has two components:
+1. Capacitive ripple caused by the inductor current ripple charging/discharging the output capacitor.
+2. Resistive ripple caused by the inductor current ripple flowing through the ESR of the output capacitor.
+The capacitive ripple is not in phase with the inductor current. As a result, the capacitive ripple does not 
+decrease monotonically during the off-time. The resistive ripple is in phase with the inductor current and 
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+12 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 13 =====
+decreases monotonically during the off-time. The resistive ripple must exceed the capacitive ripple at the output 
+node (VOUT) for stable operation. If this condition is not satisfied unstable switching behavior is observed in COT 
+converters, with multiple on-time bursts in close succession followed by a long off-time.
+Type 3 ripple method uses R r and C r and the switch node (SW) voltage to generate a triangular ramp. 
+This triangular ramp is ac coupled using C ac to the feedback node (FB). Since this circuit does not use the 
+output voltage ripple, it is ideally suited for applications where low output voltage ripple is required. For more 
+information on each ripple generation method, refer to the AN-1481 Controlling Output Ripple and Achieving 
+ESR Independence in Constant On-Time (COT) Regulator Designs application report.
+Table 7-1. Ripple Configuration
+TYPE 1
+LOWEST COST CONFIGURATION
+TYPE 2
+REDUCED RIPPLE CONFIGURATION
+TYPE 3
+MINIMUM RIPPLE CONFIGURATION
+GND
+To FB
+L1
+COUT
+RFB2
+RFB1
+VOUT
+RC
+GND
+To FB
+L1
+COUT
+RFB2
+RFB1
+VOUT
+RC
+Cac
+COUT
+VOUT
+GND
+Rr
+Cac
+Cr
+To FB
+RFB2
+RFB1
+L1
+25 mVRC ßIL(MIN)
+VOUT
+VREF
+x>
+(5)
+ßIL(MIN)
+25 mVRC
+gsw(RFB2||RFB1)
+>
+5C >
+(6)
+Cr = 3300 pF
+RrCr <
+Cac = 100 nF
+(VIN(MIN) - VOUT) x TON
+25 mV (7)
+7.3.12 Soft-Start
+A soft-start feature can be implemented with the LM5017 using an external circuit. As shown in Figure 7-3 , 
+the soft-start circuit consists of one capacitor, C 1, two resistors, R 1 and R 2, and a diode, D. During the initial 
+start-up, the VCC voltage is established prior to the V OUT voltage. Capacitor C 1 is discharged and D is thereby 
+forward biased to pull up the FB voltage. The FB voltage exceeds the reference voltage (1.225 V) and switching 
+is therefore disabled. As capacitor C 1 charges, the voltage at node B gradually decreases and switching 
+commences. V OUT will gradually rise to maintain the FB voltage at the reference voltage. Once the voltage at 
+node B is less than a diode drop above FB voltage, the soft-start is finished and D is reverse biased.
+During the initial part of the start-up, the FB voltage can be approximated as follows. Please note that the effect 
+of R1 has been ignored to simplify the calculation shown in Equation 8.
+RFB1 x RFB2
+R2 x (RFB1 + RFB2) + RFB1 x RFB2 
+VFB = (VCC - VD) x
+(8)
+C1 is charged after the first start up. Diode D1 is optional and can be added to discharge C1 when the input 
+voltage experiences a momentary drop to initialize the soft-start sequence.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 13
+Product Folder Links: LM5017
+
+===== page 14 =====
+To achieve the desired soft-start, the following design guidance is recommended:
+(1) R2 is selected so that VFB is higher than 1.225 V for a V CC of 4.5 V, but is lower than 5 V when VCC is 8.55 V. 
+If an external VCC is used, VFB should not exceed 5 V at maximum VCC.
+(2) C1 is selected to achieve the desired start-up time that can be determined from Equation 9.
+RFB1 x RFB2
+RFB1 + RFB2 
+tS = C1 x (R2 + )
+(9)
+(3) R 1 is used to maintain the node B voltage at zero after the soft-start is finished. A value larger than the 
+feedback resistor divider is preferred. Note that the effect of R1 is ignored in the previous equations.
+Based on the schematic shown in Figure 8-1, selecting C 1 = 1 uF, R 2 = 1 k Ω, R1 = 30 k Ω results in a soft-start 
+time of about 2 ms.
+VOUT
+RFB2
+VCC
+RFB1
+To FB D
+C1
+R2
+R1
+D1
+B
+Figure 7-3. Soft-Start Circuit
+7.4 Device Functional Modes
+Table 7-2. UVLO Modes
+UVLO VCC Regulator MODE DESCRIPTION
+< 0.66 V Disabled Shutdown VCC regulator disabled.
+Switching disabled.
+0.66 V – 1.225 V Enabled Standby VCC regulator enabled
+Switching disabled.
+> 1.225 V
+VCC < 4.5 V Standby VCC regulator enabled.
+Switching disabled.
+VCC > 4.5 V Operating VCC enabled.
+Switching enabled.
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+14 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 15 =====
+8 Application and Implementation
+Note
+Information in the following applications sections is not part of the TI component specification, 
+and TI does not warrant its accuracy or completeness. TI’s customers are responsible for 
+determining suitability of components for their purposes, as well as validating and testing their design 
+implementation to confirm system functionality.
+8.1 Application Information
+The LM5017 device is step-down DC-DC converter. The device is typically used to convert a higher DC voltage 
+to a lower DC voltage with a maximum available output current of 650 mA. Use the following design procedure 
+to select component values for the LM5017 device. Alternately, use the WEBENCH® software to generate a 
+complete design. The WEBENCH software uses an iterative design procedure and accesses a comprehensive 
+database of components when generating a design. This section presents a simplified discussion of the design 
+process.
+8.2 Typical Application
+8.2.1 Application Circuit: 12.5-V to 95-V Input and 10-V, 600-mA Output Buck Converter
+The application schematic of a buck supply is shown in Figure 8-1 . For output voltage (V OUT) more than 
+one diode drop above the maximum regulation threshold of V CC (8.55 V, see Section 6.5), the V CC pin can 
+be connected to V OUT through a diode (D2), as shown in Figure 8-1 , for higher efficiency and lower power 
+dissipation in the IC.
+The design example below uses equations from the Section 7.3 with component names provided . 
+Corresponding component designators from Figure 8-1 are also provided for each selected value.
++
++
++
+VIN
+BST
+RON
+RTN
+SW
+VCC
+FB
+VIN
+VOUT
+R2
+R7
+R3
+C9
+C1
+C4
+R1
+R5
+L1
+UVLO
+C7
+LM5017
+12.5 V–95 V
+1
+2
+3
+4
+5
+6
+8
+7
+(TP4)
++C5
+2.2 F 0.47 F 127 N
+14 N
+499 NGND
+(TP1)
+(TP2)
+UVLO/SD
+U1
+R6
+(TP3)
+(TP5)
+GND
+R4 C6
+C8
++
+D2
+R8
+EXP
+0 
+1 N
+6.98 N
+22 F
+0 
+220 H0.01 F
+1 F
+3300 pF
+0.1 F
+46.4 N
+(TP6)
+SW
+Figure 8-1. Final Schematic for 12.5-V to 95-V Input, and 10-V, 600-mA Output Buck Converter
+8.2.1.1 Design Requirements
+Selection of external components is illustrated through a design example. The design example specifications are 
+shown in Table 8-1.
+Table 8-1. Buck Converter Design Specifications
+DESIGN PARAMETERS VALUE
+Input voltage range 12.5 V to 95 V
+Output voltage 10 V
+Maximum Load current 600 mA
+Switching Frequency ≈ 225 kHz
+8.2.1.2 Detailed Design Procedure
+8.2.1.2.1 Custom Design with WEBENCH Tools
+Click here to create a custom design using the WEBENCH® Power Designer.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 15
+Product Folder Links: LM5017
+
+===== page 16 =====
+1. Start by entering your VIN, VOUT and IOUT requirements.
+2. Optimize your design for key parameters like efficiency, footprint and cost using the optimizer dial and 
+compare this design with other possible solutions from Texas Instruments.
+3. WEBENCH Power Designer provides you with a customized schematic along with a list of materials with real 
+time pricing and component availability.
+4. In most cases, you will also be able to:
+• Run electrical simulations to see important waveforms and circuit performance,
+• Run thermal simulations to understand the thermal performance of your board,
+• Export your customized schematic and layout into popular CAD formats,
+• Print PDF reports for the design, and share your design with colleagues.
+8.2.1.2.2 RFB1, RFB2
+VOUT = VFB x (RFB2/RFB1 + 1), and because VFB = 1.225 V, the ratio of RFB2 to RFB1 calculates as 7 : 1. Standard 
+values are chosen with R FB2 = R1 = 6.98 k Ω and RFB1 = R6 = 1 k Ω. Other values could be used as long as the 
+7 : 1 ratio is maintained.
+8.2.1.2.3 Frequency Selection
+At the minimum input voltage, the maximum switching frequency of LM5017 is restricted by the forced minimum 
+off-time (TOFF(MIN)) as given by Equation 10.
+1 - DMAX
+gSW(MAX) = TOFF(MIN)
+1 - 10/12.5
+200 ns= = 1 MHz
+(10)
+Similarly, at maximum input voltage, the maximum switching frequency of LM5017 is restricted by the minimum 
+TON as given by Equation 11.
+DMIN
+gSW(MAX) = TON(MIN)
+10/95
+100 ns= = 1.05 MHz
+(11)
+Resistor RON sets the nominal switching frequency based on Equation 12.
+VOUT
+gSW = K x RON
+(12)
+where
+• K = 9 x 10–11
+Operation at high switching frequency results in lower efficiency while providing the smallest solution. For this 
+example a conservative 225 kHz was selected, resulting in R ON = 493 kΩ. A standard value for R ON = R3 = 499 
+kΩ is selected.
+8.2.1.2.4 Inductor Selection
+The minimum inductance is selected to limit the output ripple to 15 to 40 percent of the maximum load current. In 
+addition, the peak inductor current at maximum load should be smaller than the minimum current limit as given in 
+Section 6.5 table.
+The inductor current ripple is given by Equation 13.
+VIN - VOUT
+ßIL = L1 x gSW
+VOUT
+VIN
+x
+(13)
+The maximum ripple is observed at maximum input voltage. Substituting V IN = 95 V and ΔIL = 40 percent 
+× I OUT (max) results in L1 = 198 μH. The next higher standard value of 220 μH is chosen. The peak-to-peak 
+minimum and maximum inductor current ripple are 40 mA and 181 mA at the minimum and maximum input 
+voltages respectively. The peak inductor and switch current is given by Equation 14.
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+16 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 17 =====
+ßIL(MAX)
+ILI(peak) = IOUT + 2 = 690 mA
+(14)
+690 mA is less than the minimum current limit threshold of 0.7 A. The selected inductor should be able to 
+withstand the maximum current limit of 1.3 A during startup and overload conditions without saturating.
+8.2.1.2.5 Output Capacitor
+The output capacitor is selected to minimize the capacitive ripple across it. The maximum ripple is observed at 
+maximum input voltage and is given by:
+ßIL
+COUT = 8 x gsw x ßVripple 
+(15)
+where
+• ΔVripple is the voltage ripple across the capacitor.
+Assuming VIN = 95 V and substituting ΔVripple = 10 mV gives COUT = 10.1 μF. A 22-μF standard value is selected 
+for COUT = C9. An X5R or X7R type capacitor with a voltage rating 16 V or higher should be selected.
+8.2.1.2.6 Type III Ripple Circuit
+Type III ripple circuit as described in Section 7.3.11 is chosen for this example. For a constant on-time converter 
+to be stable, the injected in-phase ripple should be larger than the capacitive ripple on COUT.
+Using the type III ripple circuit equation, the target ripple will be greater than the capacitive ripple generated at 
+the primary-side output if the following condition is satisfied:
+Cr = C6 = 3300 pF
+Cac = C8 = 100 nF
+IN(MIN) OUT ON(VINMIN)
+r
+r
+(V V ) T
+R (25 mV C )
+ u 
+d u
+(16)
+For TON, refer to Equation 3.
+Ripple resistor R r is calculated to be 57.6 k Ω. This value provides the minimum ripple for stable operation. A 
+smaller resistance should be selected to allow for variations in TON, COUT, and other components. Rr = R4 = 46.4 
+kΩ is selected for this example application.
+8.2.1.2.7 VCC and Bootstrap Capacitors
+The VCC capacitor provides charge to bootstrap capacitor as well as internal circuitry and low side gate driver. 
+The Bootstrap capacitor provides charge to high side gate driver. The recommended value for CVCC = C7 = 1 μF. 
+A good value for CBST = C1 = 0.01 μF.
+8.2.1.2.8 Input Capacitor
+Input capacitor should be large enough to limit the input voltage ripple as shown in Equation 17.
+IOUT(MAX)
+CIN 4 x gSW x ßVIN 
+>
+(17)
+Choosing a ΔVIN = 0.5 V gives a minimum C IN = 1.3 μF. A standard value of 2.2 μF is selected for C IN = C4. 
+The input capacitor should be rated for the maximum input voltage under all conditions. A 100-V, X7R dielectric 
+should be selected for this design.
+The input capacitor should be placed directly across V IN and RTN (pin 1 and 2) of the IC. If it is not possible to 
+place all of the input capacitor close to the IC, a 0.47- μF capacitor should be placed near the IC to provide a 
+bypass path for the high frequency component of the switching current.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 17
+Product Folder Links: LM5017
+
+===== page 18 =====
+8.2.1.2.9 UVLO Resistors
+The UVLO resistors R FB1 and R FB2 set the UVLO threshold and hysteresis according to the relationship shown 
+in Equation 18 and Equation 19.
+VIN(HYS) = IHYS x RUV2
+(18)
+where
+• IHYS = 20 μA
+RUV2VIN (UVLO,rising) = 1.225 V x RUV1
++ 1( )
+(19)
+Setting UVLO hysteresis of 2.5 V and UVLO rising threshold of 12 V results in RUV1 = 14.53 kΩ and
+RUV2 = 125 k Ω. Selecting standard values of R UV1 = R7 = 14 k Ω and R UV2 = R5 = 127 k Ω results in UVLO 
+threshold and hysteresis of 12.4 V and 2.5 V respectively.
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+18 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 19 =====
+8.2.1.3 Application Curves
+Figure 8-2. Efficiency vs Load Current
+ Figure 8-3. Frequency vs Input Voltage
+Figure 8-4. Typical Switching Waveform (VIN = 48 V, IOUT = 200 mA)
+8.2.2 Isolated DC/DC Converter Using LM5017
+An isolated supply using the LM5017 is shown in Figure 8-5. Inductor (L) in a typical buck circuit is replaced with 
+a coupled inductor (X1). A diode (D1) is used to rectify the voltage on a secondary output. The nominal voltage 
+at the secondary output (VOUT2) is given by Equation 20.
+NSVOUT2 = VOUT1  x NP
+- VF
+(20)
+where
+• VF is the forward voltage drop of D1
+• NP and NS are the number of turns on the primary and secondary of coupled inductor X1.
+For output voltage (V OUT1) more than one diode drop above the maximum V CC (8.55 V), the V CC pin can be 
+diode connected to VOUT1 for higher efficiency and low dissipation in the IC. For a complete isolated bias design 
+with LM5017, refer to the AN-2204 LM5017 Isolated Supply Evaluation Board application report.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 19
+Product Folder Links: LM5017
+
+===== page 20 =====
++
++
++
++
+VIN
+BST
+RON
+RTN
+SW
+VCC
+FB
+UVLO
+VIN
+VOUT1
+VOUT2
+RFB1
+RUV1
+RON
+COUT1
+CBST
+D1
+CIN
+COUT2
+RFB2
+RUV2
+X1
+Rr
+N1
+N2
+LM5017
+CVCC
++
+D2
+20V-95V
+Cr
+Cac
++
+CBYP
+127 N
+8.25 N
+2.2 µF 0.47 µF
+130 N
+0.01 µF
+1 µF
+0.1 µF
+7.32 N
+1 N
+1 µF
+1 µF
+1 nF46.4 N
+33 µH
+1:1
+Figure 8-5. Typical Isolated Application Schematic
+8.2.2.1 Design Requirements
+DESIGN PARAMETERS VALUE
+Input Voltage Range 20 V – 100 V
+Primary Output Voltage 10 V
+Secondary (Isolated) Output Voltage 9.5 V
+Maximum Load Current (Primary + Secondary) 300 mA
+Maximum Power Output 3 W
+Nominal Switching Frequency 750 kHz
+8.2.2.2 Detailed Design Procedure
+8.2.2.2.1 Transformer Turns Ratio
+The transformer turns ratio is selected based on the ratio of the primary output voltage to the secondary 
+(isolated) output voltage. In this design example, the two outputs are nearly equal and a 1 : 1 turns ratio 
+transformer is selected. Therefore, N2 / N1 = 1.
+If the secondary (isolated) output voltage is significantly higher or lower than the primary output voltage, a turns 
+ratio less than or greater than 1 is recommended. The primary output voltage is normally selected based on the 
+input voltage range such that the duty cycle of the converter does not exceed 50% at the minimum input voltage. 
+This condition is satisfied if VOUT1 < VIN_MIN / 2.
+8.2.2.2.2 Total IOUT
+Calculate the total primary-referred load current by multiplying the isolated output loads by the turns ratio of the 
+transformer as shown in Equation 21.
+OUT(MAX) OUT1 OUT2
+N2I I I 0.3 A N 1   u  
+(21)
+8.2.2.2.3 RFB1, RFB2
+The feedback resistors are selected to set the primary output voltage. The selected value for R FB1 is 1 kΩ. RFB2 
+can be calculated using the following equations to set V OUT1 to the specified value of 10 V. A standard resistor 
+value of 7.32 kΩ is selected for RFB2.
+)RFB2
+VOUT1 = 1.225V x ( RFB1
+1+
+(22)
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+20 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 21 =====
+x RFB1 = 7.16 k:VOUT1
+:RFB2 = 1.225 - 1)(
+(23)
+8.2.2.2.4 Frequency Selection
+Calculate the value of RON to achieve the desired switching frequency using Equation 24.
+VOUT1
+fSW = .x RON
+(24)
+where
+• K = 9 × 10–11
+For V OUT1 of 10 V and f SW of 750 kHz, the calculated value of R ON is 148 k Ω. A lower value of 130 k Ω is 
+selected for this design to allow for second-order effects at high switching frequency that are not included in 
+Equation 24.
+8.2.2.2.5 Transformer Selection
+A coupled inductor or a flyback-type transformer is required for this topology. Energy is transferred from primary 
+to secondary when the low-side synchronous switch of the buck converter is conducting.
+The maximum inductor primary ripple current that can be tolerated without exceeding the buck switch peak 
+current limit threshold (0.7 A minimum) is given by Equation 25.
+L1 OUT1 OUT2
+N2I 0.7 I I 2 0.8 A N 1 
+§ • ’    u u  ¤ ‚ ' „ 
+(25)
+Using the maximum peak-to-peak inductor ripple current ΔIL1 from Equation 25, the minimum inductor value is 
+given by Equation 26.
+IN(MAX) OUT OUT
+L1 SW IN(MAX)
+V V 
+ƒ
+VL1 14.9 HI V 
+
+ u  P’ u 
+(26)
+A higher value of 33 µH is selected to insure the high-side switch current does not exceed the minimum peak 
+current limit threshold. With this inductance, the inductor current ripple is ΔIL1= 0.36 A at the maximum VIN.
+8.2.2.2.6 Primary Output Capacitor
+In a conventional buck converter the output ripple voltage is calculated as shown in Equation 27.
+’VOUT = ’IL1
+  x f x COUT1
+f
+(27)
+To limit the primary output ripple voltage ΔVOUT1 to approximately 50 mV, an output capacitor C OUT1 of 1.2 µF 
+would be required for a conventional buck.
+Figure 8-6 shows the primary winding current waveform (I L1) of a Fly-Buck™ converter. The reflected secondary 
+winding current adds to the primary winding current during the buck switch off-time. Because of this increased 
+current, the output voltage ripple is not the same as in conventional buck converter. The output capacitor value 
+calculated in Equation 27 should be used as the starting point. Optimization of output capacitance over the entire 
+line and load range must be done experimentally. If the majority of the load current is drawn from the secondary 
+isolated output, a better approximation of the primary output voltage ripple is given by Equation 28.
+OUT2 ON(MAX)
+OUT1
+OUT1
+N2I T N 1 V 67 mV C
+§ • u u ¤ ‚ ' „ ’  |
+(28)
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 21
+Product Folder Links: LM5017
+
+===== page 22 =====
+IL2
+IOUT2
+TON(MAX) x IOUT2
+IL1
+TON(MAX) x IOUT2 x N2/N1
+Figure 8-6. Current Waveforms for COUT1 Ripple Calculation
+A standard 1-µF, 25 V capacitor is selected for this design. If lower output voltage ripple is required, a higher 
+value should be selected for COUT1 and/or COUT2.
+8.2.2.2.7 Secondary Output Capacitor
+A simplified waveform for secondary output current (IOUT2) is shown in Figure 8-7.
+IL2
+IOUT2
+TON(MAX) x IOUT2
+Figure 8-7. Secondary Current Waveforms for COUT2 Ripple Calculation
+The secondary output current (I OUT2) is sourced by C OUT2 during on-time of the buck switch, T ON. Ignoring 
+the current transition times in the secondary winding, the secondary output capacitor ripple voltage can be 
+calculated using Equation 29.
+COUT2
+’VOUT2 =
+IOUT2 x  TON (MAX)
+(29)
+For a 1 : 1 transformer turns ratio, the primary and secondary voltage ripple equations are identical. Therefore, 
+COUT2 is chosen to be equal to C OUT1 (1 µF) to achieve comparable ripple voltages on primary and secondary 
+outputs.
+If lower output voltage ripple is required, a higher value should be selected for COUT1 and/or COUT2.
+8.2.2.2.8 Type III Feedback Ripple Circuit
+Type III ripple circuit as described in Section 7.3.11 is required for the Fly-Buck topology. Type I and Type II 
+ripple circuits use series resistance and the triangular inductor ripple current to generate ripple at V OUT and the 
+FB pin. The primary ripple current of a Fly-Buck is the combination or primary and reflected secondary currents 
+as illustrated in Figure 8-6. In the Fly-Buck topology, Type I and Type II ripple circuits suffer from large jitter as 
+the reflected load current affects the feedback ripple.
+GND
+Rr
+Cac
+Cr
+R
+To FB
+R
+L1
+FB1
+FB2
+C OUT
+VOUT
+Figure 8-8. Type III Ripple Circuit
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+22 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 23 =====
+Selecting the Type III ripple components using the equations from Section 7.3.11 will ensure that the FB pin 
+ripple is be greater than the capacitive ripple from the primary output capacitor C OUT1. The feedback ripple 
+component values are chosen as shown in Equation 30.
+Cr = 1000 pF
+Cac = 0.1 PF
+50 mVRrCr d
+(VIN (MIN) - VOUT) x TON
+(30)
+The calculated value for R r is 66 k Ω. This value provides the minimum ripple for stable operation. A smaller 
+resistance should be selected to allow for variations in T ON, C OUT1 and other components. For this design, R r 
+value of 46.4 kΩ is selected.
+8.2.2.2.9 Secondary Diode
+The reverse voltage across secondary-rectifier diode D1 when the high-side buck switch is off can be calculated 
+using Equation 31.
+N2
+N1VD1 = V IN
+(31)
+For a VIN_MAX of 95 V and the 1:1 turns ratio of this design, a 100 V Schottky is selected.
+8.2.2.2.10 VCC and Boostrap Capacitor
+A 1-µF capacitor of 16 V or higher rating is recommended for the V CC regulator bypass capacitor. A good value 
+for the BST pin bootstrap capacitor is 0.01-µF with a 16 V or higher rating.
+8.2.2.2.11 Input Capacitor
+The input capacitor is typically a combination of a smaller bypass capacitor located near the regulator IC and 
+a larger bulk capacitor. The total input capacitance should be large enough to limit the input voltage ripple to a 
+desired amplitude. For input ripple voltage ΔVIN, CIN can be calculated using Equation 32.
+OUT(MA
+IN
+X)
+IN
+I
+C 4 ƒ 9 u ’ t u
+(32)
+Choosing a ΔVIN of 0.5 V gives a minimum CIN of 0.2 μF. A standard value of 0.47 μF is selected for CBYP in this 
+design. A bulk capacitor of higher value reduces voltage spikes due to parasitic inductance between the power 
+source to the converter. A standard value of 2.2 μF is selected for C IN in this design. The voltage ratings of the 
+two input capacitors should be greater than the maximum input voltage under all conditions.
+8.2.2.2.12 UVLO Resistors
+UVLO resistors R UV1 and R UV2 set the undervoltage lockout threshold and hysteresis according to Equation 33 
+and Equation 34.
+VIN (HYS) = IHYS x RUV2
+(33)
+where
+• IHYS = 20 μA, typical.
+VIN (UVLO, rising) = 1.225V x RUV2 + 1)( RUV1
+(34)
+For a UVLO hysteresis of 2.5 V and UVLO rising threshold of 20 V, Equation 33 and Equation 34 require RUV1 of 
+8.25 kΩ and RUV2 of 127 kΩ and these values are selected for this design example.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 23
+Product Folder Links: LM5017
+
+===== page 24 =====
+8.2.2.2.13 VCC Diode
+Diode D2 is an optional diode connected between V OUT1 and the V CC regulator output pin. When V OUT1 is more 
+than one diode drop greater than the V CC voltage, the V CC bias current is supplied from V OUT1. This results in 
+reduced power losses in the internal V CC regulator which improves converter efficiency. V OUT1 must be set to 
+a voltage at least one diode drop higher than 8.55 V (the maximum V CC voltage) if D2 is used to supply bias 
+current.
+8.2.2.3 Application Curves
+Figure 8-9. Steady State Waveform (VIN = 48 V, 
+IOUT1 = 100 mA, IOUT2 = 200 mA)
+ Figure 8-10. Step Load Response (VIN = 48 V, IOUT1 
+= 0 A, Step Load on IOUT2 = 100 mA to 200 mA)
+Figure 8-11. Efficiency at 750 kHz, VOUT1 = 10 V
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+24 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 25 =====
+9 Power Supply Recommendations
+The LM5017 DC/DC converter is designed to operate from a wide input voltage range of 7.5 V to 100 V. The 
+characteristics of the input supply must be compatible with the Section 6.1 and Section 6.3 tables. In addition, 
+the input supply must be capable of delivering the required input current to the fully-loaded regulator. Estimate 
+the average input current with Equation 35.
+OUT
+IN
+IN
+PI V K 
+(35)
+where
+• η is the efficiency
+If the regulator is connected to an input supply through long wires or PCB traces with a large impedance, take 
+special care to achieve stable performance. The parasitic inductance and resistance of the input cables may 
+have an adverse affect on converter operation, particularly during operation at low input voltage. The parasitic 
+inductance in combination with the low-ESR ceramic input capacitors form an underdamped resonant circuit. 
+This circuit can cause overvoltage transients at VIN each time the input supply is cycled on and off. The parasitic 
+resistance causes the input voltage to dip during a load transient. The best way to solve such issues is to reduce 
+the distance from the input supply to the regulator and use an aluminum or tantalum input capacitor in parallel 
+with the ceramics. The moderate ESR of the electrolytic capacitors helps to damp the input resonant circuit and 
+reduce any voltage overshoots. A capacitance in the range of 4.7 µF to 22 µF is usually sufficient to provide 
+input parallel damping and helps to hold the input voltage steady during large load transients.
+An EMI input filter is often used in front of the regulator that, unless carefully designed, can lead to instability 
+as well as some of the effects mentioned above. The application report Simple Success with Conducted EMI 
+for DC-DC Converters (SNVA489) provides helpful suggestions when designing an input filter for any switching 
+regulator.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 25
+Product Folder Links: LM5017
+
+===== page 26 =====
+10 Layout
+10.1 Layout Guidelines
+A proper layout is essential for optimum performance of the circuit. In particular, the following guidelines should 
+be observed:
+1. CIN: The loop consisting of input capacitor (CIN), VIN pin, and RTN pin carries switching currents. Therefore, 
+the input capacitor should be placed close to the IC, directly across VIN and RTN pins and the connections to 
+these two pins should be direct to minimize the loop area. In general it is not possible to accommodate all of 
+input capacitance near the IC. A good practice is to use a 0.1-μF or 0.47-μF capacitor directly across the VIN 
+and RTN pins close to the IC, and the remaining bulk capacitor as close as possible (see Figure 10-1).
+2. CVCC and CBST: The VCC and bootstrap (BST) bypass capacitors supply switching currents to the high and 
+low side gate drivers. These two capacitors should also be placed as close to the IC as possible, and the 
+connecting trace length and loop area should be minimized (see Figure 10-1).
+3. The Feedback trace carries the output voltage information and a small ripple component that is necessary 
+for proper operation of LM5017. Therefore, care should be taken while routing the feedback trace to avoid 
+coupling any noise to this pin. In particular, feedback trace should not run close to magnetic components, or 
+parallel to any other switching trace.
+4. SW trace: The SW node switches rapidly between VIN and GND every cycle and is therefore a possible 
+source of noise. The SW node area should be minimized. In particular, the SW node should not be 
+inadvertently connected to a copper plane or pour.
+10.2 Layout Example
+UVLO 3
+RON 4
+RTN 1
+VIN 2
+8   SW
+7   BST
+6   VCC
+5   FB
+SO 
+PowerPAD-
+8
+CIN
+CVCC
+Figure 10-1. Placement of Bypass Capacitors
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+26 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 27 =====
+11 Device and Documentation Support
+11.1 Device Support
+11.1.1 Third-Party Products Disclaimer
+TI'S PUBLICATION OF INFORMATION REGARDING THIRD-PARTY PRODUCTS OR SERVICES DOES NOT 
+CONSTITUTE AN ENDORSEMENT REGARDING THE SUITABILITY OF SUCH PRODUCTS OR SERVICES 
+OR A WARRANTY, REPRESENTATION OR ENDORSEMENT OF SUCH PRODUCTS OR SERVICES, EITHER 
+ALONE OR IN COMBINATION WITH ANY TI PRODUCT OR SERVICE.
+11.1.2 Development Support
+For development support, see the following:
+• LM5017 Buck Converter Quick-start Calculator
+• Fly-Buck Converter Quick-start Calculator
+• LM5017 PSPICE Transient Model
+• LM5017 TINA-TI Transient Spice Model
+• LM5017 TINA-TI Transient Reference Design
+• For TI's reference design library, visit TI Reference Designs
+• For TI's WEBENCH Design Environment, visit the WEBENCH® Design Center.
+• To view a related device of this product, see the LM5018 100-V, 300-mA synchronous buck converter.
+• Power House Blogs:
+– Fly-Buck: Frequently Asked Questions (FAQs)
+– Lower EMI and Quiet Switching With the Fly-Buck Topology
+– Fly-Buck Converter PCB Layout Tips
+– When is Fly-Buck the Right Choice for Your Isolated Power Needs?
+– How to Design for EMC and Isolation With Fly-Buck Converters
+– Create a Fly-Buck Converter in WEBENCH® Power Designer
+11.1.2.1 Custom Design With WEBENCH® Tools
+Click here to create a custom design using the LM5017 device with the WEBENCH® Power Designer.
+1. Start by entering the input voltage (VIN), output voltage (VOUT), and output current (IOUT) requirements.
+2. Optimize the design for key parameters such as efficiency, footprint, and cost using the optimizer dial.
+3. Compare the generated design with other possible solutions from Texas Instruments.
+The WEBENCH Power Designer provides a customized schematic along with a list of materials with real-time 
+pricing and component availability.
+In most cases, these actions are available:
+• Run electrical simulations to see important waveforms and circuit performance
+• Run thermal simulations to understand board thermal performance
+• Export customized schematic and layout into popular CAD formats
+• Print PDF reports for the design, and share the design with colleagues
+Get more information about WEBENCH tools at www.ti.com/WEBENCH.
+11.2 Documentation Support
+11.2.1 Related Documentation
+For related documentation, see the following:
+• AN-2200 LM5017 Evaluation Board (SNVA612)
+• AN-2204 LM5017 Isolated Supply Evaluation Board (SNVA611)
+• AN-2292 Designing an Isolated Buck (Fly-Buck) Converter (SNVA674)
+• AN-1481 Controlling Output Ripple & Achieving ESR Independence in Constant ON-Time Regulator Designs 
+(SNVA166)
+• TI Reference Designs:
+– Dual Channel-to-Channel Isolated Universal Analog Input Module for PLC Reference Design (TIDUBI1)
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 27
+Product Folder Links: LM5017
+
+===== page 28 =====
+– High Voltage Stepper Driver Reference Design (TIDUCR6)
+– Reference Design for Voltage, Current & Temp Monitoring for Solar Module Level Power Electronics 
+(TIDUCM3)
+– High Resolution, Fast Startup Analog Front End for Air Circuit Breaker Reference Design (TIDUB80)
+– Signal Processing Front End for Electronic Trip Units Used in ACBs/MCCBs reference design (TIDUA09)
+– Ultra-Small 1W, 12V-36V Iso Power Supply for Analog Prog Logic Controller Modules Reference Design 
+(TIDU855)
+– 16-Bit Analog Output Module Reference Design for Programmable Logic Controllers (PLCs) (TIDU189)
+– 2.5W Bipolar Isolated Fly-Buck Ultra-Compact Reference Design (TIDUCA3)
+– Class 3 Isolated Fly-Buck Power Module for PoE Application Reference Design (TIDU779)
+– Wide-Input Isolated IGBT Gate-Drive Fly-Buck Power Supply for Three-Phase Inverters (TIDU670)
+– Isolated RS-485 to Wi-Fi Bridge with 24 VAC Power Reference Design (TIDUA49)
+– Dual-Output Isolated Fly-Buck Reference Design With an Ultra-Small Coupled Inductor (TIDUC31)
+– Small Footprint Isolated DC/DC Converter for Analog Input Module Reference Design (TIDUBR7)
+– Leakage Current Measurement Reference Design for Determining Insulation Resistance (TIDU873)
+– Thermal Protection Reference Design of IGBT Modules for HEV/EV Traction Inverters (TIDUBJ2)
+• White Papers:
+– Designing Isolated Rails on the Fly With Fly-Buck Converters
+– Valuing Wide VIN, Low-EMI Synchronous Buck Circuits for Cost-Effective, Demanding Applications
+– An Overview of Conducted EMI Specifications for Power Supplies
+– An Overview of Radiated EMI Specifications for Power Supplies
+• AN-2162: Simple Success with Conducted EMI from DC-DC Converters (SNVA489)
+• Using New Thermal Metrics (SBVA025)
+• Semiconductor and IC Package Thermal Metrics (SPRA953)
+11.3 Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on 
+Subscribe to updates  to register and receive a weekly digest of any product information that has changed. For 
+change details, review the revision history included in any revised document.
+11.4 Support Resources
+TI E2E ™ support forums  are an engineer's go-to source for fast, verified answers and design help — straight 
+from the experts. Search existing answers or ask your own question to get the quick design help you need.
+Linked content is provided "AS IS" by the respective contributors. They do not constitute TI specifications and do 
+not necessarily reflect TI's views; see TI's Terms of Use.
+11.5 Trademarks
+PowerPAD™ and are trademarks of Texas Instruments.
+Fly-Buck™ and TI E2E™ are trademarks of Texas Instruments.
+WEBENCH® are registered trademarks of Texas Instruments.
+All trademarks are the property of their respective owners.
+11.6 Electrostatic Discharge Caution
+This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled 
+with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may 
+be more susceptible to damage because very small parametric changes could cause the device not to meet its published 
+specifications.
+11.7 Glossary
+TI Glossary This glossary lists and explains terms, acronyms, and definitions.
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021 www.ti.com
+28 Submit Document Feedback Copyright © 2021 Texas Instruments Incorporated
+Product Folder Links: LM5017
+
+===== page 29 =====
+12 Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most 
+current data available for the designated devices. This data is subject to change without notice and revision of 
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+www.ti.com
+LM5017
+SNVS783K – JANUARY 2012 – REVISED AUGUST 2021
+Copyright © 2021 Texas Instruments Incorporated Submit Document Feedback 29
+Product Folder Links: LM5017
+
+===== page 30 =====
+PACKAGE OPTION ADDENDUM
+www.ti.com 21-Apr-2026
+PACKAGING INFORMATION
+Orderable part number Status
+(1)
+Material type
+(2)
+Package | Pins Package qty | Carrier RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C) Part marking
+(6)
+LM5017MR/NOPB Active Production SO PowerPAD
+(DDA) | 8
+95 | TUBE Yes NIPDAU | SN Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MR/NOPB.A Active Production SO PowerPAD
+(DDA) | 8
+95 | TUBE Yes NIPDAU Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MR/NOPB.B Active Production SO PowerPAD
+(DDA) | 8
+95 | TUBE Yes NIPDAU Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MRE/NOPB Active Production SO PowerPAD
+(DDA) | 8
+250 | SMALL T&R Yes NIPDAU | SN Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MRE/NOPB.A Active Production SO PowerPAD
+(DDA) | 8
+250 | SMALL T&R Yes NIPDAU Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MRE/NOPB.B Active Production SO PowerPAD
+(DDA) | 8
+250 | SMALL T&R Yes NIPDAU Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MRX/NOPB Active Production SO PowerPAD
+(DDA) | 8
+2500 | LARGE T&R Yes NIPDAU | SN Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MRX/NOPB.A Active Production SO PowerPAD
+(DDA) | 8
+2500 | LARGE T&R Yes NIPDAU Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017MRX/NOPB.B Active Production SO PowerPAD
+(DDA) | 8
+2500 | LARGE T&R Yes NIPDAU Level-3-260C-168 HR -40 to 125 L5017
+MR
+LM5017SD/NOPB Active Production WSON (NGU) | 8 1000 | SMALL T&R Yes SN Level-1-260C-UNLIM -40 to 125 L5017
+LM5017SD/NOPB.A Active Production WSON (NGU) | 8 1000 | SMALL T&R Yes SN Level-1-260C-UNLIM -40 to 125 L5017
+LM5017SD/NOPB.B Active Production WSON (NGU) | 8 1000 | SMALL T&R Yes SN Level-1-260C-UNLIM -40 to 125 L5017
+LM5017SDE/NOPB Active Production WSON (NGU) | 8 250 | SMALL T&R Yes SN Level-1-260C-UNLIM -40 to 125 L5017
+LM5017SDX/NOPB Active Production WSON (NGU) | 8 4500 | LARGE T&R Yes SN Level-1-260C-UNLIM -40 to 125 L5017
+LM5017SDX/NOPB.A Active Production WSON (NGU) | 8 4500 | LARGE T&R Yes SN Level-1-260C-UNLIM -40 to 125 L5017
+LM5017SDX/NOPB.B Active Production WSON (NGU) | 8 4500 | LARGE T&R Yes SN Level-1-260C-UNLIM -40 to 125 L5017
+ 
+(1) Status:  For more details on status, see our product life cycle.
+ 
+(2) Material type:  When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+ 
+Addendum-Page 1
+
+===== page 31 =====
+PACKAGE OPTION ADDENDUM
+www.ti.com 21-Apr-2026
+(3) RoHS values:  Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+ 
+(4) Lead finish/Ball material:  Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+ 
+(5) MSL rating/Peak reflow:  The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+ 
+(6) Part marking:  There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+ 
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+ 
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+ 
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+ 
+Addendum-Page 2
+
+===== page 32 =====
+PACKAGE MATERIALS INFORMATION
+  
+www.ti.com 10-Aug-2026
+TAPE AND REEL INFORMATION
+Reel Width (W1)
+REEL DIMENSIONS
+A0
+B0
+K0
+W
+Dimension designed to accommodate the component length
+Dimension designed to accommodate the component thickness
+Overall width of the carrier tape
+Pitch between successive cavity centers
+Dimension designed to accommodate the component width
+TAPE DIMENSIONS
+K0  P1
+B0 W
+A0Cavity
+QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+Pocket Quadrants
+Sprocket Holes
+Q1 Q1Q2 Q2
+Q3 Q3Q4 Q4 User Direction of Feed
+P1
+Reel
+Diameter
+ 
+*All dimensions are nominal
+Device Package
+Type
+Package
+Drawing
+Pins SPQ Reel
+Diameter
+(mm)
+Reel
+Width
+W1 (mm)
+A0
+(mm)
+B0
+(mm)
+K0
+(mm)
+P1
+(mm)
+W
+(mm)
+Pin1
+Quadrant
+LM5017MRE/NOPB SO
+PowerPAD
+DDA 8 250 177.8 12.4 6.5 5.4 2.0 8.0 12.0 Q1
+LM5017MRE/NOPB SO
+PowerPAD
+DDA 8 250 330.0 12.5 6.4 5.2 2.1 8.0 12.0 Q1
+LM5017MRX/NOPB SO
+PowerPAD
+DDA 8 2500 330.0 12.5 6.4 5.2 2.1 8.0 12.0 Q1
+LM5017MRX/NOPB SO
+PowerPAD
+DDA 8 2500 330.0 12.4 6.5 5.4 2.0 8.0 12.0 Q1
+LM5017SD/NOPB WSON NGU 8 1000 177.8 12.4 4.3 4.3 1.3 8.0 12.0 Q1
+LM5017SDX/NOPB WSON NGU 8 4500 330.0 12.4 4.3 4.3 1.3 8.0 12.0 Q1
+Pack Materials-Page 1
+
+===== page 33 =====
+PACKAGE MATERIALS INFORMATION
+  
+www.ti.com 10-Aug-2026
+TAPE AND REEL BOX DIMENSIONS
+Width (mm)
+W L
+H
+ 
+*All dimensions are nominal
+Device Package Type Package Drawing Pins SPQ Length (mm) Width (mm) Height (mm)
+LM5017MRE/NOPB SO PowerPAD DDA 8 250 208.0 191.0 35.0
+LM5017MRE/NOPB SO PowerPAD DDA 8 250 353.0 353.0 32.0
+LM5017MRX/NOPB SO PowerPAD DDA 8 2500 353.0 353.0 32.0
+LM5017MRX/NOPB SO PowerPAD DDA 8 2500 356.0 356.0 36.0
+LM5017SD/NOPB WSON NGU 8 1000 208.0 191.0 35.0
+LM5017SDX/NOPB WSON NGU 8 4500 367.0 367.0 35.0
+Pack Materials-Page 2
+
+===== page 34 =====
+PACKAGE MATERIALS INFORMATION
+  
+www.ti.com 10-Aug-2026
+TUBE
+ 
+ 
+L - Tube length
+T - Tube  
+height
+W - Tube  
+width
+B - Alignment groove width
+ 
+ 
+*All dimensions are nominal
+Device Package Name Package Type Pins SPQ L (mm) W (mm) T (µm) B (mm)
+LM5017MR/NOPB DDA HSOIC 8 95 507.79 8 630 4.32
+LM5017MR/NOPB DDA HSOIC 8 95 495 8 4064 3.05
+LM5017MR/NOPB.A DDA HSOIC 8 95 507.79 8 630 4.32
+LM5017MR/NOPB.A DDA HSOIC 8 95 495 8 4064 3.05
+LM5017MR/NOPB.B DDA HSOIC 8 95 495 8 4064 3.05
+LM5017MR/NOPB.B DDA HSOIC 8 95 507.79 8 630 4.32
+Pack Materials-Page 3
+
+===== page 35 =====
+www.ti.com
+PACKAGE OUTLINE
+C
+6.2
+5.8 TYP
+1.7 MAX
+6X 1.27
+8X 0.51
+0.31
+2X
+3.81
+0.25
+0.10 TYP
+0 - 8
+0.15
+0.00
+2.71
+2.11
+3.4
+2.8
+4X (0 -10 )
+0.25
+GAGE PLANE
+1.27
+0.40
+A
+5.0
+4.8
+NOTE 3
+B 4.0
+3.8
+4214849/B   09/2025
+PowerPAD    SOIC - 1.7 mm max heightDDA0008B
+PLASTIC SMALL OUTLINE
+NOTES: 
+ 
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+    per ASME Y14.5M. 
+2. This drawing is subject to change without notice. 
+3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+    exceed 0.15 mm per side. 
+4. This dimension does not include interlead flash. Interlead flash shall not exceed 0.25 mm per side.
+5. Reference JEDEC registration MS-012.
+ 
+PowerPAD is a trademark of Texas Instruments.
+TM
+1 8
+0.25 C A B
+5
+4
+PIN 1 ID
+AREA
+NOTE 4
+SEATING PLANE
+0.1 C
+ SEE DETAIL A
+DETAIL A
+TYPICAL
+SCALE  2.400
+EXPOSED
+THERMAL PAD
+4
+1
+5
+8
+9
+
+===== page 36 =====
+www.ti.com
+EXAMPLE BOARD LAYOUT
+(5.4)
+(1.3) TYP
+( 0.2) TYP
+VIA
+(R0.05) TYP
+0.07 MAX
+ALL AROUND
+0.07 MIN
+ALL AROUND
+8X (1.55)
+8X (0.6)
+6X (1.27)
+(2.95)
+NOTE 9
+(4.9)
+NOTE 9
+(2.71)
+(3.4)
+SOLDER MASK
+OPENING(1.3)
+TYP
+4214849/B   09/2025
+PowerPAD    SOIC - 1.7 mm max heightDDA0008B
+PLASTIC SMALL OUTLINE
+SYMM
+SYMM
+SEE DETAILS
+LAND PATTERN EXAMPLE
+SCALE:10X
+1
+4 5
+8
+SOLDER MASK
+OPENING
+ 
+METAL COVERED
+BY SOLDER MASK
+SOLDER MASK
+DEFINED PAD
+9
+NOTES: (continued)
+ 
+6.   Publication IPC-7351 may have alternate designs. 
+7.   Solder mask tolerances between and around signal pads can vary based on board fabrication site. 
+8.   This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature
+       numbers SLMA002 (www.ti.com/lit/slma002) and SLMA004 (www.ti.com/lit/slma004).
+9.   Size of metal pad may vary due to creepage requirement.
+10. Vias are optional depending on application, refer to device data sheet. If any vias are implemented, refer to their locations shown
+      on this view. It is recommended that vias under paste be filled, plugged or tented.
+TM
+METALSOLDER MASK
+OPENING
+NON SOLDER MASK
+DEFINED
+SOLDER MASK DETAILS
+PADS 1-8
+OPENING
+SOLDER MASK METAL UNDER
+SOLDER MASK
+SOLDER MASK
+DEFINED
+
+===== page 37 =====
+www.ti.com
+EXAMPLE STENCIL DESIGN
+(R0.05) TYP8X (1.55)
+8X (0.6)
+6X (1.27)
+(5.4)
+(2.71)
+(3.4)
+BASED ON
+0.125 THICK
+STENCIL
+4214849/B   09/2025
+PowerPAD    SOIC - 1.7 mm max heightDDA0008B
+PLASTIC SMALL OUTLINE
+2.29 X 2.870.175
+2.47 X 3.100.150
+2.71 X 3.40 (SHOWN)0.125
+3.03 X 3.800.1
+SOLDER STENCIL
+OPENING
+STENCIL
+THICKNESS
+NOTES: (continued)
+ 
+11. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+      design recommendations.   
+12. Board assembly site may have different recommendations for stencil design.
+ 
+TM
+SOLDER PASTE EXAMPLE
+EXPOSED PAD
+100% PRINTED SOLDER COVERAGE BY AREA
+SCALE:10X
+SYMM
+SYMM
+1
+4 5
+8
+BASED ON
+0.125 THICK
+STENCIL
+BY SOLDER MASK
+METAL COVERED
+SEE TABLE FOR
+DIFFERENT OPENINGS
+FOR OTHER STENCIL
+THICKNESSES
+9
+
+===== page 38 =====
+www.ti.com
+PACKAGE OUTLINE
+C
+8X 0.35
+0.25
+3 0.05
+2X
+2.4
+1.98 0.05
+6X 0.8
+0.8
+0.7
+8X 0.5
+0.3
+0.05
+0.00
+(0.1) TYP
+A 4.1
+3.9
+B
+4.1
+3.9
+WSON - 0.8 mm max heightNGU0008B
+PLASTIC SMALL OUTLINE - NO LEAD
+4214936/A   12/2023
+PIN 1 INDEX AREA
+SEATING PLANE
+0.08 C
+1
+4 5
+8
+PIN 1 ID
+0.1 C A B
+0.05 C
+THERMAL PAD
+EXPOSED
+SYMM
+SYMM9
+NOTES:
+ 
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+    per ASME Y14.5M. 
+2. This drawing is subject to change without notice. 
+3. The package thermal pad must be soldered to the printed circuit board for thermal and mechanical performance.
+SCALE  3.000
+
+===== page 39 =====
+www.ti.com
+EXAMPLE BOARD LAYOUT
+0.07 MIN
+ALL AROUND
+0.07 MAX
+ALL AROUND
+8X (0.3)
+(3)
+(3.8)
+6X (0.8)
+(1.98)
+( 0.2) VIA
+TYP (0.74)
+(1.25)
+8X (0.6)
+(R0.05) TYP
+WSON - 0.8 mm max heightNGU0008B
+PLASTIC SMALL OUTLINE - NO LEAD
+4214936/A   12/2023
+SYMM
+1
+4 5
+8
+LAND PATTERN EXAMPLE
+EXPOSED METAL SHOWN
+SCALE:15X
+SYMM 9
+NOTES: (continued)
+ 
+4. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature
+    number SLUA271 (www.ti.com/lit/slua271).
+5. Vias are optional depending on application, refer to device data sheet. If any vias are implemented, refer to their locations shown
+    on this view. It is recommended that vias under paste be filled, plugged or tented.
+ 
+SOLDER MASK
+OPENINGSOLDER MASK
+METAL UNDER
+SOLDER MASK
+DEFINED
+EXPOSED
+METAL
+METALSOLDER MASK
+OPENING
+SOLDER MASK DETAILS
+NON SOLDER MASK
+DEFINED
+(PREFERRED)
+EXPOSED
+METAL
+
+===== page 40 =====
+www.ti.com
+EXAMPLE STENCIL DESIGN
+(R0.05) TYP
+8X (0.3)
+8X (0.6)
+(1.75)
+(1.31)
+(3.8)
+(0.755)
+6X (0.8)
+WSON - 0.8 mm max heightNGU0008B
+PLASTIC SMALL OUTLINE - NO LEAD
+4214936/A   12/2023
+NOTES: (continued)
+ 
+6. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+    design recommendations. 
+ 
+SOLDER PASTE EXAMPLE
+BASED ON 0.125 mm THICK STENCIL
+ 
+EXPOSED PAD 9:
+ 77% PRINTED SOLDER COVERAGE BY AREA UNDER PACKAGE
+SCALE:20X
+SYMM
+1
+4 5
+8
+METAL
+TYP
+SYMM 9
+
+===== page 41 =====
+IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE 
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS” 
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY 
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD 
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate 
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable 
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an 
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license 
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully 
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on 
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable 
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products 
+are standard, catalog, general purpose devices.
+TI objects to and rejects any additional or different terms you may propose.
+IMPORTANT NOTICE
+Copyright © 2026, Texas Instruments Incorporated
+Last updated 10/2025
