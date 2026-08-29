@@ -1,0 +1,2225 @@
+# U1_FSC-BT1058 — 41 pages
+
+
+===== page 1 =====
+FSC-BT1058 Datasheet 
+Shenzhen Feasycom Co.,Ltd      www.feasycom.com -1- 
+Vacuum 
+Bluetooth 5.3 Dual Mode And LE Audio Module Data sheet 
+Version 1.0
+
+===== page 2 =====
+FSC-BT1058 Datasheet 
+Shenzhen Feasycom Co.,Ltd      www.feasycom.com -2- 
+Copyright © 2013-2024 Shenzhen Feasycom Co., Ltd.  All  Rights Reserved.  
+Shenzhen Feasycom Co., Ltd reserves the right to make corrections, modifications, and other changes to its products, 
+documentation, and services at any time. Customers are advised to obtain the latest relevant information before 
+placing orders. In order to minimize product risks, customers should implement sufficient design and operational 
+safeguards. Reproduction, transfer, distribution, or storage of any part or all of the contents in this document, in any 
+form, without written permission from Shenzhen Feasycom Co., Ltd, is strictly prohibited. 
+Revision History 
+Version Data Notes 
+1.0 2024/2/28 Initial Version Mo 
+Contact Us 
+Shenzhen Feasycom Co.,LTD 
+Email: sales@feasycom.com 
+Address: Rm 508, Building A, Fenghuang Zhigu, No.50, Tiezai Road, Xixiang, Baoan District, Shenzhen, 518100, China. 
+Tel: 86-755-27924639 
+Shenzhen Feasycom Co., LTD
+
+===== page 3 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -3- 
+ 
+Contents 
+1.  INTRODUCTION  ............................................................................................................................................................... 5 
+1.1  SELECTION OF VERSION ............................................................................................................................................................ 6 
+2.  GENERAL SPECIFIC ATION ................................................................................................................................................. 6 
+3.  HARDWARE SPECIFI CATION ............................................................................................................................................. 8 
+3.1  BLOCK DIAGRAM AND PIN DIAGRAM ......................................................................................................................................... 8 
+3.2  PIN DEFINITION DESCRIPTIONS ................................................................................................................................................. 9 
+4.  PHYSICAL INTERFA CE ..................................................................................................................................................... 13 
+4.1  POWER MANAGEMENT .......................................................................................................................................................... 13 
+4.1.1  Power Supply ............................................................................................................................................................ 13 
+4.1.2 Battery Charger ....................................................................................................................................................... 13 
+4.1.2.1  General charger operation .................................................................................................................................... 13 
+4.1.2.2  Battery protection  ................................................................................................................................................. 14 
+4.2  PIO .................................................................................................................................................................................... 15 
+4.3  PIO PAD ALLOCATION ............................................................................................................................................................. 15 
+4.4  STANDARD PIO .................................................................................................................................................................... 15 
+4.5  RESET ................................................................................................................................................................................. 15 
+4.6  SYS_CTRL PIN ..................................................................................................................................................................... 16 
+4.7  RF INTERFACE ...................................................................................................................................................................... 16 
+4.8  SERIAL INTERFACES ................................................................................................................................................................ 16 
+4.8.1  UART Interface  ......................................................................................................................................................... 16 
+4.8.2  I 2C Interface .............................................................................................................................................................. 18 
+4.8.3  USB Interface  ............................................................................................................................................................ 18 
+4.9  LED DRIVERS ....................................................................................................................................................................... 19 
+4.10  AUDIO  SUBSYSTEM  ........................................................................................................................................................... 20 
+4.10.1  Audio engine  .......................................................................................................................................................... 21 
+4.10.2  Line/Mic inputs  ...................................................................................................................................................... 22 
+4.10.3  Line/Headphone outputs  ....................................................................................................................................... 23 
+4.10.4  Standard I²S/PCM interface  ................................................................................................................................... 23 
+4.11 PROGRAMMING AND DEBUG INTERFACE .................................................................................................................................... 26 
+5.  ELECTRICAL CHARA CTERISTICS ...................................................................................................................................... 28 
+5.1  ABSOLUTE MAXIMUM RATINGS ............................................................................................................................................... 28 
+5.2  RECOMMENDED OPERATING CONDITIONS ................................................................................................................................. 29 
+5.3  INPUT/OUTPUT TERMINAL CHARACTERISTICS .............................................................................................................................. 30 
+5.3.1  Digital  ....................................................................................................................................................................... 30 
+5.3.2  Battery Charger  ........................................................................................................................................................ 30 
+5.3.3  USB  ........................................................................................................................................................................... 31 
+5.3.4  LED Driver Pads  ........................................................................................................................................................ 31 
+Shenzhen Feasycom Co., LTD
+
+===== page 4 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -4- 
+5.4  STEREO CODEC ..................................................................................................................................................................... 32 
+5.4.1  Analog to Digital Converter  ...................................................................................................................................... 32 
+5.4.1  Digital to Analog Converter  ...................................................................................................................................... 32 
+5.5  AUXILIARY ADC .................................................................................................................................................................... 33 
+5.6  MICROPHONE BIAS GENERATOR ............................................................................................................................................... 33 
+6.  MSL &ESD PROTECTION  ................................................................................................................................................ 33 
+6.1  USB ELECTROSTATIC DISCHARGE IMMUNITY .............................................................................................................................. 34 
+7.  RECOMMENDED TEMP ERATURE REFLOW PROFILE ........................................................................................................ 34 
+8.  MECHANICAL DETAI LS ................................................................................................................................................... 36 
+8.1  MECHANICAL DETAILS ............................................................................................................................................................ 36 
+9.  HARDWARE INTEGRA TION SUGGESTIONS ..................................................................................................................... 36 
+9.1  SOLDERING RECOMMENDATIONS ............................................................................................................................................. 36 
+9.2  LAYOUT GUIDELINES(INTERNAL ANTENNA)................................................................................................................................. 37 
+9.3  LAYOUT GUIDELINES(EXTERNAL ANTENNA) ................................................................................................................................ 37 
+9.3.1  Antenna Connection and Grounding Plane Design .................................................................................................. 38 
+10.  PRODUCT PACKAGI NG INFORMATION ......................................................................................................................... 39 
+10.1  DEFAULTPACKING ................................................................................................................................................................ 39 
+10.2  PACKING BOX(OPTIONAL) ..................................................................................................................................................... 40 
+11.  APPLICATION SCH EMATIC ............................................................................................................................................ 41 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 5 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -5- 
+ 
+ 
+1.  INTRODUCTION 
+Overview 
+FSC-BT1058 is one of the Bluetooth dual-mode and LE Au
+dio modules from Feasycom. It provides support for both 
+Bluetooth Low Energy and a compliant system for audio 
+and data communication. 
+FSC-BT1058 integrates an ultra-low-power PMU and 
+application processor with embedded flash memory, a 
+high-performance stereo codec, Class-AB and Class-D 
+headphone drivers, a power management subsystem, I2S, 
+I²C, UART, PIO, LED drivers and ADC I/O in a SOC IC. 
+ 
+Both cores utilize external flash for code execution, 
+enabling users to distinguish products with new features 
+promptly without hindering development. The 
+FSC-BT1058 module comes preloaded with the 
+user-friendly and robust Feasycom firmware as the 
+default setting. This encapsulated firmware simplifies 
+Bluetooth functionality access through straightforward 
+ASCII commands sent to the module via a serial interface, 
+akin to using a Bluetooth modem. Consequently, the 
+FSC-BT1058 offers an optimal solution for developers 
+seeking to seamlessly integrate Bluetooth wireless 
+technology into their designs. 
+ 
+Features 
+ Qualified to Bluetooth® v5.3 specification  
+ Dual 240 MHz Qualcomm® Kalimba™ audio DSPs 
+ 32/80 MHz Developer Processor for applications 
+ Firmware Processor for system 
+ High-performance 24-bit stereo audio interface 
+ Digital and analog microphone interfaces 
+ Flexible LED controller and LED pins with PWM 
+support 
+ Serial interfaces: UART, Bit Serializer (I²C/SPI), USB 
+2.0 
+ Advanced audio algorithms  
+ Active Noise Cancellation: Hybrid, Feedforward, and 
+Feedback modes, using Digital or Analog Mics, 
+enabled using license keys available from 
+Qualcomm® 
+ Qualcomm® LE Audio, aptX™ and aptX HD Audio, 
+LDAC 
+ aptX Adaptive, enabled using license key 
+ Qualcomm® cVc™ Noise Cancellation Technology, 
+enabled using license key 
+ Integrated PMU: Dual SMPS for system/digital 
+circuits, Integrated Li-ion battery charger 
+Bluetooth subsystem 
+ Qualified to Bluetooth v5.3 specification including 2 
+Mbps Bluetooth Low Energy and Bluetooth Low 
+Energy Isochronous Channels 
+ Qualcomm® Bluetooth High Speed Link 
+ Single ended antenna connection with on-chip balun 
+and Tx/Rx switch 
+ Bluetooth, Bluetooth Low Energy, and mixed 
+topologies supported 
+ Class 1 support 
+Application 
+ TrueWireless™ stereo earbuds 
+ Wired/wireless stereo headsets/headphones 
+ Bluetooth Speaker 
+Shenzhen Feasycom Co., LTD
+
+===== page 6 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -6- 
+1.1  Selection of version 
+Order Number Descriptions Module picture as below showing 
+FSC-BT1058 Chip：QCC5181 
+ 
+   
+2.  General Specification s 
+Table 2-1: General Specifications 
+Categories Features Implementation 
+Wireless 
+Specification 
+Chip QCC5181 
+Bluetooth Version V5.3  
+Frequency 2.402 - 2.480 GHz 
+Transmit Power +15 dBm (Typ  VBAT=3.7V) 
+Receive Sensitivity -96.5 dBm (typ.) π/4 DQPSK receiver sensitivity  
+-90.0 dBm (typ.) 8DPSK receiver sensitivity 
+-100.5 dBm (typ.) BLE 1 Ms/s receiver sensitivity 
+Real-time digitised RSSI available to application 
+ Raw Data Rates (Air) 3 Mbps (Classic BT - BR/EDR) 
+Host Interface and 
+Peripherals 
+UART Interface 
+ 
+TX, RX, CTS, RTS 
+General Purpose I/O 
+Default 115200,N,8,1 
+Baudrate support from 2400 to 4000000 
+ 
+GPIO 
+20 (maximum – configurable) lines 
+O/P drive strength (2, 4, 8, or 12 mA) 
+Pull-up resistor (70 KΩ) control 
+I2C Interface I2C Master interface with speed up to 400 kbps 
+SPI Interface SPI debug and programming interface with read access disable locking 
+ADC Interface 
+Analog input voltage range: 0~ 1.854V 
+10-bit ADC  
+4 channels (configured from AIO total) 
+USB Interface 1 USB2.0 Full Speed (12 Mb/s) 
+Audio CODEC 
+LE Audio, aptX, aptX HD, aptX Adaptive(enabled using license key) ,SBC 
+and AAC audio codecs 
+Configurable Signal Detection to trigger events 
+Compander to compress or expand the dynamic range of the audio 
+Post Mastering to improve DAC fidelity 
+24-bit I²S interface with 1 input and 3 output channels  , Supports 
+Shenzhen Feasycom Co., LTD
+
+===== page 7 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -7- 
+8-slot TDM, Supports 8 kHz, 16 kHz, 32 kHz, 44.1 kHz, 48 kHz, 96 kHz, 
+192 kHz, 384 kHz sample rates 
+SPDIF interfaces ：Two instances configurable as input or output， 
+Supports 8 kHz, 16 kHz, 32 kHz, 44.1 kHz, 48 kHz, 96 kHz, 192 kHz 
+sample rates 
+2 coder decoder (codec) output channels, supporting 8 kHz, 16 kHz, 
+32 kHz, 44.1 kHz, 48 kHz, 96 kHz, 192 kHz sample rates,16 codec input 
+channels supporting 8 kHz, 16 kHz, 32 kHz, 44.1 kHz, 48 kHz, 96 kHz 
+sample rates 
+Digital mic : Five interfaces supporting up to ten microphones, 
+Supports 500 kHz, 571 kHz, 666 kHz, 800 kHz, 1 MHz, 1.33 MHz, 2 
+MHz, and 4 MHz clock frequencies 
+ 
+Stereo audio ADC with line input, stereo audio DAC 
+Supported sample rates of 8, 16, 32, 44.1, 48,96 ,192 and 384KHz(Input) 
+MIC/Line_IN SNR:  99 dB 
+MIC/Line_IN THD+N: -94.9dB 
+Audio Output SNR:  103.8 dBA typ  
+Audio Output THD+N:  - 92.5dB typ  
+Audio Output Power: 1000mV (typ)(0dBFS 10K load) 
+Profiles 
+BR/EDR SPP (Serial Port Profile) - Up to 600 Kbps 
+A2DP/AVRCP/HFP/HSP/HOGP/PBAP/SPP Profiles support 
+Bluetooth Low Energy GATT Client & Peripheral 
+Simultaneous BR/EDR and BLE support 
+Maximum 
+Connections 
+BR/EDR up to 7 active slaves 
+Bluetooth Low Energy 1 connection as peripheral , up to 5 connections as central 
+FW upgrade 
+ Via UART(TBD) 
+USB(TBD) 
+OTA 
+SPI 
+Supply Voltage Supply VDD_IO: 1.7 ~ 3.3V;  VBAT_IN: 2.8V~ 4.30V 
+Power Consumption
+（Load=10KΩ,VBAT_IN=3.3V） 
+ Play：<5mA（0dB 1KHz sine wave signal）---*Average 
+Pairing： <5 mA---*Average 
+OFF： <10 0uA---*Average 
+Physical Dimensions 13mm(W) X 26.9mm(L) X 2.2mm(H); Pad Pitch 1mm 
+Environmental Operating -40°C to +85°C    
+Storage -40°C to +85°C 
+Miscellaneous Lead Free Lead-free and RoHS compliant 
+Warranty One Year 
+Humidity  10% ~ 90% non-condensing 
+MSL grade:  MSL 3 
+ESD grade: 
+ Human Body Model:  Class  2   2kV (all pins)  
+Charged Device Model: Class III    500 V (all pins)  
+Shenzhen Feasycom Co., LTD
+
+===== page 8 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -8- 
+   
+ 
+3.  HARDWARE SPECIFICATION 
+3.1  Block Diagram and PIN Diagram 
+Mono/Stereo out
+LINE_ IN
+/Dual Analog MIC 
+IN
+VBAT_IN
+32MHZ
+Crystal
+Antenna
+DigMic
+I2S/PCM
+RGB LED
+VCC_CHG
+SYS_CTRL
+UART/USB
+I2C/TRBI200/PIO
+RESET
+Dual Mode
+Bluetooth IC
+QCC5181
+SPI Flash
+Filter
+Intern al(Defau
+lt) or external 
+antenna
+ 
+Figure 3-1: Block Diagram 
+Shenzhen Feasycom Co., LTD
+
+===== page 9 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -9- 
+27 28 29 30 31
+21
+20
+19
+18
+17
+16
+35
+36
+37
+38
+39
+1.8V_OUT
+TBR_CLK/PIO8
+NC
+RESET
+VCHG
+USB_DN
+USB_DP
+PIO35
+33
+34
+15
+14
+VDD_IO
+SYS_CTRL
+PIO38
+PIO39
+PIO20
+PIO21
+LED0/AIO0
+LED1/AIO1
+LED2/AIO2
+GND
+TBR_MISO[0]/PIO7
+TBR_MOSI[0]/PIO6
+PCM_MCLK_OUT/PIO15
+VDD_USB/3.3V_OUT
+EXT_ANT
+32
+2523 2422
+VBAT_IN
+BT_TX/PIO5
+BT_RX/PIO4
+MIC_LN
+MIC_LP
+NC
+SPK_LP
+SPK_LN
+MIC_RP
+MIC_RN
+SPK_RN
+SPK_RP
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+43
+44
+45
+46
+47
+41
+42
+40
+51
+52
+49
+50
+48
+AIO3/LED3
+GND GND
+GND
+PCM_CLK/PIO16
+PCM_OUT/PIO18
+PCM_IN/PIO19
+PCM_SYNC/PIO17
+BT_CTS/PIO3
+BT_RTS/PIO2
+2726
+PIO34
+GND
+PIO36
+PIO37
+VCHG_SENSE
+CHG_EXT
+MIC_BIAS
+ 
+Figure 3-2: FSC-BT1058 PIN Diagram (Top View) 
+ 
+3.2  PIN Definition Descriptions 
+Table 3-1: Pin definition 
+Pin Pin Name Type Pin Descriptions Notes 
+1 GND Vss Power Ground  
+2 AIO3/LED3 A,I/O General-purpose analog/digital input or open drain 
+LED output.  
+ 
+3 NC NC NC-Do Not GND  
+4 PCM_CLK/PIO16 I/O Programmable I/O line 16. 
+Alternative function: PCM_CLK 
+Note 6 
+5 PCM_IN/PIO19 I/O Programmable I/O line 19. 
+Alternative function: PCM_DIN[0] 
+Note 6 
+6 PCM_OUT/PIO18 I/O Programmable I/O line 18. Note 6 
+Shenzhen Feasycom Co., LTD
+
+===== page 10 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -10- 
+Alternative function: PCM_DOUT[0] 
+7 PCM_SYNC/PIO17 I/O Programmable I/O line 17. 
+Alternative function: PCM_SYNC 
+Note 6 
+8 RESET I/O Automatically defaults to RESET# mode when the  device is 
+unpowered, or in off modes. 
+Reconfigurable as a PIO after boot. 
+ 
+9 PCM_MCLK_OUT/PIO15 I/O Programmable I/O line 15. 
+Alternative function: MCLK_OUT 
+ 
+10 PIO6 I/O Programmable I/O line 6. 
+Alternative function: TBR_MOSI[0] 
+ 
+11 PIO7 I/O Programmable I/O line 7. 
+Alternative function: TBR_MISO[0] 
+ 
+12 PIO8 I/O Programmable I/O line 8. 
+Alternative function: TBR_CLK 
+ 
+13 BT_TX/PIO5 I/O BT_TX /Programmable I/O line 5. 
+Alternative function: TBR_MISO[1] 
+Note 6 
+14 BT_RX/PIO4 I/O BT_RX/Programmable I/O line 4. 
+Alternative function: TBR_MOSI[1] 
+Note 6 
+15 BT_CTS/PIO3 I/O BT_CTS/Programmable I/O line 3 Note 6 
+16 BT_RTS/PIO2 I/O BT_RTS/Programmable I/O line 2 Note 6 
+17 AIO0/LED0 A,I/O General-purpose analog/digital input or open drain 
+LED output. 
+Note 
+6,8 
+18 AIO1/LED1 A,I/O General-purpose analog/digital input or open drain 
+LED output. 
+Note 
+6,8 
+19 AIO2/LED2 A,I/O General-purpose analog/digital input or open drain 
+LED output. 
+Note 
+6,8 
+20 PIO34 I/O Programmable I/O line 34  
+21 PIO35 I/O Programmable I/O line 35   
+22 GND Vss Power Ground  
+23 PIO36 I/O Programmable I/O line 36  
+24 PIO37 I/O Programmable I/O line 37  
+25 PIO38 I/O Programmable I/O line 38  
+26 PIO39 I/O Programmable I/O line 39  
+27 PIO20 I/O Programmable I/O line 20. 
+Alternative function: PCM_DOUT[1] 
+Note 5 
+28 PIO21 I/O Programmable I/O line 21. 
+Alternative function: PCM_DOUT[2] 
+Note 5 
+29 VCHG_SENSE  Charger input sense pin after external mode  sense-resistor. 
+High impedance. 
+NOTE: If using internal charger or no charger,  connect 
+VCHG_SENSE direct to VCHG. 
+ 
+30 CHG_EXT  External charger transistor current control. Connect 
+to base of ext ernal charger transistor as per  application 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 11 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -11- 
+schematic. 
+31 VDD_USB/3.3V_OUT  3.3V voltage output (MAX. 50mA OUT) Note 7 
+32 GND Vss Power Ground  
+33 VBAT_IN Vdd Battery voltage input.  
+34 SYS_CTRL I Typically connected to an ON/OFF push button. 
+Boots device in response to a button press when  power is still 
+present from battery and/or charger but  software has placed 
+the device in the OFF or DORMANT state. Additionally useable 
+as a digital input in normal operation. No pull. 
+Note 3 
+35 1.8V_OUT Vdd 1.8V voltage output Note 1 
+36 VDD_IO I PIO supply(1.8 V~3.3V) Note 2 
+37 USB_DP  USB Full Speed device D+ I/O. IEC-61000-4-2 
+(device level) ESD Protection 
+Note 4 
+38 USB_DN  USB Full Speed device D- I/O. IEC-61000-4-2 
+(device level) ESD Protection 
+Note 4 
+39 VCHG Vdd Charger input to Bypass regulator. Note 4 
+40 MIC_RP A Microphone differential 2 input, positive. 
+Alternative function: 
+Differential audio line input right, positive 
+ 
+41 MIC_RN A Microphone differential 2 input, negative. 
+Alternative function: 
+Differential audio line input right, negative 
+ 
+42 NC    
+43 MIC_LP A Microphone differential 1 input, positive. 
+Alternative function: 
+Differential audio line input left, positive 
+ 
+44 MIC_LN A Microphone differential 1 input, negative. 
+Alternative function: 
+Differential audio line input left, negative 
+ 
+45 MIC_BIAS Vdd Mic bias output.  
+46 SPK_RN A speaker differential output, negative. 
+Alternative function: Differential line output, negative 
+ 
+47 SPK_RP A speaker differential output, positive. 
+Alternative function: Differential line output, positive 
+ 
+48 SPK_LN A speaker differential output, negative. 
+Alternative function: Differential line output, negative 
+ 
+49 SPK_LP A speaker differential output, positive. 
+Alternative function: Differential line output, positive 
+ 
+50 GND Vss Power Ground  
+51 RF_OUT RF Bluetooth transmit/receive. Note 9 
+52 GND Vss Power Ground  
+Module Pin Notes: 
+Note 1 The internal output of 1.8 V power supply provides maximum 30 mA current, and the specific use 
+method can see the application circuit diagram 
+Shenzhen Feasycom Co., LTD
+
+===== page 12 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -12- 
+Note 2 Provid voltage reference to I/O, such as：PIO, UART, SPI, I2S, PCM, etc 
+Note 3 Regulator enable input. Can also be sensed as an input. 
+Regulator enable and multifunction button. A high input (tolerant to VBAT) enables the on -chip 
+regulators, which can then be latched on internally and the button used as a multifunction input. 
+* Reset this pin for at least 100ms after VBAT_IN and VDD_IO is up, then set this pin for more than 100 
+ms (can use MCU/button/delayed circuit to achieve this) to start the system. 
+Note 4 Using USB function and Lithium battery charging function, the pin should connect 5V voltage 
+Note 5 1, Alternate I2C function 
+2, I2C Serial Clock and Data. 
+It is essential to remember that pull -up resistors on both SCL and SDA lines are not provided in the 
+module and MUST be provided external to the module. 
+Note 6 For customized module, this pin can be work as I/O Interface. 
+Note 7 1, When the Pin33(BAT_IN) with a 3V3~4V2 
+this pin outputs 2V8 ~ 3V0 (maximum current: 50mA) 
+2, when the No. 39 PIN (VCHG) with a 5V input pin, 
+this pin outputs 3.2V ~ 3.4V (maximum current: 50mA) 
+Note 8 Analog input voltage range: 0~ 1.8V 
+Note 9 By default, this PIN is an empty feet. This PIN can connect to an external antenna to improve the 
+Bluetooth signal coverage. 
+To use an external antenna, the position of an  0 Ω resistor needs to be changed  to disconnect the 
+on-board antenna and connect to the external antenna; Or contact Feasycom for modification. 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 13 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -13- 
+4.  PHYSICAL INTERFACE 
+4.1  Power Management 
+4.1.1  Power Supply 
+ 
+ The transient response of the regulator is important. If the power rails of the module are supplied from an 
+external voltage source, the transient response of any regulator used should be 20μs or less. It is essential 
+that the power rail recovers quickly. 
+ 
+ 
+4.1.2 Battery Charger 
+ The default mode for the FSC-BT1058 battery charger is OFF.  
+ The internal charger circuit can provide up to 200mA of charge current. 
+ 
+ The battery charger operating mode is determined by the battery voltage and current, see the  table below and 
+the picture below. 
+ 
+ 
+4.1.2.1  General charger operation  
+The charger system has five main operating states. The current charger status can be read by application software.  
+Figure 4-1 shows the five states in the charge cycle. 
+ 
+  
+Figure 4-1: Charge cycle states 
+Shenzhen Feasycom Co., LTD
+
+===== page 14 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -14- 
+Trickle Charge  
+This mode is activated when VBAT falls within the 0 to Vpre range, typically occurring with a deeply discharged 
+battery (below the Vpre threshold at point (A)) or when the battery protection circuit disconnects the cell 
+temporarily. It is designed to deliver a minor charging current for safe cell recharging and trigger a reset in the 
+cell's battery protection circuit. The hysteresis on Trickle charge into Pre-Charge is typically 100 mV. 
+Pre Charge 
+This mode is activated when VBAT falls within the Vpre to Vfast range. Charging the cell at the maximum rate is 
+not advised in this range, but a faster charge rate than Trickle charge is permissible, usually around 10% to 20% 
+of the Fast charge rate. The Vfast threshold at point (B) can be customized.  
+The hysteresis for transitioning from Pre-Charge to Fast charge at Vfast is typically 200 mV. 
+Fast Charge Mode 
+Fast charge has two parts:  
+■  Constant current: Entered when VBAT is sensed in the range Vfast to Vfloat point (C). This is the maximum  
+charge rate, and should be set according to the battery manufacturers Data Sheet.  
+■  Constant voltage: When Vfloat is reached the cell voltage is maintained at Vfloat, and the current slowly  
+reduces until the termination point (E) is reached where charging ceases, and the charger transitions to Standby 
+mode.  
+Vfloat can be adjusted from 3.65 V to 4.40 V in 50 mV increments. This flexibility enables t he use of cells with 
+varying Vfloat values or extends cell life by lowering Vfloat. Additionally, Vfloat can be modified based on 
+temperature fluctuations to safeguard cell longevity.  
+Dynamic shifts in VBAT load current can have a significant impact on the current termination point (E), while 
+changes in VCHG voltage may also play a minor role. 
+Standby Mode 
+After the charge current decreases and charging ceases, the system transitions into Standby mode. During Standby 
+mode, the charger remains inactive in terms of charging but continuously monitors the battery voltage. If the voltage 
+drops below Vfloat by a configurable threshold Vhyst (point D), the charger reverts back to Fast charge mode. Vhyst is 
+specified as a percentage of Vfloat. 
+4.1.2.2  Battery  protection 
+Deep discharge of a Li-ion battery over an extended period can result in irreversible damage, leading to excessive 
+heating during subsequent charging cycles. To prevent this, customer application software should power off the 
+device around 3.0 V, as typically only about 5% of usable capacity remains at this stage. QTIL strongly advises 
+integrating a battery protection IC into all applications, usually within the battery pack for added protection. This 
+IC is designed to disconnect the battery cell in case of voltage fluctuations and overcurrent issues in the 
+Shenzhen Feasycom Co., LTD
+
+===== page 15 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -15- 
+connections between FSC-BT1058 and the cell. 
+4.2  PIO  
+FSC-BT1058 has the following digital I/O pads:  
+ 17 PIO pads  
+ 4 x pads intended for LED operation: LED[3:0]  
+ 1 x Power-on signaling: SYS_CTRL, usable as an input after boot. 
+ 
+4.3  PIO pad allocation  
+The following FSC-BT1058 functions have specific pad allocations:  
+ LED pads 
+ Transaction bridge 
+ Audio I²S/PCM 
+NOTE  
+Digital microphones, UART, Bit Serializer (I²C/SPI), SPDIF and LED PWM controllers can use any PIO.  
+ 
+ 
+4.4  Standard PIO  
+The standard digital I/O pins (PIO) on FSC-BT1058 are divided into separate pad domains, each with its own 
+VDD_IO power range from 1.7 V to 3.6 V. When using PIOs in a supply domain for high- speed interfaces, it can be 
+advantageous to decouple the respective VDD_IO pin with a 100 nF decoupling capacitor. It is important to power 
+the VDD_IO of a specific pin before applying voltages to any PIO powered by that domain to prevent back powering 
+through the electrostatic discharge (ESD) protection in the pad. 
+PIOs can be configured with pull-up or pull-down options with two strengths (weak and strong). Additionally, a sticky 
+function can be programmed to strongly pull PIOs to their current input state. After a reset, PIOs return to a default 
+pull state, which can then be reconfigured by software. 
+Moreover, PIOs offer programmable drive strengths of 2, 4, 8, or 12 mA.  
+While all PIOs are readable by all subsystems, software assigns write access to specific subsystem controls. PIO 
+inputs are processed via Schmitt triggers. 
+ 
+ 
+4.5  Reset  
+The digital reset pin (RESET#) of FSC-BT1058 is a low-level effective reset signal. Spike filtering inside the chip helps  
+avoid accidental resets by filtering out stray noise. The RESET# pin has a fixed strong pull-up to VDD_IO to maintain an  
+unconnected state. The input is asynchronous and in FSC-BT1058 to ensure a complete reset. 
+The device also incorporates an internal Reset Protection function, which can maintain power rails activated and 
+restart the system following unexpected resets, such as severe ESD events. If VCHG is absent and SYS_CTRL is low, 
+activating the Reset# post the Reset Protection timeout (typically over 1.8 seconds) will result in device shutdown. To 
+restart, a SYS_CTRL assertion or connection of VCHG is required. 
+ 
+NOTE 
+Shenzhen Feasycom Co., LTD
+
+===== page 16 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -16- 
+ 
+ FSC-BT1058 is always powered if VCHG is present. It does not power down if RESET# is  
+asserted while VCHG remains present.  
+ QTIL recommends that FSC-BT1058 is powered down via software-controlled methods rather  
+than external assertion of RESET#.  
+ Holding RESET# low continuously is not the lowest FSC-BT1058 power state, because pull downs  
+are enabled on VCHG and VDD_USB in this state.  
+ RESET# is guaranteed to work if held low for 120 μs 
+ 
+ 
+4.6  SYS_CTRL pin  
+ SYS_CTRL is an input pin that acts as a power on signal for the internal regulators. 
+ From the OFF state, SYS_CTRL must be asserted for >20 ms to start power up. 
+ SYS_CTRL is VBAT tolerant (4.8 V max), and typically connected via a button to VBAT. SYS_CTRL has no internal pull 
+resistor, and requires an external pull-down if left undriven. 
+ Use software to logically disconnect SYS_CTRL from the power on signal for internal regulators. For example, when 
+booted, software takes control of the internal regulators and the state of SYS_CTRL is ignored by the regulators.  
+ 
+4.7  RF Interface  
+For this module, the antenna must be connected to work properly. 
+The user can connect a 50ohm antenna directly to the RF port. 
+ 2402–2480 MHz Bluetooth 5.3 Dual Mode (BT and BLE); 1 Mbps to 3 Mbps over the air data rate.  
+ TX output power of +15dBm (MAX).  
+ Receiver to achieve best sensitivity -100.5dBm for BLE and -97dBm for Classic Bluetooth. 
+ 
+4.8  Serial Interfaces  
+4.8.1  UART Interface  
+ 
+FSC-BT1058 offers a single channel of Universal Asynchronous Receiver/Transmitters (UART) for full -duplex 
+asynchronous communications. The UART Controller within the device handles serial -to-parallel conversion for 
+incoming peripheral data and parallel-to -serial conversion for data sent from the CPU. Each UART Controller 
+channel supports 10 different types of interrupts, making it versatile for various applications. 
+ 
+This UART interface serves as a standard method for communication with other serial devices, facilitating 
+interactions using the RS232 protocol. When connected to another digital device, UART_RX and UART_TX facilitate 
+data transfer between the devices, while UART_CTS and UART_RTS signals enable RS232 hardware flow control, 
+both operating as active low indicators. 
+Shenzhen Feasycom Co., LTD
+
+===== page 17 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -17- 
+The module operates at 3.3V CMOS logic levels tied to VCC. To co nnect with an RS-232 level compliant interface, a 
+level conversion unit is necessary.  
+In some serial setups, CTS and RTS connections are directly linked to eliminate the need for handshaking. However, 
+we advise against linking CTS and RTS except for testing and prototyping purposes.  When these pins are connected 
+and the host transmits data while the FSC -BT1058 deactivates its RTS signal, there is a notable risk of overflowing 
+internal receive buffers, potentially causing a processor crash. This situation can result in a dropped connection, 
+requiring a power cycle to reset the module. To ensure proper functionality, it is crucial to follow the correct 
+CTS/RTS handshaking protocol. 
+ 
+Table 4-1: Possible UART Settings 
+Parameter Possible Values 
+Baudrate 
+Minimum 2400 baud (≤2%Error) 
+Standard 19200bps(≤1%Error) 
+Maximum 4Mbaud(≤1%Error) 
+Flow control  RTS/CTS, or None 
+Parity  None, Odd or Even 
+Number of stop bits  1 /2 
+Bits per channel  8 
+ 
+When connecting the module to a host, please make sure to follow . 
+Module Host
+TX RX
+RX TX
+GND GND
+CTS RTS
+RTS CTS
+ 
+Figure 4-2: UART Connection 
+The FSC-BT1058 undergoes a reset via the UART interface upon detecting a break signal, identified by a continuous 
+logic low (0V) on the UART_RX pin, as depicted in the accompanying image. If the durat ion of tBRK surpasses the 
+predefined value in PSKEY_HOSTIO_UART_RESET_TIMEOUT, a reset operation will be initiated. This feature enables 
+the host to initialize the system to a predetermined state. Furthermore, the FSC-BT1058 can send a break character 
+to rouse the host from sleep mode. 
+ 
+Figure 4-3: Break Signal 
+During the reset state of the FSC -BT1058, the UART interface operates in a tristate  mode, allowing users to attach 
+additional devices to the physical UART bus. However, a limitation of this approach is that all devices connected to 
+Shenzhen Feasycom Co., LTD
+
+===== page 18 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -18- 
+this bus must also tristate when the FSC-BT1058 reset is deactivated and the firmware starts running. 
+ 
+4.8.2  I 2C Interface 
+The FSC-BT1058 features a customizable I2C interface.  
+I2C is a two- wire, bidirectional serial bus that offers a straightforward and effective means of data interchange 
+between devices. This standard supports multiple masters, incorpor ating collision detection and arbitration to 
+prevent data corruption in scenarios where two or more masters seek to control the bus simultaneously. 
+Data is synchronously transferred between a Master and a Slave, with communication occurring on the SDA line  in 
+accordance with SCL, on a byte -by-byte basis. Each data byte consists of 8 bits, with each bit transmitted starting 
+from the Most Significant Bit (MSB). Following the transmission of each byte, an acknowledge bit is sent. During the 
+high period of SCL,  each bit is sampled, requiring the SDA line to remain stable during this interval and allowing 
+changes only during the low period of SCL. Any alterations on the SDA line while SCL is high are interpreted as 
+commands (START or STOP). For a more detailed overview of the I2C Bus Timing, please consult the accompanying 
+figure. 
+ 
+ 
+Figure 4-4: I2C Bus Timing 
+The on -chip I2C logic of the device offers a serial interface that complies with the I 2C bus standard mode 
+specifications. The I2C port independently manages byte transfers. Connection to the I 2C bus is facilitated through 
+two pins: SDA and SCL. Since these are open drain pins, pull -up resistors are necessary for proper I 2C operation. 
+When utilizing the I/O pins as an I2C port, users must preconfigure the pin functions to I2C mode. 
+4.8.3  USB  Interface 
+ FSC-BT1058 has a USB device interface: An upstream port, for connection to a host Phone/PC or battery  
+charging adaptor. For details software support for USB features, refer to ADK documentation.  
+ The device port is a USB2.0 Full Speed (12 Mb/s) port. Typically FSC-BT1058 enumerates as a compound device 
+with a hub with the enabled audio source / sink / HID / mass storage device appearing behind this hub.  
+ The DP 1.5 k pull-up is integrated in FSC-BT1058. No series resistors are required on the USB data lines.  
+ FSC-BT1058 contains integrated ESD protection on the data lines to IEC 61000-4-2 (device level). In normal 
+applications, no external ESD protection is required.  
+ Extra ESD protection is not required on VCHG (VBUS) because FSC-BT1058 meets the USB certification 
+requirements of a minimum of 1uF, and a maximum of 10 µF being present on VCHG (VBUS).  
+ The VCHG input of FSC-BT1058 is tolerant of a constant 6.5 V and transients up to 7.0 V. If extra overvoltage  
+Shenzhen Feasycom Co., LTD
+
+===== page 19 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -19- 
+protection is required, external clamping protection devices can be used.  
+ FSC-BT1058 supports charger detection to the USB BC 1.2 specification. 
+ 
+4.8.4  SPI master 
+Bitserial operating as a SPI master.  
+Figure 4-5 and Figure 4-6 show bitserial interface timings with different clock phase (CPHA). 
+ 
+Figure 4-5 Bitserial M-SPI timing diagram, operating modes with CPHA = 0 
+ 
+Figure 4-6 Bitserial M-SPI timing diagram, operating modes with CPHA = 1 
+ 
+Table 4-2 lists bitserial interface timing parameters.  
+Table 4-2 Bitserial M-SPI timing parameters 
+Parameter Symbol Min Max Unit Notes 
+Clock period TSCK 125 2000 ns - 
+Sel Assert to 
+SCK rise delay 
+TSAD 17.0 - ns - 
+SCK fall to SEL TSDD 52.5 - ns - 
+Shenzhen Feasycom Co., LTD
+
+===== page 20 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -20- 
+de-assert delay 
+MISO data 
+setup 
+TDIS 39.0 - ns - 
+MISO data hold TDIH 0.0 - ns - 
+MOSI data 
+invalid 
+minimum 
+TDV1 -13.0 - ns Total data invalid window of 28.1 ns 
+MOSI data 
+invalid 
+maximum 
+TDV2 - 15.1 ns Total data invalid window of 28.1 ns 
+When functioning as an SPI master, the Bitserial operates at half the crystal frequency. SCK frequencies are integer 
+divisions of the Bitserial clock frequency, with the lowest supported division being 2. For instance, with a 32 MHz crystal, 
+achievable SCK frequencies include 8 MHz, 5.33 MHz, 4 MHz, and so forth. 
+ 
+4.9  LED Drivers 
+ LED Driver: This mode is designed for driving LEDs. The pad operates as an open-drain pad, tolerable of  
+voltages up to 6.5 V. Therefore the cathode of the LED should be connected to the FSC-BT1058 LED pad.  
+Each pad is rated to sink up to 50 mA of current. 
+ FSC-BT1058 has six PWM-based LED controllers controlled by the Applications subsystem. Use them for driving 
+either the LED pads (through virtual PIOs) or other available PIOs.  
+ An application may configure the LED flash rate and ramp time using a dedicated API.  
+ Once configured, the LED flash and ramp rate are fully hardware controlled within the LED/PWM module. It is  
+possible to synchronize any number of the LED drivers together. Use the flash/ramp rate configuration to 
+generate color change sequences on RGB LEDs. 
+4.10  Audio subsystem 
+  Audio subsystem features include:  
+ Analog DAC: Mono analog output configurable as differential Class- AB audio output or differential high 
+efficiency Class-D  
+ Analog ADC: Stereo analog inputs configurable as single ended line inputs, or unbalanced, or balanced 
+analog microphone inputs   
+ I²S/PCM interface 
+□ 24-bit I²S interface with 1 input and 3 output channels  
+□ Supports 8-slot TDM  
+□ it I²S interface DM with 1 input and 3 o,384 kHz sample rates  
+ SPDIF interfaces 
+□ Two instances configurable as input or output 
+□ Supports 8, 16, 32, 44.1, 48, 96, 192 kHz sample rates 
+ Audio MCLK: Programmable, available on PIO[15] 
+ Audio engine 
+□ u 2 Codec output channels, supporting 8, 16, 32, 44.1, 48, 96, 192 kHz sample rates 
+□ o 16 Codec input channels supporting 8, 16, 32, 44.1, 48, 96 kHz sample rates 
+ Digital mics 
+Shenzhen Feasycom Co., LTD
+
+===== page 21 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -21- 
+□ Five interfaces supporting up to ten microphones  
+□ Supports 500 kHz, 571 kHz, 666 kHz, 800 kHz, 1 MHz, 1.33 MHz, 2 MHz, and 4 MHz clock frequencies  
+ 1 or 2-mic cVc headset noise reduction and echo cancellation technology  
+ SBC and AAC audio codecs support 
+ aptX, aptX HD, aptX Adaptive, enabled using license key 
+ ANC: Hybrid, Feedforward, and Feedback modes 
+ 
+   
+  
+Figure 4-7: Audio subsystem 
+ 
+ 
+ 
+ 
+ 
+4.10.1  Audio engine  
+The Audio subsystem incorporates 16 input and 2 output codec channels for both digital and analog audio interfaces. 
+Additionally, the subsystem features Active Noise Cancellation hardware. 
+Audio Codec Block Diagram 
+Shenzhen Feasycom Co., LTD
+
+===== page 22 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -22- 
+   
+Figure 4-8: FSC-BT1058 analog audio and microphone interfaces 
+NOTE: FSC-BT1058 does not support 16/32 ohm headphones 
+4.10.2  Line/Mic inputs  
+The FSC-BT1058 is equipped with two high -quality audio input ADCs (HQADC) designed for line input purposes, but 
+adaptable to various applications supporting mixed differential and single -ended use cases. Operating at 24 -bit 
+resolution, the ADC supports sample rates ranging from 8 kHz to 96 kHz. The HQADC offers configurability through an 
+internal switch arrangement, as illustrated in Figure 4 -9, with VAG serving as a virtual ground reference. Th e software 
+API permits direct manipulation of the nine switches or facilitates simpler control, acc ommodating three standard 
+modes: 
+Shenzhen Feasycom Co., LTD
+
+===== page 23 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -23- 
+ Stereo differential input  
+ Stereo single ended input, using the P inputs  
+ Stereo single ended input, using the N inputs  
+Inputs should be AC coupled, typically with a 2u2 capacitor. This capacitor value can be reduced at the expense of 
+low frequency response attenuation. 
+ 
+ 
+ 
+                         Figure 4-9: FSC-BT1058 high-quality ADC input switch configuration 
+ 
+4.10.3  Line/Headphone outputs 
+A high-quality audio output DACs (HQDAC) drive mono low impedance differential loads (BTL headphones) or 
+Line out. 
+    The HQDAC supports two modes of operation. Class- D is a high efficiency, switching mode amplifier. The 
+secondary Class-AB is a linear amplifier and consumes more power. 
+     
+ 
+4.10.4  Standard I²S/PCM interface 
+ 
+FSC-BT1058 provides a standard I²S/PCM interface capable of operating at up to a 384 kHz sample rate. 
+The I²S/PCM port is highly configurable with alternate PCM modes, and has the following options: 
+ SYNC edge position selectable to align with start of channel data (PCM mode), or 1 clock before start of channel 
+data (I²S mode) 
+Shenzhen Feasycom Co., LTD
+
+===== page 24 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -24- 
+ Master (generate CLK and SYNC) or Slave (receive CLK and SYNC) (PCM/IM m) 
+ SYNC polarity (PCM) 
+ Long or short SYNC (PCM) 
+ Left or right justification (PCM/Isla) 
+ Sign extension / zero pad (PCM)  
+ Optional tri-state at end of word (PCM) 
+ Optional invert of clock (PCM/ Id ) 
+ 13/16/24-bit per sample (PCM/ IId  
+ Up to four slots per frame (PCM) 
+ 
+Table 4-3: Alternative functions of the digital audio bus interface on the PCM interface 
+I2S Pin PCM function Description 
+I2S _ DIN /SDIN/ADCDAT PCM _DIN Data intput 
+I2S _DOUT / SDOUT / DACDAT PCM_DOUT Data output 
+I2S_FS / WS / LRCLK PCM_SYNC Word sync 
+I2S _CLK / SCK / BCLK PCM_CLK Bit clock 
+ 
+ 
+ 
+Figure 4-10:I2S general format 
+ 
+ 
+ 
+Table 4-4: Digital audio interface slave timing 
+Parameter Min Type Max Unit 
+thsclksynch - Hold time from PCM_CLK low to PCM_SYNC high 5 - - ns 
+tsusclksynch - Set-up time for PCM_SYNC high to PCM_CLK low 15 - - ns 
+tsupinsclkl - Set-up time for PCM_IN valid to PCM_CLK low 15 - - ns 
+thpinsclkl - Hold time for PCM_CLK low to PCM_IN invalid 5 - - ns 
+Shenzhen Feasycom Co., LTD
+
+===== page 25 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -25- 
+ 
+Figure 4-11:Digital audio interface slave timing 
+ 
+Table 4-5:I2S/PCM master mode timing parameters, WS and SCK as outputs 
+Parameter Min Type Max Unit 
+tdmclksynch - Delay time from PCM_CLK high to PCM_SYNC high - - 20 ns 
+tdmclkpout  -  Delay time from PCM_CLK high to valid PCM_OUT -  20 ns 
+tdmclkhsyncl -Delay time from PCM_CLK high to PCM_SYNC low - - 20 ns 
+t dmclkhpoutz -Delay time from PCM_CLK high to PCM_OUT high impedance - - 20 ns 
+tsupinclkl - Set-up time for PCM_IN valid to PCM_CLK low - - 20 ns 
+thpinclkl - Hold time for PCM_CLK low to PCM_IN invalid 0 - - ns 
+ 
+ 
+ 
+Figure 4-12: Digital audio interface master timing 
+ 
+ 
+ 
+ 
+ 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 26 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -26- 
+4.10.5  Digital audio interface s 
+Audio digital interfaces include:  
+□ Digital microphone inputs  
+□ Standard I²S/PCM interface  
+□ SPDIF interface  
+□ Audio MCLK 
+ Digital microphone inputs 
+Up to ten channels of digital microphone inputs are accommodated, organized into five pairs. Many digital 
+microphones can be set up to allow two microphones to share a single data line. As depicted in Figure 4 -13, the 
+FSC-BT1058 supports this mode by transmitting data from one microphone on the rising clock edge and from the 
+other on the falling edge, while otherwise keeping their outputs in a tri -state. The system can generate eight clock 
+frequencies for digital microphones, configurable at 500 kHz, 571 kHz, 666 kHz, 800 kHz, 1 MHz, 1.33 MHz, 2 MHz, 
+and 4 MHz . The digital microphone function can be assigned to PIOs; for more details, refer to the Related 
+Information section. 
+ 
+Figure 4-13 Digital microphone timing 
+Table 4-6 Digital microphone timing parameters 
+Parameter Min Typ Max Unit Description 
+TCLK 250 - 2000 ns Clock period 
+TBD - - - ns One-way routing delay from/to 
+FSC-BT1058 to/ from the digital 
+microphone IC 
+TDV - - - ns Delay internal to the digital microphone 
+from the edge of the IC clock to valid data 
+presented by the digital microphone 
+Shenzhen Feasycom Co., LTD
+
+===== page 27 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -27- 
+TDIS 40 - - ns Data Input Setup time 
+TDIH 0 - - ns Data Input Hold time 
+ 
+4.11 SPDIF interface 
+SPDIF (IEC 60958) is a digital audio interface that utilizes biphase  coding to reduce the DC content of the transmitted 
+signal, allowing the receiver to extract clock information. The FSC -BT1058 supports up to two configurable SPDIF 
+interfaces for input or output. These interfaces adhere to standards such as IEC 60958-1, IEC 60958-3, IEC 60958-4, and 
+AES/EBU. Signals are transmitted via PIO and typically require external line drivers (for 75 Ω cabling) or optical 
+transceivers (‘Toslink’). Any PIO can be designated for SPDIF functionality. 
+4.12 Audio MCLK 
+FSC-BT1058 has two internal clock sources for audio interfaces: 
+■ A standard 120 MHz clock (divided down).  
+■ An independent PLL (MPLL) that is usable as an alternate MCLK frequency clock source for the I ²S/PCM and SPDIF 
+ports. When it cannot be generated directly from the 120 MHz clock, the MPLL can be output on a PIO for use by an 
+external codec where low jitter I²S/PCM and SPDIF performance is required. Table 4-7 lists the output frequencies that 
+the MPLL can generate. The MPLL increases system power consumption and therefore only used when necessary.  
+ 
+Table 4-7 Audio MCLK clock output frequencies 
+Shenzhen Feasycom Co., LTD
+
+===== page 28 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -28- 
+ 
+4.13 Programming and Debug Interface 
+Important Note: 
+FSC-BT1058 provides a debug (Pin10~12)  interface for pr ogramming, updata，configuring, and debugging the 
+FSC-BT1058. 
+Feasycom provides development and production tools to communicate over the SPI from a PC, although a level 
+translator circuit is often required. All are available from Feasycom. 
+5.  ELECTRICAL CHARACTERISTICS 
+5.1  Absolute Maximum Ratings  
+Below are the absolute maximum ratings for the supply voltage and voltages on digital and analog pins of the 
+module. Exceeding these values may result in permanent damage.  
+ 
+The average PIO pin output current refers to the average current flowing through any one of the corresponding pins 
+over a 100mS period. The total average PIO pin output current is the average current flowing through all 
+corresponding pins over the same period. The maximum output current is the peak current flowing through any one 
+of the corresponding pins. 
+  
+Table 5-1:Absolute Maximum Rating 
+Shenzhen Feasycom Co., LTD
+
+===== page 29 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -29- 
+Parameter Min Max Unit 
+5V (VCHG) -0.4 +5.75V/6.50 (a) V 
+BATTERY (LED 0,1,2) -0.4 +4.8 V 
+BATTERY (VBAT_IN) -0.4 +4.8 V 
+BATTERY (SYS_CTRL) -0.4 +4.8 V 
+VDD_USB/3.3V_OUT -0.4 +3.8 V 
+VDD_IO -0.4 +3.6 V 
+Other terminal voltages VSS-0.4 VDD+0.4e3.60 (b) V 
+TST -  Storage Temperature -40 +85 °C 
+    
+(a) Standard maximum input voltage is 5.75V, a 6.50V maximum depends on firmware version and implementation of  
+over-temperature protection software, for more information contact Feasycom. 
+(b) VDD is the VDD_IO supply domain for this I/O. Voltage must not exceed 3.6 V on any I/O. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5.2  Recommended Operating Conditions  
+Table 5-2:Recommended Operating Conditions 
+Parameter Min Type Max Unit 
+5V (VCHG) 4.75 / 3.10 (a) 5 5.75 / 6.50 (b) V 
+BATTERY (LED 0,1,2) 1.10 3.70 4.30 V 
+BATTERY (VBAT_IN) 2.8 3.3 4.30 V 
+BATTERY (SYS_CTRL) 0 3.3 4.25 V 
+VDD_USB/3.3V_OUT 2.8 3.3 3.5 V 
+VDD_IO 1.7 1.8 3.6 V 
+TA -  Operating Temperature -40 20 +85 °C 
+     
+(a) Minimum input voltage of 4.75V is required for full specification, regulator operates at reduced load current 
+from3.1V 
+(b) Standard maximum input voltage is 5.75V, a 6.50V maximum depends on firmware version and implementation of 
+over-temperature protection software, for more information contact Feasycom. 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 30 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -30- 
+5.3  Input/output Terminal Characteristics  
+5.3.1  Digital 
+Table 5-3: DC Characteristics (VDD - VSS = 3 ~ 3.6 V, TA = 25°C) 
+Parameter Min Type Max Unit 
+Input Voltage     
+VIL -  Standard IO Low level  input voltage - - 0.25 x 
+VDD_IO 
+V 
+VIH -  Standard IO Low level input voltage 0.625 xVDD_IO - - V 
+Tr/Tf - - 25 nS 
+     
+Output Voltage     
+VOL -  Low Level Output Voltage , IOL=4mA - - 0.22 x 
+VDD_PADS 
+V 
+VOH -  High Level Output Voltage, IOH=-4mA 0.75 x VDD_IO - - V 
+Tr/Tf - - 5 nS 
+     
+Input and Tristate Currents     
+Strong pull-up -150 -40 -10 uA 
+Strong pull-down 10 40 150 uA 
+Weak pull-up -5 -1.0 -0.33 uA 
+Weak pull-down 0.33 1.0 5.0 uA 
+C I Input Capacitance 1.0 - 5.0 pF 
+     
+ 
+ 
+5.3.2  Battery Charger 
+Table 5-4: Battery Charger 
+Parameter Min Type Max Unit 
+Battery Charger     
+Input voltage, VCHG 4.75 / 3.10(a) 5.00 5.75 / 6.50(b) V 
+(a)Reduced specification from 3.1V to 4.75V. Full specification >4.75V. 
+(b) Standard maximum input voltage is 5.75V, a 6.50V maximum depends on firmware version and implementation 
+of over-temperature protection software, for more information contact Feasycom. 
+     
+Trickle Charge Mode     
+VPRE threshold (rising) 2.0 2.1 2.2 V 
+VPRE threshold (falling) 1.9 2.0 2.1 V 
+Trickle charge current: 
+VCHG: 4.25 V to 6.5 V 
+VBAT: 0 V to 2.2 V 
+1 -- 50 mA 
+     
+Shenzhen Feasycom Co., LTD
+
+===== page 31 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -31- 
+Fast Charge Mode     
+Charge current during constant 
+current mode, Ifast 
+Max, 
+headroom >0.55V 
+Min, headroom >0.55V 
+194 
+- 
+200 
+10 
+206 
+- 
+mA 
+mA 
+Reduced headroom charge 
+current, as a percentage of Ifast 
+Mid, headroom =0.15V 50 - 100 % 
+Charge current step size - 10 - mA 
+Vfloat threshold, calibrated 4.18 4.20 4.22 V 
+Charge termination current Iterm, as percentage of Ifast 7 10 20 % 
+     
+Standby Mode     
+Voltage hysteresis on VBAT_IN, Vhyst 100 - 150 mV 
+     
+Error Charge Mode     
+Headroom(a) error falling threshold - 50 - mV 
+(a) Headroom = VCHG – VBAT_IN 
+ 
+ 
+5.3.3  USB  
+Table 5-5:USB 
+Parameter Min Type Max Unit 
+3V3_USB for correct USB operation(internal) 3.10 3.30 3.60 V 
+     
+Input Threshold     
+VIL -  input logic level low  - - 0.3 x 3V3_USB V 
+VIH -  input logic level high 0.7 x 3V3_USB - - V 
+     
+Output Voltage Levels to Correctly Termlnated USB 
+Cable 
+    
+VOL -  output logic level low  0 - 0.2 V 
+VOH -  output logic level high 2.8 - 3V3_USB V 
+     
+ 
+5.3.4  LED Driver Pads  
+Table 5-6:LED Driver Pads 
+Parameter Min Type Max Unit 
+Current, IPAD - High impedance state - - 5 uA 
+Current, IPAD -Current sink state - - 50 mA 
+LED pad voltage, VPADIPAD = 10mA - - 0.55 V 
+VOL output logic level lowa - 0 - V 
+VOH output logic level higha - 0.8 - V 
+VIL input logic level low - - 0.4 V 
+Shenzhen Feasycom Co., LTD
+
+===== page 32 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -32- 
+VIH input logic level high 1 - - V 
+     
+a  LED output port is open-drain and requires a pull-up     
+5.4  Stereo Codec  
+5.4.1  Analog to Digital Converter  
+Table 5-7:Analog to Digital Converter (single-ended/differential audio input) 
+Parameter Ccnditions Min Type Max Unit 
+Resolution - - - 24 Bits 
+Output Sample Rate, 
+F sample 
+- 8 - 96 KHz 
+Input level  -  2.4 Vpk-pk 
+Input impedance 0 dB to 24 dB analog gain 
+27 dB to 39 dB analog gain 
+ 
+ 
+ 20 
+10 
+ KΩ 
+kΩ 
+SNR f in = 1kHz 
+48KHz 
+A-Weighted 
+B/W = 20 Hz to 20 kHz 
+2.4V pk-pk input（0dB gain） 
+Single 
+differential 
+- 
+- 
+99 
+99 
+- 
+- 
+dBA 
+dBA 
+ 
+THD+N f in = 1kHz 
+48KHz 
+2.4V pk-pk input（0dB gain） 
+B/W = 20 Hz to 20 kHz 
+Single 
+differential 
+- 
+- 
+-99 
+-91 
+- 
+- 
+dB 
+dB 
+Digital gain Digital gain resolution = 1/32 -24 - 21.5 dB 
+Analog gain  3dB  steps  - - 39 dB 
+Stereo separation 
+(crosstalk) 
+ 80   dB 
+ 
+ 
+5.4.1  Digital to Analog Converter  
+Table 5-8:Digital to Analog Converter （differential audio output） 
+Parameter Ccnditions Min Type Max Unit 
+Resolution - - - 24 Bits 
+Input Sample Rate, 
+F sample 
+- 8 - 192 KHz 
+Output Power(no 
+LPF) 
+0 dBFS, 10K Ω load   1000 mV 
+SNR f in = 1kHz 
+B/W = 20Hz->20KHz 
+A-Weighted 
+0dBFS input 
+F sample Load     
+48kHz 10KΩ - 105 - dBA 
+THD+N f in = 1kHz F sample Load -    
+Shenzhen Feasycom Co., LTD
+
+===== page 33 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -33- 
+B/W = 20Hz->20kHz 
+0dBFS input 
+48kHz 10KΩ - -88 - dB 
+Digital gain Digital gain resolution = 1/32 -24 - 21.5 dB 
+Stereo separation 
+(crosstalk) 
+ 80   dB 
+ 
+5.5  Auxiliary ADC 
+Table 5-9:Auxiliary ADC 
+Parameter Min Type Max Unit 
+Resolution - - 10 Bits 
+Input voltage range(a) 0  1.854 V 
+Accuracy                            INL  
+(Guaranteed monotonic)               DHL  
+-3 - 3 LSB 
+-1 - 2 LSB 
+Offset -1 - 1 LSB 
+Gain error -1 - 1 % 
+Input bandwidth - 100 - KHz 
+Conversion time  10  uS 
+     
+(a) LSB size = 1.854V/1023 
+ 
+ 
+ 
+ 
+ 
+5.6  Microphone bias generator  
+Table 5-10:Microphone bias generator 
+Parameter Min Type Max Unit 
+Output voltage (Tunable, step = 0.1 V) 1.5 - 2.1 V 
+Output current capability 0.07 - 3.0 mA 
+DC accuracy -60 - 60 mV 
+Crosstalk Between Microphones  
+(Using recommended application circuit) 
+- 80 - dB 
+Load capacitance (From parasitic PCB routing and 
+package 
+- - 0.1 nF 
+ 
+6.  MSL &ESD Protection 
+Table 6-1: MSL and ESD 
+Parameter Class Max Rating 
+MSL grade(with JEDEC J-STD-020)  MSL 3 
+   
+Shenzhen Feasycom Co., LTD
+
+===== page 34 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -34- 
+Human Body Model Contact Discharge per 
+ANSI/ESDA/JEDEC JS-001 
+2 ±2kV(all pins) 
+Charged Device Model Contact Discharge per 
+JEDEC/EIA JESD22-C101 
+III 500V (all pins) 
+ 
+6.1  USB Electrostatic Discharge Immunity 
+FSC-BT1058 has integrated ESD protection on the USB_DP and USB_DN pins as detailed in IEC 61000-4-2. 
+Table 6-2:USB Electrostatic Discharge Protection Level 
+IEC 61000-4-2 
+Level 
+ESD Test Voltage 
+(Positive and Negative) 
+IEC 61000-4-2 
+Classification 
+Comments 
+1 2kV contact / 2kV air Class 1 Normal performance within specification limits 
+2 4kV contact / 4kV air Class 1 Normal performance within specification limits 
+3 6kV contact / 8kV air Class 2 or class 3 Temporary degradation or operator intervention 
+required 
+4 8kV contact / 15kV air Class 2 or class 3 Temporary degradation or operator intervention 
+required 
+ 
+ 
+ 
+ 
+ 
+7.  RECOMMENDED TEMPERATURE REFLOW PROFILE 
+Prior to reflow, it is crucial to ensure that the modules are properly packaged to prevent moisture absorption. The new 
+packages are equipped with desiccants to absorb moisture, and a humidity indicator card is included to indicate the 
+moisture level maintained during storage and shipment. If the card indicates the need to bake the units, please refer to 
+the instructions specified by IPC/JEDEC J -STD-033 and follow them accordingly. It is important to adhere to these 
+instructions to prevent any potential moisture-related issues during the reflow process. 
+Note: The shipping tray should not be exposed to tem peratures exceeding 65°C. If baking is necessary at higher 
+temperatures indicated below, it is essential to remove the modules from the shipping tray. This precaution is important 
+to avoid any potential damage or deformation to the tray caused by excessive heat. 
+Any module that exceeds its floor life but has not yet been manufactured should be repackaged by using new 
+desiccants and humidity indicator cards. For devices with a Moisture Sensitivity Level (MSL) of 3, the floor life is 168 
+hours in an environment with 30℃/60%RH.  
+Floor life refers to the maximum allowable time a moisture -sensitive device can be exposed to ambient conditions 
+without risking moisture absorption and potential damage during soldering. 
+Table 7-1: Recommended baking times and temperatures 
+MSL 
+125°C Baking Temp. 90°C/≤ 5%RH Baking Temp. 40°C/ ≤ 5%RH Baking Temp. 
+Saturated @ 
+30°C/85% 
+Floor Life Limit 
++ 72 hours @ 
+30°C/60% 
+Saturated @ 
+30°C/85% 
+Floor Life Limit 
++ 72 hours @ 
+30°C/60% 
+Saturated@ 
+30°C/85% 
+Floor Life Limit 
++ 72 hours @ 
+30°C/60%  
+3 9 hours 7 hours 33 hours 23 hours 13 days  9 days  
+ 
+Feasycom surface mount modules are designed to facilitate easy manufacturing, including reflow soldering onto a PCB. 
+Shenzhen Feasycom Co., LTD
+
+===== page 35 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -35- 
+However, it is the customer's responsibility to select the suitable solder paste and ensure that the oven temperatures 
+during reflow meet the requirements specified by the solder paste manufacturer. Feasycom surface mount modules 
+comply with the J-STD-020D1 standards for reflow temperatures. 
+The soldering profile may vary depending on different parameters, requiring a specific setup for each application. The 
+data provided here is only intended as a general guideline for solder reflow and should be used as a reference. 
+ 
+210 
+217 
+℃ 
+250 
+A B C D 
+1 2 0 
+25 
+3 4 5 6 min 
+E 
+ 
+Figure 7-1: Typical Lead-free Re-flow 
+Pre-heat zone (A) — This zone gradually increases the temperature at a controlled rate, usually  ranging from 0.5 to 
+2 °C/s. Its purpose is to preheat the PCB board and components to a temperature of 120-150 °C. This stage is necessary 
+to ensure the even distribution of heat across the PCB board and to remove any remaining solvents completely, 
+minimizing the risk of heat shock to the components.  
+Equilibrium Zone 1 (B) — In this stage, the flux undergoes softening and uniformly covers the solder particles, as well as 
+spreading over the PCB board. This process helps prevent re -oxidation of the solder particles. Additionally, as the 
+temperature rises and the flux liquefies, each activator and rosin component become activated. They work together to 
+eliminate any oxide film formed on the surface of the solder particles and PCB board. For this zone, it is recommended 
+to maintain a temperature range of 150 to 210 °C for a duration of 60 to 120 seconds. 
+Equilibrium Zone 2 (C) (optional) — To address the issue of upright components, it is recommended to maintain a 
+temperature range of 210 to 217 °C for a duration of approximately 20 to 30 seconds. This will help ensure proper 
+soldering and alignment of the components on the PCB board. 
+Reflow Zone (D) — The profile in the figure is designed for Sn/Ag3.0/Cu0.5.  It can be a reference for other lead -free 
+solder. The peak temperature should be high enough to achieve good wetting but not so high as to cause component 
+discoloration or damage. Excessive soldering time can lead to intermetallic growth which can result in a brittle joint. The 
+recommended peak temperature (Tp) is 230 ~ 250 ° C.  The soldering time should be 30 to 90 second when the 
+temperature is above 217 °C. 
+Cooling Zone (E) — The cooling ate should be fast, to keep the solder grains small which will give a longer -lasting joint. 
+Typical cooling rate should be 4 °C. 
+ 
+ 
+ 
+ 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 36 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -36- 
+ 
+8.  MECHANICAL DETAILS 
+8.1  Mechanical Details  
+ Dimension:  13mm(W) x 26.9mm(L) x 2.2mm(H) Tolerance: ±0.2mm 
+ Module size:  13mm X 26.9mm  Tolerance: ±0.2mm  
+ Pad size:     1 .6mmX0.6mm   Tolerance: ±0.2mm  
+ Pad pitch:    1.0mm  Tolerance: ±0.1mm  
+ 
+ 
+Figure 8-1: FSC-BT1058 footprint Layout Guide (Top View) 
+9.  HARDWARE INTEGRATION SUGGESTIONS 
+9.1  Soldering Recommendations 
+FSC-BT1058 is compatible with the industrial standard reflow profile for Pb- free solders, which varies based on factors 
+like the thermal mass of the populated PCB, heat transfer efficiency of the oven, and the type of solder paste. It is 
+recommended to consult the datasheet of the specific solder paste for profile configurations. 
+Feasycom offers the following soldering recommendations to ensure dep endable solder joints and optimal module 
+performance. However, as the ideal profile may differ depending on the unique process and layout, these suggestions 
+Shenzhen Feasycom Co., LTD
+
+===== page 37 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -37- 
+should be viewed as initial guidance, and a thorough analysis of the scenario is advised. 
+9.2  Layo ut Guidelines(Internal Antenna) 
+Adherence to sound layout practices is highly recommended to guarantee the module's correct operation. Placing 
+copper or any metal in close proximity to the antenna can detrimentally affect its performance by interfering with the 
+matching properties. To av oid radiation issues, refrain from using a metal shield with the module. It is advisable to 
+incorporate grounding vias, spaced no more than 3 mm apart, along the periphery of grounding areas to inhibit RF 
+penetration within the PCB and prevent unintended resonator formation. Furthermore, ensure that GND vias are evenly 
+dispersed along all edges of the PCB. 
+In the restricted area where the on-board antenna is located, the motherboard should not have any bare conductors or 
+vias. This area is not covered by stop mask print, so no copper (planes, traces, or vias) should be present in this area to 
+avoid mismatching with the on-board antenna. 
+5
+26.9
+Max.0.5
+20 10
+13
+18
+Max.1.0
+10
+20
+Applic. PCB
+no bare copper(exept solder pads for module)
+no copper and components on any layer
+no components on any layer
+do not place any conductive parts in this area
+Provide solid ground plane(s) as large as possible around         area
+Unit:mm
+ 
+Figure 9-1: Restricted Area (Design schematic, for reference only. Unit: mm) 
+The provided recommendations target the prevention of EMC issues stemming from the RF component of the module. 
+It is crucial to recognize the uniqueness of each design, with this list not encompassing all fundamental design 
+principles, such as mitigating capacitive coupling between signal lines. Moreover, it is essential to address potential 
+challenges posed by digital signals in the design process. 
+To address EMC concerns effectively, it is recommended to keep the return paths of signal lines as short as feasible. For 
+instance, when a signal traverses a via to an inner layer, always use ground vias around it. These ground vias should be 
+positioned closely and symmetrically around the signal vias. Routing of delicate signals is best done within the inner 
+layers of the PC B. Sensitive traces should be flanked by ground planes both above and below the line. If this 
+arrangement is not viable, ensure a short return path by exploring alternative techniques, like situating a ground line 
+adjacent to the signal line. 
+ 
+9.3  Layout Guidelines(External Antenna) 
+The placement and layout of the PCB are vital in enhancing the performance of modules without on- board antenna 
+designs. The trace linking the antenna port of the module to an external antenna should maintain a characteristic 
+Shenzhen Feasycom Co., LTD
+
+===== page 38 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -38- 
+impedance of 50Ω and be kept as brief as feasible to prevent interference with the module's transceiver. When 
+situating the external antenna and RF-IN port of the module, it is crucial to isolate them from potential sources of noise 
+and digital traces. To reduce return loss and attain improved impedance matching, a matching network might be 
+necessary between the external antenna and RF-IN port. 
+For optimal RF performance, it is advised to distinctly segregate the RF critical circuits of the module from any digital 
+circuits on the system board. The RF circuits within the module are positioned in proximity to the antenna port. 
+Therefore, when placing the module, the digital part of the module should face the digital part of the system PCB. 
+Anten
+RF_IN
+Digital Part
+Non enmitting 
+circuits Non enmitting 
+circuits
+Digital & Analog Circuits
+PCB    
+Anten
+RF & heat 
+ enmitting 
+circuits
+Digital Part
+RF_IN
+Digital & Analog Circuits
+RF & heat 
+ enmitting 
+circuits
+PCB
+ 
+Figure 9-2: Placement the Module on a System Board 
+ 
+9.3.1  Antenna Connection and Grounding Plane Design 
+ 
+Antenna Matching
+Network
+5mm
+RF_IN
+ 
+Figure 9-3: Leave 5mm Clearance Space from the Antenna 
+ 
+General design recommendations are: 
+ The length of the trace or connection line should be kept as short as possible. 
+ Distance between connection and ground area on the top layer should at least be as large as the dielectric 
+thickness. 
+ Routing the RF close to digital sections of the system board should be avoided. 
+ To reduce signal reflections, sharp angles in the routing of the micro strip line should be avoided. Chamfers or 
+fillets are preferred for rectangular routing; 45 -degree routing is preferred over Manhattan style 9 0-degree 
+routing. 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 39 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -39- 
+Anten
+Anten
+Anten
+PCB PCB PCB
+Wrong Better Best
+ 
+Figure 9-4: Recommended Trace Connects Antenna and the Module 
+ Routing of the RF-connection underneath the module should be avoided. The distance of the micro strip line to the 
+ground plane on the bottom side of the receiver is very small and has huge tolerances. Therefore, the impedance 
+of this part of the trace cannot be controlled. 
+ Use as many vias as possible to connect the ground planes. 
+ 
+10.  PRODUCT PACKAGING INFORMATION 
+10.1  DefaultPacking 
+   a, Vacuum tray 
+   b, Tray Dimension: 190mm * 175mm 
+       
+ 
+ 
+ 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 40 =====
+FSC-BT1058 Datasheet 
+ 
+Shenzhen Feasycom Co.,Ltd           www.feasycom.com -40- 
+ 
+Figure 10-1: Vacuum tray 
+ 
+10.2  Packing box(Optional) 
+ 
+ 
+* If any packaging other than the package mentioned above is required, please confirm the packaging size again. 
+* Packing: 1000pcs per carton (Minimum packing quantity). 
+* The outer packing size provided above is for reference purposes only. For the actual dimensions of the product's pack
+aging, please refer to the packaging of the actual goods. 
+Figure 10-2: Packing Box 
+ 
+Shenzhen Feasycom Co., LTD
+
+===== page 41 =====
+FSC-BT1058 Datasheet 
+Shenzhen Feasycom Co.,Ltd      www.feasycom.com -41- 
+11. APPLICATION SCHEMATIC
+this pin outputs 3V2 ~ 3V4 (maximum current: 50mA)
+ 
+1, When the Pin33(BAT_IN) with a 3V3~4V2
+ 
+MIC_L 
+Ltd 
+10uF 
+Differential to Single
+  
+update
+ 
+Optional
+or equivalent
+2,  when the Pin39 (VCC_CHG) with a 5V input pin,
+this pin outputs 2V8 ~ 3V0 (maximum current: 50mA)
+L:LINE_IN
+H:BT
+Reserved pad 
+POWER/PLAY/PAUSE
+VOL+/NEXT
+VOL-/BACK
+Option II ：Press the key to turn on 
+Power-on circuit 
+Option One：Power on 
+Option III ：MCU turn on 
+SYS_CTRL
+BT_3.3V
+OFF
+ON
+OFF
+ON
+＞100ms 
+L
+L
+H
+H
+Timing diagram 
+PCM/I2S
+1
+G
+S
+D
+1
+2
+3
+5
+4
+1
+2
+3
+4
+5
+6
+8
+22
+23
+24
+25
+26
+17
+18
+19
+13
+14
+33
+12
+7
+11
+10
+9
+34
+32
+51
+35
+49
+48
+47
+46
+41
+40
+42
+43
+44
+15
+16
+20
+21
+27
+28
+29
+30
+31
+36
+37
+38
+39
+45
+50
+52
+1
+24
+3
+5
+1
+42
+3
+5
+1
+24
+3
+5
+SPI_MOSI
+SPI_CLK
+SPI_MISO
+BT_3.3V
+BT_TX
+BT_RX
+SYS_CTRL
+5V
+USB_D+
+USB_D-
+BT_3.3V
+LED0
+LED1
+LED2
+PIO21
+PIO18
+BT_RX
+BT_TX
+MIC_BIAS
+SPK_LP
+SPK_LN
+SPK_RP
+SPK_RN
+MIC/LINE_LN
+MIC/LINE_LP
+LINE_RN
+LINE_RP
+SPI_CLK
+SYS_CTRL
+BT_3.3V
+5V BT_3.3V
+PA_MUTE
+BT_3.3V
+RESET
+SPI_MOSI
+SPI_MISO
+3V3_OUT
+LINE_IN_DET
+BT_3.3V
+PCM/IIS_CLK
+PCM/IIS_IN
+PCM/IIS_OUT
+PCM/IIS_SYNC/WS
+BT_3.3VPIO18
+PIO21
+SYS_CTRL
+SYS_CTRL MCU
+MOSI
+CLK
+MISO
+VDD
+TX
+RX
+GND
+R122R
+R222R
+C3
+4.7uF
+C4
+100nF
+C67 NC
+C68 NC
+R71
+0R
+J2
+ANT
+C7
+2.2uF/NC
+Q2
+2SK3018
+R6
+2K
+R7
+100K
+C17
+1uF
+VIN
+GND
+EN
+VOUT
+NC
+U3 BL9198-3.3V
+C29
+4.7uF
+R9 0R
+GND
+NC/AIO4/LED4
+AIO5/LED5
+PCM_CLK/PIO16
+PCM_IN/PIO19
+PCM_OUT/PIO18
+RESET
+GND
+NC/PIO52
+NC/PIO53
+NC/PIO54
+NC
+LED0/AIO0
+LED1AIO1
+LED2/AIO2
+BT_TX/PIO5
+BT_RX/PIO4
+VBAT_IN
+PIO8
+PCM_SYNC/PIO17
+PIO7
+PIO6
+PCM_MCLK_OUT/PIO15
+SYS_CTRL
+GND
+EXT_ANT
+1.8V_OUT
+SPK_LP
+SPK_LN
+SPK_RP
+SPK_RN
+MIC_RN
+MIC_RP
+NC
+MIC_LP
+MIC_LN
+BT_CTS/PIO22/PIO3
+BT_RTS/PIO23/PIO2
+PIO3/PIO60
+PIO2/PIO61
+PIO18
+PIO21
+VCHG_SENSE
+CHG_EXT
+VDD_USB/3.3V_OUT
+VDD_IO
+USB_DP
+USB_DN
+VCC_CHG
+MIC_BIAS
+GND
+GND
+U2
+C1 NC/1uF
+R8 0R
+R2
+ 
+1 10K
+K2
+K3
+K1
+R29 0R
+Analog audio processing I: connect to power amplifier 
+INR+
+G1
+CAP+
+SGND
+HPVSS EN
+HPVDD
+OUTR
+CAP-
+PGND
+OUTL
+G0
+INR-
+PVDD
+INL-
+INL+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+SPK_L
+SPK_R
+5V
+SPK_LN
+SPK_LP
+SPK_RP
+SPK_RN
+SPK_L
+SPK_R
+PA_MUTE
+SPK-R
+16R/32R
+SPK-L
+16R/32R
+U10
+PAM8908
+R33 20K 1%
+ 
+C32 1uF
+R34 20K 1%
+ 
+C33 1uF
+R35 20K 1%
+ 
+C35 1uF
+R36 20K 1% C36 1uF
+C37
+1uF
+C38
+1uF
+C39
+1uF
+ 
+C5 C6
+100nF
+R28
+ 
+4.7R
+R37 1K
+C10
+100nF
+R75
+100K
+AUDIO_OUTPUT
+  
+Analog audio processing II:
+1
+2
+3
+48
+7
+5
+6
+1
+2
+3
+5V
+5V
+VREF
+VREF
+VREF
+SPK_LP
+SPK_LN
+SPK_RN
+SPK_RP
+SPK_LO
+SPK_RO
+-
++ U8-A
+PT2308
++
+-
+U8-B
+PT2308
+R14
+100K
+R18
+100K
+C8
+4.7uF
+R19 20K 1%
+R20 20K 1%
+R22 20K 1%
+R23 20K 1%
+R24
+20K 1%
+R25
+20K 1%
+C15 1uF
+C9 1uF
+C14 1uF
+C34 1uF
+R26 20K 1%
+R27 20K 1%
+C16 2.2uF
+C22 2.2uF
+C23
+4.7uF
+C28
+100nF
+JK1
+Line IN (Optional)
+AGND
+AGND
+5
+6
+4
+3
+2
+1
+LINE_IN_R
+LINE_IN_L
+MIC/LINE_LN
+MIC/LINE_LP
+LINE_RN
+LINE_RP
+LINE_IN_R
+LINE_IN_L
+LINE_IN_DET
+C18 4.7uF
+C19 4.7uF
+R10
+20K
+R1110K
+C20 4.7uF
+C21 4.7uF
+R12
+20K
+R1310K
+MIC
+GND
+AUDIO-L
+SWITCH
+AUDIO-R
+SWITCH
+JK
+CON-EAR-3F32(CTIA)
+USB Audio/update/RF test
+Reserved pad 
+1
+2
+3
+4
+5
+6
+7
+9
+8
+5V
+USB_D-
+USB_D+
+J1
+C2
+4.7uF
+MIC
+Default
+MIC_BIAS MIC/LINE_LN
+MIC/LINE_LP
+-42dB
+R15
+2.2K
+C11 100nF
+C12 100nF
+R16 1K
+R17 1K
+C13 15pF
+L4
+15nH
+LED
+1,LED0 flashes pairing
+The audio connection is successfully lit
+2, LED1 is always on.SPP/BLE connection is successful
+LED1
+LED0
+LED2
+BT_3.3V
+D1
+Red
+D2
+Blue
+D3
+Green
+R3
+1K
+R4
+470R
+R5
+1K
+Shenzhen Feasycom Co., LTD
