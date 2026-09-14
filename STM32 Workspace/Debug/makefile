@@ -12,6 +12,7 @@ RM := rm -rf
 -include Drivers/STM32G0xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/Libs/at_manager/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -60,8 +61,8 @@ all: main-build
 main-build: MCU.elf secondary-outputs
 
 # Tool invocations
-MCU.elf MCU.map: $(OBJS) $(USER_OBJS) F:\workspace\Ampli\STM32\ Workspace\STM32G030C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "MCU.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"F:\workspace\Ampli\STM32 Workspace\STM32G030C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MCU.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+MCU.elf MCU.map: $(OBJS) $(USER_OBJS) C:\Users\preel\Desktop\projets\Ampli\Ampli-D\STM32\ Workspace\STM32G030C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "MCU.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\preel\Desktop\projets\Ampli\Ampli-D\STM32 Workspace\STM32G030C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MCU.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
