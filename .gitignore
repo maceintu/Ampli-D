@@ -2,3 +2,6 @@
 build/
 *.lck
 *.zip
+
+# Sorties de compilation STM32CubeIDE
+STM32 Workspace/Debug/

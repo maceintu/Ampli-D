@@ -1,2 +1,0 @@
-../Core/Src/pcm5242.c:3:19:pcm5242_read_reg	40	static
-../Core/Src/pcm5242.c:16:19:pcm5242_write_reg	32	static
