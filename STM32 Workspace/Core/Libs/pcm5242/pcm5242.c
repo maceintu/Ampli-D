@@ -2,7 +2,7 @@
 
 static uint8_t current_page = PCM5242_PAGE_UNKNOWN;
 
-static HAL_StatusTypeDef pcm5242_selectPage(I2C_HandleTypeDef *hi2c, uint8_t page) {
+static HAL_StatusTypeDef pcm5242_select_page(I2C_HandleTypeDef *hi2c, uint8_t page) {
 	HAL_StatusTypeDef ret;
 	if (page == current_page)
 		return HAL_OK;
@@ -12,16 +12,16 @@ static HAL_StatusTypeDef pcm5242_selectPage(I2C_HandleTypeDef *hi2c, uint8_t pag
 	return ret;
 }
 
-HAL_StatusTypeDef pcm5242_readRegister(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t *value) {
+HAL_StatusTypeDef pcm5242_read_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t *value) {
 	HAL_StatusTypeDef ret;
-	if (pcm5242_selectPage(hi2c, page) != HAL_OK)
+	if (pcm5242_select_page(hi2c, page) != HAL_OK)
 		return ret;
 	return HAL_I2C_Mem_Read(hi2c, PCM5242_HAL_ADDR, reg, I2C_MEMADD_SIZE_8BIT, value, 1u, PCM5242_TIMEOUT);
 }
 
-HAL_StatusTypeDef pcm5242_writeRegister(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t value) {
+HAL_StatusTypeDef pcm5242_write_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t value) {
 	HAL_StatusTypeDef ret;
-	if (pcm5242_selectPage(hi2c, page) != HAL_OK)
+	if (pcm5242_select_page(hi2c, page) != HAL_OK)
 		return ret;
 	return HAL_I2C_Mem_Write(hi2c, PCM5242_HAL_ADDR, reg, I2C_MEMADD_SIZE_8BIT, &value, 1u, PCM5242_TIMEOUT);
 }
@@ -41,13 +41,22 @@ HAL_StatusTypeDef set_audio_level_and_balance(I2C_HandleTypeDef *hi2c, uint8_t v
 		if (r_att > PCM5242_VOL_MUTE)
 			r_att = PCM5242_VOL_MUTE;
 	}
-	HAL_StatusTypeDef ret_l = pcm5242_writeRegister(hi2c, PCM5242_VOL_PAGE, PCM5242_REG_VOL_L, (uint8_t) l_att);
-	HAL_StatusTypeDef ret_r = pcm5242_writeRegister(hi2c, PCM5242_VOL_PAGE, PCM5242_REG_VOL_R, (uint8_t) r_att);
+	HAL_StatusTypeDef ret_l = pcm5242_write_register(hi2c, PCM5242_VOL_PAGE,
+	PCM5242_REG_VOL_L, (uint8_t) l_att);
+	HAL_StatusTypeDef ret_r = pcm5242_write_register(hi2c, PCM5242_VOL_PAGE,
+	PCM5242_REG_VOL_R, (uint8_t) r_att);
 	return (ret_l != HAL_OK) ? ret_l : ret_r;
 }
 
 HAL_StatusTypeDef pcm5242_mute(I2C_HandleTypeDef *hi2c) {
-	HAL_StatusTypeDef ret_l = pcm5242_writeRegister(hi2c, PCM5242_VOL_PAGE, PCM5242_REG_VOL_L, PCM5242_VOL_MUTE);
-	HAL_StatusTypeDef ret_r = pcm5242_writeRegister(hi2c, PCM5242_VOL_PAGE, PCM5242_REG_VOL_R, PCM5242_VOL_MUTE);
+	HAL_StatusTypeDef ret_l = pcm5242_write_register(hi2c, PCM5242_VOL_PAGE, PCM5242_REG_VOL_L, PCM5242_VOL_MUTE);
+	HAL_StatusTypeDef ret_r = pcm5242_write_register(hi2c, PCM5242_VOL_PAGE, PCM5242_REG_VOL_R, PCM5242_VOL_MUTE);
 	return (ret_l != HAL_OK) ? ret_l : ret_r;
 }
+
+HAL_StatusTypeDef update_dsp(uint8_t *channels, uint8_t chanel_numbers, uint16_t *values) {
+	for (int i = 0; i < chanel_numbers; i++) {
+		calculate();
+	}
+}
+

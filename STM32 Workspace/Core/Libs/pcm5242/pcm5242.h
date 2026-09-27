@@ -27,15 +27,14 @@
 #define PCM5242_PAGE_UNKNOWN    0xFFu
 #define PCM5242_REG_PAGE        0x00u
 
-HAL_StatusTypeDef pcm5242_readRegister(I2C_HandleTypeDef *hi2c, uint8_t page,
-		uint8_t reg, uint8_t *value);
+HAL_StatusTypeDef pcm5242_read_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t *value);
 
-HAL_StatusTypeDef pcm5242_writeRegister(I2C_HandleTypeDef *hi2c, uint8_t page,
-		uint8_t reg, uint8_t value);
+HAL_StatusTypeDef pcm5242_write_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t value);
 
-HAL_StatusTypeDef set_audio_level_and_balance(I2C_HandleTypeDef *hi2c, uint8_t volume,
-		uint8_t balance);
+HAL_StatusTypeDef set_audio_level_and_balance(I2C_HandleTypeDef *hi2c, uint8_t volume, uint8_t balance);
 
 HAL_StatusTypeDef pcm5242_mute(I2C_HandleTypeDef *hi2c);
 
+// TODO fonction qui écris dans la mémoire passive et switch les mémories DSP
+HAL_StatusTypeDef update_dsp(uint8_t *channels, uint8_t chanel_numbers, uint16_t *values);
 #endif /* LIBS_PCM5242_PCM5242_H_ */
