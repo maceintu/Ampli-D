@@ -12,20 +12,6 @@ pilotage par microcontrôleur STM32. Le dépôt contient l'ensemble de la concep
 
 ![Schéma global](Ressources/schema%20global.drawio.png)
 
-```mermaid
-flowchart LR
-    J["Entrées filaires<br/>3 × stéréo"] --> ADC["PCM1863<br/>ADC"]
-    BT["FSC-BT1058<br/>Bluetooth"] --> MUX
-    ADC -- I2S --> MUX["TMUX1574<br/>sélecteur I2S"]
-    MUX --> DAC["PCM5242<br/>DAC différentiel"]
-    DAC -- "L± / R±" --> AMP["TPA3255<br/>ampli classe D"]
-    AMP --> SPK(["Haut-parleurs<br/>L / R"])
-    MCU["STM32G030<br/>contrôle"] -. I2C .-> ADC
-    MCU -. I2C .-> DAC
-    MCU -. UART .-> BT
-    MCU -. "MUX_SEL / MUTE<br/>RESET / FAULT" .-> AMP
-```
-
 ## Caractéristiques
 
 | Bloc | Composant principal | Rôle |
