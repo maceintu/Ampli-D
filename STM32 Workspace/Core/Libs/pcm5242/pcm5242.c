@@ -12,6 +12,7 @@ static HAL_StatusTypeDef pcm5242_select_page(I2C_HandleTypeDef *hi2c, uint8_t pa
 	return ret;
 }
 
+//TODO return un truc cohérent
 HAL_StatusTypeDef pcm5242_read_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t *value) {
 	HAL_StatusTypeDef ret;
 	if (pcm5242_select_page(hi2c, page) != HAL_OK)
@@ -54,9 +55,29 @@ HAL_StatusTypeDef pcm5242_mute(I2C_HandleTypeDef *hi2c) {
 	return (ret_l != HAL_OK) ? ret_l : ret_r;
 }
 
-HAL_StatusTypeDef update_dsp(uint8_t *channels, uint8_t chanel_numbers, uint16_t *values) {
-	for (int i = 0; i < chanel_numbers; i++) {
-		calculate();
+void update_dsp(DSP_Manager *dsp, Gains gains) {
+	if (gains.low != dsp->gains.low) {
+		update_low_filter(&dsp->low_filter, gains.low);
+		dsp->gains.low = gains.low;
+	}
+	if (gains.medium != dsp->gains.medium) {
+		update_peaking_filter(&dsp->medium_filter, gains.medium);
+		dsp->gains.medium = gains.medium;
+	}
+	if (gains.high != dsp->gains.high) {
+		update_high_filter(&dsp->high_filter, gains.high);
+		dsp->gains.high = gains.high;
 	}
 }
 
+Custom_Coeffs get_custom_coeffs(Coeffs coeffs){
+    return (Custom_Coeffs) {
+        .n0 = (int32_t)round(coeffs->b0 * PCM5242_BIQUAD_SCALE),
+        .n1 = (int32_t)round(coeffs->b1 * PCM5242_BIQUAD_HALF_SCALE),
+        .n2 = (int32_t)round(coeffs->b2 * PCM5242_BIQUAD_SCALE),
+        .d1 = (int32_t)round(-coeffs->a1 * PCM5242_BIQUAD_HALF_SCALE),
+        .d2 = (int32_t)round(-coeffs->a2 * PCM5242_BIQUAD_SCALE)
+    };
+}
+
+HAL_StatusTypeDef write_custom_coeffs(Custom_Coeffs coeffs);
