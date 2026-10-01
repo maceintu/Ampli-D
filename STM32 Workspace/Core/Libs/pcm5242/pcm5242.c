@@ -1,28 +1,27 @@
 #include "pcm5242.h"
+#include "math.h"
 
 static uint8_t current_page = PCM5242_PAGE_UNKNOWN;
 
 static HAL_StatusTypeDef pcm5242_select_page(I2C_HandleTypeDef *hi2c, uint8_t page) {
-	HAL_StatusTypeDef ret;
 	if (page == current_page)
 		return HAL_OK;
-	ret = HAL_I2C_Mem_Write(hi2c, PCM5242_HAL_ADDR, PCM5242_REG_PAGE,
+	HAL_StatusTypeDef ret = HAL_I2C_Mem_Write(hi2c, PCM5242_HAL_ADDR, PCM5242_REG_PAGE,
 	I2C_MEMADD_SIZE_8BIT, &page, 1u, PCM5242_TIMEOUT);
 	current_page = (ret == HAL_OK) ? page : PCM5242_PAGE_UNKNOWN;
 	return ret;
 }
 
-//TODO return un truc cohérent
 HAL_StatusTypeDef pcm5242_read_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t *value) {
-	HAL_StatusTypeDef ret;
-	if (pcm5242_select_page(hi2c, page) != HAL_OK)
+	HAL_StatusTypeDef ret = pcm5242_select_page(hi2c, page);
+	if (ret != HAL_OK)
 		return ret;
 	return HAL_I2C_Mem_Read(hi2c, PCM5242_HAL_ADDR, reg, I2C_MEMADD_SIZE_8BIT, value, 1u, PCM5242_TIMEOUT);
 }
 
 HAL_StatusTypeDef pcm5242_write_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t value) {
-	HAL_StatusTypeDef ret;
-	if (pcm5242_select_page(hi2c, page) != HAL_OK)
+	HAL_StatusTypeDef ret = pcm5242_select_page(hi2c, page);
+	if (ret != HAL_OK)
 		return ret;
 	return HAL_I2C_Mem_Write(hi2c, PCM5242_HAL_ADDR, reg, I2C_MEMADD_SIZE_8BIT, &value, 1u, PCM5242_TIMEOUT);
 }
@@ -56,28 +55,29 @@ HAL_StatusTypeDef pcm5242_mute(I2C_HandleTypeDef *hi2c) {
 }
 
 void update_dsp(DSP_Manager *dsp, Gains gains) {
-	if (gains.low != dsp->gains.low) {
-		update_low_filter(&dsp->low_filter, gains.low);
-		dsp->gains.low = gains.low;
+	if (fabs(gains.low - dsp->gains.low) > PCM5242_EQ_CHANGE_THRESHOLD_DB) {
+		dsp->gains.low = round(gains.low / PCM5242_EQ_GAIN_STEP_DB) * PCM5242_EQ_GAIN_STEP_DB;
+		update_low_filter(&dsp->low_filter, dsp->gains.low);
 	}
-	if (gains.medium != dsp->gains.medium) {
-		update_peaking_filter(&dsp->medium_filter, gains.medium);
-		dsp->gains.medium = gains.medium;
+	if (fabs(gains.medium - dsp->gains.medium) > PCM5242_EQ_CHANGE_THRESHOLD_DB) {
+		dsp->gains.medium = round(gains.medium / PCM5242_EQ_GAIN_STEP_DB) * PCM5242_EQ_GAIN_STEP_DB;
+		update_peaking_filter(&dsp->medium_filter, dsp->gains.medium);
 	}
-	if (gains.high != dsp->gains.high) {
-		update_high_filter(&dsp->high_filter, gains.high);
-		dsp->gains.high = gains.high;
+	if (fabs(gains.high - dsp->gains.high) > PCM5242_EQ_CHANGE_THRESHOLD_DB) {
+		dsp->gains.high = round(gains.high / PCM5242_EQ_GAIN_STEP_DB) * PCM5242_EQ_GAIN_STEP_DB;
+		update_high_filter(&dsp->high_filter, dsp->gains.high);
 	}
 }
 
-Custom_Coeffs get_custom_coeffs(Coeffs coeffs){
-    return (Custom_Coeffs) {
-        .n0 = (int32_t)round(coeffs->b0 * PCM5242_BIQUAD_SCALE),
-        .n1 = (int32_t)round(coeffs->b1 * PCM5242_BIQUAD_HALF_SCALE),
-        .n2 = (int32_t)round(coeffs->b2 * PCM5242_BIQUAD_SCALE),
-        .d1 = (int32_t)round(-coeffs->a1 * PCM5242_BIQUAD_HALF_SCALE),
-        .d2 = (int32_t)round(-coeffs->a2 * PCM5242_BIQUAD_SCALE)
-    };
+Custom_Coeffs get_custom_coeffs(Coeffs coeffs) {
+	Custom_Coeffs result;
+	result.n0 = (int32_t) round(coeffs.b0 * PCM5242_BIQUAD_SCALE);
+	result.n1 = (int32_t) round(coeffs.b1 * PCM5242_BIQUAD_HALF_SCALE);
+	result.n2 = (int32_t) round(coeffs.b2 * PCM5242_BIQUAD_SCALE);
+	result.d1 = (int32_t) round(-coeffs.a1 * PCM5242_BIQUAD_HALF_SCALE);
+	result.d2 = (int32_t) round(-coeffs.a2 * PCM5242_BIQUAD_SCALE);
+	return result;
 }
 
-HAL_StatusTypeDef write_custom_coeffs(Custom_Coeffs coeffs);
+HAL_StatusTypeDef write_custom_coeffs(Custom_Coeffs coeffs) {
+}

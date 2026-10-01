@@ -6,6 +6,19 @@
 #include <stdbool.h>
 #include "pcm5242/biquad.h"
 
+#define PCM5242_EQ_GAIN_MIN_DB       (-12.0)
+#define PCM5242_EQ_GAIN_MAX_DB       ( 12.0)
+#define PCM5242_EQ_GAIN_STEP_DB      (  0.5)
+#define PCM5242_EQ_GAIN_LEVEL_COUNT  49u
+
+/* Marge ajoutee de chaque cote des frontieres entre paliers.
+ * Valeur de depart, a ajuster au bruit des mesures filtrees.
+ */
+#define PCM5242_EQ_HYSTERESIS_DB     (0.1)
+
+/* Ecart au gain retenu necessaire pour changer de palier. */
+#define PCM5242_EQ_CHANGE_THRESHOLD_DB (PCM5242_EQ_GAIN_STEP_DB / 2.0 + PCM5242_EQ_HYSTERESIS_DB)
+
 // controle du volume
 #define PCM5242_VOL_PAGE        0x00u   /* les registres de volume sont en page 0 */
 #define PCM5242_REG_VOL_L    	0x3Du
@@ -25,17 +38,17 @@
 #define PCM5242_TIMEOUT         50u
 
 /* 0x00 - Page select. Present a l'offset 0 de toutes les pages. */
-#define PCM5242_PAGE_UNKNOWN    0xFFu
-#define PCM5242_REG_PAGE        0x00u
+#define PCM5242_PAGE_UNKNOWN  	  0xFFu
+#define PCM5242_REG_PAGE      	  0x00u
 
-#define DSP_FILTER_NUMBER 			3
+#define PCM5242_DSP_FILTER_NUMBER  3
 #define PCM5242_BIQUAD_SCALE       8388608.0  // 2^23
 #define PCM5242_BIQUAD_HALF_SCALE  4194304.0  // 2^22
 
 typedef struct {
-	uint8_t low;
-	uint8_t medium;
-	uint8_t high;
+	float low;
+	float medium;
+	float high;
 } Gains;
 
 typedef struct {
@@ -46,11 +59,11 @@ typedef struct {
 } DSP_Manager;
 
 typedef struct {
-    int32_t n0;
-    int32_t n1;
-    int32_t n2;
-    int32_t d1;
-    int32_t d2;
+	int32_t n0;
+	int32_t n1;
+	int32_t n2;
+	int32_t d1;
+	int32_t d2;
 } Custom_Coeffs;
 
 HAL_StatusTypeDef pcm5242_read_register(I2C_HandleTypeDef *hi2c, uint8_t page, uint8_t reg, uint8_t *value);
@@ -59,7 +72,7 @@ HAL_StatusTypeDef pcm5242_write_register(I2C_HandleTypeDef *hi2c, uint8_t page, 
 HAL_StatusTypeDef set_audio_level_and_balance(I2C_HandleTypeDef *hi2c, uint8_t volume, uint8_t balance);
 HAL_StatusTypeDef pcm5242_mute(I2C_HandleTypeDef *hi2c);
 
-void update_dsp(DSP_Manager *dsp, uint8_t *values);
+void update_dsp(DSP_Manager *dsp, Gains gains);
 Custom_Coeffs get_custom_coeffs(Coeffs coeffs);
 
 #endif /* LIBS_PCM5242_PCM5242_H_ */
