@@ -160,186 +160,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C_Polarized_US"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0.635 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C_Polarized_US"
-				(at 0.635 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Polarized capacitor, US symbol"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "cap capacitor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "CP_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "C_Polarized_US_0_1"
-				(polyline
-					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 2.286) (xy -0.762 2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 1.778) (xy -1.27 2.794)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -2.032 -1.27)
-					(mid 0 -0.5572)
-					(end 2.032 -1.27)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "C_Polarized_US_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 3.302)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:L"
 			(pin_numbers
 				(hide yes)
@@ -2137,12 +1957,6 @@
 		(uuid "30a8be34-6267-40f2-a81a-593820d283b0")
 	)
 	(junction
-		(at 50.8 86.36)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3539b120-cb2f-42b9-9ecc-2ffbd23ba907")
-	)
-	(junction
 		(at 234.95 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2164,7 +1978,13 @@
 		(at 40.64 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "54d625d0-c13b-4764-b73a-6dee31670592")
+		(uuid "4ebf4ce7-72ff-4cca-a4d7-d732dc67a4fd")
+	)
+	(junction
+		(at 223.52 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5650a27d-0602-4086-a3d0-aba28ae889c7")
 	)
 	(junction
 		(at 182.88 88.9)
@@ -2237,6 +2057,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c86bdc83-e47b-4bb3-8e5f-499683d7dfc2")
+	)
+	(junction
+		(at 50.8 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "da7fcad6-7bb6-4a7c-a8ce-9717b8cd6355")
 	)
 	(junction
 		(at 45.72 93.98)
@@ -2345,16 +2171,6 @@
 			(type default)
 		)
 		(uuid "23a6d089-3227-47a1-9088-b4c45d4f5dfb")
-	)
-	(wire
-		(pts
-			(xy 50.8 86.36) (xy 40.64 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "26a3b5bd-344f-4f02-b511-b9d53b7a28b3")
 	)
 	(wire
 		(pts
@@ -2568,6 +2384,16 @@
 	)
 	(wire
 		(pts
+			(xy 50.8 86.36) (xy 60.96 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "799e1e20-93e1-43d1-af3e-a15aac9a8465")
+	)
+	(wire
+		(pts
 			(xy 115.57 95.25) (xy 115.57 97.79)
 		)
 		(stroke
@@ -2618,7 +2444,17 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 46.99) (xy 229.87 46.99)
+			(xy 40.64 86.36) (xy 50.8 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97be9993-a124-462a-9494-625aa9c1b75d")
+	)
+	(wire
+		(pts
+			(xy 215.9 46.99) (xy 223.52 46.99)
 		)
 		(stroke
 			(width 0)
@@ -2658,7 +2494,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 86.36) (xy 50.8 86.36)
+			(xy 36.83 86.36) (xy 40.64 86.36)
 		)
 		(stroke
 			(width 0)
@@ -2828,13 +2664,13 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 86.36) (xy 36.83 86.36)
+			(xy 223.52 46.99) (xy 229.87 46.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e6f172c3-c6bb-4280-9392-693870f26084")
+		(uuid "e964563e-1cc7-4f24-b0ed-f5bbc60afbc8")
 	)
 	(wire
 		(pts
@@ -2909,7 +2745,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_01005_0402Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 121.158 111.76 90)
 			(hide yes)
 			(show_name no)
@@ -2990,7 +2826,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_01005_0402Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 59.182 110.49 90)
 			(hide yes)
 			(show_name no)
@@ -3137,7 +2973,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "51.1K"
+		(property "Value" "100K"
 			(at 104.648 101.854 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3148,7 +2984,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 102.87 100.838 90)
 			(hide yes)
 			(show_name no)
@@ -3353,8 +3189,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized_US")
-		(at 132.08 105.41 0)
+		(lib_id "power:GND")
+		(at 223.52 54.61 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3362,31 +3198,30 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "2c2c8d16-7d25-4c6b-a2a1-cdb578a7815a")
-		(property "Reference" "C81"
-			(at 135.636 104.14 0)
+		(uuid "2cccb99c-b577-4d53-bdfb-dd7432d2a990")
+		(property "Reference" "#PWR0106"
+			(at 223.52 60.96 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "22µF"
-			(at 135.636 106.68 0)
+		(property "Value" "GND"
+			(at 227.076 56.388 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 132.08 105.41 0)
+			(at 223.52 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3397,7 +3232,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 132.08 105.41 0)
+			(at 223.52 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3407,8 +3242,8 @@
 				)
 			)
 		)
-		(property "Description" "Polarized capacitor, US symbol"
-			(at 132.08 105.41 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 223.52 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3419,15 +3254,173 @@
 			)
 		)
 		(pin "1"
-			(uuid "ae5eb86f-25fb-4bad-b2df-9fac1b58d76e")
-		)
-		(pin "2"
-			(uuid "234bb921-0fda-49fe-9456-73d9125f5ce9")
+			(uuid "df3e1f83-2c87-4617-99f8-0cf66ae0cfd1")
 		)
 		(instances
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
-					(reference "C81")
+					(reference "#PWR0106")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 50.8 90.17 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3a8ddd31-cd1f-4f1b-80a7-b6ec4473cc65")
+		(property "Reference" "C76"
+			(at 56.134 90.424 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF/100V"
+			(at 56.642 94.488 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 49.8348 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 50.8 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "751bdaa1-8861-4564-80bc-c4d49ec9d371")
+		)
+		(pin "2"
+			(uuid "8d1cddde-0558-4063-9ef1-bbce72824e48")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
+					(reference "C76")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 223.52 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3cbdd6b6-b9a7-4955-8b52-0fd0d0f26945")
+		(property "Reference" "C88"
+			(at 227.33 49.5299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7µF/25V"
+			(at 227.33 52.0699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 224.4852 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 223.52 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 223.52 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "33b753d0-a366-444d-9434-84ed3c6d38ba")
+		)
+		(pin "2"
+			(uuid "92c4ff7b-613e-4bf8-9ab7-074634dc48c9")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
+					(reference "C88")
 					(unit 1)
 				)
 			)
@@ -3548,7 +3541,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_01005_0402Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 59.182 123.19 90)
 			(hide yes)
 			(show_name no)
@@ -3606,7 +3599,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "45c32fe0-b549-40f3-9097-c262f7381208")
 		(property "Reference" "#PWR053"
 			(at 36.83 90.17 0)
@@ -3620,7 +3612,7 @@
 			)
 		)
 		(property "Value" "+36V"
-			(at 39.37 85.0899 0)
+			(at 36.322 81.534 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3917,6 +3909,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 40.64 90.17 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "64a16616-1a55-4eae-bce1-1c3d442b8696")
+		(property "Reference" "C75"
+			(at 32.004 90.678 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7µF/100V"
+			(at 30.988 93.726 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 39.6748 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 40.64 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d97fa8e0-1b4b-469a-94f4-7c39aadd835b")
+		)
+		(pin "2"
+			(uuid "9ca272ba-7d6d-42a5-97de-6192b50b7987")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
+					(reference "C75")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:L")
 		(at 106.68 95.25 90)
 		(unit 1)
@@ -3947,7 +4018,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_Bourns_SRR1260"
 			(at 106.68 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -3990,87 +4061,6 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
 					(reference "L5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_US")
-		(at 99.06 91.44 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "65d998f9-74b0-4a4b-b7ea-f0af6ac79487")
-		(property "Reference" "C78"
-			(at 99.822 84.328 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.01µF"
-			(at 99.822 86.868 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 99.06 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 99.06 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Polarized capacitor, US symbol"
-			(at 99.06 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "06da545c-958c-47e6-bed0-fce32bf16858")
-		)
-		(pin "2"
-			(uuid "67e9c077-2152-46bf-be99-a2fda99d6a12")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
-					(reference "C78")
 					(unit 1)
 				)
 			)
@@ -4155,6 +4145,87 @@
 	)
 	(symbol
 		(lib_id "Device:C")
+		(at 99.06 91.44 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "70af98b7-eb31-4fc2-ba2d-35f461c3f0d7")
+		(property "Reference" "C78"
+			(at 100.33 83.566 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10nF/50V"
+			(at 100.33 86.106 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 100.0252 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 99.06 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a8b89652-42f1-464e-ab6d-3c698363f2ce")
+		)
+		(pin "1"
+			(uuid "c6282f7f-58e7-439b-9331-5cf211017db5")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
+					(reference "C78")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
 		(at 191.77 50.8 0)
 		(unit 1)
 		(body_style 1)
@@ -4176,7 +4247,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2µF"
+		(property "Value" "2.2µF/25V"
 			(at 195.58 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4187,7 +4258,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 192.7352 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -4626,6 +4697,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 91.44 125.73 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "90e3bd12-0fb4-4ab0-a561-edfbb1c1b80f")
+		(property "Reference" "C77"
+			(at 96.774 125.984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1µF/25V"
+			(at 97.282 130.048 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 90.4748 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 91.44 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "82cfcd24-daa5-418e-afe1-749df7ba102d")
+		)
+		(pin "2"
+			(uuid "c61e0fcb-3478-4cb6-9a5d-ff024c40904b")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
+					(reference "C77")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 119.38 101.6 180)
 		(unit 1)
@@ -4658,7 +4808,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_01005_0402Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 121.158 101.6 90)
 			(hide yes)
 			(show_name no)
@@ -4680,7 +4830,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "1% 0.1W"
 			(at 119.38 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -4701,87 +4851,6 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
 					(reference "R35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_US")
-		(at 40.64 90.17 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "956249ea-db16-44b7-9586-cd2cb6cc379d")
-		(property "Reference" "C75"
-			(at 33.02 88.646 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4.7µF"
-			(at 33.02 91.186 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 40.64 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 40.64 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Polarized capacitor, US symbol"
-			(at 40.64 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "bd00446e-a2de-4b69-9720-303997ff5877")
-		)
-		(pin "2"
-			(uuid "55019248-8e7b-43b0-84e3-e76698b68787")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
-					(reference "C75")
 					(unit 1)
 				)
 			)
@@ -5110,7 +5179,7 @@
 		(dnp no)
 		(uuid "bc2a880b-c8c2-471c-8ab8-64afd5ff48f2")
 		(property "Reference" "C80"
-			(at 111.76 110.236 0)
+			(at 102.108 109.728 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5119,8 +5188,8 @@
 				)
 			)
 		)
-		(property "Value" "Cac"
-			(at 112.014 108.204 0)
+		(property "Value" "100nF/50V"
+			(at 100.076 113.792 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5129,7 +5198,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 105.7148 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -5210,7 +5279,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_01005_0402Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 64.262 105.41 90)
 			(hide yes)
 			(show_name no)
@@ -5341,6 +5410,88 @@
 	)
 	(symbol
 		(lib_id "Device:C")
+		(at 132.08 105.41 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ccbf338a-abd2-4090-80fd-e926ce68f8f9")
+		(property "Reference" "C81"
+			(at 135.89 104.1399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22µF/25V"
+			(at 135.89 106.6799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 133.0452 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 132.08 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 132.08 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "19f81b91-fac5-4114-bd80-81a1cc90c5bb")
+		)
+		(pin "1"
+			(uuid "13604c58-165c-4152-adfd-70b26ff045bc")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
+					(reference "C81")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
 		(at 111.76 99.06 90)
 		(unit 1)
 		(body_style 1)
@@ -5360,7 +5511,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1µF"
+		(property "Value" "3.3nF/50V"
 			(at 111.506 105.156 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5370,7 +5521,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 115.57 98.0948 0)
 			(hide yes)
 			(show_name no)
@@ -5597,170 +5748,6 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
 					(reference "U8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_US")
-		(at 91.44 125.73 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "dcee7df9-5ac0-4619-9980-c331d5ea6e36")
-		(property "Reference" "C77"
-			(at 95.25 123.8249 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1µF"
-			(at 95.25 126.3649 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 91.44 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 91.44 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Polarized capacitor, US symbol"
-			(at 91.44 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ff5a8c24-737f-460e-a409-d1884d1390b0")
-		)
-		(pin "2"
-			(uuid "1dbaff7b-7cc9-4fb7-b481-7118df83ada9")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
-					(reference "C77")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_US")
-		(at 50.8 90.17 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e16b5b34-0493-41fd-8574-97e6d4bb3513")
-		(property "Reference" "C76"
-			(at 54.61 88.2649 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1µF"
-			(at 54.61 90.8049 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 50.8 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 50.8 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Polarized capacitor, US symbol"
-			(at 50.8 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7d1dee79-6bc4-4f3c-8c88-6d486f39b0c0")
-		)
-		(pin "2"
-			(uuid "2cd985c6-8caa-46df-8e7b-81f6c54799e0")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/d3077e0a-2bdd-4420-a49c-97d03fd12563"
-					(reference "C76")
 					(unit 1)
 				)
 			)

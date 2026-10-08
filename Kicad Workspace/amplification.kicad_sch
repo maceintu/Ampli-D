@@ -3637,7 +3637,7 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 115.57) (xy 190.5 114.3)
+			(xy 190.5 118.11) (xy 190.5 114.3)
 		)
 		(stroke
 			(width 0)
@@ -4086,7 +4086,7 @@
 		(uuid "5bcaf659-75f7-4f94-9cff-1341df60ba0b")
 	)
 	(label "BST_C"
-		(at 190.5 115.57 180)
+		(at 190.5 118.11 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4472,7 +4472,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "33nF"
+		(property "Value" "33nF / 50V"
 			(at 194.31 129.5399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4483,7 +4483,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 191.4652 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -4769,6 +4769,85 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
 					(reference "C54")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_US")
+		(at 88.9 91.44 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "116a0401-bdca-447c-ad97-df7e19702ca6")
+		(property "Reference" "C87"
+			(at 92.964 92.71 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10µF/50V"
+			(at 100.33 92.964 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+			(at 88.9 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, US symbol"
+			(at 88.9 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "6b8252bf-6e47-4eca-aa5c-5f13250703c9")
+		)
+		(pin "1"
+			(uuid "0a4537e6-265a-461e-b635-add071c76c9c")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
+					(reference "C87")
 					(unit 1)
 				)
 			)
@@ -5109,87 +5188,6 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
 					(reference "U5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 88.9 96.52 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1704f74f-02ba-4f5c-aa2a-98d4d2f48b52")
-		(property "Reference" "C60"
-			(at 90.932 95.25 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF/50V"
-			(at 90.932 97.79 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm"
-			(at 85.09 97.4852 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 88.9 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
-			(at 88.9 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "097908b0-4dbb-4bf6-9c06-318aac29f3aa")
-		)
-		(pin "1"
-			(uuid "372afe17-f7e6-42ee-91a6-1f71a81e093e")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
-					(reference "C60")
 					(unit 1)
 				)
 			)
@@ -5615,7 +5613,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1µF"
+		(property "Value" "1µF/25V"
 			(at 75.692 45.466 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5626,7 +5624,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 73.3552 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -6266,7 +6264,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L10.0mm_W4.0mm_P7.50mm_MKS4"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 58.1152 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -6288,7 +6286,7 @@
 				)
 			)
 		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
+		(property "Description" ""
 			(at 57.15 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -6429,7 +6427,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_01005_0402Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 96.8248 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -6478,6 +6476,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_US")
+		(at 88.9 109.22 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6366c34b-4ef1-4188-b48f-0d165df179cf")
+		(property "Reference" "C62"
+			(at 92.456 110.998 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10µF/50V"
+			(at 100.076 110.744 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+			(at 88.9 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, US symbol"
+			(at 88.9 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "470b4991-19d6-422f-ac3b-685352113852")
+		)
+		(pin "1"
+			(uuid "d0545546-3064-4312-b67f-e4e5276c6252")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
+					(reference "C62")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 190.5 92.71 0)
 		(unit 1)
@@ -6499,8 +6576,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "33nF"
-			(at 183.388 93.726 0)
+		(property "Value" "33nF/50V"
+			(at 178.308 93.726 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6510,7 +6587,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 191.4652 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6827,7 +6904,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L10.0mm_W4.0mm_P7.50mm_MKS4"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 70.8152 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -6849,7 +6926,7 @@
 				)
 			)
 		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
+		(property "Description" ""
 			(at 69.85 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -6898,7 +6975,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1µF"
+		(property "Value" "1µF/25V"
 			(at 97.79 40.6399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6909,7 +6986,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.0148 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -7106,6 +7183,85 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
 					(reference "#PWR0104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_US")
+		(at 88.9 101.6 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8230018a-fe37-4844-b0b4-3b0d08c5a5dd")
+		(property "Reference" "C61"
+			(at 92.71 103.378 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10µF/50V"
+			(at 100.076 103.124 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+			(at 88.9 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, US symbol"
+			(at 88.9 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "7237bed9-02b4-4e5e-bbda-b0b11b767bb4")
+		)
+		(pin "1"
+			(uuid "a9e04562-8eb6-406b-9a2b-9ce23208a3fb")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
+					(reference "C61")
 					(unit 1)
 				)
 			)
@@ -7460,7 +7616,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L10.0mm_W4.0mm_P7.50mm_MKS4"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 58.1152 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -7482,7 +7638,7 @@
 				)
 			)
 		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
+		(property "Description" ""
 			(at 57.15 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -7503,87 +7659,6 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
 					(reference "C64")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 88.9 101.6 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "948dd19b-cb52-4aa6-bf79-0208a47554c5")
-		(property "Reference" "C61"
-			(at 90.932 100.33 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF/50V"
-			(at 90.932 102.87 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm"
-			(at 85.09 102.5652 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 88.9 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
-			(at 88.9 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "0addee52-acba-4ef6-9f70-f4f47c333d80")
-		)
-		(pin "1"
-			(uuid "ce08de0d-e393-451f-8c77-c8e768497473")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
-					(reference "C61")
 					(unit 1)
 				)
 			)
@@ -7665,6 +7740,85 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
 					(reference "C57")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_US")
+		(at 88.9 96.52 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "970d93a0-a632-4658-abb5-370f5137fe03")
+		(property "Reference" "C60"
+			(at 92.964 97.79 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10µF/50V"
+			(at 100.33 98.044 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+			(at 88.9 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor, US symbol"
+			(at 88.9 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "36894a73-9d57-4e4c-9c50-e8e63e3e3495")
+		)
+		(pin "1"
+			(uuid "d566d4f1-eae3-4981-96ad-c46fea6b2531")
+		)
+		(instances
+			(project "Kicad Workspace"
+				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
+					(reference "C60")
 					(unit 1)
 				)
 			)
@@ -8485,8 +8639,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "33nF"
-			(at 182.118 73.406 0)
+		(property "Value" "33nF/50V"
+			(at 176.276 73.152 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8496,7 +8650,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 190.1952 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -8577,7 +8731,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L10.0mm_W4.0mm_P7.50mm_MKS4"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 70.8152 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -8599,7 +8753,7 @@
 				)
 			)
 		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
+		(property "Description" ""
 			(at 69.85 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -8659,7 +8813,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_01005_0402Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 96.8248 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -9021,87 +9175,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 88.9 109.22 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "dbb58028-3860-4267-8954-03cbc35757c5")
-		(property "Reference" "C62"
-			(at 90.932 107.95 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF/50V"
-			(at 90.932 110.49 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm"
-			(at 85.09 110.1852 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 88.9 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
-			(at 88.9 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f001bb9c-df30-4be5-ae8d-41849c997131")
-		)
-		(pin "1"
-			(uuid "a7b80529-6717-45e8-b1bd-775dac641ccd")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
-					(reference "C62")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 90.17 58.42 270)
 		(unit 1)
@@ -9282,7 +9355,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1µF"
+		(property "Value" "1µF/25V"
 			(at 87.63 43.1799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9293,7 +9366,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 82.8548 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -9430,7 +9503,7 @@
 		(dnp no)
 		(uuid "f58b374b-0b12-4313-8356-456093f8a8d1")
 		(property "Reference" "C46"
-			(at 183.388 108.458 0)
+			(at 183.642 110.998 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9440,8 +9513,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "33nF"
-			(at 183.388 110.998 0)
+		(property "Value" "33nF/50V"
+			(at 180.594 114.046 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9451,7 +9524,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 191.4652 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -9571,87 +9644,6 @@
 			(project "Kicad Workspace"
 				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
 					(reference "#PWR041")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 88.9 91.44 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f9f721fc-b644-4a27-98b7-881ddd4695e6")
-		(property "Reference" "C59"
-			(at 90.932 90.17 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF/50V"
-			(at 90.932 92.71 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm"
-			(at 85.09 92.4052 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 88.9 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Traversant : boitier à broche pitch 5 ou 7.5 mm"
-			(at 88.9 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "e4012008-cd20-481b-9ac1-5b010481dc3a")
-		)
-		(pin "1"
-			(uuid "6f74f90f-8cda-4173-aa0c-6629653559fb")
-		)
-		(instances
-			(project "Kicad Workspace"
-				(path "/7c7afbb1-f4ab-42aa-9bad-41afd809eff4/e2bf7cbe-6646-44c4-810a-6018512c9d09"
-					(reference "C59")
 					(unit 1)
 				)
 			)
